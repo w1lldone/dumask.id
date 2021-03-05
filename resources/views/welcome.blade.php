@@ -7,7 +7,8 @@
         <title>Dumask.id</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap" rel="stylesheet">
         
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,13 +21,8 @@
         <style>
             body 
             {
-                font-family: 'Lato';
+                font-family: 'Lato', sans-serif;
             }
-            .font-serif
-            {
-                font-family: 'Gama-Serif', Times, serif;
-            }
-
         </style>
     </head>
     <body class="relative antialiased">
@@ -45,19 +41,14 @@
                     </div>
                     <div class="d-flex flex-column pt-2">
                         <h2 class="text-center text-primary  font-weight-bold pt-2">UNDER DEVELOPMENT</h2>
-                        <p class="text-center font-weight-bold mb-0" style="color: #777777;">Something Awesome is Coming Soon!</p> 
-                        <p class="text-center text-danger text-small font-weight-bold">Don't miss our updates</p> 
+                        <p class="text-center font-weight-bold mb-0" style="color: #777777; font-family: 'Roboto', serif">Something Awesome is Coming Soon!</p> 
+                        {{-- <p class="text-center text-danger text-small font-weight-bold">Don't miss our updates</p>  --}}
                     </div>
                     
                 </div>
             </div>
             <div class="d-flex justify-center pt-8 h-50">
-                <img class="" src="{{ asset('img/logo_ugm.svg')}}" alt="UGM_Logo" style="max-width: 55px"> 
-                <p class="font-serif my-auto px-2" style="color: #004D71;"> 
-                    UNIVERSITAS GADJAH MADA
-                    <br>
-                    PUSAT INOVASI AGROTEKNOLOGI
-                </p> 
+                <img class="" src="{{ asset('img/logo_piat.svg')}}" alt="UGM_Logo" style="max-height: 55px"> 
             </div>
             <div class="flex align-middle sm:items-center w-100" style="background: #C4C4C4">
                 <p class="text-center text-white mx-auto my-auto py-2">© 2021 SMART SYSTEM RESEARCH GROUP</p>
