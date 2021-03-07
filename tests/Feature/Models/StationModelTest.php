@@ -20,6 +20,7 @@ class StationModelTest extends TestCase
         $this->assertDatabaseCount('stations', 5);
     }
 
+    /** @test */
     public function it_can_select_distances()
     {
         $farthest = Station::factory()->create([
