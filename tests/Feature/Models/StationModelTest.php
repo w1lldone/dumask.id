@@ -21,8 +21,12 @@ class StationModelTest extends TestCase
     }
 
     /** @test */
-    public function it_can_select_distances()
+    public function it_can_select_and_sort_distances()
     {
+        // current location. Godean Street, West Ringroad;
+        $latitude = -7.777217;
+        $longitude = 110.331988;
+
         $farthest = Station::factory()->create([
             'name' => 'Plaza Ambarukmo',
             'latitude' => -7.782721,
@@ -40,10 +44,9 @@ class StationModelTest extends TestCase
             'latitude' => -7.768735,
             'longitude' => 110.373372,
         ]);
-        
-        // Godean Street, West Ringroad;
-        $latitude = -7.777217;
-        $longitude = 110.331988;
+
+
+        // Get the nearby Station form the current location
         /** @var Collection */
         $stations = Station::withDistance($longitude, $latitude)->orderBy('distance', 'asc')->get();
         $this->assertEquals($stations->first()->id, $nearest->id);
