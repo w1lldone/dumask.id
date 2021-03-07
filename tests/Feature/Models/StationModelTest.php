@@ -3,6 +3,7 @@
 namespace Tests\Feature\Models;
 
 use App\Models\Station;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -38,10 +39,13 @@ class StationModelTest extends TestCase
             'latitude' => -7.768735,
             'longitude' => 110.373372,
         ]);
-
+        
+        // Godean Street, West Ringroad;
         $latitude = -7.777217;
         $longitude = 110.331988;
+        /** @var Collection */
         $stations = Station::withDistance($longitude, $latitude)->orderBy('distance', 'asc')->get();
         $this->assertEquals($stations->first()->id, $nearest->id);
+        $this->assertEquals($stations->last()->id, $farthest->id);
     }
 }
