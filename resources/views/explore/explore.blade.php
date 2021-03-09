@@ -39,16 +39,14 @@
                 </div>
             </nav>
             
-            <div id="map-id" style="width: 600px; height: 400px;"></div>
+            <div id="map-id" style="width: 100%; height: 400px;"></div>
             
            
             <div class="flex align-middle sm:items-center w-100" style="background: #C4C4C4">
                 <p class="text-center text-white mx-auto my-auto py-2">© 2021 SMART SYSTEM RESEARCH GROUP</p>
             </div>
         </div>
-        <script>
-            var station_markers= <?= json_encode($station_markers); ?>;
-            
+        <script>            
             navigator.geolocation.getCurrentPosition(function(location) {
             
             var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
@@ -58,13 +56,8 @@
                 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(mymap);
 
-            var marker = L.marker(latlng, {color: 'red'}).addTo(mymap);
+            var marker = L.marker(latlng).addTo(mymap);
 
-            // Add Station Marker
-            for (var i = 0; i < station_markers.length; i++)
-            {
-                L.marker([station_markers[i][1],station_markers[i][2]]).addTo(mymap).bindPopup(station_markers[i][0]);
-                }
             });
         </script>
     </body>

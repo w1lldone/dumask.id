@@ -14,21 +14,7 @@ class ExploreController extends Controller
      */
     public function index()
     {
-        $stations = Station::all();
-
-        $station_markers=[];
-        foreach ($stations as $station) {
-            $station_markers[]= [
-               $station->name,
-               $station->latitude,
-               $station->longitude
-            ];
-          }
-        
-        return view('explore.explore', 
-            [
-                'station_markers' => $station_markers
-            ] );
+        return view('explore.explore');
     }
 
     /**
