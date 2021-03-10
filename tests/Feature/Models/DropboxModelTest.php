@@ -3,6 +3,7 @@
 namespace Tests\Feature\Models;
 
 use App\Models\Dropbox;
+use App\Models\Station;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -20,8 +21,10 @@ class DropboxModelTest extends TestCase
     }
 
     /** @test */
-    public function it_belongs_to_station()
+    public function it_belongs_to_a_station()
     {
-        
+        $dropbox = Dropbox::factory()->create();
+
+        $this->assertInstanceOf(Station::class, $dropbox->station);
     }
 }

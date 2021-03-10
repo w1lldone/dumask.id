@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Models;
 
+use App\Models\Dropbox;
 use App\Models\Station;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -18,6 +19,16 @@ class StationModelTest extends TestCase
         $stations = Station::factory()->count(5)->create();
 
         $this->assertDatabaseCount('stations', 5);
+    }
+
+    /** @test */
+    public function it_has_many_dropboxes()
+    {
+        $station = Station::factory()
+            ->has(Dropbox::factory(3))
+            ->create();
+
+        $this->assertCount(3, $station->dropboxes);
     }
 
     /** @test */

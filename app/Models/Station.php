@@ -11,11 +11,14 @@ class Station extends Model
 {
     use HasFactory;
 
+    static public $availableModels = ['top_loading', 'front_loading'];
+    static public $availableColors = ['yellow', 'green'];
+
     protected $guarded = ['id'];
 
     public function dropboxes()
     {
-        return $this->hasMany('App\Dropbox');
+        return $this->hasMany('App\Models\Dropbox');
     }
 
     /**

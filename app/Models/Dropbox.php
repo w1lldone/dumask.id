@@ -13,6 +13,6 @@ class Dropbox extends Model
 
     public function station()
     {
-        return $this->belongsTo('App\Station');
+        return $this->belongsTo('App\Models\Station');
     }
 }
