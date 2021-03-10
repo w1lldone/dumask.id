@@ -21,4 +21,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+// Route::get('/explore', function () {
+//     return view('explore.explore');
+// });
+
+Route::get('/explore', [App\Http\Controllers\ExploreController::class, 'index']);
+
 require __DIR__.'/auth.php';
