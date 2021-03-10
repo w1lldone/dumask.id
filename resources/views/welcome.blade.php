@@ -50,9 +50,7 @@
             <div class="d-flex justify-center pt-8 h-50">
                 <img class="" src="{{ asset('img/logo_piat.svg')}}" alt="UGM_Logo" style="max-height: 55px"> 
             </div>
-            <div class="flex align-middle sm:items-center w-100" style="background: #C4C4C4">
-                <p class="text-center text-white mx-auto my-auto py-2">© 2021 SMART SYSTEM RESEARCH GROUP</p>
-            </div>
+            @include('layouts.footer')
         </div>
     </body>
 </html>

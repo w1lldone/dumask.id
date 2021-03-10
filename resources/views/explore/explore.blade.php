@@ -41,10 +41,7 @@
             
             <div id="map-id" style="width: 100%; height: 400px;"></div>
             
-           
-            <div class="flex align-middle sm:items-center w-100" style="background: #C4C4C4">
-                <p class="text-center text-white mx-auto my-auto py-2">© 2021 SMART SYSTEM RESEARCH GROUP</p>
-            </div>
+            @include('layouts.footer')
         </div>
         <script>            
             navigator.geolocation.getCurrentPosition(function(location) {
