@@ -11,6 +11,9 @@ class Dropbox extends Model
 
     protected $guarded = ['id'];
 
+    static public $availableModels = ['top_loading', 'front_loading'];
+    static public $availableColors = ['yellow', 'green'];
+
     public function station()
     {
         return $this->belongsTo('App\Models\Station');

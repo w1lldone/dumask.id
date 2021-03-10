@@ -24,8 +24,8 @@ class DropboxFactory extends Factory
     {
         return [
             'station_id' => Station::factory(),
-            'color' => $this->faker->randomElement(Station::$availableColors),
-            'model' => $this->faker->randomElement(Station::$availableModels)
+            'color' => $this->faker->randomElement(Dropbox::$availableColors),
+            'model' => $this->faker->randomElement(Dropbox::$availableModels)
         ];
     }
 }
