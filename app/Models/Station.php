@@ -13,6 +13,11 @@ class Station extends Model
 
     protected $guarded = ['id'];
 
+    public function dropboxes()
+    {
+        return $this->hasMany('App\Models\Dropbox');
+    }
+
     /**
      * Scope a query to include distance of the given coordincates
      *
