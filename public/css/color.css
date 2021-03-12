@@ -1,9 +1,27 @@
+.btn-primary
+{
+	background-color: #02BAD3 !important; 
+}
+
 .text-primary
 {
 	color: #02BAD3 !important; 
 }
 
+.text-secondary
+{
+	color: #004D71 !important;
+
+}
+
 .text-danger 
 {
 	color: #EC3D51 !important;
+}
+
+@media (min-width: 960px)
+{
+	.w-md-75 {
+		width : 75% !important;
+	}
 }
