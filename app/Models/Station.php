@@ -12,6 +12,7 @@ class Station extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $withCount = ['dropboxes'];
 
     public function dropboxes()
     {
