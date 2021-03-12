@@ -23,7 +23,7 @@
 @include('layouts.footer')
     
 <script>            
-    navigator.geolocation.getCurrentPosition(function(location) {
+    navigator.geolocation.getCurrentPosition(async function(location) {
     
     var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
 
@@ -33,6 +33,22 @@
     }).addTo(mymap);
 
     var marker = L.marker(latlng).addTo(mymap);
+
+    response = await axios.get('/api/stations')
+
+    if (response.data.data) {
+        var markers = response.data.data.map(function (item) {
+            var coordinates = new L.LatLng(item.latitude, item.longitude);
+            L.marker(coordinates).addTo(mymap);
+            return coordinates;
+        })
+
+        markers.push(latlng)
+
+        mymap.fitBounds(markers, {
+            padding: [20, 20]
+        })
+    }
 
     });
 </script>
