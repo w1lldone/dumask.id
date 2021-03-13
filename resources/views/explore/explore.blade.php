@@ -12,7 +12,7 @@
             </form>
         </div>
         <div class="d-flex col-md-4 col-12 justify-content-between">
-            <button id="btn-location" onclick="myFunction()" class="btn btn-primary shadow mr-2"><img src="{{ asset('img/icon_location.svg')}}" class="mx-auto my-auto"></i></button>
+            <button id="btn-location" onclick="getLocation()" class="btn btn-primary shadow mr-2"><img src="{{ asset('img/icon_location.svg')}}" class="mx-auto my-auto"></i></button>
             <button class="btn btn-primary shadow ml-2 w-100">Station Terdekat</i></button>
         </div>
     </div>
@@ -31,6 +31,8 @@ var gMap;
 //User Marker
 var userMarker;
 var mapHasUserMarker = false;
+
+var markerArray = [];
 
 async function initialize()
 {
@@ -52,7 +54,9 @@ async function initialize()
 
         markers.push(latlng)
 
-        mymap.fitBounds(markers, {
+        markerArray = markers;
+
+        mymap.fitBounds(markerArray, {
             padding: [20, 20]
         })
     }
@@ -60,7 +64,7 @@ async function initialize()
     gMap = mymap;
 }
 
-function myFunction()
+function getLocation()
 { 
     navigator.geolocation.getCurrentPosition(
         async function(location) {
@@ -69,7 +73,12 @@ function myFunction()
             {
                 userMarker = L.marker(latlng);
                 gMap.addLayer(userMarker);
+                markerArray.push(latlng);
                 mapHasUserMarker = true;
+
+                gMap.fitBounds(markerArray, {
+                    padding: [20, 20]
+                })
             }
             else
             {
@@ -79,6 +88,13 @@ function myFunction()
                 // Add new marker
                 userMarker = L.marker(latlng);
                 gMap.addLayer(userMarker);
+
+                markerArray.pop();
+                markerArray.push(latlng);
+
+                gMap.fitBounds(markerArray, {
+                    padding: [20, 20]
+                })
             }
         },
         async function(err)
