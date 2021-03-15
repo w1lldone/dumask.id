@@ -1,0 +1,15 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@media (min-width: 960px)
+{
+	.w-md-75 {
+		width : 75% !important;
+	}
+}
