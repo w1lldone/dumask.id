@@ -7,8 +7,8 @@
       Temukan dropboxes DUMASK.ID di sekitarmu
     </p>
 
-    <div class="d-md-flex justify-content-between form-group mx-auto">
-      <div class="col-md-8 col-12">
+    <div class="row mb-4 justify-content-between form-group mx-auto">
+      <div class="col-md-8 col-12 py-2">
         <input
           type="search"
           placeholder="Cari Station"
@@ -16,7 +16,7 @@
           v-model="form.keywords"
         />
       </div>
-      <div class="d-flex col-md-4 col-12 justify-content-between">
+      <div class="d-flex col-md-4 py-2 col-12 justify-content-between">
         <button
           id="btn-location"
           @click="getUserLocation()"
