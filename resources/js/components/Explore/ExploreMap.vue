@@ -116,7 +116,7 @@ export default {
         this.form.latitude = position.coords.latitude;
         this.form.longitude = position.coords.longitude;
       } catch (error) {
-        alet("Please turn on your location service and try again.");
+        alert("Please turn on your location service and try again.");
       }
     },
     async getNearbyStations() {
