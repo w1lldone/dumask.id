@@ -30,7 +30,7 @@ class StationApiTest extends TestCase
             'longitude' => 110.8561915,
         ]);
 
-        Station::factory()->create([
+        $nearby = Station::factory()->create([
             'name' => 'Plaza Ambarukmo',
             'latitude' => -7.782721,
             'longitude' => 110.401181,
@@ -46,7 +46,7 @@ class StationApiTest extends TestCase
             'Accept' => 'application/json'
         ]);
 
-        $response->dump()->assertOk()->assertJsonCount(1, 'data');
-
+        $response->assertOk()->assertJsonCount(1, 'data');
+        $this->assertEquals($nearby->id, $response->json('data')[0]['id']);
     }
 }
