@@ -10,7 +10,7 @@
     <div class="d-md-flex justify-content-between form-group mx-auto">
       <div class="col-md-8 col-12">
         <input
-          type="text"
+          type="search"
           placeholder="Cari Station"
           class="form-control shadow"
           v-model="form.keywords"
@@ -24,12 +24,34 @@
         >
           <img src="/img/icon_location.svg" class="mx-auto my-auto" />
         </button>
-        <button class="btn btn-primary shadow ml-2 w-100">
+        <button
+          class="btn btn-primary shadow ml-2 w-100"
+          @click="getNearbyStations()"
+        >
           Station Terdekat
         </button>
       </div>
     </div>
-    <div id="leaflet" class="mx-auto" style="height: 400px"></div>
+    <div style="height: 400px">
+      <l-map :zoom="13" :center="[-7.770717, 110.377724]" ref="map">
+        <!-- Marker for stations -->
+        <l-marker
+          v-for="station in stations"
+          :key="station.id"
+          :lat-lng="[station.latitude, station.longitude]"
+        >
+        </l-marker>
+
+        <!-- Marker for users -->
+        <l-marker
+          v-if="form.latitude"
+          :lat-lng="[form.latitude, form.longitude]"
+        ></l-marker>
+        <l-tile-layer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        ></l-tile-layer>
+      </l-map>
+    </div>
   </div>
 </template>
 
@@ -39,76 +61,78 @@ export default {
 
   data() {
     return {
-      map: null,
-      markers: [],
-      userMarker: null,
       form: {
         keywords: null,
+        latitude: null,
+        longitude: null,
       },
+      stations: [],
     };
   },
 
-  methods: {
-    initialize() {
-      this.map = new L.map("leaflet");
-      var latlng = new L.LatLng(-7.770717, 110.377724);
-      this.map.setView(latlng, 13);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
-        attribution:
-          '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(this.map);
+  computed: {
+    bounds() {
+      // get longitude and latitude from stations
+      var bounds = this.stations.map(function (station) {
+        return [station.latitude, station.longitude];
+      });
 
-      this.fetchStations();
+      // Merge stations with user location
+      if (this.form.latitude && this.form.longitude) {
+        bounds.push([this.form.latitude, this.form.longitude]);
+      }
+
+      return bounds;
+    },
+  },
+
+  watch: {
+    // Watch changes on bounds computed property (line 74)
+    // This will automatically adjust map bounds on station changes or user location changes
+    bounds(newValue, oldValue) {
+      // refit bounds on changes
+      this.fitBounds()
+    },
+  },
+
+  methods: {
+    async getCoordinates() {
+      return new Promise(function (resolve, reject) {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
     },
     async fetchStations() {
-      var response = await axios.get("/api/stations");
-      if (!response.data.data) return;
-
-      var leaflet = this.map;
-      this.markers = response.data.data.map(function (item) {
-        var coordinates = new L.LatLng(item.latitude, item.longitude);
-        L.marker(coordinates).addTo(leaflet);
-        return coordinates;
+      var response = await axios.get("/api/stations", {
+        params: this.form,
       });
 
-      this.map.fitBounds(this.markers, {
-        padding: [20, 20],
-      });
+      this.stations = response.data.data;
+
+      return response.data.data;
     },
     async getUserLocation() {
-      // Variable redeclaration. Because `this` can not be used inside a callback function
-      var markers = this.markers;
-      var userMarker = this.userMarker;
-      var leaflet = this.map;
-      navigator.geolocation.getCurrentPosition(
-        function (location) {
-          var latlng = new L.LatLng(
-            location.coords.latitude,
-            location.coords.longitude
-          );
-
-          if (userMarker) {
-            leaflet.removeLayer(userMarker);
-            markers.pop();
-          }
-
-          userMarker = L.marker(latlng);
-          markers.push(latlng);
-          leaflet.addLayer(userMarker);
-
-          leaflet.fitBounds(markers, {
-            padding: [20, 20],
-          });
-        },
-        async function (err) {
-          alert("Silakan nyalakan lokasi dan coba lagi.");
-        }
-      );
+      try {
+        const position = await this.getCoordinates();
+        this.form.latitude = position.coords.latitude;
+        this.form.longitude = position.coords.longitude;
+      } catch (error) {
+        alet("Please turn on your location service and try again.");
+      }
+    },
+    async getNearbyStations() {
+      await this.getUserLocation();
+      await this.fetchStations();
+      this.fitBounds()
+    },
+    fitBounds() {
+      this.$refs.map.mapObject.fitBounds(this.bounds, {
+        padding: [30, 30],
+      });
     },
   },
 
   mounted() {
-    this.initialize();
+    this.fetchStations();
   },
 };
 </script>

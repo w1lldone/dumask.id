@@ -12,6 +12,10 @@ class StationController extends Controller
     {
         $station = new Station();
 
+        if ($request->filled('longitude') && $request->filled('latitude')) {
+            $station = $station->withDistance($request->longitude, $request->latitude)->having('distance', '<', 15)->orderBy('distance');
+        }
+
         $stations = $station->paginate();
 
         return $stations;

@@ -39,3 +39,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+// Fix bug leaflet icon marker
+import { Icon } from "leaflet";
+delete Icon.Default.prototype._getIconUrl;
+Icon.Default.mergeOptions({
+    iconRetinaUrl: "/images/vendor/leaflet/dist/marker-icon-2x.png",
+    iconUrl: "/images/vendor/leaflet/dist/marker-icon.png",
+    shadowUrl: "/images/vendor/leaflet/dist/marker-shadow.png"
+});
