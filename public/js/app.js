@@ -2185,7 +2185,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    getRouteUrl: function getRouteUrl() {
+    routeUrl: function routeUrl() {
       return "https://www.google.com/maps/dir/?api=1&destination=".concat(this.station.latitude, ",").concat(this.station.longitude);
     }
   }
@@ -53503,9 +53503,12 @@ var render = function() {
                       "a",
                       {
                         staticClass: "btn btn-primary shadow",
-                        attrs: { target: "_blank", href: _vm.getRouteUrl }
+                        attrs: { target: "_blank", href: _vm.routeUrl }
                       },
-                      [_vm._v("ROUTE")]
+                      [
+                        _vm._v("ROUTE "),
+                        _c("span", { staticClass: "mdi mdi-open-in-new" })
+                      ]
                     )
                   ])
                 ])

@@ -25,7 +25,7 @@
                                 <span class="text-secondary font-weight-bold align-middle ml-2">07.00 - 20.00 WIB</span>
                             </div>
                             <div class="text-right">
-                                <a target="_blank" class="btn btn-primary shadow" :href="getRouteUrl">ROUTE</a>
+                                <a target="_blank" class="btn btn-primary shadow" :href="routeUrl">ROUTE <span class="mdi mdi-open-in-new"></span></a>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@ export default {
     },
 
     computed: {
-        getRouteUrl() {
+        routeUrl() {
             return `https://www.google.com/maps/dir/?api=1&destination=${this.station.latitude},${this.station.longitude}`
         }
     },
