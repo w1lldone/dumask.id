@@ -17,11 +17,15 @@
                             <h5 class="text-secondary font-weight-bold">{{ station.name }}</h5>
                             <p>{{ station.address }}</p>
                             <div>
+                                <span class="mdi mdi-archive-outline text-secondary"></span>
+                                <span class="text-secondary font-weight-bold align-middle ml-2">2 Dropbox tersedia</span>
+                            </div>
+                            <div>
                                 <img src="img/icon_clock.svg" alt="" style="max-height:16px">
                                 <span class="text-secondary font-weight-bold align-middle ml-2">07.00 - 20.00 WIB</span>
                             </div>
                             <div class="text-right">
-                                <button class="btn btn-primary shadow">ROUTE</button>
+                                <a target="_blank" class="btn btn-primary shadow" :href="getRouteUrl">ROUTE</a>
                             </div>
                         </div>
                     </div>
@@ -33,9 +37,16 @@
 <script>
 export default {
     name: "MarkerModal",
+
     props: {
         station: {
             type: Object
+        }
+    },
+
+    computed: {
+        getRouteUrl() {
+            return `https://www.google.com/maps/dir/?api=1&destination=${this.station.latitude},${this.station.longitude}`
         }
     },
 }
