@@ -12,7 +12,7 @@
         <input
           type="search"
           placeholder="Cari Station"
-          class="form-control shadow"
+          class="form-control shadow border-0"
           v-model="form.keywords"
         />
       </div>
