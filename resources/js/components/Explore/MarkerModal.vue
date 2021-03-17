@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer mx-4">
+            <!-- <div class="modal-footer mx-4">
                 <div class="mr-auto w-100">
                     <p><b>Apakah dropbox penuh/rusak?</b></p>
                     <div class="custom-control custom-radio">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 
-            </div>
+            </div> -->
             </div>
         </div>
     </div>

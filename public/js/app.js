@@ -53472,52 +53472,6 @@ var staticRenderFns = [
                     ])
                   ])
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer mx-4" }, [
-                _c("div", { staticClass: "mr-auto w-100" }, [
-                  _c("p", [_c("b", [_vm._v("Apakah dropbox penuh/rusak?")])]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "custom-control custom-radio" }, [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: { type: "radio", id: "option1", name: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "option1" }
-                      },
-                      [_vm._v("Penuh")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "custom-control custom-radio" }, [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: { type: "radio", id: "option2", name: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "option2" }
-                      },
-                      [_vm._v("Rusak")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text-right" }, [
-                    _c(
-                      "button",
-                      { staticClass: "btn btn-dark", attrs: { disabled: "" } },
-                      [_vm._v("REPORT")]
-                    )
-                  ])
-                ])
               ])
             ])
           ]
