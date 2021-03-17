@@ -1967,7 +1967,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         latitude: null,
         longitude: null
       },
-      stations: []
+      stations: [],
+      activeStation: {}
     };
   },
   computed: {
@@ -2102,15 +2103,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         padding: [30, 30]
       });
     },
-    showMarkerModal: function showMarkerModal() {
+    showMarkerModal: function showMarkerModal(station) {
+      var _this4 = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
+                _this4.activeStation = station;
                 $('#marker-modal-id').modal('toggle');
 
-              case 1:
+              case 2:
               case "end":
                 return _context5.stop();
             }
@@ -2121,6 +2125,60 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   mounted: function mounted() {
     this.fetchStations();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerModal.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerModal.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "MarkerModal",
+  props: {
+    station: {
+      type: Object
+    }
   }
 });
 
@@ -53046,21 +53104,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _MarkerModal_vue_vue_type_template_id_61d5cf5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MarkerModal.vue?vue&type=template&id=61d5cf5c& */ "./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _MarkerModal_vue_vue_type_template_id_61d5cf5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MarkerModal.vue?vue&type=template&id=61d5cf5c&scoped=true& */ "./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c&scoped=true&");
+/* harmony import */ var _MarkerModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MarkerModal.vue?vue&type=script&lang=js& */ "./resources/js/components/Explore/MarkerModal.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__.default)(
-  script,
-  _MarkerModal_vue_vue_type_template_id_61d5cf5c___WEBPACK_IMPORTED_MODULE_0__.render,
-  _MarkerModal_vue_vue_type_template_id_61d5cf5c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _MarkerModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _MarkerModal_vue_vue_type_template_id_61d5cf5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MarkerModal_vue_vue_type_template_id_61d5cf5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "61d5cf5c",
   null
   
 )
@@ -53104,6 +53164,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Explore/MarkerModal.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/Explore/MarkerModal.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MarkerModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerModal.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -53138,19 +53214,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c& ***!
-  \****************************************************************************************/
+/***/ "./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c&scoped=true& ***!
+  \****************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerModal_vue_vue_type_template_id_61d5cf5c___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerModal_vue_vue_type_template_id_61d5cf5c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerModal_vue_vue_type_template_id_61d5cf5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerModal_vue_vue_type_template_id_61d5cf5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerModal_vue_vue_type_template_id_61d5cf5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MarkerModal.vue?vue&type=template&id=61d5cf5c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerModal_vue_vue_type_template_id_61d5cf5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MarkerModal.vue?vue&type=template&id=61d5cf5c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c&scoped=true&");
 
 
 /***/ }),
@@ -53236,7 +53312,7 @@ var render = function() {
         "div",
         { staticClass: "row mb-4 justify-content-between form-group mx-auto" },
         [
-          _c("div", { staticClass: "col-md-8 col-12 py-2" }, [
+          _c("div", { staticClass: "col-md-8 col-12 py-2 px-0" }, [
             _c("input", {
               directives: [
                 {
@@ -53263,7 +53339,8 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "d-flex col-md-4 py-2 col-12 justify-content-between"
+              staticClass:
+                "d-flex col-md-4 py-2 col-12 px-0 pl-md-3 justify-content-between"
             },
             [
               _c(
@@ -53320,7 +53397,7 @@ var render = function() {
                   attrs: { "lat-lng": [station.latitude, station.longitude] },
                   on: {
                     click: function($event) {
-                      return _vm.showMarkerModal()
+                      return _vm.showMarkerModal(station)
                     }
                   }
                 })
@@ -53346,7 +53423,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("marker-modal")
+      _c("marker-modal", { attrs: { station: _vm.activeStation } })
     ],
     1
   )
@@ -53358,10 +53435,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c&":
-/*!*******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c& ***!
-  \*******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -53374,14 +53451,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
+  return _c("div", [
+    _c(
       "div",
       {
         staticClass: "modal fade",
@@ -53402,75 +53473,21 @@ var staticRenderFns = [
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header mx-4" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title font-weight-bold text-muted",
-                    attrs: { id: "modal-title" }
-                  },
-                  [_vm._v("STATION")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: {
-                      type: "button",
-                      "data-dismiss": "modal",
-                      "aria-label": "Close"
-                    }
-                  },
-                  [
-                    _c("span", { attrs: { "aria-hidden": "true" } }, [
-                      _vm._v("×")
-                    ])
-                  ]
-                )
-              ]),
+              _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body mx-4" }, [
-                _c("div", { staticClass: "d-flex" }, [
-                  _c("img", {
-                    staticClass: "img-fluid mx-auto",
-                    staticStyle: { "max-height": "200px" },
-                    attrs: { src: "img/dummy_image.png", alt: "" }
-                  })
-                ]),
+                _vm._m(1),
                 _vm._v(" "),
                 _c("div", { staticClass: "mt-4" }, [
                   _c("h5", { staticClass: "text-secondary font-weight-bold" }, [
-                    _vm._v("Ruko Piat")
+                    _vm._v(_vm._s(_vm.station.name))
                   ]),
                   _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "Jl. Tanjung Tirto, Kali Tirto, Berbah, Tanjung, Kalitirto, Kec. Berbah, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55573"
-                    )
-                  ]),
+                  _c("p", [_vm._v(_vm._s(_vm.station.address))]),
                   _vm._v(" "),
-                  _c("div", [
-                    _c("img", {
-                      staticStyle: { "max-height": "16px" },
-                      attrs: { src: "img/icon_clock.svg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "text-secondary font-weight-bold align-middle ml-2"
-                      },
-                      [_vm._v("07.00 - 20.00 WIB")]
-                    )
-                  ]),
+                  _vm._m(2),
                   _vm._v(" "),
-                  _c("div", { staticClass: "text-right" }, [
-                    _c("button", { staticClass: "btn btn-primary shadow" }, [
-                      _vm._v("ROUTE")
-                    ])
-                  ])
+                  _vm._m(3)
                 ])
               ])
             ])
@@ -53478,6 +53495,73 @@ var staticRenderFns = [
         )
       ]
     )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header mx-4" }, [
+      _c(
+        "h5",
+        {
+          staticClass: "modal-title font-weight-bold text-muted",
+          attrs: { id: "modal-title" }
+        },
+        [_vm._v("STATION")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-flex" }, [
+      _c("img", {
+        staticClass: "img-fluid mx-auto",
+        staticStyle: { "max-height": "200px" },
+        attrs: { src: "img/dummy_image.png", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("img", {
+        staticStyle: { "max-height": "16px" },
+        attrs: { src: "img/icon_clock.svg", alt: "" }
+      }),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "text-secondary font-weight-bold align-middle ml-2" },
+        [_vm._v("07.00 - 20.00 WIB")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-right" }, [
+      _c("button", { staticClass: "btn btn-primary shadow" }, [_vm._v("ROUTE")])
+    ])
   }
 ]
 render._withStripped = true
