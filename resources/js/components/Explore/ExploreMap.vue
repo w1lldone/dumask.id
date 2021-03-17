@@ -28,20 +28,21 @@
           class="btn btn-primary shadow ml-2 w-100"
           @click="getNearbyStations()"
         >
-          Station Terdekat
+          STATION TERDEKAT
         </button>
       </div>
     </div>
-    <div style="height: 400px">
-      <l-map :zoom="13" :center="[-7.770717, 110.377724]" ref="map">
+    <div style="height: 400px;">
+      <l-map :zoom="13" :center="[-7.770717, 110.377724]" ref="map" style="border-radius: 0.5rem;">
         <!-- Marker for stations -->
         <l-marker
           v-for="station in stations"
           :key="station.id"
           :lat-lng="[station.latitude, station.longitude]"
+          @click="showMarkerModal()"
         >
         </l-marker>
-
+        
         <!-- Marker for users -->
         <l-marker
           v-if="form.latitude"
@@ -52,6 +53,7 @@
         ></l-tile-layer>
       </l-map>
     </div>
+    <marker-modal></marker-modal>
   </div>
 </template>
 
@@ -129,6 +131,9 @@ export default {
         padding: [30, 30],
       });
     },
+    async showMarkerModal(){
+      $('#marker-modal-id').modal('toggle')
+    }
   },
 
   mounted() {
