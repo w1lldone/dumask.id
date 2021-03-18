@@ -39,5 +39,20 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'permissions' => 'json'
     ];
+
+    public static $permissions = [
+        'manage users',
+        'manage stations'
+    ];
+
+    public function hasPermission($permission)
+    {
+        if ($permission == null || !$this->permissions) {
+            return false;
+        }
+
+        return in_array($permission, $this->permissions);
+    }
 }
