@@ -53,7 +53,7 @@
         ></l-tile-layer>
       </l-map>
     </div>
-    <marker-modal :station="activeStation"></marker-modal>
+    <marker-modal :station="activeStation" :user-lat="form.latitude" :user-long="form.longitude"></marker-modal>
   </div>
 </template>
 
