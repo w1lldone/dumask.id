@@ -16,7 +16,7 @@ class UserController extends Controller
 
         $users = $user->paginate();
 
-        return $users;
+        return view('user.index', compact('users'));
     }
 
     public function store(Request $request)
@@ -26,7 +26,8 @@ class UserController extends Controller
         $data = $request->validate([
             'name' => 'required|string|min:3|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8',
+            'is_superadmin' => 'nullable|boolean'
         ]);
 
         $user = User::create($data);
@@ -48,7 +49,8 @@ class UserController extends Controller
         $data = $request->validate([
             'name' => 'string|max:255|min:3',
             'email' => ['email', Rule::unique('users', 'email')->ignore($user)],
-            'password' => 'min:8|string'
+            'password' => 'min:8|string',
+            'is_superadmin' => 'nullable|boolean'
         ]);
 
         $user->update($data);

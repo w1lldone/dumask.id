@@ -36,13 +36,15 @@ class UserFeatureTest extends TestCase
         $response = $this->post(route('user.store'), [
             'name' => $user->name,
             'email' => $user->email,
+            'is_superadmin' => true,
             'password' => 'password'
         ]);
 
         $response->assertCreated();
         $this->assertDatabaseHas('users', [
             'name' => $user->name,
-            'email' => $user->email
+            'email' => $user->email,
+            'is_superadmin' => true,
         ]);
     }
 
@@ -54,7 +56,8 @@ class UserFeatureTest extends TestCase
         
         $data = [
             'name' => 'new name',
-            'email' => $user->email
+            'email' => $user->email,
+            'is_superadmin' => true,
         ];
         $response = $this->put(route('user.update', $user), $data, [
             'Accept' => 'application/json'

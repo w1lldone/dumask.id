@@ -18,7 +18,7 @@ class UserPolicy
      */
     public function before(User $user, $ability)
     {
-        if ($user->is_superadmin) {
+        if ($user->is_superadmin && $ability != 'delete') {
             return true;
         }
     }
@@ -86,6 +86,14 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
+        if ($user->is($model)) {
+            return false;
+        }
+
+        if ($user->is_superadmin) {
+            return true;
+        }
+        
         if ($user->hasPermission('manage users')) {
             return true;
         }
