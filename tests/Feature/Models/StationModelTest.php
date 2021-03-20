@@ -63,4 +63,20 @@ class StationModelTest extends TestCase
         $this->assertEquals($stations->first()->id, $nearest->id);
         $this->assertEquals($stations->last()->id, $farthest->id);
     }
+
+    /** @test */
+    public function it_accepts_long_coordinates()
+    {
+        $latitude = -7.795727626096462;
+        $longitude = 110.46538706360484;
+        $station = Station::factory()->create([
+            'latitude' => $latitude,
+            'longitude' => $longitude,
+        ]);
+
+        $station = $station->fresh();
+
+        $this->assertEquals((string)$latitude, (string)$station->latitude);
+        $this->assertEquals((string)$longitude, (string)$station->longitude);
+    }
 }
