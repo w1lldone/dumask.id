@@ -8,15 +8,15 @@
     </p>
 
     <div class="row mb-4 justify-content-between form-group mx-auto">
-      <div class="col-md-8 col-12 py-2">
+      <div class="col-md-8 col-12 py-2 px-0">
         <input
           type="search"
           placeholder="Cari Station"
-          class="form-control shadow"
+          class="form-control shadow border-0"
           v-model="form.keywords"
         />
       </div>
-      <div class="d-flex col-md-4 py-2 col-12 justify-content-between">
+      <div class="d-flex col-md-4 py-2 col-12 px-0 pl-md-3 justify-content-between">
         <button
           id="btn-location"
           @click="getUserLocation()"
@@ -28,20 +28,21 @@
           class="btn btn-primary shadow ml-2 w-100"
           @click="getNearbyStations()"
         >
-          Station Terdekat
+          STATION TERDEKAT
         </button>
       </div>
     </div>
-    <div style="height: 400px">
-      <l-map :zoom="13" :center="[-7.770717, 110.377724]" ref="map">
+    <div style="height: 400px;">
+      <l-map :zoom="13" :center="[-7.770717, 110.377724]" ref="map" style="border-radius: 0.5rem;">
         <!-- Marker for stations -->
         <l-marker
           v-for="station in stations"
           :key="station.id"
           :lat-lng="[station.latitude, station.longitude]"
+          @click="showMarkerModal(station)"
         >
         </l-marker>
-
+        
         <!-- Marker for users -->
         <l-marker
           v-if="form.latitude"
@@ -52,6 +53,7 @@
         ></l-tile-layer>
       </l-map>
     </div>
+    <marker-modal :station="activeStation" :user-lat="form.latitude" :user-long="form.longitude"></marker-modal>
   </div>
 </template>
 
@@ -67,6 +69,7 @@ export default {
         longitude: null,
       },
       stations: [],
+      activeStation: {}
     };
   },
 
@@ -129,6 +132,10 @@ export default {
         padding: [30, 30],
       });
     },
+    async showMarkerModal(station){
+      this.activeStation = station
+      $('#marker-modal-id').modal('toggle')
+    }
   },
 
   mounted() {
