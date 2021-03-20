@@ -27,7 +27,7 @@ class UserFeatureTest extends TestCase
     }
 
     /** @test */
-    public function admi_can_store_users()
+    public function admin_can_store_users()
     {
         $this->login();
 
@@ -44,5 +44,34 @@ class UserFeatureTest extends TestCase
             'name' => $user->name,
             'email' => $user->email
         ]);
+    }
+
+    /** @test */
+    public function admin_can_update_user()
+    {
+        $this->login();
+        $user = User::factory()->create();
+        
+        $data = [
+            'name' => 'new name',
+            'email' => $user->email
+        ];
+        $response = $this->put(route('user.update', $user), $data, [
+            'Accept' => 'application/json'
+        ]);
+
+        $response->assertOk()->assertJson($data);
+    }
+
+    /** @test */
+    public function admin_can_delete_users()
+    {
+        $this->login();
+        $user = User::factory()->create();
+
+        $response = $this->delete(route('user.delete', $user));
+
+        $response->assertNoContent();
+        $this->assertDeleted($user);
     }
 }
