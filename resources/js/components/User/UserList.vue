@@ -14,19 +14,25 @@
                 </span>
             </div>
             <div class="col-md-4 text-right">
-                <button class="btn btn-warning">
-                    edit
+                <button 
+                class="btn btn-warning"
+                data-toggle="modal"
+                :data-target="'#edit-user-modal-' + user.id"
+                >
+                    Edit
                 </button>
                 <delete-button :delete-url="`/user/${user.id}`" @deleted="handleDeleted(index)"></delete-button>
             </div>
+            <user-edit-modal :editedUser="user"></user-edit-modal>
         </div>
     </div>
 </template>
 
 <script>
 import DeleteButton from '../DeleteButton.vue'
+import UserEditModal from './UserEditModal.vue'
     export default {
-  components: { DeleteButton },
+  components: { DeleteButton, UserEditModal },
         name: "UserList",
 
         props: {
@@ -37,13 +43,20 @@ import DeleteButton from '../DeleteButton.vue'
 
         data() {
             return {
-                users: this.initialUsers
+                users: this.initialUsers,
+                editedUser: {},
+                form: {},
             }
         },
 
         methods: {
             handleDeleted(index) {
                 this.users.splice(index, 1)
+            },
+            editUser(user) {
+                console.log(user)
+                this.editedUser = user;
+                
             }
         },
     }

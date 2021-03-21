@@ -49,7 +49,6 @@ class UserController extends Controller
         $data = $request->validate([
             'name' => 'string|max:255|min:3',
             'email' => ['email', Rule::unique('users', 'email')->ignore($user)],
-            'password' => 'min:8|string',
             'is_superadmin' => 'nullable|boolean'
         ]);
 
