@@ -2605,6 +2605,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "UserEditModal",
   props: {
@@ -55008,8 +55009,11 @@ var render = function() {
                             expression: "form.is_superadmin"
                           }
                         ],
-                        staticClass: "custom-control-input customCheckDisabled",
-                        attrs: { type: "checkbox" },
+                        staticClass: "custom-control-input",
+                        attrs: {
+                          type: "checkbox",
+                          id: "checkbox-user-" + _vm.editedUser.id
+                        },
                         domProps: {
                           checked: Array.isArray(_vm.form.is_superadmin)
                             ? _vm._i(_vm.form.is_superadmin, null) > -1
@@ -55049,7 +55053,7 @@ var render = function() {
                         "label",
                         {
                           staticClass: "custom-control-label",
-                          attrs: { for: "customCheckDisabled" }
+                          attrs: { for: "checkbox-user-" + _vm.editedUser.id }
                         },
                         [_vm._v("Make user superadmin")]
                       )

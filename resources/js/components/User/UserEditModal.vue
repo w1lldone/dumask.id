@@ -55,10 +55,11 @@
                     <div class="custom-control custom-checkbox form-check-inline">
                         <input
                         type="checkbox"
-                        class="custom-control-input customCheckDisabled"
+                        class="custom-control-input"
+                        :id="'checkbox-user-' + editedUser.id"
                         v-model="form.is_superadmin"
                         />
-                        <label class="custom-control-label" for="customCheckDisabled"
+                        <label class="custom-control-label" :for="'checkbox-user-' + editedUser.id"
                         >Make user superadmin</label
                         >
                     </div>
