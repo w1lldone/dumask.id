@@ -58,6 +58,7 @@ class UserFeatureTest extends TestCase
             'name' => 'new name',
             'email' => $user->email,
             'is_superadmin' => true,
+            'permissions' => User::$permissions
         ];
         $response = $this->put(route('user.update', $user), $data, [
             'Accept' => 'application/json'

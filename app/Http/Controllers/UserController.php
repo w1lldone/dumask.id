@@ -49,7 +49,8 @@ class UserController extends Controller
         $data = $request->validate([
             'name' => 'string|max:255|min:3',
             'email' => ['email', Rule::unique('users', 'email')->ignore($user)],
-            'is_superadmin' => 'nullable|boolean'
+            'is_superadmin' => 'nullable|boolean',
+            'permissions' => ['array', Rule::in(User::$permissions), 'nullable']
         ]);
 
         $user->update($data);
