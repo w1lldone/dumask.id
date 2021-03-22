@@ -14,8 +14,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 
-        <!-- Font Awesome -->
-        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js" integrity="sha512-UwcC/iaz5ziHX7V6LjSKaXgCuRRqbTp1QHpbOJ4l1nw2/boCfZ2KlFIqBUA/uRVF0onbREnY9do8rM/uT/ilqw==" crossorigin="anonymous"></script> --}}
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 
