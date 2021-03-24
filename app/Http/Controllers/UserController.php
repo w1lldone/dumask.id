@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller
@@ -29,6 +30,8 @@ class UserController extends Controller
             'password' => 'required|min:8',
             'is_superadmin' => 'nullable|boolean'
         ]);
+
+        $data['password'] = Hash::make($data['password']);
 
         $user = User::create($data);
 
