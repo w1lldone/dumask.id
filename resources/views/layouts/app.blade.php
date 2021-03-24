@@ -65,9 +65,7 @@
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
                             @guest
-                                @if (Route::has('login'))
-                                    <login-modal></login-modal>
-                                @endif
+                                <login-modal></login-modal>
                             @else
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link text-primary font-weight-bold dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
