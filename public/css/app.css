@@ -45,8 +45,6 @@
   box-sizing: border-box;
 }
 
-.row:before, .row:after {display: none !important;}
-
 html {
   font-family: sans-serif;
   line-height: 1.15;
