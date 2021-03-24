@@ -9,14 +9,34 @@
 
     <div class="row mb-4 justify-content-between form-group mx-auto">
       <div class="col-md-8 col-12 py-2 px-0">
-        <input
-          type="search"
-          placeholder="Cari Station"
-          class="form-control shadow border-0"
-          v-model="form.keywords"
-        />
+        <form @submit.prevent="fetchStations()">
+          <div class="input-group shadow">
+            <input
+              type="text"
+              placeholder="Cari Station"
+              class="form-control border-0"
+              v-model="form.keywords"
+              aria-label="Cari Station"
+            />
+            <div class="input-group-append text-primary">
+              <button
+                v-show="form.keywords"
+                type="button"
+                class="btn border-0"
+                @click="form.keywords = null"
+              >
+                <span class="mdi mdi-close"></span>
+              </button>
+              <button type="submit" class="btn border-0">
+                <span class="mdi mdi-magnify"></span>
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="d-flex col-md-4 py-2 col-12 px-0 pl-md-3 justify-content-between">
+      <div
+        class="d-flex col-md-4 py-2 col-12 px-0 pl-md-3 justify-content-between"
+      >
         <button
           id="btn-location"
           @click="getUserLocation()"
@@ -32,8 +52,13 @@
         </button>
       </div>
     </div>
-    <div style="height: 400px;">
-      <l-map :zoom="13" :center="[-7.770717, 110.377724]" ref="map" style="border-radius: 0.5rem;">
+    <div style="height: 400px">
+      <l-map
+        :zoom="13"
+        :center="[-7.770717, 110.377724]"
+        ref="map"
+        style="border-radius: 0.5rem"
+      >
         <!-- Marker for stations -->
         <l-marker
           v-for="station in stations"
@@ -42,22 +67,35 @@
           @click="showMarkerModal(station)"
         >
         </l-marker>
-        
+
         <!-- Marker for users -->
         <l-marker
           v-if="form.latitude"
           :lat-lng="[form.latitude, form.longitude]"
-        ></l-marker>
+        >
+          <l-icon
+            icon-url="/img/pin_location.svg"
+            :icon-size="[35, 35 * 1.15]"
+            :icon-anchor="anchor"
+          ></l-icon>
+          <l-popup>Lokasi Anda</l-popup>
+        </l-marker>
         <l-tile-layer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         ></l-tile-layer>
       </l-map>
     </div>
-    <marker-modal :station="activeStation" :user-lat="form.latitude" :user-long="form.longitude"></marker-modal>
+    <marker-modal
+      :station="activeStation"
+      :user-lat="form.latitude"
+      :user-long="form.longitude"
+    ></marker-modal>
   </div>
 </template>
 
 <script>
+import { LIcon, LPopup } from "vue2-leaflet";
+
 export default {
   name: "ExploreMap",
 
@@ -69,8 +107,14 @@ export default {
         longitude: null,
       },
       stations: [],
-      activeStation: {}
+      activeStation: {},
+      anchor: [17, 38]
     };
+  },
+
+  components: {
+    LIcon,
+    LPopup
   },
 
   computed: {
@@ -94,7 +138,7 @@ export default {
     // This will automatically adjust map bounds on station changes or user location changes
     bounds(newValue, oldValue) {
       // refit bounds on changes
-      this.fitBounds()
+      this.fitBounds();
     },
   },
 
@@ -111,6 +155,10 @@ export default {
 
       this.stations = response.data.data;
 
+      if (this.stations.length == 0) {
+        alert('Ups, Kami tidak menemukan stasiun DUMASK.ID yang anda cari. Silahkan coba dengan kata kunci lain.');
+      }
+
       return response.data.data;
     },
     async getUserLocation() {
@@ -125,16 +173,16 @@ export default {
     async getNearbyStations() {
       await this.getUserLocation();
       await this.fetchStations();
-      this.fitBounds()
+      this.fitBounds();
     },
     fitBounds() {
       this.$refs.map.mapObject.fitBounds(this.bounds, {
         padding: [30, 30],
       });
     },
-    async showMarkerModal(station){
+    showMarkerModal(station) {
       this.activeStation = station
-      $('#marker-modal-id').modal('toggle')
+      $("#marker-modal-id").modal("toggle")
     }
   },
 
