@@ -1845,6 +1845,333 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Auth/LoginModal.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Auth/LoginModal.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "LoginModal",
+  data: function data() {
+    return {
+      form: {
+        name: null,
+        email: null,
+        password: null,
+        password_confirmation: null
+      },
+      isLoading: false,
+      isPageLogin: true,
+      errors: {}
+    };
+  },
+  methods: {
+    doLogin: function doLogin() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.isLoading = true;
+                _context.prev = 1;
+                _context.next = 4;
+                return axios.post("/login", _this.form);
+
+              case 4:
+                response = _context.sent;
+                return _context.abrupt("return", location.reload());
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](1);
+                console.log(_context.t0.response);
+                _this.errors = _context.t0.response.data.errors;
+
+              case 12:
+                _this.isLoading = false;
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[1, 8]]);
+      }))();
+    },
+    doRegister: function doRegister() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.isLoading = true;
+                _context2.prev = 1;
+                _context2.next = 4;
+                return axios.post("/register", _this2.form);
+
+              case 4:
+                response = _context2.sent;
+                return _context2.abrupt("return", location.reload());
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](1);
+                console.log(_context2.t0.response);
+                _this2.errors = _context2.t0.response.data.errors;
+
+              case 12:
+                _this2.isLoading = false;
+
+              case 13:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[1, 8]]);
+      }))();
+    },
+    toggleModalType: function toggleModalType() {
+      this.isPageLogin = !this.isPageLogin;
+    },
+    hasErrors: function hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
+    },
+    getErrors: function getErrors(key) {
+      if (this.hasErrors(key)) {
+        return this.errors[key].join(", ");
+      }
+
+      return "";
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DeleteButton.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DeleteButton.vue?vue&type=script&lang=js& ***!
@@ -53633,6 +53960,45 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Auth/LoginModal.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/Auth/LoginModal.vue ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _LoginModal_vue_vue_type_template_id_93126ae0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoginModal.vue?vue&type=template&id=93126ae0&scoped=true& */ "./resources/js/components/Auth/LoginModal.vue?vue&type=template&id=93126ae0&scoped=true&");
+/* harmony import */ var _LoginModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoginModal.vue?vue&type=script&lang=js& */ "./resources/js/components/Auth/LoginModal.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _LoginModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _LoginModal_vue_vue_type_template_id_93126ae0_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _LoginModal_vue_vue_type_template_id_93126ae0_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "93126ae0",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Auth/LoginModal.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/DeleteButton.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/DeleteButton.vue ***!
@@ -53906,6 +54272,22 @@ component.options.__file = "resources/js/components/User/UserList.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Auth/LoginModal.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/Auth/LoginModal.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LoginModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Auth/LoginModal.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/DeleteButton.vue?vue&type=script&lang=js&":
 /*!***************************************************************************!*\
   !*** ./resources/js/components/DeleteButton.vue?vue&type=script&lang=js& ***!
@@ -54015,6 +54397,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/User/UserList.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Auth/LoginModal.vue?vue&type=template&id=93126ae0&scoped=true&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/Auth/LoginModal.vue?vue&type=template&id=93126ae0&scoped=true& ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginModal_vue_vue_type_template_id_93126ae0_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginModal_vue_vue_type_template_id_93126ae0_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginModal_vue_vue_type_template_id_93126ae0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LoginModal.vue?vue&type=template&id=93126ae0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Auth/LoginModal.vue?vue&type=template&id=93126ae0&scoped=true&");
+
 
 /***/ }),
 
@@ -54133,6 +54532,592 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_template_id_2170fe12_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserList_vue_vue_type_template_id_2170fe12_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserList.vue?vue&type=template&id=2170fe12&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/User/UserList.vue?vue&type=template&id=2170fe12&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Auth/LoginModal.vue?vue&type=template&id=93126ae0&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Auth/LoginModal.vue?vue&type=template&id=93126ae0&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "login-modal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "modal-id",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.isPageLogin,
+                expression: "isPageLogin"
+              }
+            ],
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body mx-4" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _vm._m(3),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.email,
+                        expression: "form.email"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.hasErrors("email") },
+                    attrs: { type: "email", required: "" },
+                    domProps: { value: _vm.form.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "email", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "invalid-feedback" }, [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.getErrors("email")) +
+                        "\n            "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "password" } }, [
+                    _vm._v("Password")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.password,
+                        expression: "form.password"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.hasErrors("password") },
+                    attrs: { type: "password" },
+                    domProps: { value: _vm.form.password },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "password", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "invalid-feedback" }, [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.getErrors("password")) +
+                        "\n            "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group mt-4 text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: !_vm.isLoading,
+                          expression: "!isLoading"
+                        }
+                      ],
+                      staticClass: "btn btn-primary w-100",
+                      on: {
+                        click: function($event) {
+                          return _vm.doLogin()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              MASUK\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.isLoading,
+                          expression: "isLoading"
+                        }
+                      ],
+                      staticClass: "btn btn-primary w-100",
+                      attrs: { disabled: "" }
+                    },
+                    [_vm._v("\n              MASUK\n            ")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-center text-muted mt-2" }, [
+                  _vm._v(
+                    "\n              Belum punya akun? Daftar\n              "
+                  ),
+                  _c("span", [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.toggleModalType()
+                          }
+                        }
+                      },
+                      [_vm._v("di sini.")]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.isPageLogin,
+                expression: "!isPageLogin"
+              }
+            ],
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(4),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body mx-4" }, [
+                _vm._m(5),
+                _vm._v(" "),
+                _vm._m(6),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "name" } }, [_vm._v("Nama")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.name,
+                        expression: "form.name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.hasErrors("name") },
+                    attrs: { type: "name", required: "" },
+                    domProps: { value: _vm.form.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "name", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "invalid-feedback" }, [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.getErrors("name")) +
+                        "\n            "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.email,
+                        expression: "form.email"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.hasErrors("email") },
+                    attrs: { type: "email", required: "" },
+                    domProps: { value: _vm.form.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "email", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "invalid-feedback" }, [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.getErrors("email")) +
+                        "\n            "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "password" } }, [
+                    _vm._v("Password")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.password,
+                        expression: "form.password"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.hasErrors("password") },
+                    attrs: { type: "password" },
+                    domProps: { value: _vm.form.password },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "password", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "invalid-feedback" }, [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.getErrors("password")) +
+                        "\n            "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "password_confirmation" } }, [
+                    _vm._v("Confirm Password")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.password_confirmation,
+                        expression: "form.password_confirmation"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: {
+                      "is-invalid": _vm.hasErrors("password_confirmation")
+                    },
+                    attrs: { type: "password" },
+                    domProps: { value: _vm.form.password_confirmation },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.form,
+                          "password_confirmation",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "invalid-feedback" }, [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.getErrors("password_confirmation")) +
+                        "\n            "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group mt-4 text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: !_vm.isLoading,
+                          expression: "!isLoading"
+                        }
+                      ],
+                      staticClass: "btn btn-primary w-100",
+                      on: {
+                        click: function($event) {
+                          return _vm.doRegister()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              DAFTAR\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.isLoading,
+                          expression: "isLoading"
+                        }
+                      ],
+                      staticClass: "btn btn-primary w-100",
+                      attrs: { disabled: "" }
+                    },
+                    [_vm._v("\n              DAFTAR\n            ")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-center text-muted mt-2" }, [
+                  _vm._v(
+                    "\n              Sudah punya akun? Masuk\n              "
+                  ),
+                  _c("span", [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.toggleModalType()
+                          }
+                        }
+                      },
+                      [_vm._v("di sini.")]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link text-primary font-weight-bold",
+          attrs: {
+            "data-toggle": "modal",
+            "data-target": "#login-modal",
+            href: "#"
+          }
+        },
+        [_vm._v("\n      MASUK\n      ")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header border-0 mx-4" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("h2", { staticClass: "modal-title font-weight-bold text-primary" }, [
+          _vm._v("\n              MARI BERGABUNG\n              ")
+        ]),
+        _vm._v(" "),
+        _c(
+          "h5",
+          { staticClass: "modal-title font-weight-bold text-secondary" },
+          [_vm._v("\n              BERSAMA DUMASK.ID\n              ")]
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "btn btn-secondary w-100 my-2" }, [
+      _c("div", { staticClass: "d-flex" }, [
+        _c("span", { staticClass: "ml-auto pr-3 mdi mdi-google" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "mr-auto" }, [_vm._v("MASUK DENGAN GOOGLE")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "p",
+      {
+        staticClass: "text-center text-muted w-100 my-4",
+        staticStyle: {
+          "border-bottom": "1px solid #D5D5D5",
+          "line-height": "0.1em",
+          margin: "10px 0 20px"
+        }
+      },
+      [
+        _c("span", { staticStyle: { background: "#fff", padding: "0 10px" } }, [
+          _vm._v("atau")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header border-0 mx-4" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("h2", { staticClass: "modal-title font-weight-bold text-primary" }, [
+          _vm._v("\n              MARI BERGABUNG\n              ")
+        ]),
+        _vm._v(" "),
+        _c(
+          "h5",
+          { staticClass: "modal-title font-weight-bold text-secondary" },
+          [_vm._v("\n              BERSAMA DUMASK.ID\n              ")]
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "btn btn-secondary w-100 my-2" }, [
+      _c("div", { staticClass: "d-flex" }, [
+        _c("span", { staticClass: "ml-auto pr-3 mdi mdi-google" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "mr-auto" }, [_vm._v("DAFTAR DENGAN GOOGLE")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "p",
+      {
+        staticClass: "text-center text-muted w-100 my-4",
+        staticStyle: {
+          "border-bottom": "1px solid #D5D5D5",
+          "line-height": "0.1em",
+          margin: "10px 0 20px"
+        }
+      },
+      [
+        _c("span", { staticStyle: { background: "#fff", padding: "0 10px" } }, [
+          _vm._v("atau")
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
 
 
 /***/ }),
@@ -55479,6 +56464,1610 @@ function normalizeComponent (
     options: options
   }
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LMap.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LMap.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var debounce = function (fn, time) {
+  var timeout;
+
+  var debouncedFunction = function() {
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    var context = this;
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(function () {
+      fn.apply(context, args);
+      timeout = null;
+    }, time);
+  };
+
+  debouncedFunction.cancel = function() {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+  };
+
+  return debouncedFunction;
+};
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * Base component, contains and wrap all the other components.
+ */
+var script = {
+  name: 'LMap',
+  mixins: [Options],
+  props: {
+    /**
+     * The center of the map, supports .sync modifier
+     */
+    center: {
+      type: [Object, Array],
+      custom: true,
+      default: function () { return [0, 0]; },
+    },
+    /**
+     * The bounds of the map, supports .sync modifier
+     */
+    bounds: {
+      type: [Array, Object],
+      custom: true,
+      default: null,
+    },
+    /**
+     * The max bounds of the map
+     */
+    maxBounds: {
+      type: [Array, Object],
+      default: null,
+    },
+    /**
+     * The zoom of the map, supports .sync modifier
+     */
+    zoom: {
+      type: Number,
+      custom: true,
+      default: 0,
+    },
+    /**
+     * The minZoom of the map
+     */
+    minZoom: {
+      type: Number,
+      default: null,
+    },
+    /**
+     * The maxZoom of the map
+     */
+    maxZoom: {
+      type: Number,
+      default: null,
+    },
+    /**
+     * The paddingBottomRight of the map
+     */
+    paddingBottomRight: {
+      type: Array,
+      custom: true,
+      default: null,
+    },
+    /**
+     * The paddingTopLeft of the map
+     */
+    paddingTopLeft: {
+      type: Array,
+      custom: true,
+      default: null,
+    },
+    /**
+     * The padding of the map
+     */
+    padding: {
+      type: Array,
+      custom: true,
+      default: null,
+    },
+    /**
+     * The worldCopyJump option for the map
+     */
+    worldCopyJump: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * The crs option for the map
+     * @values CRS.EPSG3857
+     */
+    crs: {
+      type: Object,
+      custom: true,
+      default: function () { return leaflet__WEBPACK_IMPORTED_MODULE_0__.CRS.EPSG3857; },
+    },
+    maxBoundsViscosity: {
+      type: Number,
+      default: null,
+    },
+    inertia: {
+      type: Boolean,
+      default: null,
+    },
+    inertiaDeceleration: {
+      type: Number,
+      default: null,
+    },
+    inertiaMaxSpeed: {
+      type: Number,
+      default: null,
+    },
+    easeLinearity: {
+      type: Number,
+      default: null,
+    },
+    zoomAnimation: {
+      type: Boolean,
+      default: null,
+    },
+    zoomAnimationThreshold: {
+      type: Number,
+      default: null,
+    },
+    fadeAnimation: {
+      type: Boolean,
+      default: null,
+    },
+    markerZoomAnimation: {
+      type: Boolean,
+      default: null,
+    },
+    noBlockingAnimations: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data: function data() {
+    return {
+      ready: false,
+      lastSetCenter: this.center ? (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(this.center) : null,
+      lastSetBounds: this.bounds ? (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLngBounds)(this.bounds) : null,
+      layerControl: undefined,
+      layersToAdd: [],
+      layersInControl: [],
+    };
+  },
+  computed: {
+    fitBoundsOptions: function fitBoundsOptions() {
+      var options = {
+        animate: this.noBlockingAnimations ? false : null,
+      };
+      if (this.padding) {
+        options.padding = this.padding;
+      } else {
+        if (this.paddingBottomRight) {
+          options.paddingBottomRight = this.paddingBottomRight;
+        }
+        if (this.paddingTopLeft) {
+          options.paddingTopLeft = this.paddingTopLeft;
+        }
+      }
+      return options;
+    },
+  },
+  beforeDestroy: function beforeDestroy() {
+    if (this.debouncedMoveEndHandler) {
+      this.debouncedMoveEndHandler.cancel();
+    }
+
+    if (this.mapObject) {
+      this.mapObject.remove();
+    }
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(
+      {
+        minZoom: this.minZoom,
+        maxZoom: this.maxZoom,
+        maxBounds: this.maxBounds,
+        maxBoundsViscosity: this.maxBoundsViscosity,
+        worldCopyJump: this.worldCopyJump,
+        crs: this.crs,
+        center: this.center,
+        zoom: this.zoom,
+        inertia: this.inertia,
+        inertiaDeceleration: this.inertiaDeceleration,
+        inertiaMaxSpeed: this.inertiaMaxSpeed,
+        easeLinearity: this.easeLinearity,
+        zoomAnimation: this.zoomAnimation,
+        zoomAnimationThreshold: this.zoomAnimationThreshold,
+        fadeAnimation: this.fadeAnimation,
+        markerZoomAnimation: this.markerZoomAnimation,
+      },
+      this
+    );
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.map)(this.$el, options);
+    if (this.bounds) {
+      this.mapObject.fitBounds(this.bounds);
+    }
+    this.debouncedMoveEndHandler = debounce(this.moveEndHandler, 100);
+    this.mapObject.on('moveend', this.debouncedMoveEndHandler);
+    this.mapObject.on('overlayadd', this.overlayAddHandler);
+    this.mapObject.on('overlayremove', this.overlayRemoveHandler);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.ready = true;
+    /**
+     * DEPRECATED event
+     * @deprecated
+     */
+    this.$emit('leaflet:load');
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  methods: {
+    registerLayerControl: function registerLayerControl(lControlLayers) {
+      var this$1 = this;
+
+      this.layerControl = lControlLayers;
+      this.mapObject.addControl(lControlLayers.mapObject);
+      this.layersToAdd.forEach(function (layer) {
+        this$1.layerControl.addLayer(layer);
+      });
+      this.layersToAdd = [];
+    },
+    addLayer: function addLayer(layer, alreadyAdded) {
+      if (layer.layerType !== undefined) {
+        if (this.layerControl === undefined) {
+          this.layersToAdd.push(layer);
+        } else {
+          var exist = this.layersInControl.find(
+            function (l) { return l.mapObject._leaflet_id === layer.mapObject._leaflet_id; }
+          );
+          if (!exist) {
+            this.layerControl.addLayer(layer);
+            this.layersInControl.push(layer);
+          }
+        }
+      }
+      if (!alreadyAdded && layer.visible !== false) {
+        this.mapObject.addLayer(layer.mapObject);
+      }
+    },
+    hideLayer: function hideLayer(layer) {
+      this.mapObject.removeLayer(layer.mapObject);
+    },
+    removeLayer: function removeLayer(layer, alreadyRemoved) {
+      if (layer.layerType !== undefined) {
+        if (this.layerControl === undefined) {
+          this.layersToAdd = this.layersToAdd.filter(
+            function (l) { return l.name !== layer.name; }
+          );
+        } else {
+          this.layerControl.removeLayer(layer);
+          this.layersInControl = this.layersInControl.filter(
+            function (l) { return l.mapObject._leaflet_id !== layer.mapObject._leaflet_id; }
+          );
+        }
+      }
+      if (!alreadyRemoved) {
+        this.mapObject.removeLayer(layer.mapObject);
+      }
+    },
+    setZoom: function setZoom(newVal, oldVal) {
+      if (newVal === undefined || newVal === null) { return; }
+      this.mapObject.setZoom(newVal, {
+        animate: this.noBlockingAnimations ? false : null,
+      });
+      this.cacheMapView();
+    },
+    setCenter: function setCenter(newVal, oldVal) {
+      if (newVal == null) {
+        return;
+      }
+      var newCenter = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(newVal);
+      var oldCenter = this.lastSetCenter || this.mapObject.getCenter();
+      if (oldCenter.lat !== newCenter.lat || oldCenter.lng !== newCenter.lng) {
+        this.lastSetCenter = newCenter;
+        this.mapObject.panTo(newCenter, {
+          animate: this.noBlockingAnimations ? false : null,
+        });
+        this.cacheMapView(undefined, newCenter);
+      }
+    },
+    setBounds: function setBounds(newVal, oldVal) {
+      if (!newVal) {
+        return;
+      }
+      var newBounds = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLngBounds)(newVal);
+      if (!newBounds.isValid()) {
+        return;
+      }
+      var oldBounds = this.lastSetBounds || this.mapObject.getBounds();
+      var boundsChanged = !oldBounds.equals(newBounds, 0); // set maxMargin to 0 - check exact equals
+      if (boundsChanged) {
+        this.mapObject.fitBounds(newBounds, this.fitBoundsOptions);
+        this.cacheMapView(newBounds);
+      }
+    },
+    setPaddingBottomRight: function setPaddingBottomRight(newVal, oldVal) {
+      this.paddingBottomRight = newVal;
+    },
+    setPaddingTopLeft: function setPaddingTopLeft(newVal, oldVal) {
+      this.paddingTopLeft = newVal;
+    },
+    setPadding: function setPadding(newVal, oldVal) {
+      this.padding = newVal;
+    },
+    setCrs: function setCrs(newVal, oldVal) {
+      var mapObject = this.mapObject,
+        prevBounds = mapObject.getBounds();
+      mapObject.options.crs = newVal;
+      mapObject.fitBounds(prevBounds, { animate: false, padding: [0, 0] });
+    },
+    fitBounds: function fitBounds(bounds) {
+      this.mapObject.fitBounds(bounds, {
+        animate: this.noBlockingAnimations ? false : null,
+      });
+    },
+    moveEndHandler: function moveEndHandler() {
+      /**
+       * Triggers when zoom is updated
+       * @type {number,string}
+       */
+      this.$emit('update:zoom', this.mapObject.getZoom());
+      var center = this.mapObject.getCenter();
+      /**
+       * Triggers when center is updated
+       * @type {object,array}
+       */
+      this.$emit('update:center', center);
+      var bounds = this.mapObject.getBounds();
+      /**
+       * Triggers when bounds are updated
+       * @type {object}
+       */
+      this.$emit('update:bounds', bounds);
+    },
+    overlayAddHandler: function overlayAddHandler(e) {
+      var layer = this.layersInControl.find(function (l) { return l.name === e.name; });
+      if (layer) {
+        layer.updateVisibleProp(true);
+      }
+    },
+    overlayRemoveHandler: function overlayRemoveHandler(e) {
+      var layer = this.layersInControl.find(function (l) { return l.name === e.name; });
+      if (layer) {
+        layer.updateVisibleProp(false);
+      }
+    },
+    cacheMapView: function cacheMapView(bounds, center) {
+      // Cache the last values used to define the map view by mutating props.
+      this.lastSetBounds = bounds || this.mapObject.getBounds();
+      this.lastSetCenter = center || this.lastSetBounds.getCenter();
+    },
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
+function createInjector(context) {
+    return function (id, style) { return addStyle(id, style); };
+}
+var HEAD;
+var styles = {};
+function addStyle(id, css) {
+    var group = isOldIE ? css.media || 'default' : id;
+    var style = styles[group] || (styles[group] = { ids: new Set(), styles: [] });
+    if (!style.ids.has(id)) {
+        style.ids.add(id);
+        var code = css.source;
+        if (css.map) {
+            // https://developer.chrome.com/devtools/docs/javascript-debugging
+            // this makes source maps inside style tags work properly in Chrome
+            code += '\n/*# sourceURL=' + css.map.sources[0] + ' */';
+            // http://stackoverflow.com/a/26603875
+            code +=
+                '\n/*# sourceMappingURL=data:application/json;base64,' +
+                    btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) +
+                    ' */';
+        }
+        if (!style.element) {
+            style.element = document.createElement('style');
+            style.element.type = 'text/css';
+            if (css.media)
+                { style.element.setAttribute('media', css.media); }
+            if (HEAD === undefined) {
+                HEAD = document.head || document.getElementsByTagName('head')[0];
+            }
+            HEAD.appendChild(style.element);
+        }
+        if ('styleSheet' in style.element) {
+            style.styles.push(code);
+            style.element.styleSheet.cssText = style.styles
+                .filter(Boolean)
+                .join('\n');
+        }
+        else {
+            var index = style.ids.size - 1;
+            var textNode = document.createTextNode(code);
+            var nodes = style.element.childNodes;
+            if (nodes[index])
+                { style.element.removeChild(nodes[index]); }
+            if (nodes.length)
+                { style.element.insertBefore(textNode, nodes[index]); }
+            else
+                { style.element.appendChild(textNode); }
+        }
+    }
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vue2leaflet-map"},[(_vm.ready)?_vm._t("default"):_vm._e()],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = function (inject) {
+    if (!inject) { return }
+    inject("data-v-64f90fd7_0", { source: ".vue2leaflet-map{height:100%;width:100%}", map: undefined, media: undefined });
+
+  };
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    createInjector,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LMarker.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LMarker.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var debounce = function (fn, time) {
+  var timeout;
+
+  var debouncedFunction = function() {
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    var context = this;
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(function () {
+      fn.apply(context, args);
+      timeout = null;
+    }, time);
+  };
+
+  debouncedFunction.cancel = function() {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+  };
+
+  return debouncedFunction;
+};
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/**
+ * Marker component, lets you add and personalize markers on the map
+ */
+var script = {
+  name: 'LMarker',
+  mixins: [Layer, Options],
+  props: {
+    pane: {
+      type: String,
+      default: 'markerPane',
+    },
+    draggable: {
+      type: Boolean,
+      custom: true,
+      default: false,
+    },
+    latLng: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    icon: {
+      type: [Object],
+      custom: false,
+      default: function () { return new leaflet__WEBPACK_IMPORTED_MODULE_0__.Icon.Default(); },
+    },
+    zIndexOffset: {
+      type: Number,
+      custom: false,
+      default: null,
+    },
+  },
+  data: function data() {
+    return {
+      ready: false,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    if (this.debouncedLatLngSync) {
+      this.debouncedLatLngSync.cancel();
+    }
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(
+      Object.assign({}, this.layerOptions,
+        {icon: this.icon,
+        zIndexOffset: this.zIndexOffset,
+        draggable: this.draggable}),
+      this
+    );
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.marker)(this.latLng, options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    this.debouncedLatLngSync = debounce(this.latLngSync, 100);
+    this.mapObject.on('move', this.debouncedLatLngSync);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.ready = true;
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  methods: {
+    setDraggable: function setDraggable(newVal, oldVal) {
+      if (this.mapObject.dragging) {
+        newVal
+          ? this.mapObject.dragging.enable()
+          : this.mapObject.dragging.disable();
+      }
+    },
+    setLatLng: function setLatLng(newVal) {
+      if (newVal == null) {
+        return;
+      }
+
+      if (this.mapObject) {
+        var oldLatLng = this.mapObject.getLatLng();
+        var newLatLng = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(newVal);
+        if (
+          newLatLng.lat !== oldLatLng.lat ||
+          newLatLng.lng !== oldLatLng.lng
+        ) {
+          this.mapObject.setLatLng(newLatLng);
+        }
+      }
+    },
+    latLngSync: function latLngSync(event) {
+      this.$emit('update:latLng', event.latlng);
+      this.$emit('update:lat-lng', event.latlng);
+    },
+  },
+  render: function(h) {
+    if (this.ready && this.$slots.default) {
+      return h('div', { style: { display: 'none' } }, this.$slots.default);
+    }
+    return null;
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LTileLayer.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var GridLayer = {
+  mixins: [Layer],
+  props: {
+    pane: {
+      type: String,
+      default: 'tilePane'
+    },
+    opacity: {
+      type: Number,
+      custom: false,
+      default: 1.0
+    },
+    zIndex: {
+      type: Number,
+      default: 1
+    },
+    tileSize: {
+      type: Number,
+      default: 256
+    },
+    noWrap: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted: function mounted () {
+    this.gridLayerOptions = Object.assign({}, this.layerOptions,
+      {pane: this.pane,
+      opacity: this.opacity,
+      zIndex: this.zIndex,
+      tileSize: this.tileSize,
+      noWrap: this.noWrap});
+  }
+};
+
+var TileLayerMixin = {
+  mixins: [GridLayer],
+  props: {
+    tms: {
+      type: Boolean,
+      default: false,
+    },
+    subdomains: {
+      type: [String, Array],
+      default: 'abc',
+      validator: function (prop) {
+        if (typeof prop === 'string') { return true; }
+        // Validates array that array only contains only strings
+        if (Array.isArray(prop)) {
+          return prop.every(function (subdomain) { return typeof subdomain === 'string'; });
+        }
+        return false;
+      },
+    },
+    detectRetina: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  mounted: function mounted() {
+    this.tileLayerOptions = Object.assign({}, this.gridLayerOptions,
+      {tms: this.tms,
+      subdomains: this.subdomains,
+      detectRetina: this.detectRetina});
+  },
+  render: function render() {
+    return null;
+  },
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * Load tiles from a map server and display them accordingly to map zoom, center and size
+ */
+var script = {
+  name: 'LTileLayer',
+  mixins: [TileLayerMixin, Options],
+  props: {
+    url: {
+      type: String,
+      default: null,
+    },
+    tileLayerClass: {
+      type: Function,
+      default: leaflet__WEBPACK_IMPORTED_MODULE_0__.tileLayer,
+    },
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(this.tileLayerOptions, this);
+    this.mapObject = this.tileLayerClass(this.url, options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div')};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
 
 
 /***/ }),
@@ -67478,1610 +70067,6 @@ Vue.compile = compileToFunctions;
 
 /***/ }),
 
-/***/ "./node_modules/vue2-leaflet/dist/components/LMap.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/vue2-leaflet/dist/components/LMap.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var debounce = function (fn, time) {
-  var timeout;
-
-  var debouncedFunction = function() {
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-
-    var context = this;
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(function () {
-      fn.apply(context, args);
-      timeout = null;
-    }, time);
-  };
-
-  debouncedFunction.cancel = function() {
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-  };
-
-  return debouncedFunction;
-};
-
-var capitalizeFirstLetter = function (string) {
-  if (!string || typeof string.charAt !== 'function') {
-    return string;
-  }
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
-var propsBinder = function (vueElement, leafletElement, props, options) {
-  var loop = function ( key ) {
-    var setMethodName = 'set' + capitalizeFirstLetter(key);
-    var deepValue =
-      props[key].type === Object ||
-      props[key].type === Array ||
-      Array.isArray(props[key].type);
-    if (props[key].custom && vueElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          vueElement[setMethodName](newVal, oldVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (setMethodName === 'setOptions') {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (leafletElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          leafletElement[setMethodName](newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    }
-  };
-
-  for (var key in props) loop( key );
-};
-
-var collectionCleaner = function (options) {
-  var result = {};
-  for (var key in options) {
-    var value = options[key];
-    if (value !== null && value !== undefined) {
-      result[key] = value;
-    }
-  }
-  return result;
-};
-
-var optionsMerger = function (props, instance) {
-  var options =
-    instance.options && instance.options.constructor === Object
-      ? instance.options
-      : {};
-  props = props && props.constructor === Object ? props : {};
-  var result = collectionCleaner(options);
-  props = collectionCleaner(props);
-  var defaultProps = instance.$options.props;
-  for (var key in props) {
-    var def = defaultProps[key]
-      ? defaultProps[key].default &&
-        typeof defaultProps[key].default === 'function'
-        ? defaultProps[key].default.call()
-        : defaultProps[key].default
-      : Symbol('unique');
-    var isEqual = false;
-    if (Array.isArray(def)) {
-      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
-    } else {
-      isEqual = def === props[key];
-    }
-    if (result[key] && !isEqual) {
-      console.warn(
-        (key + " props is overriding the value passed in the options props")
-      );
-      result[key] = props[key];
-    } else if (!result[key]) {
-      result[key] = props[key];
-    }
-  }
-  return result;
-};
-
-var Options = {
-  props: {
-    /**
-     * Leaflet options to pass to the component constructor
-     */
-    options: {
-      type: Object,
-      default: function () { return ({}); }
-    }
-  }
-};
-
-//
-
-/**
- * Base component, contains and wrap all the other components.
- */
-var script = {
-  name: 'LMap',
-  mixins: [Options],
-  props: {
-    /**
-     * The center of the map, supports .sync modifier
-     */
-    center: {
-      type: [Object, Array],
-      custom: true,
-      default: function () { return [0, 0]; },
-    },
-    /**
-     * The bounds of the map, supports .sync modifier
-     */
-    bounds: {
-      type: [Array, Object],
-      custom: true,
-      default: null,
-    },
-    /**
-     * The max bounds of the map
-     */
-    maxBounds: {
-      type: [Array, Object],
-      default: null,
-    },
-    /**
-     * The zoom of the map, supports .sync modifier
-     */
-    zoom: {
-      type: Number,
-      custom: true,
-      default: 0,
-    },
-    /**
-     * The minZoom of the map
-     */
-    minZoom: {
-      type: Number,
-      default: null,
-    },
-    /**
-     * The maxZoom of the map
-     */
-    maxZoom: {
-      type: Number,
-      default: null,
-    },
-    /**
-     * The paddingBottomRight of the map
-     */
-    paddingBottomRight: {
-      type: Array,
-      custom: true,
-      default: null,
-    },
-    /**
-     * The paddingTopLeft of the map
-     */
-    paddingTopLeft: {
-      type: Array,
-      custom: true,
-      default: null,
-    },
-    /**
-     * The padding of the map
-     */
-    padding: {
-      type: Array,
-      custom: true,
-      default: null,
-    },
-    /**
-     * The worldCopyJump option for the map
-     */
-    worldCopyJump: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * The crs option for the map
-     * @values CRS.EPSG3857
-     */
-    crs: {
-      type: Object,
-      custom: true,
-      default: function () { return leaflet__WEBPACK_IMPORTED_MODULE_0__.CRS.EPSG3857; },
-    },
-    maxBoundsViscosity: {
-      type: Number,
-      default: null,
-    },
-    inertia: {
-      type: Boolean,
-      default: null,
-    },
-    inertiaDeceleration: {
-      type: Number,
-      default: null,
-    },
-    inertiaMaxSpeed: {
-      type: Number,
-      default: null,
-    },
-    easeLinearity: {
-      type: Number,
-      default: null,
-    },
-    zoomAnimation: {
-      type: Boolean,
-      default: null,
-    },
-    zoomAnimationThreshold: {
-      type: Number,
-      default: null,
-    },
-    fadeAnimation: {
-      type: Boolean,
-      default: null,
-    },
-    markerZoomAnimation: {
-      type: Boolean,
-      default: null,
-    },
-    noBlockingAnimations: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data: function data() {
-    return {
-      ready: false,
-      lastSetCenter: this.center ? (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(this.center) : null,
-      lastSetBounds: this.bounds ? (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLngBounds)(this.bounds) : null,
-      layerControl: undefined,
-      layersToAdd: [],
-      layersInControl: [],
-    };
-  },
-  computed: {
-    fitBoundsOptions: function fitBoundsOptions() {
-      var options = {
-        animate: this.noBlockingAnimations ? false : null,
-      };
-      if (this.padding) {
-        options.padding = this.padding;
-      } else {
-        if (this.paddingBottomRight) {
-          options.paddingBottomRight = this.paddingBottomRight;
-        }
-        if (this.paddingTopLeft) {
-          options.paddingTopLeft = this.paddingTopLeft;
-        }
-      }
-      return options;
-    },
-  },
-  beforeDestroy: function beforeDestroy() {
-    if (this.debouncedMoveEndHandler) {
-      this.debouncedMoveEndHandler.cancel();
-    }
-
-    if (this.mapObject) {
-      this.mapObject.remove();
-    }
-  },
-  mounted: function mounted() {
-    var this$1 = this;
-
-    var options = optionsMerger(
-      {
-        minZoom: this.minZoom,
-        maxZoom: this.maxZoom,
-        maxBounds: this.maxBounds,
-        maxBoundsViscosity: this.maxBoundsViscosity,
-        worldCopyJump: this.worldCopyJump,
-        crs: this.crs,
-        center: this.center,
-        zoom: this.zoom,
-        inertia: this.inertia,
-        inertiaDeceleration: this.inertiaDeceleration,
-        inertiaMaxSpeed: this.inertiaMaxSpeed,
-        easeLinearity: this.easeLinearity,
-        zoomAnimation: this.zoomAnimation,
-        zoomAnimationThreshold: this.zoomAnimationThreshold,
-        fadeAnimation: this.fadeAnimation,
-        markerZoomAnimation: this.markerZoomAnimation,
-      },
-      this
-    );
-    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.map)(this.$el, options);
-    if (this.bounds) {
-      this.mapObject.fitBounds(this.bounds);
-    }
-    this.debouncedMoveEndHandler = debounce(this.moveEndHandler, 100);
-    this.mapObject.on('moveend', this.debouncedMoveEndHandler);
-    this.mapObject.on('overlayadd', this.overlayAddHandler);
-    this.mapObject.on('overlayremove', this.overlayRemoveHandler);
-    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
-    propsBinder(this, this.mapObject, this.$options.props);
-    this.ready = true;
-    /**
-     * DEPRECATED event
-     * @deprecated
-     */
-    this.$emit('leaflet:load');
-    this.$nextTick(function () {
-      /**
-       * Triggers when the component is ready
-       * @type {object}
-       * @property {object} mapObject - reference to leaflet map object
-       */
-      this$1.$emit('ready', this$1.mapObject);
-    });
-  },
-  methods: {
-    registerLayerControl: function registerLayerControl(lControlLayers) {
-      var this$1 = this;
-
-      this.layerControl = lControlLayers;
-      this.mapObject.addControl(lControlLayers.mapObject);
-      this.layersToAdd.forEach(function (layer) {
-        this$1.layerControl.addLayer(layer);
-      });
-      this.layersToAdd = [];
-    },
-    addLayer: function addLayer(layer, alreadyAdded) {
-      if (layer.layerType !== undefined) {
-        if (this.layerControl === undefined) {
-          this.layersToAdd.push(layer);
-        } else {
-          var exist = this.layersInControl.find(
-            function (l) { return l.mapObject._leaflet_id === layer.mapObject._leaflet_id; }
-          );
-          if (!exist) {
-            this.layerControl.addLayer(layer);
-            this.layersInControl.push(layer);
-          }
-        }
-      }
-      if (!alreadyAdded && layer.visible !== false) {
-        this.mapObject.addLayer(layer.mapObject);
-      }
-    },
-    hideLayer: function hideLayer(layer) {
-      this.mapObject.removeLayer(layer.mapObject);
-    },
-    removeLayer: function removeLayer(layer, alreadyRemoved) {
-      if (layer.layerType !== undefined) {
-        if (this.layerControl === undefined) {
-          this.layersToAdd = this.layersToAdd.filter(
-            function (l) { return l.name !== layer.name; }
-          );
-        } else {
-          this.layerControl.removeLayer(layer);
-          this.layersInControl = this.layersInControl.filter(
-            function (l) { return l.mapObject._leaflet_id !== layer.mapObject._leaflet_id; }
-          );
-        }
-      }
-      if (!alreadyRemoved) {
-        this.mapObject.removeLayer(layer.mapObject);
-      }
-    },
-    setZoom: function setZoom(newVal, oldVal) {
-      if (newVal === undefined || newVal === null) { return; }
-      this.mapObject.setZoom(newVal, {
-        animate: this.noBlockingAnimations ? false : null,
-      });
-      this.cacheMapView();
-    },
-    setCenter: function setCenter(newVal, oldVal) {
-      if (newVal == null) {
-        return;
-      }
-      var newCenter = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(newVal);
-      var oldCenter = this.lastSetCenter || this.mapObject.getCenter();
-      if (oldCenter.lat !== newCenter.lat || oldCenter.lng !== newCenter.lng) {
-        this.lastSetCenter = newCenter;
-        this.mapObject.panTo(newCenter, {
-          animate: this.noBlockingAnimations ? false : null,
-        });
-        this.cacheMapView(undefined, newCenter);
-      }
-    },
-    setBounds: function setBounds(newVal, oldVal) {
-      if (!newVal) {
-        return;
-      }
-      var newBounds = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLngBounds)(newVal);
-      if (!newBounds.isValid()) {
-        return;
-      }
-      var oldBounds = this.lastSetBounds || this.mapObject.getBounds();
-      var boundsChanged = !oldBounds.equals(newBounds, 0); // set maxMargin to 0 - check exact equals
-      if (boundsChanged) {
-        this.mapObject.fitBounds(newBounds, this.fitBoundsOptions);
-        this.cacheMapView(newBounds);
-      }
-    },
-    setPaddingBottomRight: function setPaddingBottomRight(newVal, oldVal) {
-      this.paddingBottomRight = newVal;
-    },
-    setPaddingTopLeft: function setPaddingTopLeft(newVal, oldVal) {
-      this.paddingTopLeft = newVal;
-    },
-    setPadding: function setPadding(newVal, oldVal) {
-      this.padding = newVal;
-    },
-    setCrs: function setCrs(newVal, oldVal) {
-      var mapObject = this.mapObject,
-        prevBounds = mapObject.getBounds();
-      mapObject.options.crs = newVal;
-      mapObject.fitBounds(prevBounds, { animate: false, padding: [0, 0] });
-    },
-    fitBounds: function fitBounds(bounds) {
-      this.mapObject.fitBounds(bounds, {
-        animate: this.noBlockingAnimations ? false : null,
-      });
-    },
-    moveEndHandler: function moveEndHandler() {
-      /**
-       * Triggers when zoom is updated
-       * @type {number,string}
-       */
-      this.$emit('update:zoom', this.mapObject.getZoom());
-      var center = this.mapObject.getCenter();
-      /**
-       * Triggers when center is updated
-       * @type {object,array}
-       */
-      this.$emit('update:center', center);
-      var bounds = this.mapObject.getBounds();
-      /**
-       * Triggers when bounds are updated
-       * @type {object}
-       */
-      this.$emit('update:bounds', bounds);
-    },
-    overlayAddHandler: function overlayAddHandler(e) {
-      var layer = this.layersInControl.find(function (l) { return l.name === e.name; });
-      if (layer) {
-        layer.updateVisibleProp(true);
-      }
-    },
-    overlayRemoveHandler: function overlayRemoveHandler(e) {
-      var layer = this.layersInControl.find(function (l) { return l.name === e.name; });
-      if (layer) {
-        layer.updateVisibleProp(false);
-      }
-    },
-    cacheMapView: function cacheMapView(bounds, center) {
-      // Cache the last values used to define the map view by mutating props.
-      this.lastSetBounds = bounds || this.mapObject.getBounds();
-      this.lastSetCenter = center || this.lastSetBounds.getCenter();
-    },
-  },
-};
-
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-    if (typeof shadowMode !== 'boolean') {
-        createInjectorSSR = createInjector;
-        createInjector = shadowMode;
-        shadowMode = false;
-    }
-    // Vue.extend constructor export interop.
-    var options = typeof script === 'function' ? script.options : script;
-    // render functions
-    if (template && template.render) {
-        options.render = template.render;
-        options.staticRenderFns = template.staticRenderFns;
-        options._compiled = true;
-        // functional template
-        if (isFunctionalTemplate) {
-            options.functional = true;
-        }
-    }
-    // scopedId
-    if (scopeId) {
-        options._scopeId = scopeId;
-    }
-    var hook;
-    if (moduleIdentifier) {
-        // server build
-        hook = function (context) {
-            // 2.3 injection
-            context =
-                context || // cached call
-                    (this.$vnode && this.$vnode.ssrContext) || // stateful
-                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
-            // 2.2 with runInNewContext: true
-            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-                context = __VUE_SSR_CONTEXT__;
-            }
-            // inject component styles
-            if (style) {
-                style.call(this, createInjectorSSR(context));
-            }
-            // register component module identifier for async chunk inference
-            if (context && context._registeredComponents) {
-                context._registeredComponents.add(moduleIdentifier);
-            }
-        };
-        // used by ssr in case component is cached and beforeCreate
-        // never gets called
-        options._ssrRegister = hook;
-    }
-    else if (style) {
-        hook = shadowMode
-            ? function (context) {
-                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
-            }
-            : function (context) {
-                style.call(this, createInjector(context));
-            };
-    }
-    if (hook) {
-        if (options.functional) {
-            // register for functional component in vue file
-            var originalRender = options.render;
-            options.render = function renderWithStyleInjection(h, context) {
-                hook.call(context);
-                return originalRender(h, context);
-            };
-        }
-        else {
-            // inject component registration as beforeCreate hook
-            var existing = options.beforeCreate;
-            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
-        }
-    }
-    return script;
-}
-
-var isOldIE = typeof navigator !== 'undefined' &&
-    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
-function createInjector(context) {
-    return function (id, style) { return addStyle(id, style); };
-}
-var HEAD;
-var styles = {};
-function addStyle(id, css) {
-    var group = isOldIE ? css.media || 'default' : id;
-    var style = styles[group] || (styles[group] = { ids: new Set(), styles: [] });
-    if (!style.ids.has(id)) {
-        style.ids.add(id);
-        var code = css.source;
-        if (css.map) {
-            // https://developer.chrome.com/devtools/docs/javascript-debugging
-            // this makes source maps inside style tags work properly in Chrome
-            code += '\n/*# sourceURL=' + css.map.sources[0] + ' */';
-            // http://stackoverflow.com/a/26603875
-            code +=
-                '\n/*# sourceMappingURL=data:application/json;base64,' +
-                    btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) +
-                    ' */';
-        }
-        if (!style.element) {
-            style.element = document.createElement('style');
-            style.element.type = 'text/css';
-            if (css.media)
-                { style.element.setAttribute('media', css.media); }
-            if (HEAD === undefined) {
-                HEAD = document.head || document.getElementsByTagName('head')[0];
-            }
-            HEAD.appendChild(style.element);
-        }
-        if ('styleSheet' in style.element) {
-            style.styles.push(code);
-            style.element.styleSheet.cssText = style.styles
-                .filter(Boolean)
-                .join('\n');
-        }
-        else {
-            var index = style.ids.size - 1;
-            var textNode = document.createTextNode(code);
-            var nodes = style.element.childNodes;
-            if (nodes[index])
-                { style.element.removeChild(nodes[index]); }
-            if (nodes.length)
-                { style.element.insertBefore(textNode, nodes[index]); }
-            else
-                { style.element.appendChild(textNode); }
-        }
-    }
-}
-
-/* script */
-var __vue_script__ = script;
-
-/* template */
-var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vue2leaflet-map"},[(_vm.ready)?_vm._t("default"):_vm._e()],2)};
-var __vue_staticRenderFns__ = [];
-
-  /* style */
-  var __vue_inject_styles__ = function (inject) {
-    if (!inject) { return }
-    inject("data-v-64f90fd7_0", { source: ".vue2leaflet-map{height:100%;width:100%}", map: undefined, media: undefined });
-
-  };
-  /* scoped */
-  var __vue_scope_id__ = undefined;
-  /* module identifier */
-  var __vue_module_identifier__ = undefined;
-  /* functional template */
-  var __vue_is_functional_template__ = false;
-  /* style inject SSR */
-  
-  /* style inject shadow dom */
-  
-
-  
-  var __vue_component__ = /*#__PURE__*/normalizeComponent(
-    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
-    __vue_inject_styles__,
-    __vue_script__,
-    __vue_scope_id__,
-    __vue_is_functional_template__,
-    __vue_module_identifier__,
-    false,
-    createInjector,
-    undefined,
-    undefined
-  );
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
-
-
-/***/ }),
-
-/***/ "./node_modules/vue2-leaflet/dist/components/LMarker.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/vue2-leaflet/dist/components/LMarker.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var debounce = function (fn, time) {
-  var timeout;
-
-  var debouncedFunction = function() {
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-
-    var context = this;
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(function () {
-      fn.apply(context, args);
-      timeout = null;
-    }, time);
-  };
-
-  debouncedFunction.cancel = function() {
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-  };
-
-  return debouncedFunction;
-};
-
-var capitalizeFirstLetter = function (string) {
-  if (!string || typeof string.charAt !== 'function') {
-    return string;
-  }
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
-var propsBinder = function (vueElement, leafletElement, props, options) {
-  var loop = function ( key ) {
-    var setMethodName = 'set' + capitalizeFirstLetter(key);
-    var deepValue =
-      props[key].type === Object ||
-      props[key].type === Array ||
-      Array.isArray(props[key].type);
-    if (props[key].custom && vueElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          vueElement[setMethodName](newVal, oldVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (setMethodName === 'setOptions') {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (leafletElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          leafletElement[setMethodName](newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    }
-  };
-
-  for (var key in props) loop( key );
-};
-
-var collectionCleaner = function (options) {
-  var result = {};
-  for (var key in options) {
-    var value = options[key];
-    if (value !== null && value !== undefined) {
-      result[key] = value;
-    }
-  }
-  return result;
-};
-
-var optionsMerger = function (props, instance) {
-  var options =
-    instance.options && instance.options.constructor === Object
-      ? instance.options
-      : {};
-  props = props && props.constructor === Object ? props : {};
-  var result = collectionCleaner(options);
-  props = collectionCleaner(props);
-  var defaultProps = instance.$options.props;
-  for (var key in props) {
-    var def = defaultProps[key]
-      ? defaultProps[key].default &&
-        typeof defaultProps[key].default === 'function'
-        ? defaultProps[key].default.call()
-        : defaultProps[key].default
-      : Symbol('unique');
-    var isEqual = false;
-    if (Array.isArray(def)) {
-      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
-    } else {
-      isEqual = def === props[key];
-    }
-    if (result[key] && !isEqual) {
-      console.warn(
-        (key + " props is overriding the value passed in the options props")
-      );
-      result[key] = props[key];
-    } else if (!result[key]) {
-      result[key] = props[key];
-    }
-  }
-  return result;
-};
-
-var findRealParent = function (firstVueParent) {
-  var found = false;
-  while (firstVueParent && !found) {
-    if (firstVueParent.mapObject === undefined) {
-      firstVueParent = firstVueParent.$parent;
-    } else {
-      found = true;
-    }
-  }
-  return firstVueParent;
-};
-
-var Layer = {
-  props: {
-    pane: {
-      type: String,
-      default: 'overlayPane',
-    },
-    attribution: {
-      type: String,
-      default: null,
-      custom: true,
-    },
-    name: {
-      type: String,
-      custom: true,
-      default: undefined,
-    },
-    layerType: {
-      type: String,
-      custom: true,
-      default: undefined,
-    },
-    visible: {
-      type: Boolean,
-      custom: true,
-      default: true,
-    },
-  },
-  mounted: function mounted() {
-    this.layerOptions = {
-      attribution: this.attribution,
-      pane: this.pane,
-    };
-  },
-  beforeDestroy: function beforeDestroy() {
-    this.unbindPopup();
-    this.unbindTooltip();
-    this.parentContainer.removeLayer(this);
-  },
-  methods: {
-    setAttribution: function setAttribution(val, old) {
-      var attributionControl = this.$parent.mapObject.attributionControl;
-      attributionControl.removeAttribution(old).addAttribution(val);
-    },
-    setName: function setName() {
-      this.parentContainer.removeLayer(this);
-      if (this.visible) {
-        this.parentContainer.addLayer(this);
-      }
-    },
-    setLayerType: function setLayerType() {
-      this.parentContainer.removeLayer(this);
-      if (this.visible) {
-        this.parentContainer.addLayer(this);
-      }
-    },
-    setVisible: function setVisible(isVisible) {
-      if (this.mapObject) {
-        if (isVisible) {
-          this.parentContainer.addLayer(this);
-        } else {
-          if (this.parentContainer.hideLayer) {
-            this.parentContainer.hideLayer(this);
-          } else {
-            this.parentContainer.removeLayer(this);
-          }
-        }
-      }
-    },
-    unbindTooltip: function unbindTooltip() {
-      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
-      if (tooltip) {
-        tooltip.unbindTooltip();
-      }
-    },
-    unbindPopup: function unbindPopup() {
-      var popup = this.mapObject ? this.mapObject.getPopup() : null;
-      if (popup) {
-        popup.unbindPopup();
-      }
-    },
-    updateVisibleProp: function updateVisibleProp(value) {
-      /**
-       * Triggers when the visible prop needs to be updated
-       * @type {boolean}
-       * @property {boolean} value - value of the visible property
-       */
-      this.$emit('update:visible', value);
-    },
-  },
-};
-
-var Options = {
-  props: {
-    /**
-     * Leaflet options to pass to the component constructor
-     */
-    options: {
-      type: Object,
-      default: function () { return ({}); }
-    }
-  }
-};
-
-/**
- * Marker component, lets you add and personalize markers on the map
- */
-var script = {
-  name: 'LMarker',
-  mixins: [Layer, Options],
-  props: {
-    pane: {
-      type: String,
-      default: 'markerPane',
-    },
-    draggable: {
-      type: Boolean,
-      custom: true,
-      default: false,
-    },
-    latLng: {
-      type: [Object, Array],
-      custom: true,
-      default: null,
-    },
-    icon: {
-      type: [Object],
-      custom: false,
-      default: function () { return new leaflet__WEBPACK_IMPORTED_MODULE_0__.Icon.Default(); },
-    },
-    zIndexOffset: {
-      type: Number,
-      custom: false,
-      default: null,
-    },
-  },
-  data: function data() {
-    return {
-      ready: false,
-    };
-  },
-  beforeDestroy: function beforeDestroy() {
-    if (this.debouncedLatLngSync) {
-      this.debouncedLatLngSync.cancel();
-    }
-  },
-  mounted: function mounted() {
-    var this$1 = this;
-
-    var options = optionsMerger(
-      Object.assign({}, this.layerOptions,
-        {icon: this.icon,
-        zIndexOffset: this.zIndexOffset,
-        draggable: this.draggable}),
-      this
-    );
-    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.marker)(this.latLng, options);
-    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
-    this.debouncedLatLngSync = debounce(this.latLngSync, 100);
-    this.mapObject.on('move', this.debouncedLatLngSync);
-    propsBinder(this, this.mapObject, this.$options.props);
-    this.parentContainer = findRealParent(this.$parent);
-    this.parentContainer.addLayer(this, !this.visible);
-    this.ready = true;
-    this.$nextTick(function () {
-      /**
-       * Triggers when the component is ready
-       * @type {object}
-       * @property {object} mapObject - reference to leaflet map object
-       */
-      this$1.$emit('ready', this$1.mapObject);
-    });
-  },
-  methods: {
-    setDraggable: function setDraggable(newVal, oldVal) {
-      if (this.mapObject.dragging) {
-        newVal
-          ? this.mapObject.dragging.enable()
-          : this.mapObject.dragging.disable();
-      }
-    },
-    setLatLng: function setLatLng(newVal) {
-      if (newVal == null) {
-        return;
-      }
-
-      if (this.mapObject) {
-        var oldLatLng = this.mapObject.getLatLng();
-        var newLatLng = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(newVal);
-        if (
-          newLatLng.lat !== oldLatLng.lat ||
-          newLatLng.lng !== oldLatLng.lng
-        ) {
-          this.mapObject.setLatLng(newLatLng);
-        }
-      }
-    },
-    latLngSync: function latLngSync(event) {
-      this.$emit('update:latLng', event.latlng);
-      this.$emit('update:lat-lng', event.latlng);
-    },
-  },
-  render: function(h) {
-    if (this.ready && this.$slots.default) {
-      return h('div', { style: { display: 'none' } }, this.$slots.default);
-    }
-    return null;
-  },
-};
-
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-    if (typeof shadowMode !== 'boolean') {
-        createInjectorSSR = createInjector;
-        createInjector = shadowMode;
-        shadowMode = false;
-    }
-    // Vue.extend constructor export interop.
-    var options = typeof script === 'function' ? script.options : script;
-    // render functions
-    if (template && template.render) {
-        options.render = template.render;
-        options.staticRenderFns = template.staticRenderFns;
-        options._compiled = true;
-        // functional template
-        if (isFunctionalTemplate) {
-            options.functional = true;
-        }
-    }
-    // scopedId
-    if (scopeId) {
-        options._scopeId = scopeId;
-    }
-    var hook;
-    if (moduleIdentifier) {
-        // server build
-        hook = function (context) {
-            // 2.3 injection
-            context =
-                context || // cached call
-                    (this.$vnode && this.$vnode.ssrContext) || // stateful
-                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
-            // 2.2 with runInNewContext: true
-            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-                context = __VUE_SSR_CONTEXT__;
-            }
-            // inject component styles
-            if (style) {
-                style.call(this, createInjectorSSR(context));
-            }
-            // register component module identifier for async chunk inference
-            if (context && context._registeredComponents) {
-                context._registeredComponents.add(moduleIdentifier);
-            }
-        };
-        // used by ssr in case component is cached and beforeCreate
-        // never gets called
-        options._ssrRegister = hook;
-    }
-    else if (style) {
-        hook = shadowMode
-            ? function (context) {
-                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
-            }
-            : function (context) {
-                style.call(this, createInjector(context));
-            };
-    }
-    if (hook) {
-        if (options.functional) {
-            // register for functional component in vue file
-            var originalRender = options.render;
-            options.render = function renderWithStyleInjection(h, context) {
-                hook.call(context);
-                return originalRender(h, context);
-            };
-        }
-        else {
-            // inject component registration as beforeCreate hook
-            var existing = options.beforeCreate;
-            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
-        }
-    }
-    return script;
-}
-
-/* script */
-var __vue_script__ = script;
-
-/* template */
-
-  /* style */
-  var __vue_inject_styles__ = undefined;
-  /* scoped */
-  var __vue_scope_id__ = undefined;
-  /* module identifier */
-  var __vue_module_identifier__ = undefined;
-  /* functional template */
-  var __vue_is_functional_template__ = undefined;
-  /* style inject */
-  
-  /* style inject SSR */
-  
-  /* style inject shadow dom */
-  
-
-  
-  var __vue_component__ = /*#__PURE__*/normalizeComponent(
-    {},
-    __vue_inject_styles__,
-    __vue_script__,
-    __vue_scope_id__,
-    __vue_is_functional_template__,
-    __vue_module_identifier__,
-    false,
-    undefined,
-    undefined,
-    undefined
-  );
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
-
-
-/***/ }),
-
-/***/ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/vue2-leaflet/dist/components/LTileLayer.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var capitalizeFirstLetter = function (string) {
-  if (!string || typeof string.charAt !== 'function') {
-    return string;
-  }
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
-var propsBinder = function (vueElement, leafletElement, props, options) {
-  var loop = function ( key ) {
-    var setMethodName = 'set' + capitalizeFirstLetter(key);
-    var deepValue =
-      props[key].type === Object ||
-      props[key].type === Array ||
-      Array.isArray(props[key].type);
-    if (props[key].custom && vueElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          vueElement[setMethodName](newVal, oldVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (setMethodName === 'setOptions') {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (leafletElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          leafletElement[setMethodName](newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    }
-  };
-
-  for (var key in props) loop( key );
-};
-
-var collectionCleaner = function (options) {
-  var result = {};
-  for (var key in options) {
-    var value = options[key];
-    if (value !== null && value !== undefined) {
-      result[key] = value;
-    }
-  }
-  return result;
-};
-
-var optionsMerger = function (props, instance) {
-  var options =
-    instance.options && instance.options.constructor === Object
-      ? instance.options
-      : {};
-  props = props && props.constructor === Object ? props : {};
-  var result = collectionCleaner(options);
-  props = collectionCleaner(props);
-  var defaultProps = instance.$options.props;
-  for (var key in props) {
-    var def = defaultProps[key]
-      ? defaultProps[key].default &&
-        typeof defaultProps[key].default === 'function'
-        ? defaultProps[key].default.call()
-        : defaultProps[key].default
-      : Symbol('unique');
-    var isEqual = false;
-    if (Array.isArray(def)) {
-      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
-    } else {
-      isEqual = def === props[key];
-    }
-    if (result[key] && !isEqual) {
-      console.warn(
-        (key + " props is overriding the value passed in the options props")
-      );
-      result[key] = props[key];
-    } else if (!result[key]) {
-      result[key] = props[key];
-    }
-  }
-  return result;
-};
-
-var findRealParent = function (firstVueParent) {
-  var found = false;
-  while (firstVueParent && !found) {
-    if (firstVueParent.mapObject === undefined) {
-      firstVueParent = firstVueParent.$parent;
-    } else {
-      found = true;
-    }
-  }
-  return firstVueParent;
-};
-
-var Layer = {
-  props: {
-    pane: {
-      type: String,
-      default: 'overlayPane',
-    },
-    attribution: {
-      type: String,
-      default: null,
-      custom: true,
-    },
-    name: {
-      type: String,
-      custom: true,
-      default: undefined,
-    },
-    layerType: {
-      type: String,
-      custom: true,
-      default: undefined,
-    },
-    visible: {
-      type: Boolean,
-      custom: true,
-      default: true,
-    },
-  },
-  mounted: function mounted() {
-    this.layerOptions = {
-      attribution: this.attribution,
-      pane: this.pane,
-    };
-  },
-  beforeDestroy: function beforeDestroy() {
-    this.unbindPopup();
-    this.unbindTooltip();
-    this.parentContainer.removeLayer(this);
-  },
-  methods: {
-    setAttribution: function setAttribution(val, old) {
-      var attributionControl = this.$parent.mapObject.attributionControl;
-      attributionControl.removeAttribution(old).addAttribution(val);
-    },
-    setName: function setName() {
-      this.parentContainer.removeLayer(this);
-      if (this.visible) {
-        this.parentContainer.addLayer(this);
-      }
-    },
-    setLayerType: function setLayerType() {
-      this.parentContainer.removeLayer(this);
-      if (this.visible) {
-        this.parentContainer.addLayer(this);
-      }
-    },
-    setVisible: function setVisible(isVisible) {
-      if (this.mapObject) {
-        if (isVisible) {
-          this.parentContainer.addLayer(this);
-        } else {
-          if (this.parentContainer.hideLayer) {
-            this.parentContainer.hideLayer(this);
-          } else {
-            this.parentContainer.removeLayer(this);
-          }
-        }
-      }
-    },
-    unbindTooltip: function unbindTooltip() {
-      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
-      if (tooltip) {
-        tooltip.unbindTooltip();
-      }
-    },
-    unbindPopup: function unbindPopup() {
-      var popup = this.mapObject ? this.mapObject.getPopup() : null;
-      if (popup) {
-        popup.unbindPopup();
-      }
-    },
-    updateVisibleProp: function updateVisibleProp(value) {
-      /**
-       * Triggers when the visible prop needs to be updated
-       * @type {boolean}
-       * @property {boolean} value - value of the visible property
-       */
-      this.$emit('update:visible', value);
-    },
-  },
-};
-
-var GridLayer = {
-  mixins: [Layer],
-  props: {
-    pane: {
-      type: String,
-      default: 'tilePane'
-    },
-    opacity: {
-      type: Number,
-      custom: false,
-      default: 1.0
-    },
-    zIndex: {
-      type: Number,
-      default: 1
-    },
-    tileSize: {
-      type: Number,
-      default: 256
-    },
-    noWrap: {
-      type: Boolean,
-      default: false
-    }
-  },
-  mounted: function mounted () {
-    this.gridLayerOptions = Object.assign({}, this.layerOptions,
-      {pane: this.pane,
-      opacity: this.opacity,
-      zIndex: this.zIndex,
-      tileSize: this.tileSize,
-      noWrap: this.noWrap});
-  }
-};
-
-var TileLayerMixin = {
-  mixins: [GridLayer],
-  props: {
-    tms: {
-      type: Boolean,
-      default: false,
-    },
-    subdomains: {
-      type: [String, Array],
-      default: 'abc',
-      validator: function (prop) {
-        if (typeof prop === 'string') { return true; }
-        // Validates array that array only contains only strings
-        if (Array.isArray(prop)) {
-          return prop.every(function (subdomain) { return typeof subdomain === 'string'; });
-        }
-        return false;
-      },
-    },
-    detectRetina: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  mounted: function mounted() {
-    this.tileLayerOptions = Object.assign({}, this.gridLayerOptions,
-      {tms: this.tms,
-      subdomains: this.subdomains,
-      detectRetina: this.detectRetina});
-  },
-  render: function render() {
-    return null;
-  },
-};
-
-var Options = {
-  props: {
-    /**
-     * Leaflet options to pass to the component constructor
-     */
-    options: {
-      type: Object,
-      default: function () { return ({}); }
-    }
-  }
-};
-
-//
-
-/**
- * Load tiles from a map server and display them accordingly to map zoom, center and size
- */
-var script = {
-  name: 'LTileLayer',
-  mixins: [TileLayerMixin, Options],
-  props: {
-    url: {
-      type: String,
-      default: null,
-    },
-    tileLayerClass: {
-      type: Function,
-      default: leaflet__WEBPACK_IMPORTED_MODULE_0__.tileLayer,
-    },
-  },
-  mounted: function mounted() {
-    var this$1 = this;
-
-    var options = optionsMerger(this.tileLayerOptions, this);
-    this.mapObject = this.tileLayerClass(this.url, options);
-    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
-    propsBinder(this, this.mapObject, this.$options.props);
-    this.parentContainer = findRealParent(this.$parent);
-    this.parentContainer.addLayer(this, !this.visible);
-    this.$nextTick(function () {
-      /**
-       * Triggers when the component is ready
-       * @type {object}
-       * @property {object} mapObject - reference to leaflet map object
-       */
-      this$1.$emit('ready', this$1.mapObject);
-    });
-  },
-};
-
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-    if (typeof shadowMode !== 'boolean') {
-        createInjectorSSR = createInjector;
-        createInjector = shadowMode;
-        shadowMode = false;
-    }
-    // Vue.extend constructor export interop.
-    var options = typeof script === 'function' ? script.options : script;
-    // render functions
-    if (template && template.render) {
-        options.render = template.render;
-        options.staticRenderFns = template.staticRenderFns;
-        options._compiled = true;
-        // functional template
-        if (isFunctionalTemplate) {
-            options.functional = true;
-        }
-    }
-    // scopedId
-    if (scopeId) {
-        options._scopeId = scopeId;
-    }
-    var hook;
-    if (moduleIdentifier) {
-        // server build
-        hook = function (context) {
-            // 2.3 injection
-            context =
-                context || // cached call
-                    (this.$vnode && this.$vnode.ssrContext) || // stateful
-                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
-            // 2.2 with runInNewContext: true
-            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-                context = __VUE_SSR_CONTEXT__;
-            }
-            // inject component styles
-            if (style) {
-                style.call(this, createInjectorSSR(context));
-            }
-            // register component module identifier for async chunk inference
-            if (context && context._registeredComponents) {
-                context._registeredComponents.add(moduleIdentifier);
-            }
-        };
-        // used by ssr in case component is cached and beforeCreate
-        // never gets called
-        options._ssrRegister = hook;
-    }
-    else if (style) {
-        hook = shadowMode
-            ? function (context) {
-                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
-            }
-            : function (context) {
-                style.call(this, createInjector(context));
-            };
-    }
-    if (hook) {
-        if (options.functional) {
-            // register for functional component in vue file
-            var originalRender = options.render;
-            options.render = function renderWithStyleInjection(h, context) {
-                hook.call(context);
-                return originalRender(h, context);
-            };
-        }
-        else {
-            // inject component registration as beforeCreate hook
-            var existing = options.beforeCreate;
-            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
-        }
-    }
-    return script;
-}
-
-/* script */
-var __vue_script__ = script;
-
-/* template */
-var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div')};
-var __vue_staticRenderFns__ = [];
-
-  /* style */
-  var __vue_inject_styles__ = undefined;
-  /* scoped */
-  var __vue_scope_id__ = undefined;
-  /* module identifier */
-  var __vue_module_identifier__ = undefined;
-  /* functional template */
-  var __vue_is_functional_template__ = false;
-  /* style inject */
-  
-  /* style inject SSR */
-  
-  /* style inject shadow dom */
-  
-
-  
-  var __vue_component__ = /*#__PURE__*/normalizeComponent(
-    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
-    __vue_inject_styles__,
-    __vue_script__,
-    __vue_scope_id__,
-    __vue_is_functional_template__,
-    __vue_module_identifier__,
-    false,
-    undefined,
-    undefined,
-    undefined
-  );
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
-
-
-/***/ }),
-
 /***/ "./resources/js sync recursive \\.vue$/":
 /*!************************************!*\
   !*** ./resources/js/ sync \.vue$/ ***!
@@ -69089,6 +70074,7 @@ var __vue_staticRenderFns__ = [];
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./components/Auth/LoginModal.vue": "./resources/js/components/Auth/LoginModal.vue",
 	"./components/DeleteButton.vue": "./resources/js/components/DeleteButton.vue",
 	"./components/ExampleComponent.vue": "./resources/js/components/ExampleComponent.vue",
 	"./components/Explore/ExploreMap.vue": "./resources/js/components/Explore/ExploreMap.vue",
