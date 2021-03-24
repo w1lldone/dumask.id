@@ -16,6 +16,14 @@ class StationController extends Controller
             $station = $station->withDistance($request->longitude, $request->latitude)->having('distance', '<', 15)->orderBy('distance');
         }
 
+        if ($request->filled('keywords')) {
+            $station = $station->where(function ($query) use ($request)
+            {
+                $query->orWhere('name', 'like', "%{$request->keywords}%")->orWhere('address', 'like', "%{$request->keywords}%")
+                ->orWhere('description', 'like', "%{$request->keywords}%");
+            });
+        }
+
         $stations = $station->paginate();
 
         return $stations;
