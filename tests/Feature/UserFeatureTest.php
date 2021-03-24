@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
 class UserFeatureTest extends TestCase
@@ -46,6 +47,11 @@ class UserFeatureTest extends TestCase
             'email' => $user->email,
             'is_superadmin' => true,
         ]);
+        $authenticated = Auth::attempt([
+            'email' => $user->email,
+            'password' => 'password'
+        ]);
+        $this->assertTrue($authenticated);
     }
 
     /** @test */
