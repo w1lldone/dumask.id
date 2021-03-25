@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="col-md-4">
+            <div class="flex col-md-4">
                 <station-edit-modal :station='{{ json_encode($station) }}'></station-edit-modal>
                 <station-delete-modal :station='{!! json_encode($station) !!}'></station-delete-modal>
             </div>

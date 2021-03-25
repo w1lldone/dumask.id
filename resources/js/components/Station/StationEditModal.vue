@@ -50,12 +50,12 @@
 
             <div class="form-group">
               <label for="email">Description</label>
-              <input type="text"
+              <textarea type="text"
               required 
               v-model="form.description" 
               class="form-control"
               :class="{ 'is-invalid': hasErrors('description') }"
-              />
+              ></textarea>
               <div class="invalid-feedback">
                 {{ getErrors("description") }}
               </div>
@@ -63,12 +63,12 @@
 
             <div class="form-group">
               <label for="address">Address</label>
-              <input type="text"
+              <textarea type="text"
               required 
               v-model="form.address" 
               class="form-control"
               :class="{ 'is-invalid': hasErrors('address') }"
-              />
+              ></textarea>
               <div class="invalid-feedback">
                 {{ getErrors("address") }}
               </div>
@@ -132,21 +132,20 @@ export default {
 
   data() {
     return {
-      form: {},
+      form: {...this.station},
       isLoading: false,
       errors: {},
     };
   },
 
   methods: {
-    mounted() {
-      this.form = {...this.station}
-    },
+    
     async doSubmit() {
       this.isLoading = true;
 
       try {
-        let response = await axios.put("/station", this.form);
+        var url = "/station/" + this.form.id;
+        let response = await axios.put(url, this.form);
         return location.reload();
       } catch (error) {
         alert(error.response.data.message);
