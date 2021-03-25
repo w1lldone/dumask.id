@@ -43,7 +43,7 @@ class StationController extends Controller
         $this->authorize('view', $station);
 
         // this will be replaced with view() response
-        return $station;
+        return $station->load('dropboxes');
     }
 
     public function update(Station $station, Request $request)
