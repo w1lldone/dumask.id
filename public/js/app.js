@@ -55056,13 +55056,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-secondary w-100 my-2" }, [
-      _c("div", { staticClass: "d-flex" }, [
-        _c("span", { staticClass: "ml-auto pr-3 mdi mdi-google" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "mr-auto" }, [_vm._v("MASUK DENGAN GOOGLE")])
-      ])
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-secondary w-100 my-2",
+        attrs: { href: "/auth/google/redirect" }
+      },
+      [
+        _c("div", { staticClass: "d-flex" }, [
+          _c("span", { staticClass: "ml-auto pr-3 mdi mdi-google" }),
+          _vm._v(" "),
+          _c("span", { staticClass: "mr-auto" }, [
+            _vm._v("MASUK DENGAN GOOGLE")
+          ])
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -55120,13 +55129,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-secondary w-100 my-2" }, [
-      _c("div", { staticClass: "d-flex" }, [
-        _c("span", { staticClass: "ml-auto pr-3 mdi mdi-google" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "mr-auto" }, [_vm._v("DAFTAR DENGAN GOOGLE")])
-      ])
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-secondary w-100 my-2",
+        attrs: { href: "/auth/google/redirect" }
+      },
+      [
+        _c("div", { staticClass: "d-flex" }, [
+          _c("span", { staticClass: "ml-auto pr-3 mdi mdi-google" }),
+          _vm._v(" "),
+          _c("span", { staticClass: "mr-auto" }, [
+            _vm._v("MASUK DENGAN GOOGLE")
+          ])
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this

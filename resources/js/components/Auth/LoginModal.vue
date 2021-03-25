@@ -44,12 +44,12 @@
             </button>
           </div>
           <div class="modal-body mx-4">
-            <button class="btn btn-secondary w-100 my-2">
+            <a href="/auth/google/redirect" class="btn btn-secondary w-100 my-2">
                 <div class="d-flex">
                     <span class="ml-auto pr-3 mdi mdi-google"></span>
                     <span class="mr-auto">MASUK DENGAN GOOGLE</span>
                 </div>
-            </button>   
+            </a>   
             
             <p 
                 class="text-center text-muted w-100 my-4" 
@@ -123,12 +123,12 @@
             </button>
           </div>
           <div class="modal-body mx-4">
-            <button class="btn btn-secondary w-100 my-2">
+            <a href="/auth/google/redirect" class="btn btn-secondary w-100 my-2">
                 <div class="d-flex">
                     <span class="ml-auto pr-3 mdi mdi-google"></span>
-                    <span class="mr-auto">DAFTAR DENGAN GOOGLE</span>
+                    <span class="mr-auto">MASUK DENGAN GOOGLE</span>
                 </div>
-            </button>   
+            </a>   
             
             <p 
                 class="text-center text-muted w-100 my-4" 
