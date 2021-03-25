@@ -44,10 +44,10 @@
             </button>
           </div>
           <div class="modal-body mx-4">
-            <a href="/auth/google/redirect" class="btn btn-secondary w-100 my-2">
+            <a href="/auth/google/redirect" class="btn btn-outline-dark w-100 my-2">
                 <div class="d-flex">
-                    <span class="ml-auto pr-3 mdi mdi-google"></span>
-                    <span class="mr-auto">MASUK DENGAN GOOGLE</span>
+                    <img src="/img/icon_google.png" alt="" class="ml-auto my-auto" style="max-width: 16px; height: 16px;">
+                    <span class="mr-auto my-auto pl-3" style="color: #000000">MASUK DENGAN GOOGLE</span>
                 </div>
             </a>   
             
@@ -123,12 +123,12 @@
             </button>
           </div>
           <div class="modal-body mx-4">
-            <a href="/auth/google/redirect" class="btn btn-secondary w-100 my-2">
+            <a href="/auth/google/redirect" class="btn btn-outline-dark w-100 my-2">
                 <div class="d-flex">
-                    <span class="ml-auto pr-3 mdi mdi-google"></span>
-                    <span class="mr-auto">MASUK DENGAN GOOGLE</span>
+                    <img src="/img/icon_google.png" alt="" class="ml-auto my-auto" style="max-width: 16px; height: 16px;">
+                    <span class="mr-auto my-auto pl-3" style="color: #000000">MASUK DENGAN GOOGLE</span>
                 </div>
-            </a>   
+            </a>     
             
             <p 
                 class="text-center text-muted w-100 my-4" 
