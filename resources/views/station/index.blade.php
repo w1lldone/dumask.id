@@ -8,8 +8,26 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            {{-- Station Create Modal --}}
-            <station-create-modal class="py-3"></station-create-modal>
+           
+            <div class="row py-3 justify-content-between">
+                <div class="col-md-4">
+                    <form action="{{ route('station.index') }}" method="GET">
+                        <div class="input-group">
+                            <input type="search" placeholder="Cari nama" name="keywords" class="form-control border-0" aria-label="Cari Station" value="{{ request('keywords') }}" />
+                            <div class="input-group-append text-primary">
+                                <button type="submit" class="btn bg-white border-0">
+                                    <span class="mdi mdi-magnify"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2 d-flex">
+                     {{-- Station Create Modal --}}
+                    <station-create-modal class="py-3"></station-create-modal>
+                </div>
+            </div>
+            
 
             {{-- Stations list --}}
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

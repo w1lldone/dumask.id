@@ -11,10 +11,17 @@ class StationController extends Controller
 
     public function index(Request $request)
     {
-        $this->authorize('viewAny', Station::class);
-        
         $station = $this->stationQuery(new Station, $request);
 
+        $this->authorize('viewAny', Station::class);
+
+        if ($request->filled('keywords')) {
+            $station = $station->where(function ($query) use ($request)
+            {
+                $query->where('name', 'like', "%{$request->keywords}%");
+            });
+        }
+        
         $stations = $station->paginate();
 
         return view('station.index', compact('stations'));

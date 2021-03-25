@@ -23,6 +23,13 @@
                         </x-nav-link>
                     </div>
                 @endcan
+                @can('viewAny', \App\Models\Station::class)
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('station.index')" :active="request()->routeIs('station.index')">
+                        {{ __('Stations') }}
+                    </x-nav-link>
+                </div>
+            @endcan
                 
             </div>
 
