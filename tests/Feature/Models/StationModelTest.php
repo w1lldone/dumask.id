@@ -79,4 +79,15 @@ class StationModelTest extends TestCase
         $this->assertEquals((string)$latitude, (string)$station->latitude);
         $this->assertEquals((string)$longitude, (string)$station->longitude);
     }
+
+    /** @test */
+    public function it_removes_dropboxes_after_deleted()
+    {
+        $station = Station::factory()->hasDropboxes(1)->create();
+        $dropbox = $station->dropboxes->first();
+
+        $station->delete();
+        
+        $this->assertDeleted($dropbox);
+    }
 }
