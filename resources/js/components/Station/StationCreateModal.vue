@@ -1,0 +1,175 @@
+<template>
+  <div>
+    <button
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#create-user-modal-id"
+    >
+      Create new Station
+    </button>
+    <div
+      class="modal fade"
+      id="create-user-modal-id"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modal-id"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header mx-4">
+            <h5
+              class="modal-title font-weight-bold text-muted"
+              id="modal-title"
+            >
+              Create Station
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-4">
+
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                :class="{ 'is-invalid': hasErrors('name') }"
+                v-model="form.name"
+              />
+              <div class="invalid-feedback">
+                {{ getErrors("name") }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Description</label>
+              <input type="text"
+              required 
+              v-model="form.description" 
+              class="form-control"
+              :class="{ 'is-invalid': hasErrors('description') }"
+              />
+              <div class="invalid-feedback">
+                {{ getErrors("description") }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text"
+              required 
+              v-model="form.address" 
+              class="form-control"
+              :class="{ 'is-invalid': hasErrors('address') }"
+              />
+              <div class="invalid-feedback">
+                {{ getErrors("address") }}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="longitude">Longitude</label>
+                <input type="text"
+                required 
+                v-model="form.longitude" 
+                class="form-control"
+                :class="{ 'is-invalid': hasErrors('longitude') }"
+                />
+                <div class="invalid-feedback">
+                  {{ getErrors("longitude") }}
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="latitude">Latitude</label>
+                <input type="text"
+                required 
+                v-model="form.latitude" 
+                class="form-control"
+                :class="{ 'is-invalid': hasErrors('latitude') }"
+                />
+                <div class="invalid-feedback">
+                  {{ getErrors("latitude") }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group mt-4 text-right">
+              <button
+                class="btn btn-success"
+                v-show="!isLoading"
+                @click="doSubmit()"
+              >
+                Save Station
+              </button>
+              <button class="btn btn-success" disabled v-show="isLoading">
+                Saving...
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "StationCreateModal",
+
+  data() {
+    return {
+      form: {
+        name: null,
+        description: null,
+        address: null,
+        longitude: null,
+        latitude: null,
+      },
+      isLoading: false,
+      errors: {},
+    };
+  },
+
+  methods: {
+    async doSubmit() {
+      this.isLoading = true;
+
+      try {
+        let response = await axios.post("/station", this.form);
+        return location.reload();
+      } catch (error) {
+        alert(error.response.data.message);
+        console.log(error.response);
+        this.errors = error.response.data.errors;
+      }
+
+      this.isLoading = false;
+    },
+    hasErrors(key) {
+      if (this.errors[key]) {
+        return true;
+      }
+
+      return false;
+    },
+    getErrors(key) {
+      if (this.hasErrors(key)) {
+        return this.errors[key].join(", ");
+      }
+
+      return "";
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+</style>

@@ -17,8 +17,7 @@ class StationController extends Controller
 
         $stations = $station->paginate();
 
-        // this will be replaced with view() response
-        return $stations;
+        return view('station.index', compact('stations'));
     }
 
     public function store(Request $request)
@@ -44,8 +43,7 @@ class StationController extends Controller
         
         $station->load('dropboxes');
 
-        // this will be replaced with view() response
-        return $station;
+        return view('station.show', compact('station'));
     }
 
     public function update(Station $station, Request $request)
