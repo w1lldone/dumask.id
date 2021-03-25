@@ -3,13 +3,13 @@
     <button
       class="btn btn-primary"
       data-toggle="modal"
-      data-target="#create-user-modal-id"
+      data-target="#create-station-modal-id"
     >
       Create new Station
     </button>
     <div
       class="modal fade"
-      id="create-user-modal-id"
+      id="create-station-modal-id"
       tabindex="-1"
       role="dialog"
       aria-labelledby="modal-id"

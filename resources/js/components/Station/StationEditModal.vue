@@ -1,15 +1,15 @@
 <template>
   <div>
     <button
-      class="btn btn-warning"
+      class="btn btn-primary"
       data-toggle="modal"
-      :data-target="'#edit-user-modal-' + editedUser.id"
+      data-target="#edit-station-modal-id"
     >
-      Edit
+      Edit Station
     </button>
     <div
       class="modal fade"
-      :id="'edit-user-modal-' + editedUser.id"
+      id="edit-station-modal-id"
       tabindex="-1"
       role="dialog"
       aria-labelledby="modal-id"
@@ -22,7 +22,7 @@
               class="modal-title font-weight-bold text-muted"
               id="modal-title"
             >
-              Edit User
+              Edit Station
             </h5>
             <button
               type="button"
@@ -34,6 +34,7 @@
             </button>
           </div>
           <div class="modal-body mx-4">
+
             <div class="form-group">
               <label for="name">Name</label>
               <input
@@ -46,65 +47,67 @@
                 {{ getErrors("name") }}
               </div>
             </div>
+
             <div class="form-group">
-              <label for="email">Email</label>
-              <input
-                type="email"
-                required
-                v-model="form.email"
-                class="form-control"
-                :class="{ 'is-invalid': hasErrors('email') }"
+              <label for="email">Description</label>
+              <input type="text"
+              required 
+              v-model="form.description" 
+              class="form-control"
+              :class="{ 'is-invalid': hasErrors('description') }"
               />
               <div class="invalid-feedback">
-                {{ getErrors("email") }}
+                {{ getErrors("description") }}
               </div>
             </div>
-            <div class="form-group py-2">
-              <div class="custom-control custom-checkbox form-check-inline">
-                <input
-                  type="checkbox"
-                  class="custom-control-input"
-                  :id="'checkbox-user-' + editedUser.id"
-                  v-model="form.is_superadmin"
-                />
-                <label
-                  class="custom-control-label"
-                  :for="'checkbox-user-' + editedUser.id"
-                  >Make user superadmin</label
-                >
-              </div>
-            </div>
-            <div class="form-group" v-if="form.is_superadmin == false">
-              <label for="permissions">Permissions</label>
-              <div
-                class="custom-control custom-checkbox form-check-inline"
-                v-for="(permission) in permissions"
-                :key="permission"
-              >
-                <input
-                  type="checkbox"
-                  class="custom-control-input"
-                  :id="`permission-${editedUser.id}-${permission}`"
-                  :value="permission"
-                  v-model="form.permissions"
-                />
-                <label
-                  class="custom-control-label"
-                  :for="`permission-${editedUser.id}-${permission}`"
-                  >{{ permission }}</label
-                >
-              </div>
+
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text"
+              required 
+              v-model="form.address" 
+              class="form-control"
+              :class="{ 'is-invalid': hasErrors('address') }"
+              />
               <div class="invalid-feedback">
-                {{ getErrors("permissions") }}
+                {{ getErrors("address") }}
               </div>
             </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="longitude">Longitude</label>
+                <input type="text"
+                required 
+                v-model="form.longitude" 
+                class="form-control"
+                :class="{ 'is-invalid': hasErrors('longitude') }"
+                />
+                <div class="invalid-feedback">
+                  {{ getErrors("longitude") }}
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="latitude">Latitude</label>
+                <input type="text"
+                required 
+                v-model="form.latitude" 
+                class="form-control"
+                :class="{ 'is-invalid': hasErrors('latitude') }"
+                />
+                <div class="invalid-feedback">
+                  {{ getErrors("latitude") }}
+                </div>
+              </div>
+            </div>
+
             <div class="form-group mt-4 text-right">
               <button
                 class="btn btn-success"
                 v-show="!isLoading"
                 @click="doSubmit()"
               >
-                Save user
+                Save Station
               </button>
               <button class="btn btn-success" disabled v-show="isLoading">
                 Saving...
@@ -119,12 +122,12 @@
 
 <script>
 export default {
-  name: "UserEditModal",
+  name: "StationEditModal",
+
   props: {
-    editedUser: {
+    station: {
       type: Object,
-    },
-    permissions: Array,
+    }
   },
 
   data() {
@@ -136,14 +139,14 @@ export default {
   },
 
   methods: {
+    mounted() {
+      this.form = {...this.station}
+    },
     async doSubmit() {
       this.isLoading = true;
 
       try {
-        let response = await axios.put(
-          "/user/" + this.editedUser.id.toString(),
-          this.form
-        );
+        let response = await axios.put("/station", this.form);
         return location.reload();
       } catch (error) {
         alert(error.response.data.message);
@@ -168,12 +171,6 @@ export default {
       return "";
     },
   },
-  mounted() {
-    this.form = {...this.editedUser}
-    if (this.form.permissions == null) {
-      this.form.permissions = []
-    }
-  }
 };
 </script>
 

@@ -2894,18 +2894,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
 //
 //
 //
@@ -3026,12 +3029,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "UserEditModal",
+  name: "StationEditModal",
   props: {
-    editedUser: {
+    station: {
       type: Object
-    },
-    permissions: Array
+    }
   },
   data: function data() {
     return {
@@ -3041,6 +3043,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
+    mounted: function mounted() {
+      this.form = _objectSpread({}, this.station);
+    },
     doSubmit: function doSubmit() {
       var _this = this;
 
@@ -3053,7 +3058,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this.isLoading = true;
                 _context.prev = 1;
                 _context.next = 4;
-                return axios.put("/user/" + _this.editedUser.id.toString(), _this.form);
+                return axios.put("/station", _this.form);
 
               case 4:
                 response = _context.sent;
@@ -3090,13 +3095,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return "";
-    }
-  },
-  mounted: function mounted() {
-    this.form = _objectSpread({}, this.editedUser);
-
-    if (this.form.permissions == null) {
-      this.form.permissions = [];
     }
   }
 });
@@ -56435,7 +56433,7 @@ var render = function() {
         staticClass: "btn btn-primary",
         attrs: {
           "data-toggle": "modal",
-          "data-target": "#create-user-modal-id"
+          "data-target": "#create-station-modal-id"
         }
       },
       [_vm._v("\n    Create new Station\n  ")]
@@ -56446,7 +56444,7 @@ var render = function() {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "create-user-modal-id",
+          id: "create-station-modal-id",
           tabindex: "-1",
           role: "dialog",
           "aria-labelledby": "modal-id",
@@ -56753,13 +56751,13 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-warning",
+        staticClass: "btn btn-primary",
         attrs: {
           "data-toggle": "modal",
-          "data-target": "#edit-user-modal-" + _vm.editedUser.id
+          "data-target": "#edit-station-modal-id"
         }
       },
-      [_vm._v("\n    Edit\n  ")]
+      [_vm._v("\n    Edit Station\n  ")]
     ),
     _vm._v(" "),
     _c(
@@ -56767,7 +56765,7 @@ var render = function() {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "edit-user-modal-" + _vm.editedUser.id,
+          id: "edit-station-modal-id",
           tabindex: "-1",
           role: "dialog",
           "aria-labelledby": "modal-id",
@@ -56822,27 +56820,29 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+                  _c("label", { attrs: { for: "email" } }, [
+                    _vm._v("Description")
+                  ]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.form.email,
-                        expression: "form.email"
+                        value: _vm.form.description,
+                        expression: "form.description"
                       }
                     ],
                     staticClass: "form-control",
-                    class: { "is-invalid": _vm.hasErrors("email") },
-                    attrs: { type: "email", required: "" },
-                    domProps: { value: _vm.form.email },
+                    class: { "is-invalid": _vm.hasErrors("description") },
+                    attrs: { type: "text", required: "" },
+                    domProps: { value: _vm.form.description },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.form, "email", $event.target.value)
+                        _vm.$set(_vm.form, "description", $event.target.value)
                       }
                     }
                   }),
@@ -56850,185 +56850,124 @@ var render = function() {
                   _c("div", { staticClass: "invalid-feedback" }, [
                     _vm._v(
                       "\n              " +
-                        _vm._s(_vm.getErrors("email")) +
+                        _vm._s(_vm.getErrors("description")) +
                         "\n            "
                     )
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "form-group py-2" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "custom-control custom-checkbox form-check-inline"
-                    },
-                    [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.is_superadmin,
-                            expression: "form.is_superadmin"
-                          }
-                        ],
-                        staticClass: "custom-control-input",
-                        attrs: {
-                          type: "checkbox",
-                          id: "checkbox-user-" + _vm.editedUser.id
-                        },
-                        domProps: {
-                          checked: Array.isArray(_vm.form.is_superadmin)
-                            ? _vm._i(_vm.form.is_superadmin, null) > -1
-                            : _vm.form.is_superadmin
-                        },
-                        on: {
-                          change: function($event) {
-                            var $$a = _vm.form.is_superadmin,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = null,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.form,
-                                    "is_superadmin",
-                                    $$a.concat([$$v])
-                                  )
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    _vm.form,
-                                    "is_superadmin",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
-                              }
-                            } else {
-                              _vm.$set(_vm.form, "is_superadmin", $$c)
-                            }
-                          }
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "address" } }, [
+                    _vm._v("Address")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.address,
+                        expression: "form.address"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.hasErrors("address") },
+                    attrs: { type: "text", required: "" },
+                    domProps: { value: _vm.form.address },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
                         }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "custom-control-label",
-                          attrs: { for: "checkbox-user-" + _vm.editedUser.id }
-                        },
-                        [_vm._v("Make user superadmin")]
-                      )
-                    ]
-                  )
+                        _vm.$set(_vm.form, "address", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "invalid-feedback" }, [
+                    _vm._v(
+                      "\n              " +
+                        _vm._s(_vm.getErrors("address")) +
+                        "\n            "
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
-                _vm.form.is_superadmin == false
-                  ? _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "permissions" } }, [
-                          _vm._v("Permissions")
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.permissions, function(permission) {
-                          return _c(
-                            "div",
-                            {
-                              key: permission,
-                              staticClass:
-                                "custom-control custom-checkbox form-check-inline"
-                            },
-                            [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.form.permissions,
-                                    expression: "form.permissions"
-                                  }
-                                ],
-                                staticClass: "custom-control-input",
-                                attrs: {
-                                  type: "checkbox",
-                                  id:
-                                    "permission-" +
-                                    _vm.editedUser.id +
-                                    "-" +
-                                    permission
-                                },
-                                domProps: {
-                                  value: permission,
-                                  checked: Array.isArray(_vm.form.permissions)
-                                    ? _vm._i(_vm.form.permissions, permission) >
-                                      -1
-                                    : _vm.form.permissions
-                                },
-                                on: {
-                                  change: function($event) {
-                                    var $$a = _vm.form.permissions,
-                                      $$el = $event.target,
-                                      $$c = $$el.checked ? true : false
-                                    if (Array.isArray($$a)) {
-                                      var $$v = permission,
-                                        $$i = _vm._i($$a, $$v)
-                                      if ($$el.checked) {
-                                        $$i < 0 &&
-                                          _vm.$set(
-                                            _vm.form,
-                                            "permissions",
-                                            $$a.concat([$$v])
-                                          )
-                                      } else {
-                                        $$i > -1 &&
-                                          _vm.$set(
-                                            _vm.form,
-                                            "permissions",
-                                            $$a
-                                              .slice(0, $$i)
-                                              .concat($$a.slice($$i + 1))
-                                          )
-                                      }
-                                    } else {
-                                      _vm.$set(_vm.form, "permissions", $$c)
-                                    }
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "custom-control-label",
-                                  attrs: {
-                                    for:
-                                      "permission-" +
-                                      _vm.editedUser.id +
-                                      "-" +
-                                      permission
-                                  }
-                                },
-                                [_vm._v(_vm._s(permission))]
-                              )
-                            ]
-                          )
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          _vm._v(
-                            "\n              " +
-                              _vm._s(_vm.getErrors("permissions")) +
-                              "\n            "
-                          )
-                        ])
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "form-group col-md-6" }, [
+                    _c("label", { attrs: { for: "longitude" } }, [
+                      _vm._v("Longitude")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.longitude,
+                          expression: "form.longitude"
+                        }
                       ],
-                      2
-                    )
-                  : _vm._e(),
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.hasErrors("longitude") },
+                      attrs: { type: "text", required: "" },
+                      domProps: { value: _vm.form.longitude },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "longitude", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(_vm.getErrors("longitude")) +
+                          "\n              "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group col-md-6" }, [
+                    _c("label", { attrs: { for: "latitude" } }, [
+                      _vm._v("Latitude")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.latitude,
+                          expression: "form.latitude"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      class: { "is-invalid": _vm.hasErrors("latitude") },
+                      attrs: { type: "text", required: "" },
+                      domProps: { value: _vm.form.latitude },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "latitude", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "invalid-feedback" }, [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(_vm.getErrors("latitude")) +
+                          "\n              "
+                      )
+                    ])
+                  ])
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group mt-4 text-right" }, [
                   _c(
@@ -57049,7 +56988,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("\n              Save user\n            ")]
+                    [_vm._v("\n              Save Station\n            ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -57089,7 +57028,7 @@ var staticRenderFns = [
           staticClass: "modal-title font-weight-bold text-muted",
           attrs: { id: "modal-title" }
         },
-        [_vm._v("\n            Edit User\n          ")]
+        [_vm._v("\n            Edit Station\n          ")]
       ),
       _vm._v(" "),
       _c(
