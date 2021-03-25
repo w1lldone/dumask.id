@@ -15,6 +15,14 @@ class UserController extends Controller
 
         $user = new User;
 
+        if ($request->filled('keywords')) {
+            $user = $user->where(function ($query) use ($request)
+            {
+                $query->where('name', 'like', "%{$request->keywords}%")
+                    ->orWhere('email', 'like', "%{$request->keywords}%");
+            });
+        }
+
         $users = $user->paginate();
 
         return view('user.index', compact('users'));
