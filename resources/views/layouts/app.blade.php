@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Dumask.id</title>
+        @env('production')
+            <meta name="google-site-verification" content="ZQmYpcWC-8MF6KLnmUF_rYWNLh10NSrhICri74g17gU">
+        @endenv
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
