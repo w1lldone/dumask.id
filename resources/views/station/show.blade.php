@@ -1,13 +1,8 @@
 <x-default-layout>
     <x-slot name="header">
-        <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item">
-                <a href="{{ route('station.index') }}">{{ __('Station') }}</a>
-            </li>
-            <li class="breadcrumb-item">
-                {{ $station->name}}
-            </li>
-        </ol>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <a href="{{ route('station.index') }}" style="text-decoration: none">{{ __('Stations List') }}</a> <span class="mdi mdi-chevron-right"></span> {{ $station->name }}
+        </h2>
     </x-slot>
 
     <div class="py-12">
