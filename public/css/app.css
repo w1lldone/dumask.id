@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap);
 @charset "UTF-8";
 
 /*!
@@ -10953,18 +10952,6 @@ a.text-dark:focus {
 
 .btn {
   font-family: "Helvetica", sans-serif;
-}
-
-.btn-google {
-  font-family: "Roboto", sans-serif !important;
-  font-weight: 500 !important;
-  color: #292929;
-  background-color: white;
-}
-
-.btn-google:hover {
-  background: #FFFFFF !important;
-  border-color: black !important;
 }
 
 
