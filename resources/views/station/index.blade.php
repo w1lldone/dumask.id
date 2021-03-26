@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-2 d-flex">
                      {{-- Station Create Modal --}}
-                    <station-create-modal class="py-3"></station-create-modal>
+                    <station-create-modal class="ml-auto"></station-create-modal>
                 </div>
             </div>
             

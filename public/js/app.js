@@ -3305,8 +3305,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _DeleteButton_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DeleteButton.vue */ "./resources/js/components/DeleteButton.vue");
-/* harmony import */ var _StationEditModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StationEditModal.vue */ "./resources/js/components/Station/StationEditModal.vue");
 //
 //
 //
@@ -3336,13 +3334,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {
-    DeleteButton: _DeleteButton_vue__WEBPACK_IMPORTED_MODULE_0__.default,
-    StationEditModal: _StationEditModal_vue__WEBPACK_IMPORTED_MODULE_1__.default
-  },
   name: "StationList",
   props: {
     initialStations: {
@@ -57668,7 +57660,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-2" }, [
+        _c("div", { staticClass: "col-md-3" }, [
           _vm._v("\n            " + _vm._s(station.description) + "\n        ")
         ]),
         _vm._v(" "),
@@ -57676,17 +57668,17 @@ var render = function() {
           _vm._v("\n            " + _vm._s(station.address) + "\n        ")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-1" }, [
+        _c("div", { staticClass: "col-md-1 text-center" }, [
           _vm._v(
             "\n            " + _vm._s(station.dropboxes_count) + "\n        "
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-3" }, [
+        _c("div", { staticClass: "col-md-2 text-right" }, [
           _c(
             "a",
             {
-              staticClass: "btn btn-primary",
+              staticClass: "btn btn-primary ",
               attrs: { href: "/station/" + station.id }
             },
             [_vm._v("\n            Detail Station\n            ")]
