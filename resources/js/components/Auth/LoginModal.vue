@@ -44,10 +44,19 @@
             </button>
           </div>
           <div class="modal-body mx-4">
-            <a href="/auth/google/redirect" class="btn btn-outline-dark w-100 my-2">
+            <a href="/auth/google/redirect" class="btn btn-outline-dark btn-google w-100 my-2">
                 <div class="d-flex">
-                    <img src="/img/icon_google.png" alt="" class="ml-auto my-auto" style="max-width: 16px; height: 16px;">
-                    <span class="mr-auto my-auto pl-3" style="color: #000000">MASUK DENGAN GOOGLE</span>
+                    <img 
+                    src="/img/icon_google.png" 
+                    alt="" 
+                    class="ml-auto my-auto" 
+                    style="max-width: 18px; height: 18px;">
+                    <span 
+                    class="mr-auto my-auto" 
+                    style="font-weight: 500; font-size: 14px; padding-left: 24px;"
+                    >
+                    Sign in with Google
+                    </span>
                 </div>
             </a>   
             
@@ -123,12 +132,21 @@
             </button>
           </div>
           <div class="modal-body mx-4">
-            <a href="/auth/google/redirect" class="btn btn-outline-dark w-100 my-2">
+            <a href="/auth/google/redirect" class="btn btn-outline-dark btn-google w-100 my-2">
                 <div class="d-flex">
-                    <img src="/img/icon_google.png" alt="" class="ml-auto my-auto" style="max-width: 16px; height: 16px;">
-                    <span class="mr-auto my-auto pl-3" style="color: #000000">MASUK DENGAN GOOGLE</span>
+                    <img 
+                    src="/img/icon_google.png" 
+                    alt="" 
+                    class="ml-auto my-auto" 
+                    style="max-width: 18px; height: 18px; padding-right: 24dp;">
+                    <span 
+                    class="mr-auto my-auto pl-3" 
+                    style="font-weight: 500; font-size: 14px; padding-left: 24px;"
+                    >
+                    Sign up with Google
+                    </span>
                 </div>
-            </a>     
+            </a>   
             
             <p 
                 class="text-center text-muted w-100 my-4" 

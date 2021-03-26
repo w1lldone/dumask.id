@@ -2064,6 +2064,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "LoginModal",
   data: function data() {
@@ -56101,24 +56119,32 @@ var staticRenderFns = [
     return _c(
       "a",
       {
-        staticClass: "btn btn-outline-dark w-100 my-2",
+        staticClass: "btn btn-outline-dark btn-google w-100 my-2",
         attrs: { href: "/auth/google/redirect" }
       },
       [
         _c("div", { staticClass: "d-flex" }, [
           _c("img", {
             staticClass: "ml-auto my-auto",
-            staticStyle: { "max-width": "16px", height: "16px" },
+            staticStyle: { "max-width": "18px", height: "18px" },
             attrs: { src: "/img/icon_google.png", alt: "" }
           }),
           _vm._v(" "),
           _c(
             "span",
             {
-              staticClass: "mr-auto my-auto pl-3",
-              staticStyle: { color: "#000000" }
+              staticClass: "mr-auto my-auto",
+              staticStyle: {
+                "font-weight": "500",
+                "font-size": "14px",
+                "padding-left": "24px"
+              }
             },
-            [_vm._v("MASUK DENGAN GOOGLE")]
+            [
+              _vm._v(
+                "\n                  Sign in with Google\n                  "
+              )
+            ]
           )
         ])
       ]
@@ -56183,14 +56209,18 @@ var staticRenderFns = [
     return _c(
       "a",
       {
-        staticClass: "btn btn-outline-dark w-100 my-2",
+        staticClass: "btn btn-outline-dark btn-google w-100 my-2",
         attrs: { href: "/auth/google/redirect" }
       },
       [
         _c("div", { staticClass: "d-flex" }, [
           _c("img", {
             staticClass: "ml-auto my-auto",
-            staticStyle: { "max-width": "16px", height: "16px" },
+            staticStyle: {
+              "max-width": "18px",
+              height: "18px",
+              "padding-right": "24dp"
+            },
             attrs: { src: "/img/icon_google.png", alt: "" }
           }),
           _vm._v(" "),
@@ -56198,9 +56228,17 @@ var staticRenderFns = [
             "span",
             {
               staticClass: "mr-auto my-auto pl-3",
-              staticStyle: { color: "#000000" }
+              staticStyle: {
+                "font-weight": "500",
+                "font-size": "14px",
+                "padding-left": "24px"
+              }
             },
-            [_vm._v("MASUK DENGAN GOOGLE")]
+            [
+              _vm._v(
+                "\n                  Sign up with Google\n                  "
+              )
+            ]
           )
         ])
       ]
