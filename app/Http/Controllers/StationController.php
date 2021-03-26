@@ -11,16 +11,9 @@ class StationController extends Controller
 
     public function index(Request $request)
     {
-        $station = $this->stationQuery(new Station, $request);
-
         $this->authorize('viewAny', Station::class);
-
-        if ($request->filled('keywords')) {
-            $station = $station->where(function ($query) use ($request)
-            {
-                $query->where('name', 'like', "%{$request->keywords}%");
-            });
-        }
+        
+        $station = $this->stationQuery(new Station, $request);
         
         $stations = $station->paginate();
 
