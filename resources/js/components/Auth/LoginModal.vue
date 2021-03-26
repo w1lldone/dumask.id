@@ -33,7 +33,6 @@
                 BERSAMA DUMASK.ID
                 </h5>
               </div>
-            
             <button
               type="button"
               class="close"
@@ -67,10 +66,10 @@
             </div>  
             
             <p 
-                class="text-center text-muted w-100 my-4" 
-                style="border-bottom: 1px solid #D5D5D5; line-height: 0.1em; margin: 10px 0 20px;"
+              class="text-center text-muted w-100 my-4" 
+              style="border-bottom: 1px solid #D5D5D5; line-height: 0.1em; margin: 10px 0 20px;"
             >
-                <span style="background:#fff; padding:0 10px;">atau</span>
+              <span style="background:#fff; padding:0 10px;">atau</span>
             </p>
 
             <div class="form-group">
@@ -159,13 +158,12 @@
                 </div>
               </a>   
             </div>
-            
-            
+
             <p 
-                class="text-center text-muted w-100 my-4" 
-                style="border-bottom: 1px solid #D5D5D5; line-height: 0.1em; margin: 10px 0 20px;"
+              class="text-center text-muted w-100 my-4" 
+              style="border-bottom: 1px solid #D5D5D5; line-height: 0.1em; margin: 10px 0 20px;"
             >
-                <span style="background:#fff; padding:0 10px;">atau</span>
+              <span style="background:#fff; padding:0 10px;">atau</span>
             </p>
 
             <div class="form-group">
@@ -229,23 +227,6 @@
   </div>
 </template>
 
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-    .btn-google{
-      font-family: 'Roboto', sans-serif !important;
-      font-weight: 500 !important;
-      color: #292929;
-      background-color: white;
-    }
-
-    .btn-google:hover{
-      background: #FFFFFF !important;
-      border-color: black !important;
-    }
-</style>
-
-
-
 <script>
 export default {
   name: "LoginModal",
@@ -296,9 +277,6 @@ export default {
     toggleModalType(){
       this.isPageLogin = !this.isPageLogin;
     },
-
-    
-
     hasErrors(key) {
       if (this.errors[key]) {
         return true;
@@ -318,4 +296,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+  .btn-google{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 500 !important;
+    color: #292929;
+    background-color: white;
+  }
+
+  .btn-google:hover{
+    background: #FFFFFF !important;
+    border-color: black !important;
+  }
 </style>
