@@ -1,17 +1,21 @@
 <x-default-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Stations Show') }} {{ $station->name}}
-        </h2>
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+                <a href="{{ route('station.index') }}">{{ __('Station') }}</a>
+            </li>
+            <li class="breadcrumb-item">
+                {{ $station->name}}
+            </li>
+        </ol>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex col-md-4">
+            <div class="flex">
                 <station-edit-modal :station='{{ json_encode($station) }}'></station-edit-modal>
-                <station-delete-modal :station='{{ json_encode($station) }}'></station-delete-modal>
             </div>
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg my-4">
                 <div class="container py-4">
                     <h3>
                         {{ $station->name}}
@@ -31,9 +35,11 @@
                         <station-dropbox-list :station='{{ json_encode($station) }}'></station-edit-modal>
                     </div>
                 </div>
-                
             </div>
-
+            <div class="flex">
+                <station-delete-modal class="ml-auto" :station='{{ json_encode($station) }}'></station-delete-modal>
+            </div>
+            
         </div>
     </div>
 </x-default-layout>

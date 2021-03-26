@@ -6,19 +6,19 @@
                     {{ station.name }}
                 </h5>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 {{ station.description }}
             </div>
             <div class="col-md-3">
                 {{ station.address }}
             </div>
-            <div class="col-md-1">
+            <div class="col-md-1 text-center">
                 {{ station.dropboxes_count }}
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2 text-right">
                 <a
                     :href = "'/station/' + station.id"
-                    class="btn btn-primary"
+                    class="btn btn-primary "
                 >
                 Detail Station
                 </a>
@@ -28,10 +28,7 @@
 </template>
 
 <script>
-import DeleteButton from '../DeleteButton.vue'
-import StationEditModal from './StationEditModal.vue'
     export default {
-  components: { DeleteButton, StationEditModal },
         name: "StationList",
 
         props: {
