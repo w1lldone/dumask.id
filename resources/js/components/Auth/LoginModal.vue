@@ -33,7 +33,6 @@
                 BERSAMA DUMASK.ID
                 </h5>
               </div>
-            
             <button
               type="button"
               class="close"
@@ -44,18 +43,33 @@
             </button>
           </div>
           <div class="modal-body mx-4">
-            <a href="/auth/google/redirect" class="btn btn-outline-dark w-100 my-2">
-                <div class="d-flex">
-                    <img src="/img/icon_google.png" alt="" class="ml-auto my-auto" style="max-width: 16px; height: 16px;">
-                    <span class="mr-auto my-auto pl-3" style="color: #000000">MASUK DENGAN GOOGLE</span>
+            <div class="flex text-center">
+              <a 
+                href="/auth/google/redirect" 
+                class="btn btn-outline-dark btn-google my-2 mx-auto"
+                style="padding-right: 8px; padding-left: 8px; height: 40px"
+              >
+                <div class="d-flex h-100">
+                    <img 
+                      src="/img/icon_google.png" 
+                      alt="" 
+                      class="ml-auto my-auto" 
+                      style="max-width: 18px; height: 18px;">
+                    <span 
+                      class="mr-auto my-auto" 
+                      style="font-weight: 500; font-size: 14px; padding-left: 24px;"
+                    >
+                    Sign in with Google
+                    </span>
                 </div>
-            </a>   
+              </a>   
+            </div>  
             
             <p 
-                class="text-center text-muted w-100 my-4" 
-                style="border-bottom: 1px solid #D5D5D5; line-height: 0.1em; margin: 10px 0 20px;"
+              class="text-center text-muted w-100 my-4" 
+              style="border-bottom: 1px solid #D5D5D5; line-height: 0.1em; margin: 10px 0 20px;"
             >
-                <span style="background:#fff; padding:0 10px;">atau</span>
+              <span style="background:#fff; padding:0 10px;">atau</span>
             </p>
 
             <div class="form-group">
@@ -123,18 +137,33 @@
             </button>
           </div>
           <div class="modal-body mx-4">
-            <a href="/auth/google/redirect" class="btn btn-outline-dark w-100 my-2">
-                <div class="d-flex">
-                    <img src="/img/icon_google.png" alt="" class="ml-auto my-auto" style="max-width: 16px; height: 16px;">
-                    <span class="mr-auto my-auto pl-3" style="color: #000000">MASUK DENGAN GOOGLE</span>
+            <div class="flex text-center">
+              <a 
+                href="/auth/google/redirect" 
+                class="btn btn-outline-dark btn-google my-2 mx-auto"
+                style="padding-right: 8px; padding-left: 8px; height: 40px"
+              >
+                <div class="d-flex h-100">
+                    <img 
+                      src="/img/icon_google.png" 
+                      alt="" 
+                      class="ml-auto my-auto" 
+                      style="max-width: 18px; height: 18px;">
+                    <span 
+                      class="mr-auto my-auto" 
+                      style="font-weight: 500; font-size: 14px; padding-left: 24px;"
+                    >
+                    Sign up with Google
+                    </span>
                 </div>
-            </a>     
-            
+              </a>   
+            </div>
+
             <p 
-                class="text-center text-muted w-100 my-4" 
-                style="border-bottom: 1px solid #D5D5D5; line-height: 0.1em; margin: 10px 0 20px;"
+              class="text-center text-muted w-100 my-4" 
+              style="border-bottom: 1px solid #D5D5D5; line-height: 0.1em; margin: 10px 0 20px;"
             >
-                <span style="background:#fff; padding:0 10px;">atau</span>
+              <span style="background:#fff; padding:0 10px;">atau</span>
             </p>
 
             <div class="form-group">
@@ -248,9 +277,6 @@ export default {
     toggleModalType(){
       this.isPageLogin = !this.isPageLogin;
     },
-
-    
-
     hasErrors(key) {
       if (this.errors[key]) {
         return true;
@@ -270,4 +296,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+  .btn-google{
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 500 !important;
+    color: #292929;
+    background-color: white;
+  }
+
+  .btn-google:hover{
+    background: #FFFFFF !important;
+    border-color: black !important;
+  }
 </style>
