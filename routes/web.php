@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StationController;
+use App\Http\Controllers\StationDropboxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,10 @@ Route::prefix('user')->name('user.')->middleware('auth')->group(function ()
     Route::delete('/{user}', [UserController::class, 'destroy'])->name('delete');
 });
 
-Route::middleware('auth')->resource('station', StationController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
+Route::middleware('auth')
+    ->resource('station', StationController::class)
+    ->only(['index', 'show', 'store', 'update', 'destroy']);
+
+Route::middleware('auth')
+    ->resource('station.dropbox', StationDropboxController::class)
+    ->only(['store', 'update', 'destroy']);
