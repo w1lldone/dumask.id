@@ -7,6 +7,12 @@
             <div class="col-md-3">
                 {{ dropboxes.model }}
             </div>
+            <div class="col-md-3">
+                <dropbox-edit-modal :dropbox="dropboxes"></dropbox-edit-modal>
+            </div>
+            <div class="col-md-3">
+                <dropbox-delete-modal :dropbox="dropboxes"></dropbox-delete-modal>
+            </div>
         </div>
     </div>
 </template>
@@ -16,10 +22,10 @@
         name: "StationDropboxList",
 
         props: {
-    station: {
-      type: Object,
-    }
-  },
+            station: {
+                type: Object,
+            }
+        },
 
         data() {
             return {

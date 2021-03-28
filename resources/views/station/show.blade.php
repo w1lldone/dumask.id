@@ -27,6 +27,7 @@
                         <span class="badge badge-primary">Total: {{ $station->dropboxes_count }}</span>
                     </div>
                     <div class="py-2">
+                        <dropbox-create-modal :station='{{ json_encode($station) }}'></dropbox-create-modal>
                         <station-dropbox-list :station='{{ json_encode($station) }}'></station-edit-modal>
                     </div>
                 </div>
