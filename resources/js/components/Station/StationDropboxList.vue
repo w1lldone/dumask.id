@@ -8,7 +8,7 @@
                 {{ dropboxes.model }}
             </div>
             <div class="col-md-3">
-                <dropbox-edit-modal :dropbox="dropboxes"></dropbox-edit-modal>
+                <dropbox-edit-modal :dropbox="dropboxes" :colors='colors' :models='models'></dropbox-edit-modal>
             </div>
             <div class="col-md-3">
                 <dropbox-delete-modal :dropbox="dropboxes"></dropbox-delete-modal>
@@ -24,6 +24,12 @@
         props: {
             station: {
                 type: Object,
+            },
+            colors: {
+                type: Array,
+            },
+            models: {
+                type: Array,
             }
         },
 

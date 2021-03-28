@@ -35,7 +35,7 @@
           </div>
           <div class="modal-body mx-4">
 
-            <div class="form-group">
+            <div class="form-group" >
               <label for="color">Color</label>
               <select 
                 name="color" 
@@ -44,25 +44,35 @@
                 :class="{ 'is-invalid': hasErrors('color') }"
                 v-model="form.color"
               >
-                  <option value="green">Hijau</option>
-                  <option value="yellow">Kuning</option>
+                <option 
+                v-for="(color) in colors"
+                :key="color"
+                :value="color"
+                >
+                  {{ color }}
+                </option>
               </select>
               <div class="invalid-feedback">
                 {{ getErrors("color") }}
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" >
               <label for="model">Model</label>
               <select 
                 name="model" 
                 id="model"
                 class="form-control"
-                :class="{ 'is-invalid': hasErrors('model') }"
+                :class="{ 'is-invalid': hasErrors('models') }"
                 v-model="form.model"
               >
-                  <option value="front_loading">Front Loading</option>
-                  <option value="top_loading">Top Loading</option>
+                <option 
+                v-for="(model) in models"
+                :key="model"
+                :value="model"
+                >
+                  {{ model }}
+                </option>
               </select>
               <div class="invalid-feedback">
                 {{ getErrors("model") }}
@@ -95,6 +105,12 @@ export default {
   props: {
     station: {
       type: Object
+    },
+    models: {
+      type: Array
+    },
+    colors: {
+      type: Array
     }
   },
 

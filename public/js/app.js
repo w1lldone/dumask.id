@@ -2401,11 +2401,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "DropboxCreateModal",
   props: {
     station: {
       type: Object
+    },
+    models: {
+      type: Array
+    },
+    colors: {
+      type: Array
     }
   },
   data: function data() {
@@ -2754,11 +2770,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "DropboxEditModal",
   props: {
     dropbox: {
       type: Object
+    },
+    models: {
+      type: Array
+    },
+    colors: {
+      type: Array
     }
   },
   data: function data() {
@@ -3652,6 +3684,12 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     station: {
       type: Object
+    },
+    colors: {
+      type: Array
+    },
+    models: {
+      type: Array
     }
   },
   data: function data() {
@@ -57310,15 +57348,20 @@ var render = function() {
                         }
                       }
                     },
-                    [
-                      _c("option", { attrs: { value: "green" } }, [
-                        _vm._v("Hijau")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "yellow" } }, [
-                        _vm._v("Kuning")
-                      ])
-                    ]
+                    _vm._l(_vm.colors, function(color) {
+                      return _c(
+                        "option",
+                        { key: color, domProps: { value: color } },
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(color) +
+                              "\n              "
+                          )
+                        ]
+                      )
+                    }),
+                    0
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "invalid-feedback" }, [
@@ -57345,7 +57388,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      class: { "is-invalid": _vm.hasErrors("model") },
+                      class: { "is-invalid": _vm.hasErrors("models") },
                       attrs: { name: "model", id: "model" },
                       on: {
                         change: function($event) {
@@ -57367,15 +57410,20 @@ var render = function() {
                         }
                       }
                     },
-                    [
-                      _c("option", { attrs: { value: "front_loading" } }, [
-                        _vm._v("Front Loading")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "top_loading" } }, [
-                        _vm._v("Top Loading")
-                      ])
-                    ]
+                    _vm._l(_vm.models, function(model) {
+                      return _c(
+                        "option",
+                        { key: model, domProps: { value: model } },
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(model) +
+                              "\n              "
+                          )
+                        ]
+                      )
+                    }),
+                    0
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "invalid-feedback" }, [
@@ -57725,15 +57773,20 @@ var render = function() {
                         }
                       }
                     },
-                    [
-                      _c("option", { attrs: { value: "green" } }, [
-                        _vm._v("Hijau")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "yellow" } }, [
-                        _vm._v("Kuning")
-                      ])
-                    ]
+                    _vm._l(_vm.colors, function(color) {
+                      return _c(
+                        "option",
+                        { key: color, domProps: { value: color } },
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(color) +
+                              "\n              "
+                          )
+                        ]
+                      )
+                    }),
+                    0
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "invalid-feedback" }, [
@@ -57760,7 +57813,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      class: { "is-invalid": _vm.hasErrors("model") },
+                      class: { "is-invalid": _vm.hasErrors("models") },
                       attrs: { name: "model", id: "model" },
                       on: {
                         change: function($event) {
@@ -57782,15 +57835,20 @@ var render = function() {
                         }
                       }
                     },
-                    [
-                      _c("option", { attrs: { value: "front_loading" } }, [
-                        _vm._v("Front Loading")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "top_loading" } }, [
-                        _vm._v("Top Loading")
-                      ])
-                    ]
+                    _vm._l(_vm.models, function(model) {
+                      return _c(
+                        "option",
+                        { key: model, domProps: { value: model } },
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(model) +
+                              "\n              "
+                          )
+                        ]
+                      )
+                    }),
+                    0
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "invalid-feedback" }, [
@@ -58138,8 +58196,8 @@ var render = function() {
                     [
                       _c("l-icon", {
                         attrs: {
-                          "icon-url": "/img/pin_location.svg",
-                          "icon-size": [35, 35 * 1.15],
+                          "icon-url": "/img/pin_user.svg",
+                          "icon-size": [30, 30 * 1.15],
                           "icon-anchor": _vm.anchor
                         }
                       }),
@@ -58932,7 +58990,15 @@ var render = function() {
         _c(
           "div",
           { staticClass: "col-md-3" },
-          [_c("dropbox-edit-modal", { attrs: { dropbox: dropboxes } })],
+          [
+            _c("dropbox-edit-modal", {
+              attrs: {
+                dropbox: dropboxes,
+                colors: _vm.colors,
+                models: _vm.models
+              }
+            })
+          ],
           1
         ),
         _vm._v(" "),
