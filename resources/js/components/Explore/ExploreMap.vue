@@ -66,6 +66,19 @@
           :lat-lng="[station.latitude, station.longitude]"
           @click="showMarkerModal(station)"
         >
+          <l-icon
+            v-if="station.dropboxes_count"
+            icon-url="/img/pin_location.svg"
+            :icon-size="[30, 30 * 1.15]"
+            :icon-anchor="anchor"
+          ></l-icon>
+          <!-- Stations with no dropbox -->
+          <l-icon
+            v-else
+            icon-url="/img/pin_location_dark.svg"
+            :icon-size="[30, 30 * 1.15]"
+            :icon-anchor="anchor"
+          ></l-icon>
         </l-marker>
 
         <!-- Marker for users -->

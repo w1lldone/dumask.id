@@ -2443,6 +2443,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ExploreMap",
@@ -2624,6 +2637,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -56640,15 +56660,36 @@ var render = function() {
             },
             [
               _vm._l(_vm.stations, function(station) {
-                return _c("l-marker", {
-                  key: station.id,
-                  attrs: { "lat-lng": [station.latitude, station.longitude] },
-                  on: {
-                    click: function($event) {
-                      return _vm.showMarkerModal(station)
+                return _c(
+                  "l-marker",
+                  {
+                    key: station.id,
+                    attrs: { "lat-lng": [station.latitude, station.longitude] },
+                    on: {
+                      click: function($event) {
+                        return _vm.showMarkerModal(station)
+                      }
                     }
-                  }
-                })
+                  },
+                  [
+                    station.dropboxes_count
+                      ? _c("l-icon", {
+                          attrs: {
+                            "icon-url": "/img/pin_location.svg",
+                            "icon-size": [30, 30 * 1.15],
+                            "icon-anchor": _vm.anchor
+                          }
+                        })
+                      : _c("l-icon", {
+                          attrs: {
+                            "icon-url": "/img/pin_location_dark.svg",
+                            "icon-size": [30, 30 * 1.15],
+                            "icon-anchor": _vm.anchor
+                          }
+                        })
+                  ],
+                  1
+                )
               }),
               _vm._v(" "),
               _vm.form.latitude
@@ -56765,57 +56806,95 @@ var render = function() {
                   _vm._v(" "),
                   _c("p", [_vm._v(_vm._s(_vm.station.address))]),
                   _vm._v(" "),
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _vm.distance
+                  _vm.station.dropboxes_count
                     ? _c("div", [
-                        _c("span", {
-                          staticClass: "mdi mdi-crosshairs-gps text-secondary"
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
+                        _c("div", [
+                          _c("span", {
                             staticClass:
-                              "text-secondary font-weight-bold align-middle ml-2"
-                          },
-                          [
-                            _vm._v(
-                              _vm._s(_vm.distance) + " km dari lokasi Anda"
-                            )
-                          ]
-                        )
+                              "mdi mdi-archive-outline text-secondary"
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "text-secondary font-weight-bold align-middle ml-2"
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(_vm.station.dropboxes_count) +
+                                  " Dropbox tersedia"
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _vm.distance
+                          ? _c("div", [
+                              _c("span", {
+                                staticClass:
+                                  "mdi mdi-crosshairs-gps text-secondary"
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "text-secondary font-weight-bold align-middle ml-2"
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(_vm.distance) +
+                                      " km dari lokasi Anda"
+                                  )
+                                ]
+                              )
+                            ])
+                          : _c("div", [
+                              _c("span", {
+                                staticClass: "mdi mdi-crosshairs text-muted"
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "text-muted font-weight-bold align-middle ml-2"
+                                },
+                                [
+                                  _vm._v(
+                                    "Nyalakan lokasi untuk menghitung jarak"
+                                  )
+                                ]
+                              )
+                            ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "text-right" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn btn-primary shadow",
+                              attrs: { target: "_blank", href: _vm.routeUrl }
+                            },
+                            [
+                              _vm._v("ROUTE "),
+                              _c("span", { staticClass: "mdi mdi-open-in-new" })
+                            ]
+                          )
+                        ])
                       ])
                     : _c("div", [
-                        _c("span", {
-                          staticClass: "mdi mdi-crosshairs text-muted"
-                        }),
-                        _vm._v(" "),
                         _c(
-                          "span",
+                          "h5",
                           {
                             staticClass:
-                              "text-muted font-weight-bold align-middle ml-2"
+                              "text-secondary text-center font-weight-bold my-4"
                           },
-                          [_vm._v("Nyalakan lokasi untuk menghitung jarak")]
+                          [_vm._v("This location is coming soon.")]
                         )
-                      ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text-right" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary shadow",
-                        attrs: { target: "_blank", href: _vm.routeUrl }
-                      },
-                      [
-                        _vm._v("ROUTE "),
-                        _c("span", { staticClass: "mdi mdi-open-in-new" })
-                      ]
-                    )
-                  ])
+                      ])
                 ])
               ])
             ])
@@ -56864,20 +56943,6 @@ var staticRenderFns = [
         staticStyle: { "max-height": "200px" },
         attrs: { src: "img/dummy_image.png", alt: "" }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("span", { staticClass: "mdi mdi-archive-outline text-secondary" }),
-      _vm._v(" "),
-      _c(
-        "span",
-        { staticClass: "text-secondary font-weight-bold align-middle ml-2" },
-        [_vm._v("2 Dropbox tersedia")]
-      )
     ])
   },
   function() {
