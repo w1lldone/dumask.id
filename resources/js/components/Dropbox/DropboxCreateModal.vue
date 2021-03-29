@@ -129,7 +129,7 @@ export default {
   methods: {
     async doSubmit() {
       this.isLoading = true;
-      var url = "/station/" + this.station.id + "/dropbox/";
+      var url = "/station/" + this.station.id + "/dropbox";
       try {
         let response = await axios.post(url, this.form);
         return location.reload();
