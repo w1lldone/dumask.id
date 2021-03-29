@@ -88,6 +88,9 @@
                                                 </x-nav-link>
                                             </div> --}}
                                         @endcan
+                                        @can('viewAny', \App\Models\Station::class)
+                                            <a class="dropdown-item text-primary" href="{{ route('station.index') }}" >Manage Station</a>
+                                        @endcan
                                         
                                         {{-- Logout --}}
                                         <a class="dropdown-item text-primary" href="{{ route('logout') }}"

@@ -27,7 +27,8 @@
                         <span class="badge badge-primary">Total: {{ $station->dropboxes_count }}</span>
                     </div>
                     <div class="py-2">
-                        <station-dropbox-list :station='{{ json_encode($station) }}'></station-edit-modal>
+                        <dropbox-create-modal :station='{{ json_encode($station) }}' :colors='@json(\App\Models\Dropbox::$availableColors)' :models='@json(\App\Models\Dropbox::$availableModels)'></dropbox-create-modal>
+                        <station-dropbox-list :station='{{ json_encode($station) }}' :colors='@json(\App\Models\Dropbox::$availableColors)' :models='@json(\App\Models\Dropbox::$availableModels)'></station-edit-modal>
                     </div>
                 </div>
             </div>
