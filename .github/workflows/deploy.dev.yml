@@ -16,4 +16,11 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
-          script: cd ${{ secrets.PROJECT_PATH }} && git pull
+          script: |
+            cd ${{ secrets.PROJECT_PATH }}
+            php artisan down
+            git pull
+            composer install --no-interaction --prefer-dist --optimize-autoloader
+            php artisan migrate --force
+            php artisan optimize
+            php artisan up
