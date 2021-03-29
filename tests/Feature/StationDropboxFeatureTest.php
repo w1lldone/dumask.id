@@ -10,7 +10,7 @@ use Tests\TestCase;
 
 class StationDropboxFeatureTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, WithFaker;
 
     /**
      * Station
@@ -52,8 +52,8 @@ class StationDropboxFeatureTest extends TestCase
             'color' => Dropbox::$availableModels[0]
         ]);
         $data = [
-            'model' => 'front_loading',
-            'color' => 'green'
+            'color' => $this->faker->randomElement(Dropbox::$availableColors),
+            'model' => $this->faker->randomElement(Dropbox::$availableModels),
         ];
 
         $response = $this->putJson(

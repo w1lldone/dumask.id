@@ -11,8 +11,8 @@ class Dropbox extends Model
 
     protected $guarded = ['id'];
 
-    static public $availableModels = ['circle_hole', 'rectangle_hole'];
-    static public $availableColors = ['yellow', 'green'];
+    static public $availableModels = ['lubang bulat', 'lubang kotak'];
+    static public $availableColors = ['kuning', 'hijau'];
 
     public function station()
     {
