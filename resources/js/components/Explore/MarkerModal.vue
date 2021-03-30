@@ -16,24 +16,29 @@
                         <div class="mt-4">
                             <h5 class="text-secondary font-weight-bold">{{ station.name }}</h5>
                             <p>{{ station.address }}</p>
-                            <div>
-                                <span class="mdi mdi-archive-outline text-secondary"></span>
-                                <span class="text-secondary font-weight-bold align-middle ml-2">2 Dropbox tersedia</span>
-                            </div>
-                            <div>
-                                <img src="img/icon_clock.svg" alt="" style="max-height:16px">
-                                <span class="text-secondary font-weight-bold align-middle ml-2">07.00 - 20.00 WIB</span>
-                            </div>
-                            <div v-if="distance">
-                                <span class="mdi mdi-crosshairs-gps text-secondary"></span>
-                                <span class="text-secondary font-weight-bold align-middle ml-2">{{ distance }} km dari lokasi Anda</span>
+                            <div v-if="station.dropboxes_count">
+                                <div>
+                                    <span class="mdi mdi-archive-outline text-secondary"></span>
+                                    <span class="text-secondary font-weight-bold align-middle ml-2">{{ station.dropboxes_count }} Dropbox tersedia</span>
+                                </div>
+                                <div>
+                                    <img src="img/icon_clock.svg" alt="" style="max-height:16px">
+                                    <span class="text-secondary font-weight-bold align-middle ml-2">07.00 - 20.00 WIB</span>
+                                </div>
+                                <div v-if="distance">
+                                    <span class="mdi mdi-crosshairs-gps text-secondary"></span>
+                                    <span class="text-secondary font-weight-bold align-middle ml-2">{{ distance }} km dari lokasi Anda</span>
+                                </div>
+                                <div v-else>
+                                    <span class="mdi mdi-crosshairs text-muted"></span>
+                                    <span class="text-muted font-weight-bold align-middle ml-2">Nyalakan lokasi untuk menghitung jarak</span>
+                                </div>
+                                <div class="text-right">
+                                    <a target="_blank" class="btn btn-primary shadow" :href="routeUrl">ROUTE <span class="mdi mdi-open-in-new"></span></a>
+                                </div>
                             </div>
                             <div v-else>
-                                <span class="mdi mdi-crosshairs text-muted"></span>
-                                <span class="text-muted font-weight-bold align-middle ml-2">Nyalakan lokasi untuk menghitung jarak</span>
-                            </div>
-                            <div class="text-right">
-                                <a target="_blank" class="btn btn-primary shadow" :href="routeUrl">ROUTE <span class="mdi mdi-open-in-new"></span></a>
+                                <h5 class="text-secondary text-center font-weight-bold my-4">Dropbox DUMASK.ID akan segera hadir di lokasi ini.</h5>
                             </div>
                         </div>
                     </div>
