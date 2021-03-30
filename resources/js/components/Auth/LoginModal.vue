@@ -20,19 +20,7 @@
     >
       <div class="modal-dialog modal-dialog-centered" v-show="isPageLogin" role="document">
         <div class="modal-content">
-          <div class="modal-header border-0 mx-4">
-              <div class="flex">
-                <h2
-                class="modal-title font-weight-bold text-primary"
-                >
-                MARI BERGABUNG
-                </h2>
-                <h5
-                class="modal-title font-weight-bold text-secondary"
-                >
-                BERSAMA DUMASK.ID
-                </h5>
-              </div>
+          <div class="modal-header border-0">
             <button
               type="button"
               class="close"
@@ -42,7 +30,19 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body mx-4">
+          <div class="modal-body mx-4 pt-0">
+            <div class="text-center mb-3">
+              <h2
+              class="modal-title font-weight-bold text-primary"
+              >
+              SELAMAT DATANG
+              </h2>
+              <h5
+              class="modal-title font-weight-bold text-secondary"
+              >
+              Temukan DUMASK.ID di sekitarmu
+              </h5>
+            </div>
             <div class="flex text-center">
               <a 
                 href="/auth/google/redirect" 
@@ -113,8 +113,18 @@
 
       <div class="modal-dialog modal-dialog-centered" v-show="!isPageLogin" role="document">
         <div class="modal-content">
-          <div class="modal-header border-0 mx-4">
-              <div class="flex">
+          <div class="modal-header border-0 mx-4">            
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-4 pt-0">
+            <div class="flex text-center mb-3">
                 <h2
                 class="modal-title font-weight-bold text-primary"
                 >
@@ -126,17 +136,6 @@
                 BERSAMA DUMASK.ID
                 </h5>
               </div>
-            
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body mx-4">
             <div class="flex text-center">
               <a 
                 href="/auth/google/redirect" 
