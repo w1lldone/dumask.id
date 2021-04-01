@@ -19,6 +19,11 @@ class Station extends Model
         return $this->hasMany('App\Models\Dropbox');
     }
 
+    public function schedules()
+    {
+        return $this->hasMany('App\Models\Schedule');
+    }
+
     /**
      * Scope a query to include distance of the given coordincates
      *

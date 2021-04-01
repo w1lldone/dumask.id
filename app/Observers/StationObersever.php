@@ -37,6 +37,7 @@ class StationObersever
     public function deleted(Station $station)
     {
         $station->dropboxes()->delete();
+        $station->schedules()->delete();
     }
 
     /**
