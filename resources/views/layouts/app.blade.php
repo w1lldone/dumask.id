@@ -48,7 +48,7 @@
                             </li>
                             <li class="nav-item">
                                 <a 
-                                class="nav-link text-secondary font-weight-bold px-3 {{ Request::is('/about') ? 'text-primary' : 'text-secondary' }}" 
+                                class="nav-link font-weight-bold px-3 {{ Request::is('about') ? 'text-primary' : 'text-secondary' }}" 
                                 href=""
                                 >
                                 About Us
@@ -56,7 +56,7 @@
                             </li>
                             <li class="nav-item">
                                 <a 
-                                class="nav-link text-secondary font-weight-bold px-3 {{ Request::is('/contact') ? 'text-primary' : 'text-secondary' }}" 
+                                class="nav-link font-weight-bold px-3 {{ Request::is('contact') ? 'text-primary' : 'text-secondary' }}" 
                                 href=""
                                 >
                                 Contact
