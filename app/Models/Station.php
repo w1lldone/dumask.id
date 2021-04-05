@@ -13,10 +13,16 @@ class Station extends Model
 
     protected $guarded = ['id'];
     protected $withCount = ['dropboxes'];
+    protected $with = ['schedules'];
 
     public function dropboxes()
     {
         return $this->hasMany('App\Models\Dropbox');
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany('App\Models\Schedule');
     }
 
     /**
