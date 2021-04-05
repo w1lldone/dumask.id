@@ -13,6 +13,7 @@ class Station extends Model
 
     protected $guarded = ['id'];
     protected $withCount = ['dropboxes'];
+    protected $with = ['schedules'];
 
     public function dropboxes()
     {
