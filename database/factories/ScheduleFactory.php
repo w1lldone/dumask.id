@@ -25,8 +25,8 @@ class ScheduleFactory extends Factory
         return [
             'station_id' => Station::factory(),
             'day' => $this->faker->randomElement([0, 1, 2, 3, 4, 5, 6]),
-            'opened_at' => now()->setTime(7,0),
-            'closed_at' => now()->setTime(20,0),
+            'opened_at' => now()->setTime(7,0)->format('H:i'),
+            'closed_at' => now()->setTime(20,0)->format('H:i'),
         ];
     }
 }
