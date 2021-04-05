@@ -40,4 +40,16 @@ class StationScheduleFeatureTest extends TestCase
 
         $response->assertOk()->assertJson($data);
     }
+
+    /** @test */
+    public function user_can_delete_station_schedules()
+    {
+        $this->login();
+        $schedule = Schedule::factory()->create();
+
+        $response = $this->deleteJson(route('station.schedule.destroy', [$schedule->station_id, $schedule->id]));
+
+        $response->assertNoContent();
+        $this->assertDeleted($schedule);
+    }
 }

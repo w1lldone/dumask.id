@@ -11,6 +11,11 @@ class Schedule extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'opened_at' => 'datetime:H:i',
+        'closed_at' => 'datetime:H:i',
+    ];
+
     public function station()
     {
         return $this->belongsTo('App\Models\Station');
