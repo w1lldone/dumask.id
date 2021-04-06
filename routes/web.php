@@ -16,12 +16,12 @@ use App\Http\Controllers\StationDropboxController;
 |
 */
 
+require __DIR__ . '/auth.php';
+
 Route::get('/', [App\Http\Controllers\ExploreController::class, 'index']);
 
 Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
 Route::view('/about', 'about')->name('about');
-
-require __DIR__.'/auth.php';
 
 Route::prefix('user')->name('user.')->middleware('auth')->group(function ()
 {
