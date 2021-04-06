@@ -104,7 +104,8 @@ export default {
       var url = "/station/" + this.schedule.station_id + "/schedule/" + this.schedule.id;
       try {
         let response = await axios.put(url, this.form);
-        return location.reload();
+        $('#edit-schedule-modal-' + this.schedule.id).modal('hide')
+        this.$emit('updated', response.data)
       } catch (error) {
         alert(error.response.data.message);
         console.log(error.response);
