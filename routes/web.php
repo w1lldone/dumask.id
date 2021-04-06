@@ -18,13 +18,8 @@ use App\Http\Controllers\StationDropboxController;
 
 Route::get('/', [App\Http\Controllers\ExploreController::class, 'index']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
+Route::view('/about', 'about')->name('about');
 
 require __DIR__.'/auth.php';
 
