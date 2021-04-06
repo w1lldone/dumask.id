@@ -24,7 +24,7 @@
                     </div>
                     <div class="py-2">
                         Opening Hours:
-                        <schedule-create-modal :station='{{ json_encode($station) }}' :days='[0, 1, 2, 3, 4, 5, 6]'></schedule-create-modal>
+                        <schedule-create-modal :station='{{ json_encode($station) }}'></schedule-create-modal>
                         <div class="d-flex flex-column row">
                             <div class="d-flex">
                                 <div class="col-2">
@@ -53,7 +53,6 @@
             <div class="flex">
                 <station-delete-modal class="ml-auto" :station='{{ json_encode($station) }}'></station-delete-modal>
             </div>
-            
         </div>
     </div>
 </x-default-layout>
