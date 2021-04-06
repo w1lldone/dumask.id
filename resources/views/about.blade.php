@@ -1,4 +1,7 @@
 @extends('layouts.app')
+
+@section('title', 'Tentang Dumask.id')
+    
 @section('content')
 
 <div class="container w-md-75 my-4">
