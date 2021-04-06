@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="card rounded border-0 shadow px-4 py-2 mx-3 my-2" style="border-radius: 0.5rem">
-        <div class="text-secondary text-center mt-4 mx-auto">
+        <div class="text-secondary text-center my-2 mx-auto">
             <h5 style="line-height: 175%">
                 <b>Dumask</b> adalah penelitian kolaboratif yang didanai oleh program PPKI 2021 - 2023. 
                 Program penelitian ini merupakan kolaborasi antara peneliti PTNBH dari UGM, ITB, UNS dan UNAIR 
@@ -51,7 +51,7 @@
         </div>
     </div>
     <div class="card rounded border-0 shadow px-4 py-2 mx-3 my-2" style="border-radius: 0.5rem">
-        <h5 class="text-secondary text-center font-weight-bold mt-2 mb-0">
+        <h5 class="text-secondary text-center font-weight-bold my-2 mb-0">
             Kumpulkan masker bekasmu di rumah, simpan dalam kantong plastik/kertas 
             tertutup rapi dan buang ke dropbox Dumask terdekat.
         </h5>
