@@ -40,24 +40,22 @@
             <div class="form-group mt-4 text-right">
               <button
                 class="btn btn-danger"
+                type="button"
                 v-show="!isLoading"
                 @click="doDelete()"
               >
                 Delete
               </button>
+              <button class="btn btn-danger" disabled v-show="isLoading">
+                Deleting...
+              </button>
               <button
               type="button"
               class="btn"
               data-dismiss="modal"
-              v-show="!isLoading"
               aria-label="Close"
+              :disabled="isLoading"
               >
-                Cancel
-              </button>
-              <button class="btn btn-danger" disabled v-show="isLoading">
-                Deleting...
-              </button>
-              <button class="btn" disabled v-show="isLoading">
                 Cancel
               </button>
             </div>
@@ -91,15 +89,14 @@ export default {
       var url = "/station/" + this.schedule.station_id + "/schedule/" + this.schedule.id;
       try {
         let response = await axios.delete(url);
+        $(`#delete-schedule-modal-${this.schedule.id}`).modal('hide')
         this.$emit('deleted')
-        alert('deleted')
-        return location.reload();
+        // alert('deleted')
       } catch (error) {
           alert(error.response.data.message);
           console.log(error.response);
           this.errors = error.response.data.errors;
       }
-
       this.isLoading = false;
     },
     hasErrors(key) {

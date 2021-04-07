@@ -45,9 +45,9 @@
                 v-model="form.day"
               >
                 <option 
-                v-for="(day) in days"
+                v-for="(day, index) in days"
                 :key="day"
-                :value="day"
+                :value="index"
                 >
                   {{ day }}
                 </option>
@@ -103,16 +103,17 @@
 </template>
 
 <script>
+import dayOfWeeks from '../../mixins/dayOfWeeks';
+
 export default {
   name: "ScheduleCreateModal",
+
+  mixins: [dayOfWeeks],
 
   props: {
     station: {
       type: Object
     },
-    days: {
-      type: Array,
-    }
   },
 
   data() {
