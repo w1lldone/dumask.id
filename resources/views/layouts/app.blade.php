@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Dumask.id</title>
+        <title>Dumask.id - @yield('title')</title>
         @env('production')
             <meta name="google-site-verification" content="ZQmYpcWC-8MF6KLnmUF_rYWNLh10NSrhICri74g17gU">
         @endenv
@@ -41,7 +41,7 @@
                             <li class="nav-item">
                                 <a 
                                 class="nav-link font-weight-bold px-3 {{ Request::is('/') ? 'text-primary' : 'text-secondary' }}" 
-                                href=""
+                                href="{{ url('/') }}"
                                 >
                                 Home
                                 </a>
@@ -49,7 +49,7 @@
                             <li class="nav-item">
                                 <a 
                                 class="nav-link font-weight-bold px-3 {{ Request::is('about') ? 'text-primary' : 'text-secondary' }}" 
-                                href=""
+                                href="{{ url('/about') }}"
                                 >
                                 About Us
                                 </a>

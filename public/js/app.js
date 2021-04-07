@@ -3250,6 +3250,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "MarkerModal",
@@ -59360,19 +59367,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex" }, [
-      _c("img", {
-        staticClass: "img-fluid mx-auto",
-        staticStyle: { "max-height": "200px" },
-        attrs: { src: "img/dummy_image.png", alt: "" }
-      })
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "d-flex align-items-center justify-content-center text-muted card card-body border rounded bg-light",
+        staticStyle: { height: "200px" }
+      },
+      [
+        _c("span", { staticClass: "mdi mdi-image-filter h1" }),
+        _vm._v(" "),
+        _c("h3", [_vm._v("Foto belum tersedia")])
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
+    return _c("div", { staticClass: "d-flex" }, [
       _c("img", {
         staticStyle: { "max-height": "16px" },
         attrs: { src: "img/icon_clock.svg", alt: "" }
@@ -59381,7 +59394,15 @@ var staticRenderFns = [
       _c(
         "span",
         { staticClass: "text-secondary font-weight-bold align-middle ml-2" },
-        [_vm._v("07.00 - 20.00 WIB")]
+        [
+          _vm._v(
+            "\n                                    Senin-Jumat: Buka 08.00 - 15.00 WIB "
+          ),
+          _c("br"),
+          _vm._v(
+            "\n                                    Sabtu dan Minggu: Tutup\n                                "
+          )
+        ]
       )
     ])
   }
