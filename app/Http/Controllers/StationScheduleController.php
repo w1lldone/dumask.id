@@ -19,8 +19,8 @@ class StationScheduleController extends Controller
 
         $data = $request->validate([
             'day' => 'numeric|between:0,6|required',
-            'opened_at' => 'required_with:closed_at|date_format:H:i',
-            'closed_at' => 'required_with:opened_at|date_format:H:i',
+            'opened_at' => 'required_with:closed_at|date_format:H:i|nullable',
+            'closed_at' => 'required_with:opened_at|date_format:H:i|nullable',
         ]);
 
         $schedule = $station->schedules()->create($data);
@@ -33,8 +33,8 @@ class StationScheduleController extends Controller
         $this->authorize('update', $station);
 
         $data = $request->validate([
-            'opened_at' => 'required_with:closed_at|date_format:H:i',
-            'closed_at' => 'required_with:opened_at|date_format:H:i',
+            'opened_at' => 'required_with:closed_at|date_format:H:i|nullable',
+            'closed_at' => 'required_with:opened_at|date_format:H:i|nullable',
         ]);
 
         $schedule = $station->schedules()->findOrFail($schedule);

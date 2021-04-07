@@ -23,19 +23,36 @@
                         </div>
                     </div>
                     <div class="py-2">
+                        Opening Hours:
+                        <schedule-create-modal :station='{{ json_encode($station) }}'></schedule-create-modal>
+                        <div class="d-flex flex-column row">
+                            <div class="d-flex">
+                                <div class="col-2">
+                                    Day
+                                </div>
+                                <div class="col-2">
+                                    opened_at
+                                </div>
+                                <div class="col-2">
+                                    closed_at
+                                </div>
+                            </div>
+                            <station-schedule-list :station='{{ json_encode($station) }}'></station-schedule-list>
+                        </div>
+                    </div>
+                    <div class="py-2">
                         Dropboxes
                         <span class="badge badge-primary">Total: {{ $station->dropboxes_count }}</span>
                     </div>
                     <div class="py-2">
                         <dropbox-create-modal :station='{{ json_encode($station) }}' :colors='@json(\App\Models\Dropbox::$availableColors)' :models='@json(\App\Models\Dropbox::$availableModels)'></dropbox-create-modal>
-                        <station-dropbox-list :station='{{ json_encode($station) }}' :colors='@json(\App\Models\Dropbox::$availableColors)' :models='@json(\App\Models\Dropbox::$availableModels)'></station-edit-modal>
+                        <station-dropbox-list :station='{{ json_encode($station) }}' :colors='@json(\App\Models\Dropbox::$availableColors)' :models='@json(\App\Models\Dropbox::$availableModels)'></station-dropbox-list>
                     </div>
                 </div>
             </div>
             <div class="flex">
                 <station-delete-modal class="ml-auto" :station='{{ json_encode($station) }}'></station-delete-modal>
             </div>
-            
         </div>
     </div>
 </x-default-layout>
