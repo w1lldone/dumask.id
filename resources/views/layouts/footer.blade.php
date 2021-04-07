@@ -11,7 +11,7 @@
                 <h5 class="font-weight-bold">Kontak Kami</h5>
                 <div>
                     <span class="mdi mdi-account mr-2"></span>
-                    <span>Ilham Zulfa Pradipta</span>
+                    <span>Ilham</span>
                 </div>
                 <div>
                     <span class="mdi mdi-whatsapp mr-2"></span>
