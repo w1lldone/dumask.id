@@ -54,14 +54,6 @@
                                 About Us
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a 
-                                class="nav-link font-weight-bold px-3 {{ Request::is('contact') ? 'text-primary' : 'text-secondary' }}" 
-                                href=""
-                                >
-                                Contact
-                                </a>
-                            </li>
                         </ul>
     
                         <!-- Right Side Of Navbar -->
