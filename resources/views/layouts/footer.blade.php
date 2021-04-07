@@ -7,7 +7,7 @@
 <div class="bg-secondary text-white">
     <div class="container">
         <div class="row py-5">
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3 mb-md-0">
                 <h5 class="font-weight-bold">Kontak Kami</h5>
                 <div>
                     <span class="mdi mdi-account mr-2"></span>
@@ -21,11 +21,11 @@
 
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3 mb-md-0">
                 <h5 class="font-weight-bold">Tautan</h5>
                 <a href="{{ route('about') }}">About Us</a>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 mb-3 mb-md-0">
                 <h5 class="font-weight-bold">Tentang Dumask.id</h5>
                 Dumask.id merupakan kolaborasi antara peneliti PTNBH dari UGM, ITB, UNS dan UNAIR yang juga didukung oleh peneliti dari UAD, Politeknik ATK, UJB, dan UP45. Dumask.id menyediakan jalur pembuangan masker dan sarung tangan
                 bekas dari masyarakat umum yang aman dan ramah lingkungan.
