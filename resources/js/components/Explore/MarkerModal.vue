@@ -25,10 +25,13 @@
                                     <span class="mdi mdi-archive-outline text-secondary"></span>
                                     <span class="text-secondary font-weight-bold align-middle ml-2">{{ station.dropboxes_count }} Dropbox tersedia</span>
                                 </div>
-                                <!-- <div>
+                                <div class="d-flex">
                                     <img src="img/icon_clock.svg" alt="" style="max-height:16px">
-                                    <span class="text-secondary font-weight-bold align-middle ml-2">07.00 - 20.00 WIB</span>
-                                </div> -->
+                                    <span class="text-secondary font-weight-bold align-middle ml-2">
+                                        Senin-Jumat: Buka 08.00 - 15.00 WIB <br>
+                                        Sabtu dan Minggu: Tutup
+                                    </span>
+                                </div>
                                 <div v-if="distance">
                                     <span class="mdi mdi-crosshairs-gps text-secondary"></span>
                                     <span class="text-secondary font-weight-bold align-middle ml-2">{{ distance }} km dari lokasi Anda</span>
