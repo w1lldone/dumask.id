@@ -3352,16 +3352,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_name$mixins$props$me = {
   name: "MarkerSchedule",
@@ -3395,30 +3385,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var date = new Date();
     var today = date.getDay();
     var days = _mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__.default.computed.days();
-    var sortedSchedules = {
-      day: [],
-      schedule: []
-    }; // Today ... Sabtu
+    var sortedSchedules = []; // Today ... Sabtu
 
     for (var i = today; i < days.length; i++) {
-      // Nama hari
-      sortedSchedules.day.push(days[i]); // Ada jadwal hari
+      var schedule = new Object(); // Nama hari
+
+      schedule.day = days[i]; // Ada jadwal hari
 
       if (this.schedules.length > i) {
-        sortedSchedules.schedule.push(this.getOpenHourOnDay(i));
+        schedule.open_hour = this.getOpenHourOnDay(i);
       } // Tidak ada jadwal hari
-      else sortedSchedules.schedule.push("Tutup");
+      else {
+          schedule.open_hour = "Tutup";
+        }
+
+      sortedSchedules.push(schedule);
     } // Minggu ... today-1
 
 
     for (var i = 0; i < today; i++) {
-      // Nama hari
-      sortedSchedules.day.push(days[i]); // Ada jadwal hari
+      var schedule = new Object(); // Nama hari
+
+      schedule.day = days[i]; // Ada jadwal hari
 
       if (this.schedules.length > i) {
-        sortedSchedules.schedule.push(this.getOpenHourOnDay(i));
+        schedule.open_hour = this.getOpenHourOnDay(i);
       } // Tidak ada jadwal hari
-      else sortedSchedules.schedule.push("Tutup");
+      else {
+          schedule.open_hour = "Tutup";
+        }
+
+      sortedSchedules.push(schedule);
     }
 
     return sortedSchedules;
@@ -59631,15 +59628,23 @@ var render = function() {
       _c(
         "div",
         { staticClass: "card card-body px-3 py-1" },
-        _vm._l(_vm.sortedSchedules, function(day, schedule) {
-          return _c("div", { key: day, staticClass: "d-flex row my-1" }, [
-            _vm._v(
-              "\n            " +
-                _vm._s(day) +
-                " " +
-                _vm._s(schedule) +
-                "\n                "
-            )
+        _vm._l(_vm.sortedSchedules, function(schedule, index) {
+          return _c("div", { key: index, staticClass: "d-flex row my-1" }, [
+            _c("div", { staticClass: "col-3" }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(schedule.day) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-9" }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(schedule.open_hour) +
+                  "\n                "
+              )
+            ])
           ])
         }),
         0

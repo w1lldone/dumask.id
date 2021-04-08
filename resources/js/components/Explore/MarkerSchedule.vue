@@ -30,26 +30,16 @@
                 </div> -->
 
                 <div
-                    v-for="(day, schedule) in sortedSchedules"
-                    :key="day"
+                    v-for="(schedule, index) in sortedSchedules"
+                    :key="index"
                     class="d-flex row my-1"
                 >
-                {{day}} {{schedule}}
-                    <!-- <div 
-                    v-for="value in day"
-                    :key="value"
-                    class="col-3"
-                    >
-                        {{ value }}
+                    <div class="col-3">
+                        {{ schedule.day }}
                     </div>
-                    <div 
-                    v-for="value in schedule"
-                    :key="value"
-                    class="col-9"
-                    >
-                        {{ value }}
-                    </div> -->
-                    
+                    <div class="col-9">
+                        {{ schedule.open_hour }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,33 +88,43 @@ export default {
             var today = date.getDay()
             
             var days = dayOfWeeks.computed.days()
-            var sortedSchedules = {day: [], schedule: []}
+            var sortedSchedules = []
 
             // Today ... Sabtu
             for(var i = today; i < days.length; i++) {
+                var schedule = new Object()
                 // Nama hari
-                sortedSchedules.day.push(days[i])
+                schedule.day = days[i]
                 // Ada jadwal hari
                 if (this.schedules.length > i) {
-                    sortedSchedules.schedule.push(this.getOpenHourOnDay(i))
+                    schedule.open_hour = this.getOpenHourOnDay(i)
                 }
                 // Tidak ada jadwal hari
-                else
-                    sortedSchedules.schedule.push("Tutup")
+                else{
+                    schedule.open_hour = "Tutup"
+                }
+
+                sortedSchedules.push(schedule)
             }
 
             // Minggu ... today-1
             for(var i = 0; i < today; i++) {
+                var schedule = new Object()
                 // Nama hari
-                sortedSchedules.day.push(days[i])
+                schedule.day = days[i]
                 // Ada jadwal hari
                 if (this.schedules.length > i) {
-                    sortedSchedules.schedule.push(this.getOpenHourOnDay(i))
+                    schedule.open_hour = this.getOpenHourOnDay(i)
                 }
                 // Tidak ada jadwal hari
-                else
-                    sortedSchedules.schedule.push("Tutup")
+                else{
+                    schedule.open_hour = "Tutup"
+                }
+
+                sortedSchedules.push(schedule)
             }
+
+
             return sortedSchedules
         }
         
