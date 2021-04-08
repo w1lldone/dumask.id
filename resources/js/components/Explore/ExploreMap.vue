@@ -193,10 +193,9 @@ export default {
       }
     },
     async getNearbyStations() {
-      // Set maximum distance in km
-      this.form.distance = 15
-
       await this.getUserLocation();
+       // Set maximum distance in km
+      this.form.distance = 15
       await this.fetchStations();
       this.fitBounds();
     },

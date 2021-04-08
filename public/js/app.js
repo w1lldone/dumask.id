@@ -3162,12 +3162,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                // Set maximum distance in km
-                _this3.form.distance = 15;
-                _context4.next = 3;
+                _context4.next = 2;
                 return _this3.getUserLocation();
 
-              case 3:
+              case 2:
+                // Set maximum distance in km
+                _this3.form.distance = 15;
                 _context4.next = 5;
                 return _this3.fetchStations();
 
