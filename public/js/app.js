@@ -3300,6 +3300,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/dayOfWeeks */ "./resources/js/mixins/dayOfWeeks.js");
+var _name$mixins$props$me;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3336,7 +3363,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_name$mixins$props$me = {
   name: "MarkerSchedule",
   mixins: [_mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__.default],
   props: {
@@ -3344,12 +3371,59 @@ __webpack_require__.r(__webpack_exports__);
       type: Array
     }
   },
-  computed: {
-    sortedSchedules: function sortedSchedules() {
-      return _.orderBy(this.schedules, 'day');
+  methods: {
+    getToday: function getToday() {
+      d = new Date();
+      var n = d.getDay();
+      return n;
     }
   }
-});
+}, _defineProperty(_name$mixins$props$me, "methods", {
+  getOpenHourOnDay: function getOpenHourOnDay(i) {
+    var openHour = "";
+
+    if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
+      openHour = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at;
+    } else {
+      openHour = "Buka Hari Ini";
+    }
+
+    return openHour;
+  }
+}), _defineProperty(_name$mixins$props$me, "computed", {
+  sortedSchedules: function sortedSchedules() {
+    var date = new Date();
+    var today = date.getDay();
+    var days = _mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__.default.computed.days();
+    var sortedSchedules = {
+      day: [],
+      schedule: []
+    }; // Today ... Sabtu
+
+    for (var i = today; i < days.length; i++) {
+      // Nama hari
+      sortedSchedules.day.push(days[i]); // Ada jadwal hari
+
+      if (this.schedules.length > i) {
+        sortedSchedules.schedule.push(this.getOpenHourOnDay(i));
+      } // Tidak ada jadwal hari
+      else sortedSchedules.schedule.push("Tutup");
+    } // Minggu ... today-1
+
+
+    for (var i = 0; i < today; i++) {
+      // Nama hari
+      sortedSchedules.day.push(days[i]); // Ada jadwal hari
+
+      if (this.schedules.length > i) {
+        sortedSchedules.schedule.push(this.getOpenHourOnDay(i));
+      } // Tidak ada jadwal hari
+      else sortedSchedules.schedule.push("Tutup");
+    }
+
+    return sortedSchedules;
+  }
+}), _name$mixins$props$me);
 
 /***/ }),
 
@@ -59557,41 +59631,16 @@ var render = function() {
       _c(
         "div",
         { staticClass: "card card-body px-3 py-1" },
-        _vm._l(_vm.days, function(day, index) {
-          return _c(
-            "div",
-            { key: day, staticClass: "d-flex my-1", attrs: { value: index } },
-            [
-              _c("div", { staticClass: "col-3" }, [
-                _vm._v(
-                  "\n                    " + _vm._s(day) + "\n                "
-                )
-              ]),
-              _vm._v(" "),
-              _vm.sortedSchedules[index]
-                ? _c("div", { staticClass: "col-9" }, [
-                    _vm.sortedSchedules[index].opened_at &&
-                    _vm.sortedSchedules[index].closed_at
-                      ? _c("span", [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(_vm.sortedSchedules[index].opened_at) +
-                              " - " +
-                              _vm._s(_vm.sortedSchedules[index].closed_at) +
-                              "\n                    "
-                          )
-                        ])
-                      : _c("span", [
-                          _vm._v(
-                            "\n                        Buka hari ini\n                    "
-                          )
-                        ])
-                  ])
-                : _c("div", { staticClass: "col-9 text-danger" }, [
-                    _vm._v("\n                    Tutup\n                ")
-                  ])
-            ]
-          )
+        _vm._l(_vm.sortedSchedules, function(day, schedule) {
+          return _c("div", { key: day, staticClass: "d-flex row my-1" }, [
+            _vm._v(
+              "\n            " +
+                _vm._s(day) +
+                " " +
+                _vm._s(schedule) +
+                "\n                "
+            )
+          ])
         }),
         0
       )

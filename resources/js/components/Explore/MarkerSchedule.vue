@@ -7,7 +7,7 @@
         </a>
         <div class="collapse" id="station-schedule">
             <div class="card card-body px-3 py-1">
-                <div
+                <!-- <div
                     v-for="(day, index) in days"
                     :key="day"
                     :value="index"
@@ -21,12 +21,35 @@
                             {{ sortedSchedules[index].opened_at }} - {{ sortedSchedules[index].closed_at }}
                         </span>
                         <span v-else>
-                            Buka hari ini
+                            Buka hari ini 
                         </span>
                     </div>
                     <div class="col-9 text-danger" v-else>
                         Tutup
                     </div>
+                </div> -->
+
+                <div
+                    v-for="(day, schedule) in sortedSchedules"
+                    :key="day"
+                    class="d-flex row my-1"
+                >
+                {{day}} {{schedule}}
+                    <!-- <div 
+                    v-for="value in day"
+                    :key="value"
+                    class="col-3"
+                    >
+                        {{ value }}
+                    </div>
+                    <div 
+                    v-for="value in schedule"
+                    :key="value"
+                    class="col-9"
+                    >
+                        {{ value }}
+                    </div> -->
+                    
                 </div>
             </div>
         </div>
@@ -47,12 +70,67 @@ export default {
         },
     },
 
-    computed: {
-        sortedSchedules() {
-            return _.orderBy(this.schedules, 'day')
+    methods: {
+        getToday() {
+            d = new Date();
+            var n = d.getDay();
+            return n
+        }
+    },
+
+    methods: {
+        getOpenHourOnDay(i){
+            var openHour = ""
+
+            if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
+                openHour = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at
+            } else {
+                openHour = "Buka Hari Ini"
+            }
+
+            return openHour
         },
     },
+
+    computed: {
+        sortedSchedules() {
+            var date = new Date()
+            var today = date.getDay()
+            
+            var days = dayOfWeeks.computed.days()
+            var sortedSchedules = {day: [], schedule: []}
+
+            // Today ... Sabtu
+            for(var i = today; i < days.length; i++) {
+                // Nama hari
+                sortedSchedules.day.push(days[i])
+                // Ada jadwal hari
+                if (this.schedules.length > i) {
+                    sortedSchedules.schedule.push(this.getOpenHourOnDay(i))
+                }
+                // Tidak ada jadwal hari
+                else
+                    sortedSchedules.schedule.push("Tutup")
+            }
+
+            // Minggu ... today-1
+            for(var i = 0; i < today; i++) {
+                // Nama hari
+                sortedSchedules.day.push(days[i])
+                // Ada jadwal hari
+                if (this.schedules.length > i) {
+                    sortedSchedules.schedule.push(this.getOpenHourOnDay(i))
+                }
+                // Tidak ada jadwal hari
+                else
+                    sortedSchedules.schedule.push("Tutup")
+            }
+            return sortedSchedules
+        }
+        
+    },
 }
+
 </script>
 
 <style lang="sass" scoped>
