@@ -45,10 +45,18 @@
           <img src="/img/icon_location.svg" class="mx-auto my-auto" />
         </button>
         <button
+          v-show="!form.distance"
           class="btn btn-primary shadow ml-2 w-100"
           @click="getNearbyStations()"
         >
           STATION TERDEKAT
+        </button>
+        <button
+          v-show="form.distance"
+          class="btn btn-primary shadow ml-2 w-100"
+          @click="getAllStations()"
+        >
+          TAMPILKAN SEMUA STATION
         </button>
       </div>
     </div>
@@ -118,6 +126,7 @@ export default {
         keywords: null,
         latitude: null,
         longitude: null,
+        distance: null
       },
       stations: [],
       activeStation: {},
@@ -184,7 +193,16 @@ export default {
       }
     },
     async getNearbyStations() {
+      // Set maximum distance in km
+      this.form.distance = 15
+
       await this.getUserLocation();
+      await this.fetchStations();
+      this.fitBounds();
+    },
+    async getAllStations() {
+      // Clear distance
+      this.form.distance = null
       await this.fetchStations();
       this.fitBounds();
     },
