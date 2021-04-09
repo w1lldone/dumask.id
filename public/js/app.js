@@ -3446,6 +3446,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ScheduleCreateModal",
@@ -3463,6 +3472,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         opened_at: null,
         closed_at: null
       },
+      isClosed: false,
       isLoading: false,
       errors: {}
     };
@@ -3485,24 +3495,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 5:
                 response = _context.sent;
-                return _context.abrupt("return", location.reload());
 
-              case 9:
-                _context.prev = 9;
+                _this.$emit('created', response.data);
+
+                alert('schedule created');
+                _this.form.day = null;
+                _this.form.closed_at = null;
+                _this.form.opened_at = null;
+                _context.next = 18;
+                break;
+
+              case 13:
+                _context.prev = 13;
                 _context.t0 = _context["catch"](2);
                 alert(_context.t0.response.data.message);
                 console.log(_context.t0.response);
                 _this.errors = _context.t0.response.data.errors;
 
-              case 14:
+              case 18:
                 _this.isLoading = false;
 
-              case 15:
+              case 19:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[2, 9]]);
+        }, _callee, null, [[2, 13]]);
       }))();
     },
     hasErrors: function hasErrors(key) {
@@ -3518,6 +3536,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return "";
+    }
+  },
+  watch: {
+    isClosed: function isClosed(newValue, oldValue) {
+      if (newValue == true) {
+        this.form.opened_at = null;
+        this.form.closed_at = null;
+      }
     }
   }
 });
@@ -3794,6 +3820,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ScheduleEditModal",
   props: {
@@ -3804,6 +3842,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       form: _objectSpread({}, this.schedule),
+      isClosed: false,
       isLoading: false,
       errors: {}
     };
@@ -3864,6 +3903,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       return "";
+    }
+  },
+  watch: {
+    isClosed: function isClosed(newValue, oldValue) {
+      if (newValue == true) {
+        this.form.opened_at = null;
+        this.form.closed_at = null;
+      }
+    }
+  },
+  mounted: function mounted() {
+    if (this.form.opened_at == null && this.form.closed_at == null) {
+      this.isClosed = true;
     }
   }
 });
@@ -4576,6 +4628,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/dayOfWeeks */ "./resources/js/mixins/dayOfWeeks.js");
+/* harmony import */ var _Schedule_ScheduleCreateModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Schedule/ScheduleCreateModal.vue */ "./resources/js/components/Schedule/ScheduleCreateModal.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4601,7 +4673,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    ScheduleCreateModal: _Schedule_ScheduleCreateModal_vue__WEBPACK_IMPORTED_MODULE_1__.default
+  },
   name: "StationScheduleList",
   mixins: [_mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__.default],
   props: {
@@ -4620,6 +4696,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     handleUpdated: function handleUpdated(index, schedule) {
       this.schedules.splice(index, 1, schedule);
+    },
+    handleCreated: function handleCreated(schedule) {
+      this.schedules.push(schedule);
     }
   }
 });
@@ -59610,6 +59689,58 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
+                  _c("div", { staticClass: "custom-control custom-checkbox" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.isClosed,
+                          expression: "isClosed"
+                        }
+                      ],
+                      staticClass: "custom-control-input",
+                      attrs: { type: "checkbox", id: "isClosed" },
+                      domProps: {
+                        checked: Array.isArray(_vm.isClosed)
+                          ? _vm._i(_vm.isClosed, null) > -1
+                          : _vm.isClosed
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$a = _vm.isClosed,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = null,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 && (_vm.isClosed = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.isClosed = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
+                          } else {
+                            _vm.isClosed = $$c
+                          }
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "isClosed" }
+                      },
+                      [_vm._v("Closed today")]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "opened_at" } }, [
                     _vm._v("Open At")
                   ]),
@@ -59625,7 +59756,11 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     class: { "is-invalid": _vm.hasErrors("opened_at") },
-                    attrs: { type: "time", required: "" },
+                    attrs: {
+                      type: "time",
+                      disabled: _vm.isClosed,
+                      required: ""
+                    },
                     domProps: { value: _vm.form.opened_at },
                     on: {
                       input: function($event) {
@@ -59662,7 +59797,11 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     class: { "is-invalid": _vm.hasErrors("closed_at") },
-                    attrs: { type: "time", required: "" },
+                    attrs: {
+                      type: "time",
+                      required: "",
+                      disabled: _vm.isClosed
+                    },
                     domProps: { value: _vm.form.closed_at },
                     on: {
                       input: function($event) {
@@ -59962,6 +60101,61 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "modal-body mx-4" }, [
                 _c("div", { staticClass: "form-group" }, [
+                  _c("div", { staticClass: "custom-control custom-checkbox" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.isClosed,
+                          expression: "isClosed"
+                        }
+                      ],
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        id: "editIsClosed" + _vm.schedule.id
+                      },
+                      domProps: {
+                        checked: Array.isArray(_vm.isClosed)
+                          ? _vm._i(_vm.isClosed, null) > -1
+                          : _vm.isClosed
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$a = _vm.isClosed,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = null,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 && (_vm.isClosed = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.isClosed = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
+                          } else {
+                            _vm.isClosed = $$c
+                          }
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "editIsClosed" + _vm.schedule.id }
+                      },
+                      [_vm._v("Closed today")]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "opened_at" } }, [
                     _vm._v("Open At")
                   ]),
@@ -59977,7 +60171,11 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     class: { "is-invalid": _vm.hasErrors("opened_at") },
-                    attrs: { type: "time", required: "" },
+                    attrs: {
+                      type: "time",
+                      required: "",
+                      disabled: _vm.isClosed
+                    },
                     domProps: { value: _vm.form.opened_at },
                     on: {
                       input: function($event) {
@@ -60014,7 +60212,11 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     class: { "is-invalid": _vm.hasErrors("closed_at") },
-                    attrs: { type: "time", required: "" },
+                    attrs: {
+                      type: "time",
+                      disabled: _vm.isClosed,
+                      required: ""
+                    },
                     domProps: { value: _vm.form.closed_at },
                     on: {
                       input: function($event) {
@@ -60036,6 +60238,12 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group mt-4 text-right" }, [
+                  _c(
+                    "button",
+                    { staticClass: "btn", attrs: { "data-dismiss": "modal" } },
+                    [_vm._v("\n              Cancel\n            ")]
+                  ),
+                  _vm._v(" "),
                   _c(
                     "button",
                     {
@@ -61079,62 +61287,94 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "d-flex flex-column" },
-    _vm._l(_vm.schedules, function(schedules, index) {
-      return _c("div", { key: schedules.id, staticClass: "d-flex my-2" }, [
-        _c("div", { staticClass: "col-2" }, [
-          _vm._v(
-            "\n            " + _vm._s(_vm.days[schedules.day]) + "\n        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-2" }, [
-          _vm._v("\n            " + _vm._s(schedules.opened_at) + "\n        ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-2" }, [
-          _vm._v("\n            " + _vm._s(schedules.closed_at) + "\n        ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-6 d-flex" }, [
-          _c(
-            "div",
-            { staticClass: "mx-2" },
-            [
-              _c("schedule-edit-modal", {
-                attrs: { schedule: schedules },
-                on: {
-                  updated: function($event) {
-                    return _vm.handleUpdated(index, $event)
-                  }
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "mx-2" },
-            [
-              _c("schedule-delete-modal", {
-                attrs: { schedule: schedules },
-                on: {
-                  deleted: function($event) {
-                    return _vm.handleDeleted(index)
-                  }
-                }
-              })
-            ],
-            1
-          )
-        ])
-      ])
-    }),
-    0
+    [
+      _c("schedule-create-modal", {
+        attrs: { station: _vm.station },
+        on: {
+          created: function($event) {
+            return _vm.handleCreated($event)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("b", { staticClass: "my-2" }, [_vm._v("Opening Hours")]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex flex-column" },
+        _vm._l(_vm.schedules, function(schedules, index) {
+          return _c("div", { key: schedules.id, staticClass: "d-flex my-2" }, [
+            _c("div", { staticClass: "col-2" }, [
+              _vm._v(
+                "\n        " + _vm._s(_vm.days[schedules.day]) + "\n      "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-2" }, [
+              _vm._v("\n        " + _vm._s(schedules.opened_at) + "\n      ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-2" }, [
+              _vm._v("\n        " + _vm._s(schedules.closed_at) + "\n      ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-6 d-flex" }, [
+              _c(
+                "div",
+                { staticClass: "mx-2" },
+                [
+                  _c("schedule-edit-modal", {
+                    attrs: { schedule: schedules },
+                    on: {
+                      updated: function($event) {
+                        return _vm.handleUpdated(index, $event)
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mx-2" },
+                [
+                  _c("schedule-delete-modal", {
+                    attrs: { schedule: schedules },
+                    on: {
+                      deleted: function($event) {
+                        return _vm.handleDeleted(index)
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ])
+          ])
+        }),
+        0
+      )
+    ],
+    1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-flex" }, [
+      _c("div", { staticClass: "col-2" }, [_vm._v("Day")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-2" }, [_vm._v("opened_at")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-2" }, [_vm._v("closed_at")])
+    ])
+  }
+]
 render._withStripped = true
 
 
