@@ -56,10 +56,18 @@
                 {{ getErrors("day") }}
               </div>
             </div>
+            
+            <div class="form-group">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="isClosed" v-model="isClosed">
+                <label class="custom-control-label" for="isClosed">Closed today</label>
+              </div>
+            </div>
 
             <div class="form-group">
               <label for="opened_at">Open At</label>
               <input type="time"
+              :disabled="isClosed"
               required 
               v-model="form.opened_at" 
               class="form-control"
@@ -74,6 +82,7 @@
               <label for="closed_at">Close At</label>
               <input type="time"
               required 
+              :disabled="isClosed"
               v-model="form.closed_at" 
               class="form-control"
               :class="{ 'is-invalid': hasErrors('closed_at') }"
@@ -124,6 +133,7 @@ export default {
         opened_at: null,
         closed_at: null,
       },
+      isClosed: false,
       isLoading: false,
       errors: {},
     };
@@ -135,7 +145,11 @@ export default {
       var url = "/station/" + this.station.id + "/schedule";
       try {
         let response = await axios.post(url, this.form);
-        return location.reload();
+        this.$emit('created', response.data);
+        alert('schedule created')
+        this.form.day = null
+        this.form.closed_at = null
+        this.form.opened_at = null
       } catch (error) {
         alert(error.response.data.message);
         console.log(error.response);
@@ -158,6 +172,15 @@ export default {
 
       return "";
     },
+  },
+
+  watch: {
+    isClosed(newValue, oldValue) {
+      if (newValue == true) {
+        this.form.opened_at = null
+        this.form.closed_at = null
+      }
+    }
   },
 };
 </script>

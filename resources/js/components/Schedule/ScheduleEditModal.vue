@@ -36,9 +36,17 @@
           <div class="modal-body mx-4">
 
             <div class="form-group">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" :id="`editIsClosed${schedule.id}`" v-model="isClosed">
+                <label class="custom-control-label" :for="`editIsClosed${schedule.id}`">Closed today</label>
+              </div>
+            </div>
+
+            <div class="form-group">
               <label for="opened_at">Open At</label>
               <input type="time"
-              required 
+              required
+              :disabled="isClosed"
               v-model="form.opened_at" 
               class="form-control"
               :class="{ 'is-invalid': hasErrors('opened_at') }"
@@ -51,6 +59,7 @@
             <div class="form-group">
               <label for="closed_at">Close At</label>
               <input type="time"
+              :disabled="isClosed"
               required 
               v-model="form.closed_at" 
               class="form-control"
@@ -62,6 +71,9 @@
             </div>
 
             <div class="form-group mt-4 text-right">
+              <button class="btn" data-dismiss="modal">
+                Cancel
+              </button>
               <button
                 class="btn btn-success"
                 v-show="!isLoading"
@@ -93,6 +105,7 @@ export default {
   data() {
     return {
       form: {...this.schedule},
+      isClosed: false,
       isLoading: false,
       errors: {},
     };
@@ -129,6 +142,21 @@ export default {
       return "";
     },
   },
+
+  watch: {
+    isClosed(newValue, oldValue) {
+      if (newValue == true) {
+        this.form.opened_at = null
+        this.form.closed_at = null
+      }
+    }
+  },
+
+  mounted(){
+    if (this.form.opened_at == null && this.form.closed_at == null) {
+      this.isClosed = true
+    }
+  }
 };
 </script>
 

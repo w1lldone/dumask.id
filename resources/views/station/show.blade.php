@@ -23,20 +23,7 @@
                         </div>
                     </div>
                     <div class="py-2">
-                        Opening Hours:
-                        <schedule-create-modal :station='{{ json_encode($station) }}'></schedule-create-modal>
                         <div class="d-flex flex-column row">
-                            <div class="d-flex">
-                                <div class="col-2">
-                                    Day
-                                </div>
-                                <div class="col-2">
-                                    opened_at
-                                </div>
-                                <div class="col-2">
-                                    closed_at
-                                </div>
-                            </div>
                             <station-schedule-list :station='{{ json_encode($station) }}'></station-schedule-list>
                         </div>
                     </div>

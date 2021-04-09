@@ -7,6 +7,16 @@
         <title>Dumask.id - @yield('title')</title>
         @env('production')
             <meta name="google-site-verification" content="ZQmYpcWC-8MF6KLnmUF_rYWNLh10NSrhICri74g17gU">
+
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-74RFXHTS34"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'G-74RFXHTS34');
+            </script>
         @endenv
 
         <!-- Fonts -->
@@ -52,14 +62,6 @@
                                 href="{{ url('/about') }}"
                                 >
                                 About Us
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a 
-                                class="nav-link font-weight-bold px-3 {{ Request::is('contact') ? 'text-primary' : 'text-secondary' }}" 
-                                href=""
-                                >
-                                Contact
                                 </a>
                             </li>
                         </ul>

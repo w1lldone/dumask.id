@@ -41,7 +41,8 @@ class StationApiTest extends TestCase
 
         $response = $this->get(route('api.stations.index', [
             'longitude' => $longitude,
-            'latitude' => $latitude
+            'latitude' => $latitude,
+            'distance' => 15
         ]), [
             'Accept' => 'application/json'
         ]);
