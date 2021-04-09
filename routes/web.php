@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\StationDropboxController;
+use App\Http\Controllers\StationMediaController;
 use App\Http\Controllers\StationScheduleController;
 
 /*
@@ -43,3 +44,7 @@ Route::middleware('auth')
 Route::middleware('auth')
     ->resource('station.schedule', StationScheduleController::class)
     ->only(['index', 'store', 'update', 'destroy']);
+
+Route::middleware('auth')
+    ->resource('station.media', StationMediaController::class)
+    ->only(['index', 'store', 'destroy']);

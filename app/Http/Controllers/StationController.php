@@ -41,7 +41,7 @@ class StationController extends Controller
     {
         $this->authorize('view', $station);
         
-        $station->load('dropboxes');
+        $station->load('dropboxes', 'media');
 
         return view('station.show', compact('station'));
     }
