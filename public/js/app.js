@@ -3254,6 +3254,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3352,6 +3358,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_name$mixins$props$me = {
   name: "MarkerSchedule",
@@ -3369,13 +3380,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }
 }, _defineProperty(_name$mixins$props$me, "methods", {
-  getOpenHourOnDay: function getOpenHourOnDay(i) {
-    var openHour = "";
+  getOpenHourOnDay: function getOpenHourOnDay(day) {
+    var openHour = "Buka Hari Ini";
 
-    if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
-      openHour = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at;
-    } else {
-      openHour = "Buka Hari Ini";
+    for (var i = 0; i < this.schedules.length; i++) {
+      // Cari hari
+      if (this.schedules[i].day == day) {
+        if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
+          openHour = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at;
+        } else {
+          openHour = "Tutup";
+        }
+      }
     }
 
     return openHour;
@@ -3388,33 +3404,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var sortedSchedules = []; // Today ... Sabtu
 
     for (var i = today; i < days.length; i++) {
-      var schedule = new Object(); // Nama hari
-
-      schedule.day = days[i]; // Ada jadwal hari
-
-      if (this.schedules.length > i) {
-        schedule.open_hour = this.getOpenHourOnDay(i);
-      } // Tidak ada jadwal hari
-      else {
-          schedule.open_hour = "Tutup";
-        }
-
+      var schedule = new Object();
+      schedule.day = days[i];
+      schedule.open_hour = this.getOpenHourOnDay(i);
       sortedSchedules.push(schedule);
     } // Minggu ... today-1
 
 
-    for (var i = 0; i < today; i++) {
-      var schedule = new Object(); // Nama hari
-
-      schedule.day = days[i]; // Ada jadwal hari
-
-      if (this.schedules.length > i) {
-        schedule.open_hour = this.getOpenHourOnDay(i);
-      } // Tidak ada jadwal hari
-      else {
-          schedule.open_hour = "Tutup";
-        }
-
+    for (var _i = 0; _i < today; _i++) {
+      var schedule = new Object();
+      schedule.day = days[_i];
+      schedule.open_hour = this.getOpenHourOnDay(_i);
       sortedSchedules.push(schedule);
     }
 
@@ -59453,7 +59453,7 @@ var render = function() {
                             "span",
                             {
                               staticClass:
-                                "text-secondary font-weight-bold align-middle ml-2"
+                                "text-secondary font-weight-bold align-middle ml-4"
                             },
                             [
                               _vm._v(
@@ -59461,8 +59461,20 @@ var render = function() {
                                   " Dropbox tersedia"
                               )
                             ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "text-primary align-middle ml-2" },
+                            [
+                              _vm._v(
+                                "\n                                    Dropbox ini khusus untuk limbah APD dari masyarakat, bukan untuk limbah dari RS/Klinik\n                                "
+                              )
+                            ]
                           )
                         ]),
+                        _vm._v(" "),
+                        _c("div"),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -59622,42 +59634,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "collapse", attrs: { id: "station-schedule" } }, [
-      _c(
-        "div",
-        { staticClass: "card card-body px-3 py-1" },
-        _vm._l(_vm.sortedSchedules, function(schedule, index) {
-          return _c("div", { key: index, staticClass: "d-flex row my-1" }, [
-            _c("div", { staticClass: "col-3" }, [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(schedule.day) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-9" }, [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(schedule.open_hour) +
-                  "\n                "
-              )
-            ])
-          ])
-        }),
-        0
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
+    _c(
       "a",
       {
         staticClass: "d-flex flex-row nav-link px-0",
@@ -59677,7 +59654,13 @@ var staticRenderFns = [
         _c(
           "span",
           { staticClass: "text-secondary font-weight-bold align-middle ml-2" },
-          [_vm._v("07.00 - 20.00 WIB")]
+          [
+            _vm._v(
+              "\n            " +
+                _vm._s(_vm.sortedSchedules[0].open_hour) +
+                "\n        "
+            )
+          ]
         ),
         _vm._v(" "),
         _c("span", {
@@ -59685,9 +59668,45 @@ var staticRenderFns = [
             "mdi mdi-chevron-down text-secondary font-weight-bold ml-auto"
         })
       ]
-    )
-  }
-]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "collapse", attrs: { id: "station-schedule" } }, [
+      _c(
+        "div",
+        { staticClass: "card card-body px-3 py-1" },
+        _vm._l(_vm.sortedSchedules, function(schedule, index) {
+          return _c("div", { key: index, staticClass: "d-flex px-2 my-1" }, [
+            _c("div", { staticClass: "col-3 px-0" }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(schedule.day) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            schedule.open_hour == "Tutup"
+              ? _c("div", { staticClass: "col-9 text-danger px-0" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(schedule.open_hour) +
+                      "\n                "
+                  )
+                ])
+              : _c("div", { staticClass: "col-9 px-0" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(schedule.open_hour) +
+                      "\n                "
+                  )
+                ])
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

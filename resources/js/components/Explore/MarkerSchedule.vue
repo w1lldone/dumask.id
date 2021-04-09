@@ -2,7 +2,9 @@
     <div>
         <a class="d-flex flex-row nav-link px-0" data-toggle="collapse" href="#station-schedule" role="button" aria-expanded="false" aria-controls="collapseExample">
             <span class="mdi mdi-clock-outline text-secondary font-weight-bold"></span>
-            <span class="text-secondary font-weight-bold align-middle ml-2">07.00 - 20.00 WIB</span>
+            <span class="text-secondary font-weight-bold align-middle ml-2">
+                {{ sortedSchedules[0].open_hour }}
+            </span>
             <span class="mdi mdi-chevron-down text-secondary font-weight-bold ml-auto"></span>
         </a>
         <div class="collapse" id="station-schedule">
@@ -32,12 +34,15 @@
                 <div
                     v-for="(schedule, index) in sortedSchedules"
                     :key="index"
-                    class="d-flex row my-1"
+                    class="d-flex px-2 my-1"
                 >
-                    <div class="col-3">
+                    <div class="col-3 px-0">
                         {{ schedule.day }}
                     </div>
-                    <div class="col-9">
+                    <div v-if="schedule.open_hour == 'Tutup'" class="col-9 text-danger px-0">
+                        {{ schedule.open_hour }}
+                    </div>
+                    <div v-else class="col-9 px-0">
                         {{ schedule.open_hour }}
                     </div>
                 </div>
@@ -69,15 +74,19 @@ export default {
     },
 
     methods: {
-        getOpenHourOnDay(i){
-            var openHour = ""
-
-            if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
-                openHour = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at
-            } else {
-                openHour = "Buka Hari Ini"
+        getOpenHourOnDay(day){
+            var openHour = "Buka Hari Ini"
+            for (let i = 0; i < this.schedules.length; i++) {
+                // Cari hari
+                if (this.schedules[i].day == day) {
+                    if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
+                        openHour = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at
+                    } else {
+                        openHour = "Tutup"
+                    }
+                }
             }
-
+            
             return openHour
         },
     },
@@ -91,36 +100,22 @@ export default {
             var sortedSchedules = []
 
             // Today ... Sabtu
-            for(var i = today; i < days.length; i++) {
+            for(let i = today; i < days.length; i++) {
                 var schedule = new Object()
-                // Nama hari
-                schedule.day = days[i]
-                // Ada jadwal hari
-                if (this.schedules.length > i) {
-                    schedule.open_hour = this.getOpenHourOnDay(i)
-                }
-                // Tidak ada jadwal hari
-                else{
-                    schedule.open_hour = "Tutup"
-                }
 
+                schedule.day = days[i]
+                schedule.open_hour = this.getOpenHourOnDay(i)
+                
                 sortedSchedules.push(schedule)
             }
 
             // Minggu ... today-1
-            for(var i = 0; i < today; i++) {
+            for(let i = 0; i < today; i++) {
                 var schedule = new Object()
-                // Nama hari
-                schedule.day = days[i]
-                // Ada jadwal hari
-                if (this.schedules.length > i) {
-                    schedule.open_hour = this.getOpenHourOnDay(i)
-                }
-                // Tidak ada jadwal hari
-                else{
-                    schedule.open_hour = "Tutup"
-                }
 
+                schedule.day = days[i]
+                schedule.open_hour = this.getOpenHourOnDay(i)
+                
                 sortedSchedules.push(schedule)
             }
 
