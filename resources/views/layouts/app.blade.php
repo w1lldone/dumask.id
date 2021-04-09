@@ -35,6 +35,12 @@
 
     
     <body class="relative antialiased">
+        @env('production')
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WWW7BQB" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        @endenv
         <div id="app" class="items-top d-flex flex-column justify-content-between min-h-screen sm:items-center sm:pt-0 sm:p-3">
             <nav class="navbar navbar-expand-md navbar-light bg-white rounded relative w-100">
                 <div class="container py-0">
@@ -116,12 +122,6 @@
             @yield('content')
         </div>
       <script src="{{ mix('/js/app.js') }}"></script>
-      @env('production')
-          <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WWW7BQB" height="0" width="0"
-                style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-      @endenv
   </body>
   @include('layouts.footer')
 </html>
