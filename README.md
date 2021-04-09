@@ -6,11 +6,12 @@ Dumask.id menyediakan tempat pembuangan khusus masker dan sarung tangan bekas pa
 
 ## Development
 
-- PHP Framework: Laravel 8
+- PHP Framework: Laravel v8
 - VueJs
-- MySQL 5.7
-- Bootstrap 4
+- MySQL v5.7
+- Bootstrap v4
 - laravel/socialite
+- spatie/laravel-medialibrary v8
 
 ## Instalation
 - Clone this repository
