@@ -3,34 +3,14 @@
         <a class="d-flex flex-row nav-link px-0" data-toggle="collapse" href="#station-schedule" role="button" aria-expanded="false" aria-controls="collapseExample">
             <span class="mdi mdi-clock-outline text-secondary font-weight-bold"></span>
             <span class="text-secondary font-weight-bold align-middle ml-2">
-                {{ sortedSchedules[0].open_hour }}
+                {{ isNowOpen() }}
+
+                {{ getTodaySchedule() }}
             </span>
             <span class="mdi mdi-chevron-down text-secondary font-weight-bold ml-auto"></span>
         </a>
         <div class="collapse" id="station-schedule">
             <div class="card card-body px-3 py-1">
-                <!-- <div
-                    v-for="(day, index) in days"
-                    :key="day"
-                    :value="index"
-                    class="d-flex my-1"
-                >
-                    <div class="col-3">
-                        {{ day }}
-                    </div>
-                    <div class="col-9" v-if="sortedSchedules[index]">
-                        <span v-if="sortedSchedules[index].opened_at && sortedSchedules[index].closed_at">
-                            {{ sortedSchedules[index].opened_at }} - {{ sortedSchedules[index].closed_at }}
-                        </span>
-                        <span v-else>
-                            Buka hari ini 
-                        </span>
-                    </div>
-                    <div class="col-9 text-danger" v-else>
-                        Tutup
-                    </div>
-                </div> -->
-
                 <div
                     v-for="(schedule, index) in sortedSchedules"
                     :key="index"
@@ -66,15 +46,7 @@ export default {
     },
 
     methods: {
-        getToday() {
-            d = new Date();
-            var n = d.getDay();
-            return n
-        }
-    },
-
-    methods: {
-        getOpenHourOnDay(day){
+        getOpenHourOnDay(day) {
             var openHour = "Buka Hari Ini"
             for (let i = 0; i < this.schedules.length; i++) {
                 // Cari hari
@@ -88,6 +60,64 @@ export default {
             }
             
             return openHour
+        },
+
+        getTodaySchedule(){
+            var date = new Date()
+            var today = date.getDay()
+
+            var todaySchedule = {}
+
+            for (let i = 0; i < this.schedules.length; i++) {
+                // Cari hari
+                if (this.schedules[i].day == today) {
+                    if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
+                        // Split jam & menit
+                        var openTime = this.schedules[i].opened_at.split(':')
+                        var closeTime = this.schedules[i].closed_at.split(':')
+
+                        var open = new Date()
+                        open.setHours(openTime[0], openTime[1], 0)
+
+                        var close = new Date()
+                        close.setHours(closeTime[0], closeTime[1], 0)
+
+                        todaySchedule.open = open
+                        todaySchedule.close = close
+                        break
+                    }
+                }
+            }
+            return todaySchedule
+        },
+
+        testFunction() {
+            var a = this.schedules[2].opened_at
+            var b = a.split(':')
+            return b[0]
+        },
+
+        isNowOpen() {
+            var schedule = this.sortedSchedules[0]
+
+            var now = new Date()
+            var nowOpen
+            
+            if (schedule.open_hour == "Buka Hari Ini") {
+                nowOpen = true
+            } else if (schedule.open_hour == "Tutup") {
+                nowOpen = false
+            } else {
+                var todaySchedule = this.getTodaySchedule()
+                if (now >= todaySchedule.open && now < todaySchedule.close ) {
+                    nowOpen = true
+                }
+                else {
+                    nowOpen = false
+                }
+            }
+            
+            return nowOpen
         },
     },
 

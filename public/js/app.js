@@ -3341,30 +3341,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/dayOfWeeks */ "./resources/js/mixins/dayOfWeeks.js");
-var _name$mixins$props$me;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3399,7 +3375,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_name$mixins$props$me = {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "MarkerSchedule",
   mixins: [_mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__.default],
   props: {
@@ -3408,54 +3384,100 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
-    getToday: function getToday() {
-      d = new Date();
-      var n = d.getDay();
-      return n;
-    }
-  }
-}, _defineProperty(_name$mixins$props$me, "methods", {
-  getOpenHourOnDay: function getOpenHourOnDay(day) {
-    var openHour = "Buka Hari Ini";
+    getOpenHourOnDay: function getOpenHourOnDay(day) {
+      var openHour = "Buka Hari Ini";
 
-    for (var i = 0; i < this.schedules.length; i++) {
-      // Cari hari
-      if (this.schedules[i].day == day) {
-        if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
-          openHour = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at;
-        } else {
-          openHour = "Tutup";
+      for (var i = 0; i < this.schedules.length; i++) {
+        // Cari hari
+        if (this.schedules[i].day == day) {
+          if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
+            openHour = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at;
+          } else {
+            openHour = "Tutup";
+          }
         }
       }
+
+      return openHour;
+    },
+    getTodaySchedule: function getTodaySchedule() {
+      var date = new Date();
+      var today = date.getDay();
+      var todaySchedule = {};
+
+      for (var i = 0; i < this.schedules.length; i++) {
+        // Cari hari
+        if (this.schedules[i].day == today) {
+          if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
+            // Split jam & menit
+            var openTime = this.schedules[i].opened_at.split(':');
+            var closeTime = this.schedules[i].closed_at.split(':');
+            var open = new Date();
+            open.setHours(openTime[0], openTime[1], 0);
+            var close = new Date();
+            close.setHours(closeTime[0], closeTime[1], 0);
+            todaySchedule.open = open;
+            todaySchedule.close = close;
+            break;
+          }
+        }
+      }
+
+      return todaySchedule;
+    },
+    testFunction: function testFunction() {
+      var a = this.schedules[2].opened_at;
+      var b = a.split(':');
+      return b[0];
+    },
+    isNowOpen: function isNowOpen() {
+      var schedule = this.sortedSchedules[0];
+      var now = new Date();
+      var nowOpen;
+
+      if (schedule.open_hour == "Buka Hari Ini") {
+        nowOpen = true;
+      } else if (schedule.open_hour == "Tutup") {
+        nowOpen = false;
+      } else {
+        var todaySchedule = this.getTodaySchedule();
+
+        if (now >= todaySchedule.open && now < todaySchedule.close) {
+          nowOpen = true;
+        } else {
+          nowOpen = false;
+        }
+      }
+
+      return nowOpen;
     }
+  },
+  computed: {
+    sortedSchedules: function sortedSchedules() {
+      var date = new Date();
+      var today = date.getDay();
+      var days = _mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__.default.computed.days();
+      var sortedSchedules = []; // Today ... Sabtu
 
-    return openHour;
-  }
-}), _defineProperty(_name$mixins$props$me, "computed", {
-  sortedSchedules: function sortedSchedules() {
-    var date = new Date();
-    var today = date.getDay();
-    var days = _mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__.default.computed.days();
-    var sortedSchedules = []; // Today ... Sabtu
-
-    for (var i = today; i < days.length; i++) {
-      var schedule = new Object();
-      schedule.day = days[i];
-      schedule.open_hour = this.getOpenHourOnDay(i);
-      sortedSchedules.push(schedule);
-    } // Minggu ... today-1
+      for (var i = today; i < days.length; i++) {
+        var schedule = new Object();
+        schedule.day = days[i];
+        schedule.open_hour = this.getOpenHourOnDay(i);
+        sortedSchedules.push(schedule);
+      } // Minggu ... today-1
 
 
-    for (var _i = 0; _i < today; _i++) {
-      var schedule = new Object();
-      schedule.day = days[_i];
-      schedule.open_hour = this.getOpenHourOnDay(_i);
-      sortedSchedules.push(schedule);
+      for (var _i = 0; _i < today; _i++) {
+        var schedule = new Object();
+        schedule.day = days[_i];
+        schedule.open_hour = this.getOpenHourOnDay(_i);
+        sortedSchedules.push(schedule);
+      }
+
+      return sortedSchedules;
     }
-
-    return sortedSchedules;
   }
-}), _name$mixins$props$me);
+});
 
 /***/ }),
 
@@ -59596,7 +59618,7 @@ var render = function() {
                             "span",
                             {
                               staticClass:
-                                "text-secondary font-weight-bold align-middle ml-4"
+                                "text-secondary font-weight-bold align-middle ml-2"
                             },
                             [
                               _vm._v(
@@ -59608,7 +59630,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "div",
-                            { staticClass: "text-primary align-middle ml-2" },
+                            { staticClass: "text-primary align-middle ml-4" },
                             [
                               _vm._v(
                                 "\n                                    Dropbox ini khusus untuk limbah APD dari masyarakat, bukan untuk limbah dari RS/Klinik\n                                "
@@ -59800,7 +59822,9 @@ var render = function() {
           [
             _vm._v(
               "\n            " +
-                _vm._s(_vm.sortedSchedules[0].open_hour) +
+                _vm._s(_vm.isNowOpen()) +
+                "\n\n            " +
+                _vm._s(_vm.getTodaySchedule()) +
                 "\n        "
             )
           ]

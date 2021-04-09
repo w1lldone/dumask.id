@@ -23,8 +23,8 @@
                             <div v-if="station.dropboxes_count">
                                 <div>
                                     <span class="mdi mdi-archive-outline text-secondary"></span>
-                                    <span class="text-secondary font-weight-bold align-middle ml-4">{{ station.dropboxes_count }} Dropbox tersedia</span>
-                                    <div class="text-primary align-middle ml-2">
+                                    <span class="text-secondary font-weight-bold align-middle ml-2">{{ station.dropboxes_count }} Dropbox tersedia</span>
+                                    <div class="text-primary align-middle ml-4">
                                         Dropbox ini khusus untuk limbah APD dari masyarakat, bukan untuk limbah dari RS/Klinik
                                     </div>
                                 </div>
