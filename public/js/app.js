@@ -3020,6 +3020,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ExploreMap",
@@ -3028,7 +3036,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form: {
         keywords: null,
         latitude: null,
-        longitude: null
+        longitude: null,
+        distance: null
       },
       stations: [],
       activeStation: {},
@@ -3157,18 +3166,44 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this3.getUserLocation();
 
               case 2:
-                _context4.next = 4;
+                // Set maximum distance in km
+                _this3.form.distance = 15;
+                _context4.next = 5;
                 return _this3.fetchStations();
 
-              case 4:
+              case 5:
                 _this3.fitBounds();
 
-              case 5:
+              case 6:
               case "end":
                 return _context4.stop();
             }
           }
         }, _callee4);
+      }))();
+    },
+    getAllStations: function getAllStations() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                // Clear distance
+                _this4.form.distance = null;
+                _context5.next = 3;
+                return _this4.fetchStations();
+
+              case 3:
+                _this4.fitBounds();
+
+              case 4:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
       }))();
     },
     fitBounds: function fitBounds() {
@@ -59138,6 +59173,14 @@ var render = function() {
               _c(
                 "button",
                 {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.form.distance,
+                      expression: "!form.distance"
+                    }
+                  ],
                   staticClass: "btn btn-primary shadow ml-2 w-100",
                   on: {
                     click: function($event) {
@@ -59146,6 +59189,27 @@ var render = function() {
                   }
                 },
                 [_vm._v("\n        STATION TERDEKAT\n      ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.form.distance,
+                      expression: "form.distance"
+                    }
+                  ],
+                  staticClass: "btn btn-primary shadow ml-2 w-100",
+                  on: {
+                    click: function($event) {
+                      return _vm.getAllStations()
+                    }
+                  }
+                },
+                [_vm._v("\n        TAMPILKAN SEMUA STATION\n      ")]
               )
             ]
           )
