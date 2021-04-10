@@ -3238,6 +3238,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _MarkerSchedule_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MarkerSchedule.vue */ "./resources/js/components/Explore/MarkerSchedule.vue");
 //
 //
 //
@@ -3257,6 +3258,91 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    MarkerSchedule: _MarkerSchedule_vue__WEBPACK_IMPORTED_MODULE_1__.default
+  },
+  name: "MarkerModal",
+  props: {
+    station: {
+      type: Object
+    },
+    userLat: Number,
+    userLong: Number
+  },
+  computed: {
+    routeUrl: function routeUrl() {
+      return "https://www.google.com/maps/dir/?api=1&destination=".concat(this.station.latitude, ",").concat(this.station.longitude);
+    },
+    distance: function distance() {
+      if (this.station.distance) {
+        return Math.round(this.station.distance * 10) / 10;
+      }
+
+      if (this.userLat && this.userLong) {
+        return Math.round((0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)([this.userLat, this.userLong]).distanceTo([this.station.latitude, this.station.longitude]) / 1000 * 10) / 10;
+      }
+
+      return null;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerSchedule.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerSchedule.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/dayOfWeeks */ "./resources/js/mixins/dayOfWeeks.js");
 //
 //
 //
@@ -3296,28 +3382,106 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "MarkerModal",
+  name: "MarkerSchedule",
+  mixins: [_mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__.default],
   props: {
-    station: {
-      type: Object
+    schedules: {
+      type: Array
+    }
+  },
+  methods: {
+    getScheduleOnDay: function getScheduleOnDay(schedule, day) {
+      schedule.opened_at = "";
+      schedule.closed_at = "";
+      schedule.summary = "Buka Hari Ini";
+
+      for (var i = 0; i < this.schedules.length; i++) {
+        // Cari hari
+        if (this.schedules[i].day == day) {
+          if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
+            schedule.opened_at = this.schedules[i].opened_at;
+            schedule.closed_at = this.schedules[i].closed_at;
+            schedule.summary = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at;
+          } else {
+            schedule.summary = "Tutup";
+          }
+        }
+      }
+
+      return schedule;
     },
-    userLat: Number,
-    userLong: Number
+    getNow: function getNow() {
+      var today = this.sortedSchedules[0];
+      var now = new Date();
+      var getNow = {};
+
+      if (today.summary == "Buka Hari Ini") {
+        getNow.isOpen = true;
+        getNow.nextOpen = today.summary;
+      } else if (today.summary == "Tutup") {
+        getNow.isOpen = false;
+        getNow.nextOpen = this.nextOpen();
+      } else {
+        var openTime = today.opened_at.split(':');
+        var closeTime = today.closed_at.split(':');
+        var openHour = new Date();
+        openHour.setHours(openTime[0], openTime[1], 0);
+        var closeHour = new Date();
+        closeHour.setHours(closeTime[0], closeTime[1], 0); // Belum buka
+
+        if (now < openHour) {
+          getNow.isOpen = false;
+          getNow.nextOpen = "Buka: " + today.summary;
+        } else // Sedang Buka
+          if (now >= openHour && now < closeHour) {
+            getNow.isOpen = true;
+            getNow.nextOpen = "(" + today.summary + ")";
+          } // Sudah Tutup
+          else {
+              getNow.isOpen = false;
+              getNow.nextOpen = this.nextOpen();
+            }
+      }
+
+      return getNow;
+    },
+    nextOpen: function nextOpen() {
+      var scheduleList = this.sortedSchedules;
+
+      for (var i = 1; i < scheduleList.length; i++) {
+        if (scheduleList[i].summary == "Buka Hari Ini") {
+          return "Buka: " + scheduleList[i].day;
+        }
+
+        if (scheduleList[i].summary != "Buka Hari Ini" && scheduleList[i].summary != "Tutup") {
+          return "Buka: " + scheduleList[i].day + " (" + scheduleList[i].summary + ")";
+        }
+      }
+    }
   },
   computed: {
-    routeUrl: function routeUrl() {
-      return "https://www.google.com/maps/dir/?api=1&destination=".concat(this.station.latitude, ",").concat(this.station.longitude);
-    },
-    distance: function distance() {
-      if (this.station.distance) {
-        return Math.round(this.station.distance * 10) / 10;
+    sortedSchedules: function sortedSchedules() {
+      var date = new Date();
+      var today = date.getDay();
+      var days = _mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__.default.computed.days();
+      var sortedSchedules = []; // Today ... Sabtu
+
+      for (var i = today; i < days.length; i++) {
+        var schedule = new Object();
+        schedule.day = days[i];
+        this.getScheduleOnDay(schedule, i);
+        sortedSchedules.push(schedule);
+      } // Minggu ... today-1
+
+
+      for (var _i = 0; _i < today; _i++) {
+        var schedule = new Object();
+        schedule.day = days[_i];
+        this.getScheduleOnDay(schedule, _i);
+        sortedSchedules.push(schedule);
       }
 
-      if (this.userLat && this.userLong) {
-        return Math.round((0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)([this.userLat, this.userLong]).distanceTo([this.station.latitude, this.station.longitude]) / 1000 * 10) / 10;
-      }
-
-      return null;
+      return sortedSchedules;
     }
   }
 });
@@ -56879,6 +57043,45 @@ component.options.__file = "resources/js/components/Explore/MarkerModal.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Explore/MarkerSchedule.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/Explore/MarkerSchedule.vue ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MarkerSchedule_vue_vue_type_template_id_3e82f490_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MarkerSchedule.vue?vue&type=template&id=3e82f490&scoped=true& */ "./resources/js/components/Explore/MarkerSchedule.vue?vue&type=template&id=3e82f490&scoped=true&");
+/* harmony import */ var _MarkerSchedule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MarkerSchedule.vue?vue&type=script&lang=js& */ "./resources/js/components/Explore/MarkerSchedule.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _MarkerSchedule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _MarkerSchedule_vue_vue_type_template_id_3e82f490_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MarkerSchedule_vue_vue_type_template_id_3e82f490_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "3e82f490",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Explore/MarkerSchedule.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Media/MediaCarousel.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/components/Media/MediaCarousel.vue ***!
@@ -57557,6 +57760,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Explore/MarkerSchedule.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/Explore/MarkerSchedule.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerSchedule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MarkerSchedule.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerSchedule.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerSchedule_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Media/MediaCarousel.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/Media/MediaCarousel.vue?vue&type=script&lang=js& ***!
@@ -57952,6 +58171,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerModal_vue_vue_type_template_id_61d5cf5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerModal_vue_vue_type_template_id_61d5cf5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MarkerModal.vue?vue&type=template&id=61d5cf5c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerModal.vue?vue&type=template&id=61d5cf5c&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Explore/MarkerSchedule.vue?vue&type=template&id=3e82f490&scoped=true&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/Explore/MarkerSchedule.vue?vue&type=template&id=3e82f490&scoped=true& ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerSchedule_vue_vue_type_template_id_3e82f490_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerSchedule_vue_vue_type_template_id_3e82f490_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MarkerSchedule_vue_vue_type_template_id_3e82f490_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MarkerSchedule.vue?vue&type=template&id=3e82f490&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerSchedule.vue?vue&type=template&id=3e82f490&scoped=true&");
 
 
 /***/ }),
@@ -60029,10 +60265,30 @@ var render = function() {
                                   " Dropbox tersedia"
                               )
                             ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "text-primary align-middle ml-4" },
+                            [
+                              _vm._v(
+                                "\n                                    Dropbox ini khusus untuk limbah APD dari masyarakat, bukan untuk limbah dari RS/Klinik\n                                "
+                              )
+                            ]
                           )
                         ]),
                         _vm._v(" "),
-                        _vm._m(2),
+                        _c("div"),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          [
+                            _c("marker-schedule", {
+                              attrs: { schedules: _vm.station.schedules }
+                            })
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
                         _vm.distance
                           ? _c("div", [
@@ -60157,33 +60413,112 @@ var staticRenderFns = [
         _c("h3", [_vm._v("Foto belum tersedia")])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex" }, [
-      _c("img", {
-        staticStyle: { "max-height": "16px" },
-        attrs: { src: "img/icon_clock.svg", alt: "" }
-      }),
-      _vm._v(" "),
-      _c(
-        "span",
-        { staticClass: "text-secondary font-weight-bold align-middle ml-2" },
-        [
-          _vm._v(
-            "\n                                    Senin-Jumat: Buka 08.00 - 15.00 WIB "
-          ),
-          _c("br"),
-          _vm._v(
-            "\n                                    Sabtu dan Minggu: Tutup\n                                "
-          )
-        ]
-      )
-    ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerSchedule.vue?vue&type=template&id=3e82f490&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Explore/MarkerSchedule.vue?vue&type=template&id=3e82f490&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "a",
+      {
+        staticClass: "d-flex flex-row nav-link px-0",
+        attrs: {
+          "data-toggle": "collapse",
+          href: "#station-schedule",
+          role: "button",
+          "aria-expanded": "false",
+          "aria-controls": "collapseExample"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "mdi mdi-clock-outline text-secondary font-weight-bold"
+        }),
+        _vm._v(" "),
+        _vm.getNow().isOpen
+          ? _c(
+              "span",
+              {
+                staticClass: "text-secondary font-weight-bold align-middle ml-2"
+              },
+              [_vm._v("\n            Buka Sekarang\n        ")]
+            )
+          : _c(
+              "span",
+              { staticClass: "text-danger font-weight-bold align-middle ml-2" },
+              [_vm._v("\n            Tutup\n        ")]
+            ),
+        _vm._v(" "),
+        _c("span", { staticClass: "text-primary align-middle ml-3" }, [
+          _vm._v(
+            "\n            " + _vm._s(_vm.getNow().nextOpen) + "\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("span", {
+          staticClass:
+            "mdi mdi-chevron-down text-secondary font-weight-bold ml-auto"
+        })
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "collapse", attrs: { id: "station-schedule" } }, [
+      _c(
+        "div",
+        { staticClass: "card card-body px-3 py-1" },
+        _vm._l(_vm.sortedSchedules, function(schedule, index) {
+          return _c("div", { key: index, staticClass: "d-flex px-2 my-1" }, [
+            _c("div", { staticClass: "col-3 px-0" }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(schedule.day) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            schedule.summary == "Tutup"
+              ? _c("div", { staticClass: "col-9 text-danger px-0" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(schedule.summary) +
+                      "\n                "
+                  )
+                ])
+              : _c("div", { staticClass: "col-9 px-0" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(schedule.summary) +
+                      "\n                "
+                  )
+                ])
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -77653,6 +77988,7 @@ var map = {
 	"./components/ExampleComponent.vue": "./resources/js/components/ExampleComponent.vue",
 	"./components/Explore/ExploreMap.vue": "./resources/js/components/Explore/ExploreMap.vue",
 	"./components/Explore/MarkerModal.vue": "./resources/js/components/Explore/MarkerModal.vue",
+	"./components/Explore/MarkerSchedule.vue": "./resources/js/components/Explore/MarkerSchedule.vue",
 	"./components/Media/MediaCarousel.vue": "./resources/js/components/Media/MediaCarousel.vue",
 	"./components/Schedule/ScheduleCreateModal.vue": "./resources/js/components/Schedule/ScheduleCreateModal.vue",
 	"./components/Schedule/ScheduleDeleteModal.vue": "./resources/js/components/Schedule/ScheduleDeleteModal.vue",
