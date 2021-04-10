@@ -3374,6 +3374,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "MarkerSchedule",
@@ -3424,11 +3425,6 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       return todaySchedule;
-    },
-    testFunction: function testFunction() {
-      var a = this.schedules[2].opened_at;
-      var b = a.split(':');
-      return b[0];
     },
     isNowOpen: function isNowOpen() {
       var schedule = this.sortedSchedules[0];
@@ -59816,19 +59812,19 @@ var render = function() {
           staticClass: "mdi mdi-clock-outline text-secondary font-weight-bold"
         }),
         _vm._v(" "),
-        _c(
-          "span",
-          { staticClass: "text-secondary font-weight-bold align-middle ml-2" },
-          [
-            _vm._v(
-              "\n            " +
-                _vm._s(_vm.isNowOpen()) +
-                "\n\n            " +
-                _vm._s(_vm.getTodaySchedule()) +
-                "\n        "
+        _vm.isNowOpen()
+          ? _c(
+              "span",
+              {
+                staticClass: "text-secondary font-weight-bold align-middle ml-2"
+              },
+              [_vm._v("\n            Buka Sekarang\n        ")]
             )
-          ]
-        ),
+          : _c(
+              "span",
+              { staticClass: "text-danger font-weight-bold align-middle ml-2" },
+              [_vm._v("\n            Tutup\n        ")]
+            ),
         _vm._v(" "),
         _c("span", {
           staticClass:

@@ -2,10 +2,11 @@
     <div>
         <a class="d-flex flex-row nav-link px-0" data-toggle="collapse" href="#station-schedule" role="button" aria-expanded="false" aria-controls="collapseExample">
             <span class="mdi mdi-clock-outline text-secondary font-weight-bold"></span>
-            <span class="text-secondary font-weight-bold align-middle ml-2">
-                {{ isNowOpen() }}
-
-                {{ getTodaySchedule() }}
+            <span v-if="isNowOpen()" class="text-secondary font-weight-bold align-middle ml-2">
+                Buka Sekarang
+            </span>
+            <span v-else class="text-danger font-weight-bold align-middle ml-2">
+                Tutup
             </span>
             <span class="mdi mdi-chevron-down text-secondary font-weight-bold ml-auto"></span>
         </a>
@@ -58,7 +59,6 @@ export default {
                     }
                 }
             }
-            
             return openHour
         },
 
@@ -89,12 +89,6 @@ export default {
                 }
             }
             return todaySchedule
-        },
-
-        testFunction() {
-            var a = this.schedules[2].opened_at
-            var b = a.split(':')
-            return b[0]
         },
 
         isNowOpen() {
