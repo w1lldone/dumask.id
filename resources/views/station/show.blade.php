@@ -12,16 +12,25 @@
             </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg my-4">
                 <div class="container py-4">
-                    <h3>
-                        {{ $station->name}}
-                    </h3>
-                    <span class="text-muted">{{ $station->address}}</span>
-                    <div class="py-2">
-                        Description:
-                        <div>
-                            {{ $station->description}}
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h3>
+                                {{ $station->name}}
+                            </h3>
+                            <span class="text-muted">{{ $station->address}}</span>
+                            <div class="py-2">
+                                Description:
+                                <div>
+                                    {{ $station->description}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <media-carousel :station-id="{{ $station->id }}"></media-carousel>
+                            <station-media-manager class="float-right mt-2" :station='@json($station)'></station-media-manager>
                         </div>
                     </div>
+
                     <div class="py-2">
                         <div class="d-flex flex-column row">
                             <station-schedule-list :station='{{ json_encode($station) }}'></station-schedule-list>

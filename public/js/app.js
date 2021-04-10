@@ -2226,6 +2226,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "DeleteButton",
   props: {
@@ -3289,12 +3291,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3481,6 +3477,144 @@ __webpack_require__.r(__webpack_exports__);
 
       return sortedSchedules;
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Media/MediaCarousel.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Media/MediaCarousel.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "MediaCarousel",
+  props: {
+    stationId: {
+      type: Number
+    }
+  },
+  data: function data() {
+    return {
+      media: []
+    };
+  },
+  watch: {
+    stationId: function stationId(newValue, oldValue) {
+      this.doFetch();
+    }
+  },
+  methods: {
+    doFetch: function doFetch() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!(_this.stationId == null)) {
+                  _context.next = 2;
+                  break;
+                }
+
+                return _context.abrupt("return");
+
+              case 2:
+                _context.prev = 2;
+                _context.next = 5;
+                return axios.get("/station/".concat(_this.stationId, "/media"));
+
+              case 5:
+                response = _context.sent;
+                _this.media = response.data.data;
+                _context.next = 12;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](2);
+                console.log(_context.t0);
+
+              case 12:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[2, 9]]);
+      }))();
+    }
+  },
+  mounted: function mounted() {
+    this.doFetch();
   }
 });
 
@@ -4780,6 +4914,235 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationMediaManager.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationMediaManager.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "StationMediaManager",
+  props: {
+    station: Object
+  },
+  data: function data() {
+    return {
+      media: [],
+      isLoading: false,
+      uploadProgress: 0,
+      errors: {}
+    };
+  },
+  methods: {
+    doSubmit: function doSubmit() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var media, formData, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.isLoading = true;
+                media = _this.$refs.media.files[0];
+                formData = new FormData();
+                formData.append("media", media);
+                _context.prev = 4;
+                _context.next = 7;
+                return axios.post("/station/".concat(_this.station.id, "/media"), formData, {
+                  headers: {
+                    "Content-Type": "multipart/form-data"
+                  },
+                  onUploadProgress: function (progressEvent) {
+                    this.uploadProgress = parseInt(Math.round(progressEvent.loaded * 100 / progressEvent.total));
+                  }.bind(_this)
+                });
+
+              case 7:
+                response = _context.sent;
+
+                _this.media.push(response.data.data);
+
+                _context.next = 14;
+                break;
+
+              case 11:
+                _context.prev = 11;
+                _context.t0 = _context["catch"](4);
+                console.log(_context.t0);
+
+              case 14:
+                _this.isLoading = false;
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[4, 11]]);
+      }))();
+    },
+    doFetch: function doFetch() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return axios.get("/station/".concat(_this2.station.id, "/media"));
+
+              case 3:
+                response = _context2.sent;
+                _this2.media = response.data.data;
+                _context2.next = 10;
+                break;
+
+              case 7:
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0);
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 7]]);
+      }))();
+    },
+    handleDeleted: function handleDeleted(index) {
+      this.media.splice(index, 1);
+    }
+  },
+  mounted: function mounted() {
+    this.doFetch();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationScheduleList.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationScheduleList.vue?vue&type=script&lang=js& ***!
@@ -5292,6 +5655,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _DeleteButton_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DeleteButton.vue */ "./resources/js/components/DeleteButton.vue");
 /* harmony import */ var _UserEditModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserEditModal.vue */ "./resources/js/components/User/UserEditModal.vue");
+//
+//
 //
 //
 //
@@ -9976,6 +10341,54 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap);"]);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".btn-google[data-v-93126ae0] {\n  font-family: \"Roboto\", sans-serif !important;\n  font-weight: 500 !important;\n  color: #292929;\n  background-color: white;\n}\n.btn-google[data-v-93126ae0]:hover {\n  background: #FFFFFF !important;\n  border-color: black !important;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Media/MediaCarousel.vue?vue&type=style&index=0&id=7deec084&lang=scss&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Media/MediaCarousel.vue?vue&type=style&index=0&id=7deec084&lang=scss&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".carousel-item img[data-v-7deec084] {\n  max-height: 200px;\n  min-width: auto;\n  margin-left: auto;\n  margin-right: auto;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationMediaManager.vue?vue&type=style&index=0&id=c5232e32&lang=scss&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationMediaManager.vue?vue&type=style&index=0&id=c5232e32&lang=scss&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "label[data-v-c5232e32] {\n  margin-bottom: 0;\n}\n.btn-file[data-v-c5232e32] {\n  position: relative;\n  overflow: hidden;\n}\n.btn-file input[type=file][data-v-c5232e32] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  min-width: 100%;\n  min-height: 100%;\n  font-size: 100px;\n  text-align: right;\n  filter: alpha(opacity=0);\n  opacity: 0;\n  outline: none;\n  background: white;\n  cursor: inherit;\n  display: block;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -55991,6 +56404,66 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Media/MediaCarousel.vue?vue&type=style&index=0&id=7deec084&lang=scss&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Media/MediaCarousel.vue?vue&type=style&index=0&id=7deec084&lang=scss&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MediaCarousel_vue_vue_type_style_index_0_id_7deec084_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MediaCarousel.vue?vue&type=style&index=0&id=7deec084&lang=scss&scoped=true& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Media/MediaCarousel.vue?vue&type=style&index=0&id=7deec084&lang=scss&scoped=true&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MediaCarousel_vue_vue_type_style_index_0_id_7deec084_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MediaCarousel_vue_vue_type_style_index_0_id_7deec084_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationMediaManager.vue?vue&type=style&index=0&id=c5232e32&lang=scss&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationMediaManager.vue?vue&type=style&index=0&id=c5232e32&lang=scss&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_StationMediaManager_vue_vue_type_style_index_0_id_c5232e32_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./StationMediaManager.vue?vue&type=style&index=0&id=c5232e32&lang=scss&scoped=true& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationMediaManager.vue?vue&type=style&index=0&id=c5232e32&lang=scss&scoped=true&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_StationMediaManager_vue_vue_type_style_index_0_id_c5232e32_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_StationMediaManager_vue_vue_type_style_index_0_id_c5232e32_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -56623,6 +57096,47 @@ component.options.__file = "resources/js/components/Explore/MarkerSchedule.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Media/MediaCarousel.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/Media/MediaCarousel.vue ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MediaCarousel_vue_vue_type_template_id_7deec084_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MediaCarousel.vue?vue&type=template&id=7deec084&scoped=true& */ "./resources/js/components/Media/MediaCarousel.vue?vue&type=template&id=7deec084&scoped=true&");
+/* harmony import */ var _MediaCarousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MediaCarousel.vue?vue&type=script&lang=js& */ "./resources/js/components/Media/MediaCarousel.vue?vue&type=script&lang=js&");
+/* harmony import */ var _MediaCarousel_vue_vue_type_style_index_0_id_7deec084_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MediaCarousel.vue?vue&type=style&index=0&id=7deec084&lang=scss&scoped=true& */ "./resources/js/components/Media/MediaCarousel.vue?vue&type=style&index=0&id=7deec084&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
+  _MediaCarousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _MediaCarousel_vue_vue_type_template_id_7deec084_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MediaCarousel_vue_vue_type_template_id_7deec084_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "7deec084",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Media/MediaCarousel.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Schedule/ScheduleCreateModal.vue":
 /*!******************************************************************!*\
   !*** ./resources/js/components/Schedule/ScheduleCreateModal.vue ***!
@@ -56935,6 +57449,47 @@ component.options.__file = "resources/js/components/Station/StationList.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Station/StationMediaManager.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/Station/StationMediaManager.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _StationMediaManager_vue_vue_type_template_id_c5232e32_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StationMediaManager.vue?vue&type=template&id=c5232e32&scoped=true& */ "./resources/js/components/Station/StationMediaManager.vue?vue&type=template&id=c5232e32&scoped=true&");
+/* harmony import */ var _StationMediaManager_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StationMediaManager.vue?vue&type=script&lang=js& */ "./resources/js/components/Station/StationMediaManager.vue?vue&type=script&lang=js&");
+/* harmony import */ var _StationMediaManager_vue_vue_type_style_index_0_id_c5232e32_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StationMediaManager.vue?vue&type=style&index=0&id=c5232e32&lang=scss&scoped=true& */ "./resources/js/components/Station/StationMediaManager.vue?vue&type=style&index=0&id=c5232e32&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
+  _StationMediaManager_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _StationMediaManager_vue_vue_type_template_id_c5232e32_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _StationMediaManager_vue_vue_type_template_id_c5232e32_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "c5232e32",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Station/StationMediaManager.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Station/StationScheduleList.vue":
 /*!*****************************************************************!*\
   !*** ./resources/js/components/Station/StationScheduleList.vue ***!
@@ -57235,6 +57790,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Media/MediaCarousel.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/Media/MediaCarousel.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MediaCarousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MediaCarousel.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Media/MediaCarousel.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MediaCarousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Schedule/ScheduleCreateModal.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************!*\
   !*** ./resources/js/components/Schedule/ScheduleCreateModal.vue?vue&type=script&lang=js& ***!
@@ -57363,6 +57934,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Station/StationMediaManager.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/Station/StationMediaManager.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StationMediaManager_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./StationMediaManager.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationMediaManager.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StationMediaManager_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Station/StationScheduleList.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************!*\
   !*** ./resources/js/components/Station/StationScheduleList.vue?vue&type=script&lang=js& ***!
@@ -57436,6 +58023,32 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginModal_vue_vue_type_style_index_0_id_93126ae0_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LoginModal.vue?vue&type=style&index=0&id=93126ae0&lang=scss&scoped=true& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Auth/LoginModal.vue?vue&type=style&index=0&id=93126ae0&lang=scss&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Media/MediaCarousel.vue?vue&type=style&index=0&id=7deec084&lang=scss&scoped=true&":
+/*!*******************************************************************************************************************!*\
+  !*** ./resources/js/components/Media/MediaCarousel.vue?vue&type=style&index=0&id=7deec084&lang=scss&scoped=true& ***!
+  \*******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MediaCarousel_vue_vue_type_style_index_0_id_7deec084_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MediaCarousel.vue?vue&type=style&index=0&id=7deec084&lang=scss&scoped=true& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Media/MediaCarousel.vue?vue&type=style&index=0&id=7deec084&lang=scss&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Station/StationMediaManager.vue?vue&type=style&index=0&id=c5232e32&lang=scss&scoped=true&":
+/*!***************************************************************************************************************************!*\
+  !*** ./resources/js/components/Station/StationMediaManager.vue?vue&type=style&index=0&id=c5232e32&lang=scss&scoped=true& ***!
+  \***************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_13_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_StationMediaManager_vue_vue_type_style_index_0_id_c5232e32_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./StationMediaManager.vue?vue&type=style&index=0&id=c5232e32&lang=scss&scoped=true& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-13[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationMediaManager.vue?vue&type=style&index=0&id=c5232e32&lang=scss&scoped=true&");
 
 
 /***/ }),
@@ -57593,6 +58206,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Media/MediaCarousel.vue?vue&type=template&id=7deec084&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/Media/MediaCarousel.vue?vue&type=template&id=7deec084&scoped=true& ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MediaCarousel_vue_vue_type_template_id_7deec084_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MediaCarousel_vue_vue_type_template_id_7deec084_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MediaCarousel_vue_vue_type_template_id_7deec084_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MediaCarousel.vue?vue&type=template&id=7deec084&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Media/MediaCarousel.vue?vue&type=template&id=7deec084&scoped=true&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Schedule/ScheduleCreateModal.vue?vue&type=template&id=6e20f94d&scoped=true&":
 /*!*************************************************************************************************************!*\
   !*** ./resources/js/components/Schedule/ScheduleCreateModal.vue?vue&type=template&id=6e20f94d&scoped=true& ***!
@@ -57725,6 +58355,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StationList_vue_vue_type_template_id_615f0ddc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StationList_vue_vue_type_template_id_615f0ddc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./StationList.vue?vue&type=template&id=615f0ddc&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationList.vue?vue&type=template&id=615f0ddc&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Station/StationMediaManager.vue?vue&type=template&id=c5232e32&scoped=true&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/Station/StationMediaManager.vue?vue&type=template&id=c5232e32&scoped=true& ***!
+  \************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StationMediaManager_vue_vue_type_template_id_c5232e32_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StationMediaManager_vue_vue_type_template_id_c5232e32_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StationMediaManager_vue_vue_type_template_id_c5232e32_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./StationMediaManager.vue?vue&type=template&id=c5232e32&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationMediaManager.vue?vue&type=template&id=c5232e32&scoped=true&");
 
 
 /***/ }),
@@ -58476,7 +59123,7 @@ var render = function() {
   return _c(
     "button",
     {
-      staticClass: "btn btn-outline-danger",
+      staticClass: "btn btn-danger",
       attrs: { disabled: _vm.isLoading },
       on: {
         click: function($event) {
@@ -58497,7 +59144,8 @@ var render = function() {
             }
           ]
         },
-        [_vm._v("Delete")]
+        [_vm._t("default")],
+        2
       ),
       _vm._v(" "),
       _c(
@@ -59601,131 +60249,142 @@ var render = function() {
             _c("div", { staticClass: "modal-content" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "modal-body mx-4" }, [
-                _vm._m(1),
-                _vm._v(" "),
-                _c("div", { staticClass: "mt-4" }, [
-                  _c("h5", { staticClass: "text-secondary font-weight-bold" }, [
-                    _vm._v(_vm._s(_vm.station.name))
-                  ]),
+              _c(
+                "div",
+                { staticClass: "modal-body mx-4" },
+                [
+                  _c("media-carousel", {
+                    attrs: { "station-id": _vm.station.id }
+                  }),
                   _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(_vm.station.address))]),
-                  _vm._v(" "),
-                  _vm.station.dropboxes_count
-                    ? _c("div", [
-                        _c("div", [
-                          _c("span", {
-                            staticClass:
-                              "mdi mdi-archive-outline text-secondary"
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            {
+                  _c("div", { staticClass: "mt-4" }, [
+                    _c(
+                      "h5",
+                      { staticClass: "text-secondary font-weight-bold" },
+                      [_vm._v(_vm._s(_vm.station.name))]
+                    ),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.station.address))]),
+                    _vm._v(" "),
+                    _vm.station.dropboxes_count
+                      ? _c("div", [
+                          _c("div", [
+                            _c("span", {
                               staticClass:
-                                "text-secondary font-weight-bold align-middle ml-2"
-                            },
-                            [
-                              _vm._v(
-                                _vm._s(_vm.station.dropboxes_count) +
-                                  " Dropbox tersedia"
-                              )
-                            ]
-                          ),
+                                "mdi mdi-archive-outline text-secondary"
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "text-secondary font-weight-bold align-middle ml-2"
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.station.dropboxes_count) +
+                                    " Dropbox tersedia"
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "text-primary align-middle ml-4" },
+                              [
+                                _vm._v(
+                                  "\n                                    Dropbox ini khusus untuk limbah APD dari masyarakat, bukan untuk limbah dari RS/Klinik\n                                "
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div"),
                           _vm._v(" "),
                           _c(
                             "div",
-                            { staticClass: "text-primary align-middle ml-4" },
                             [
-                              _vm._v(
-                                "\n                                    Dropbox ini khusus untuk limbah APD dari masyarakat, bukan untuk limbah dari RS/Klinik\n                                "
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div"),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          [
-                            _c("marker-schedule", {
-                              attrs: { schedules: _vm.station.schedules }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _vm.distance
-                          ? _c("div", [
-                              _c("span", {
-                                staticClass:
-                                  "mdi mdi-crosshairs-gps text-secondary"
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
+                              _c("marker-schedule", {
+                                attrs: { schedules: _vm.station.schedules }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _vm.distance
+                            ? _c("div", [
+                                _c("span", {
                                   staticClass:
-                                    "text-secondary font-weight-bold align-middle ml-2"
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(_vm.distance) +
-                                      " km dari lokasi Anda"
-                                  )
-                                ]
-                              )
-                            ])
-                          : _c("div", [
-                              _c("span", {
-                                staticClass: "mdi mdi-crosshairs text-muted"
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "text-muted font-weight-bold align-middle ml-2"
-                                },
-                                [
-                                  _vm._v(
-                                    "Nyalakan lokasi untuk menghitung jarak"
-                                  )
-                                ]
-                              )
-                            ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "text-right" }, [
+                                    "mdi mdi-crosshairs-gps text-secondary"
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "text-secondary font-weight-bold align-middle ml-2"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.distance) +
+                                        " km dari lokasi Anda"
+                                    )
+                                  ]
+                                )
+                              ])
+                            : _c("div", [
+                                _c("span", {
+                                  staticClass: "mdi mdi-crosshairs text-muted"
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "text-muted font-weight-bold align-middle ml-2"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "Nyalakan lokasi untuk menghitung jarak"
+                                    )
+                                  ]
+                                )
+                              ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "text-right" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary shadow",
+                                attrs: { target: "_blank", href: _vm.routeUrl }
+                              },
+                              [
+                                _vm._v("ROUTE "),
+                                _c("span", {
+                                  staticClass: "mdi mdi-open-in-new"
+                                })
+                              ]
+                            )
+                          ])
+                        ])
+                      : _c("div", [
                           _c(
-                            "a",
+                            "h5",
                             {
-                              staticClass: "btn btn-primary shadow",
-                              attrs: { target: "_blank", href: _vm.routeUrl }
+                              staticClass:
+                                "text-secondary text-center font-weight-bold my-4"
                             },
                             [
-                              _vm._v("ROUTE "),
-                              _c("span", { staticClass: "mdi mdi-open-in-new" })
+                              _vm._v(
+                                "Dropbox DUMASK.ID akan segera hadir di lokasi ini."
+                              )
                             ]
                           )
                         ])
-                      ])
-                    : _c("div", [
-                        _c(
-                          "h5",
-                          {
-                            staticClass:
-                              "text-secondary text-center font-weight-bold my-4"
-                          },
-                          [
-                            _vm._v(
-                              "Dropbox DUMASK.ID akan segera hadir di lokasi ini."
-                            )
-                          ]
-                        )
-                      ])
-                ])
-              ])
+                  ])
+                ],
+                1
+              )
             ])
           ]
         )
@@ -59761,24 +60420,6 @@ var staticRenderFns = [
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "d-flex align-items-center justify-content-center text-muted card card-body border rounded bg-light",
-        staticStyle: { height: "200px" }
-      },
-      [
-        _c("span", { staticClass: "mdi mdi-image-filter h1" }),
-        _vm._v(" "),
-        _c("h3", [_vm._v("Foto belum tersedia")])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -59885,6 +60526,137 @@ var render = function() {
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Media/MediaCarousel.vue?vue&type=template&id=7deec084&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Media/MediaCarousel.vue?vue&type=template&id=7deec084&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "carousel slide",
+      attrs: { id: "carouselExampleIndicators", "data-ride": "carousel" }
+    },
+    [
+      _vm.media.length == 0
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "d-flex align-items-center justify-content-center text-muted card card-body border rounded bg-light",
+              staticStyle: { height: "200px" }
+            },
+            [
+              _c("span", { staticClass: "mdi mdi-image-filter h1" }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Foto belum tersedia")])
+            ]
+          )
+        : _c(
+            "ol",
+            { staticClass: "carousel-indicators" },
+            _vm._l(_vm.media, function(item, index) {
+              return _c("li", {
+                key: item.id,
+                attrs: {
+                  "data-target": "#carouselExampleIndicators",
+                  "data-slide-to": index
+                }
+              })
+            }),
+            0
+          ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "carousel-inner" },
+        _vm._l(_vm.media, function(item, index) {
+          return _c(
+            "div",
+            {
+              key: item.id,
+              staticClass: "carousel-item bg-dark rounded",
+              class: { active: index == 0 }
+            },
+            [_c("img", { staticClass: "d-block", attrs: { src: item.url } })]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1)
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-prev",
+        attrs: {
+          href: "#carouselExampleIndicators",
+          role: "button",
+          "data-slide": "prev"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-prev-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-next",
+        attrs: {
+          href: "#carouselExampleIndicators",
+          role: "button",
+          "data-slide": "next"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-next-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -61604,6 +62376,240 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationMediaManager.vue?vue&type=template&id=c5232e32&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationMediaManager.vue?vue&type=template&id=c5232e32&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary",
+        attrs: {
+          type: "button",
+          "data-toggle": "modal",
+          "data-target": "#stationMediaModal"
+        }
+      },
+      [_vm._v("\n    Manage Galery\n  ")]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "stationMediaModal",
+          tabindex: "-1",
+          "aria-labelledby": "stationMediaModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-lg" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c(
+                "div",
+                { staticClass: "row" },
+                [
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: !_vm.isLoading,
+                          expression: "!isLoading"
+                        }
+                      ],
+                      staticClass: "col-md-6 mb-2"
+                    },
+                    [
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "btn btn-block btn-file btn-outline-primary h-100 d-flex align-items-center flex-column justify-content-center"
+                        },
+                        [
+                          _c("div", { staticClass: "h2 mdi mdi-image" }),
+                          _vm._v(" "),
+                          _c("div", [_vm._v("Upload New Image")]),
+                          _vm._v(" "),
+                          _c("div", { attrs: { id: "uploadMediaForm" } }, [
+                            _c("input", {
+                              ref: "media",
+                              staticStyle: { display: "none" },
+                              attrs: {
+                                type: "file",
+                                name: "media",
+                                accept: "image/*"
+                              },
+                              on: {
+                                change: function($event) {
+                                  return _vm.doSubmit()
+                                }
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.isLoading,
+                          expression: "isLoading"
+                        }
+                      ],
+                      staticClass: "col-md-6 mb-2"
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "card card-body border-primary h-100" },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "text-primary text-center my-auto" },
+                            [
+                              _c("span", { staticClass: "h2 mdi mdi-upload" }),
+                              _vm._v(" "),
+                              _c("div", [
+                                _vm._v(_vm._s(_vm.uploadProgress) + " %")
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "progress" }, [
+                                _c("div", {
+                                  staticClass: "progress-bar",
+                                  style: { width: _vm.uploadProgress + "%" },
+                                  attrs: {
+                                    role: "progressbar",
+                                    "aria-valuenow": "25",
+                                    "aria-valuemin": "0",
+                                    "aria-valuemax": "100"
+                                  }
+                                })
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.media, function(item, index) {
+                    return _c(
+                      "div",
+                      { key: item.id, staticClass: "col-md-6 mb-2" },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "card border-primary" },
+                          [
+                            _c("img", {
+                              staticClass: "rounded mx-auto d-block",
+                              staticStyle: { "max-height": "200px" },
+                              attrs: { src: item.url, alt: "" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "delete-button",
+                              {
+                                staticStyle: {
+                                  position: "absolute",
+                                  bottom: "10px",
+                                  right: "10px"
+                                },
+                                attrs: {
+                                  "delete-url":
+                                    "/station/" +
+                                    _vm.station.id +
+                                    "/media/" +
+                                    item.id
+                                },
+                                on: {
+                                  deleted: function($event) {
+                                    return _vm.handleDeleted(index)
+                                  }
+                                }
+                              },
+                              [_c("span", { staticClass: "mdi mdi-delete" })]
+                            )
+                          ],
+                          1
+                        )
+                      ]
+                    )
+                  })
+                ],
+                2
+              )
+            ])
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        {
+          staticClass: "modal-title font-weight-bold text-muted",
+          attrs: { id: "modal-title" }
+        },
+        [_vm._v("\n            Station Galery Manager\n          ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationScheduleList.vue?vue&type=template&id=bf1b10da&scoped=true&":
 /*!***************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Station/StationScheduleList.vue?vue&type=template&id=bf1b10da&scoped=true& ***!
@@ -62460,14 +63466,18 @@ var render = function() {
               attrs: { permissions: _vm.permissions, editedUser: user }
             }),
             _vm._v(" "),
-            _c("delete-button", {
-              attrs: { "delete-url": "/user/" + user.id },
-              on: {
-                deleted: function($event) {
-                  return _vm.handleDeleted(index)
+            _c(
+              "delete-button",
+              {
+                attrs: { "delete-url": "/user/" + user.id },
+                on: {
+                  deleted: function($event) {
+                    return _vm.handleDeleted(index)
+                  }
                 }
-              }
-            })
+              },
+              [_c("span", { staticClass: "mdi mdi-delete" })]
+            )
           ],
           1
         )
@@ -62592,2392 +63602,6 @@ function normalizeComponent (
     options: options
   }
 }
-
-
-/***/ }),
-
-/***/ "./node_modules/vue2-leaflet/dist/components/LIcon.js":
-/*!************************************************************!*\
-  !*** ./node_modules/vue2-leaflet/dist/components/LIcon.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var capitalizeFirstLetter = function (string) {
-  if (!string || typeof string.charAt !== 'function') {
-    return string;
-  }
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
-var propsBinder = function (vueElement, leafletElement, props, options) {
-  var loop = function ( key ) {
-    var setMethodName = 'set' + capitalizeFirstLetter(key);
-    var deepValue =
-      props[key].type === Object ||
-      props[key].type === Array ||
-      Array.isArray(props[key].type);
-    if (props[key].custom && vueElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          vueElement[setMethodName](newVal, oldVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (setMethodName === 'setOptions') {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (leafletElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          leafletElement[setMethodName](newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    }
-  };
-
-  for (var key in props) loop( key );
-};
-
-var collectionCleaner = function (options) {
-  var result = {};
-  for (var key in options) {
-    var value = options[key];
-    if (value !== null && value !== undefined) {
-      result[key] = value;
-    }
-  }
-  return result;
-};
-
-var optionsMerger = function (props, instance) {
-  var options =
-    instance.options && instance.options.constructor === Object
-      ? instance.options
-      : {};
-  props = props && props.constructor === Object ? props : {};
-  var result = collectionCleaner(options);
-  props = collectionCleaner(props);
-  var defaultProps = instance.$options.props;
-  for (var key in props) {
-    var def = defaultProps[key]
-      ? defaultProps[key].default &&
-        typeof defaultProps[key].default === 'function'
-        ? defaultProps[key].default.call()
-        : defaultProps[key].default
-      : Symbol('unique');
-    var isEqual = false;
-    if (Array.isArray(def)) {
-      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
-    } else {
-      isEqual = def === props[key];
-    }
-    if (result[key] && !isEqual) {
-      console.warn(
-        (key + " props is overriding the value passed in the options props")
-      );
-      result[key] = props[key];
-    } else if (!result[key]) {
-      result[key] = props[key];
-    }
-  }
-  return result;
-};
-
-var findRealParent = function (firstVueParent) {
-  var found = false;
-  while (firstVueParent && !found) {
-    if (firstVueParent.mapObject === undefined) {
-      firstVueParent = firstVueParent.$parent;
-    } else {
-      found = true;
-    }
-  }
-  return firstVueParent;
-};
-
-//
-
-/**
- * Easy and reactive way to configure the icon of a marker
- */
-var script = {
-  name: 'LIcon',
-  props: {
-    iconUrl: {
-      type: String,
-      custom: true,
-      default: null,
-    },
-    iconRetinaUrl: {
-      type: String,
-      custom: true,
-      default: null,
-    },
-    iconSize: {
-      type: [Object, Array],
-      custom: true,
-      default: null,
-    },
-    iconAnchor: {
-      type: [Object, Array],
-      custom: true,
-      default: null,
-    },
-    popupAnchor: {
-      type: [Object, Array],
-      custom: true,
-      default: function () { return [0, 0]; },
-    },
-    tooltipAnchor: {
-      type: [Object, Array],
-      custom: true,
-      default: function () { return [0, 0]; },
-    },
-    shadowUrl: {
-      type: String,
-      custom: true,
-      default: null,
-    },
-    shadowRetinaUrl: {
-      type: String,
-      custom: true,
-      default: null,
-    },
-    shadowSize: {
-      type: [Object, Array],
-      custom: true,
-      default: null,
-    },
-    shadowAnchor: {
-      type: [Object, Array],
-      custom: true,
-      default: null,
-    },
-    bgPos: {
-      type: [Object, Array],
-      custom: true,
-      default: function () { return [0, 0]; },
-    },
-    className: {
-      type: String,
-      custom: true,
-      default: '',
-    },
-    options: {
-      type: Object,
-      custom: true,
-      default: function () { return ({}); },
-    },
-  },
-
-  data: function data() {
-    return {
-      parentContainer: null,
-      observer: null,
-      recreationNeeded: false,
-      swapHtmlNeeded: false,
-    };
-  },
-
-  mounted: function mounted() {
-    var this$1 = this;
-
-    this.parentContainer = findRealParent(this.$parent);
-
-    propsBinder(this, this.$parent.mapObject, this.$options.props);
-
-    this.observer = new MutationObserver(function () {
-      this$1.scheduleHtmlSwap();
-    });
-    this.observer.observe(this.$el, {
-      attributes: true,
-      childList: true,
-      characterData: true,
-      subtree: true,
-    });
-    this.scheduleCreateIcon();
-  },
-
-  beforeDestroy: function beforeDestroy() {
-    if (this.parentContainer.mapObject) {
-      this.parentContainer.mapObject.setIcon(this.parentContainer.$props.icon);
-    }
-
-    this.observer.disconnect();
-  },
-
-  methods: {
-    scheduleCreateIcon: function scheduleCreateIcon() {
-      this.recreationNeeded = true;
-
-      this.$nextTick(this.createIcon);
-    },
-
-    scheduleHtmlSwap: function scheduleHtmlSwap() {
-      this.htmlSwapNeeded = true;
-
-      this.$nextTick(this.createIcon);
-    },
-
-    createIcon: function createIcon() {
-      // If only html of a divIcon changed, we can just replace the DOM without the need of recreating the whole icon
-      if (
-        this.htmlSwapNeeded &&
-        !this.recreationNeeded &&
-        this.iconObject &&
-        this.parentContainer.mapObject.getElement()
-      ) {
-        this.parentContainer.mapObject.getElement().innerHTML = this.$el.innerHTML;
-
-        this.htmlSwapNeeded = false;
-        return;
-      }
-
-      if (!this.recreationNeeded) {
-        return;
-      }
-
-      if (this.iconObject) {
-        leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.off(this.iconObject, this.$listeners);
-      }
-
-      var options = optionsMerger(
-        {
-          iconUrl: this.iconUrl,
-          iconRetinaUrl: this.iconRetinaUrl,
-          iconSize: this.iconSize,
-          iconAnchor: this.iconAnchor,
-          popupAnchor: this.popupAnchor,
-          tooltipAnchor: this.tooltipAnchor,
-          shadowUrl: this.shadowUrl,
-          shadowRetinaUrl: this.shadowRetinaUrl,
-          shadowSize: this.shadowSize,
-          shadowAnchor: this.shadowAnchor,
-          bgPos: this.bgPos,
-          className: this.className,
-          html: this.$el.innerHTML || this.html,
-        },
-        this
-      );
-
-      if (options.html) {
-        this.iconObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.divIcon)(options);
-      } else {
-        this.iconObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.icon)(options);
-      }
-
-      leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.iconObject, this.$listeners);
-
-      this.parentContainer.mapObject.setIcon(this.iconObject);
-
-      this.recreationNeeded = false;
-      this.htmlSwapNeeded = false;
-    },
-
-    setIconUrl: function setIconUrl() {
-      this.scheduleCreateIcon();
-    },
-    setIconRetinaUrl: function setIconRetinaUrl() {
-      this.scheduleCreateIcon();
-    },
-    setIconSize: function setIconSize() {
-      this.scheduleCreateIcon();
-    },
-    setIconAnchor: function setIconAnchor() {
-      this.scheduleCreateIcon();
-    },
-    setPopupAnchor: function setPopupAnchor() {
-      this.scheduleCreateIcon();
-    },
-    setTooltipAnchor: function setTooltipAnchor() {
-      this.scheduleCreateIcon();
-    },
-    setShadowUrl: function setShadowUrl() {
-      this.scheduleCreateIcon();
-    },
-    setShadowRetinaUrl: function setShadowRetinaUrl() {
-      this.scheduleCreateIcon();
-    },
-    setShadowAnchor: function setShadowAnchor() {
-      this.scheduleCreateIcon();
-    },
-    setBgPos: function setBgPos() {
-      this.scheduleCreateIcon();
-    },
-    setClassName: function setClassName() {
-      this.scheduleCreateIcon();
-    },
-    setHtml: function setHtml() {
-      this.scheduleCreateIcon();
-    },
-  },
-
-  render: function render() {
-    return null;
-  },
-};
-
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-    if (typeof shadowMode !== 'boolean') {
-        createInjectorSSR = createInjector;
-        createInjector = shadowMode;
-        shadowMode = false;
-    }
-    // Vue.extend constructor export interop.
-    var options = typeof script === 'function' ? script.options : script;
-    // render functions
-    if (template && template.render) {
-        options.render = template.render;
-        options.staticRenderFns = template.staticRenderFns;
-        options._compiled = true;
-        // functional template
-        if (isFunctionalTemplate) {
-            options.functional = true;
-        }
-    }
-    // scopedId
-    if (scopeId) {
-        options._scopeId = scopeId;
-    }
-    var hook;
-    if (moduleIdentifier) {
-        // server build
-        hook = function (context) {
-            // 2.3 injection
-            context =
-                context || // cached call
-                    (this.$vnode && this.$vnode.ssrContext) || // stateful
-                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
-            // 2.2 with runInNewContext: true
-            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-                context = __VUE_SSR_CONTEXT__;
-            }
-            // inject component styles
-            if (style) {
-                style.call(this, createInjectorSSR(context));
-            }
-            // register component module identifier for async chunk inference
-            if (context && context._registeredComponents) {
-                context._registeredComponents.add(moduleIdentifier);
-            }
-        };
-        // used by ssr in case component is cached and beforeCreate
-        // never gets called
-        options._ssrRegister = hook;
-    }
-    else if (style) {
-        hook = shadowMode
-            ? function (context) {
-                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
-            }
-            : function (context) {
-                style.call(this, createInjector(context));
-            };
-    }
-    if (hook) {
-        if (options.functional) {
-            // register for functional component in vue file
-            var originalRender = options.render;
-            options.render = function renderWithStyleInjection(h, context) {
-                hook.call(context);
-                return originalRender(h, context);
-            };
-        }
-        else {
-            // inject component registration as beforeCreate hook
-            var existing = options.beforeCreate;
-            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
-        }
-    }
-    return script;
-}
-
-/* script */
-var __vue_script__ = script;
-
-/* template */
-var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._t("default")],2)};
-var __vue_staticRenderFns__ = [];
-
-  /* style */
-  var __vue_inject_styles__ = undefined;
-  /* scoped */
-  var __vue_scope_id__ = undefined;
-  /* module identifier */
-  var __vue_module_identifier__ = undefined;
-  /* functional template */
-  var __vue_is_functional_template__ = false;
-  /* style inject */
-  
-  /* style inject SSR */
-  
-  /* style inject shadow dom */
-  
-
-  
-  var __vue_component__ = /*#__PURE__*/normalizeComponent(
-    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
-    __vue_inject_styles__,
-    __vue_script__,
-    __vue_scope_id__,
-    __vue_is_functional_template__,
-    __vue_module_identifier__,
-    false,
-    undefined,
-    undefined,
-    undefined
-  );
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
-
-
-/***/ }),
-
-/***/ "./node_modules/vue2-leaflet/dist/components/LMap.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/vue2-leaflet/dist/components/LMap.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var debounce = function (fn, time) {
-  var timeout;
-
-  var debouncedFunction = function() {
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-
-    var context = this;
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(function () {
-      fn.apply(context, args);
-      timeout = null;
-    }, time);
-  };
-
-  debouncedFunction.cancel = function() {
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-  };
-
-  return debouncedFunction;
-};
-
-var capitalizeFirstLetter = function (string) {
-  if (!string || typeof string.charAt !== 'function') {
-    return string;
-  }
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
-var propsBinder = function (vueElement, leafletElement, props, options) {
-  var loop = function ( key ) {
-    var setMethodName = 'set' + capitalizeFirstLetter(key);
-    var deepValue =
-      props[key].type === Object ||
-      props[key].type === Array ||
-      Array.isArray(props[key].type);
-    if (props[key].custom && vueElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          vueElement[setMethodName](newVal, oldVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (setMethodName === 'setOptions') {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (leafletElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          leafletElement[setMethodName](newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    }
-  };
-
-  for (var key in props) loop( key );
-};
-
-var collectionCleaner = function (options) {
-  var result = {};
-  for (var key in options) {
-    var value = options[key];
-    if (value !== null && value !== undefined) {
-      result[key] = value;
-    }
-  }
-  return result;
-};
-
-var optionsMerger = function (props, instance) {
-  var options =
-    instance.options && instance.options.constructor === Object
-      ? instance.options
-      : {};
-  props = props && props.constructor === Object ? props : {};
-  var result = collectionCleaner(options);
-  props = collectionCleaner(props);
-  var defaultProps = instance.$options.props;
-  for (var key in props) {
-    var def = defaultProps[key]
-      ? defaultProps[key].default &&
-        typeof defaultProps[key].default === 'function'
-        ? defaultProps[key].default.call()
-        : defaultProps[key].default
-      : Symbol('unique');
-    var isEqual = false;
-    if (Array.isArray(def)) {
-      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
-    } else {
-      isEqual = def === props[key];
-    }
-    if (result[key] && !isEqual) {
-      console.warn(
-        (key + " props is overriding the value passed in the options props")
-      );
-      result[key] = props[key];
-    } else if (!result[key]) {
-      result[key] = props[key];
-    }
-  }
-  return result;
-};
-
-var Options = {
-  props: {
-    /**
-     * Leaflet options to pass to the component constructor
-     */
-    options: {
-      type: Object,
-      default: function () { return ({}); }
-    }
-  }
-};
-
-//
-
-/**
- * Base component, contains and wrap all the other components.
- */
-var script = {
-  name: 'LMap',
-  mixins: [Options],
-  props: {
-    /**
-     * The center of the map, supports .sync modifier
-     */
-    center: {
-      type: [Object, Array],
-      custom: true,
-      default: function () { return [0, 0]; },
-    },
-    /**
-     * The bounds of the map, supports .sync modifier
-     */
-    bounds: {
-      type: [Array, Object],
-      custom: true,
-      default: null,
-    },
-    /**
-     * The max bounds of the map
-     */
-    maxBounds: {
-      type: [Array, Object],
-      default: null,
-    },
-    /**
-     * The zoom of the map, supports .sync modifier
-     */
-    zoom: {
-      type: Number,
-      custom: true,
-      default: 0,
-    },
-    /**
-     * The minZoom of the map
-     */
-    minZoom: {
-      type: Number,
-      default: null,
-    },
-    /**
-     * The maxZoom of the map
-     */
-    maxZoom: {
-      type: Number,
-      default: null,
-    },
-    /**
-     * The paddingBottomRight of the map
-     */
-    paddingBottomRight: {
-      type: Array,
-      custom: true,
-      default: null,
-    },
-    /**
-     * The paddingTopLeft of the map
-     */
-    paddingTopLeft: {
-      type: Array,
-      custom: true,
-      default: null,
-    },
-    /**
-     * The padding of the map
-     */
-    padding: {
-      type: Array,
-      custom: true,
-      default: null,
-    },
-    /**
-     * The worldCopyJump option for the map
-     */
-    worldCopyJump: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * The crs option for the map
-     * @values CRS.EPSG3857
-     */
-    crs: {
-      type: Object,
-      custom: true,
-      default: function () { return leaflet__WEBPACK_IMPORTED_MODULE_0__.CRS.EPSG3857; },
-    },
-    maxBoundsViscosity: {
-      type: Number,
-      default: null,
-    },
-    inertia: {
-      type: Boolean,
-      default: null,
-    },
-    inertiaDeceleration: {
-      type: Number,
-      default: null,
-    },
-    inertiaMaxSpeed: {
-      type: Number,
-      default: null,
-    },
-    easeLinearity: {
-      type: Number,
-      default: null,
-    },
-    zoomAnimation: {
-      type: Boolean,
-      default: null,
-    },
-    zoomAnimationThreshold: {
-      type: Number,
-      default: null,
-    },
-    fadeAnimation: {
-      type: Boolean,
-      default: null,
-    },
-    markerZoomAnimation: {
-      type: Boolean,
-      default: null,
-    },
-    noBlockingAnimations: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data: function data() {
-    return {
-      ready: false,
-      lastSetCenter: this.center ? (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(this.center) : null,
-      lastSetBounds: this.bounds ? (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLngBounds)(this.bounds) : null,
-      layerControl: undefined,
-      layersToAdd: [],
-      layersInControl: [],
-    };
-  },
-  computed: {
-    fitBoundsOptions: function fitBoundsOptions() {
-      var options = {
-        animate: this.noBlockingAnimations ? false : null,
-      };
-      if (this.padding) {
-        options.padding = this.padding;
-      } else {
-        if (this.paddingBottomRight) {
-          options.paddingBottomRight = this.paddingBottomRight;
-        }
-        if (this.paddingTopLeft) {
-          options.paddingTopLeft = this.paddingTopLeft;
-        }
-      }
-      return options;
-    },
-  },
-  beforeDestroy: function beforeDestroy() {
-    if (this.debouncedMoveEndHandler) {
-      this.debouncedMoveEndHandler.cancel();
-    }
-
-    if (this.mapObject) {
-      this.mapObject.remove();
-    }
-  },
-  mounted: function mounted() {
-    var this$1 = this;
-
-    var options = optionsMerger(
-      {
-        minZoom: this.minZoom,
-        maxZoom: this.maxZoom,
-        maxBounds: this.maxBounds,
-        maxBoundsViscosity: this.maxBoundsViscosity,
-        worldCopyJump: this.worldCopyJump,
-        crs: this.crs,
-        center: this.center,
-        zoom: this.zoom,
-        inertia: this.inertia,
-        inertiaDeceleration: this.inertiaDeceleration,
-        inertiaMaxSpeed: this.inertiaMaxSpeed,
-        easeLinearity: this.easeLinearity,
-        zoomAnimation: this.zoomAnimation,
-        zoomAnimationThreshold: this.zoomAnimationThreshold,
-        fadeAnimation: this.fadeAnimation,
-        markerZoomAnimation: this.markerZoomAnimation,
-      },
-      this
-    );
-    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.map)(this.$el, options);
-    if (this.bounds) {
-      this.mapObject.fitBounds(this.bounds);
-    }
-    this.debouncedMoveEndHandler = debounce(this.moveEndHandler, 100);
-    this.mapObject.on('moveend', this.debouncedMoveEndHandler);
-    this.mapObject.on('overlayadd', this.overlayAddHandler);
-    this.mapObject.on('overlayremove', this.overlayRemoveHandler);
-    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
-    propsBinder(this, this.mapObject, this.$options.props);
-    this.ready = true;
-    /**
-     * DEPRECATED event
-     * @deprecated
-     */
-    this.$emit('leaflet:load');
-    this.$nextTick(function () {
-      /**
-       * Triggers when the component is ready
-       * @type {object}
-       * @property {object} mapObject - reference to leaflet map object
-       */
-      this$1.$emit('ready', this$1.mapObject);
-    });
-  },
-  methods: {
-    registerLayerControl: function registerLayerControl(lControlLayers) {
-      var this$1 = this;
-
-      this.layerControl = lControlLayers;
-      this.mapObject.addControl(lControlLayers.mapObject);
-      this.layersToAdd.forEach(function (layer) {
-        this$1.layerControl.addLayer(layer);
-      });
-      this.layersToAdd = [];
-    },
-    addLayer: function addLayer(layer, alreadyAdded) {
-      if (layer.layerType !== undefined) {
-        if (this.layerControl === undefined) {
-          this.layersToAdd.push(layer);
-        } else {
-          var exist = this.layersInControl.find(
-            function (l) { return l.mapObject._leaflet_id === layer.mapObject._leaflet_id; }
-          );
-          if (!exist) {
-            this.layerControl.addLayer(layer);
-            this.layersInControl.push(layer);
-          }
-        }
-      }
-      if (!alreadyAdded && layer.visible !== false) {
-        this.mapObject.addLayer(layer.mapObject);
-      }
-    },
-    hideLayer: function hideLayer(layer) {
-      this.mapObject.removeLayer(layer.mapObject);
-    },
-    removeLayer: function removeLayer(layer, alreadyRemoved) {
-      if (layer.layerType !== undefined) {
-        if (this.layerControl === undefined) {
-          this.layersToAdd = this.layersToAdd.filter(
-            function (l) { return l.name !== layer.name; }
-          );
-        } else {
-          this.layerControl.removeLayer(layer);
-          this.layersInControl = this.layersInControl.filter(
-            function (l) { return l.mapObject._leaflet_id !== layer.mapObject._leaflet_id; }
-          );
-        }
-      }
-      if (!alreadyRemoved) {
-        this.mapObject.removeLayer(layer.mapObject);
-      }
-    },
-    setZoom: function setZoom(newVal, oldVal) {
-      if (newVal === undefined || newVal === null) { return; }
-      this.mapObject.setZoom(newVal, {
-        animate: this.noBlockingAnimations ? false : null,
-      });
-      this.cacheMapView();
-    },
-    setCenter: function setCenter(newVal, oldVal) {
-      if (newVal == null) {
-        return;
-      }
-      var newCenter = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(newVal);
-      var oldCenter = this.lastSetCenter || this.mapObject.getCenter();
-      if (oldCenter.lat !== newCenter.lat || oldCenter.lng !== newCenter.lng) {
-        this.lastSetCenter = newCenter;
-        this.mapObject.panTo(newCenter, {
-          animate: this.noBlockingAnimations ? false : null,
-        });
-        this.cacheMapView(undefined, newCenter);
-      }
-    },
-    setBounds: function setBounds(newVal, oldVal) {
-      if (!newVal) {
-        return;
-      }
-      var newBounds = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLngBounds)(newVal);
-      if (!newBounds.isValid()) {
-        return;
-      }
-      var oldBounds = this.lastSetBounds || this.mapObject.getBounds();
-      var boundsChanged = !oldBounds.equals(newBounds, 0); // set maxMargin to 0 - check exact equals
-      if (boundsChanged) {
-        this.mapObject.fitBounds(newBounds, this.fitBoundsOptions);
-        this.cacheMapView(newBounds);
-      }
-    },
-    setPaddingBottomRight: function setPaddingBottomRight(newVal, oldVal) {
-      this.paddingBottomRight = newVal;
-    },
-    setPaddingTopLeft: function setPaddingTopLeft(newVal, oldVal) {
-      this.paddingTopLeft = newVal;
-    },
-    setPadding: function setPadding(newVal, oldVal) {
-      this.padding = newVal;
-    },
-    setCrs: function setCrs(newVal, oldVal) {
-      var mapObject = this.mapObject,
-        prevBounds = mapObject.getBounds();
-      mapObject.options.crs = newVal;
-      mapObject.fitBounds(prevBounds, { animate: false, padding: [0, 0] });
-    },
-    fitBounds: function fitBounds(bounds) {
-      this.mapObject.fitBounds(bounds, {
-        animate: this.noBlockingAnimations ? false : null,
-      });
-    },
-    moveEndHandler: function moveEndHandler() {
-      /**
-       * Triggers when zoom is updated
-       * @type {number,string}
-       */
-      this.$emit('update:zoom', this.mapObject.getZoom());
-      var center = this.mapObject.getCenter();
-      /**
-       * Triggers when center is updated
-       * @type {object,array}
-       */
-      this.$emit('update:center', center);
-      var bounds = this.mapObject.getBounds();
-      /**
-       * Triggers when bounds are updated
-       * @type {object}
-       */
-      this.$emit('update:bounds', bounds);
-    },
-    overlayAddHandler: function overlayAddHandler(e) {
-      var layer = this.layersInControl.find(function (l) { return l.name === e.name; });
-      if (layer) {
-        layer.updateVisibleProp(true);
-      }
-    },
-    overlayRemoveHandler: function overlayRemoveHandler(e) {
-      var layer = this.layersInControl.find(function (l) { return l.name === e.name; });
-      if (layer) {
-        layer.updateVisibleProp(false);
-      }
-    },
-    cacheMapView: function cacheMapView(bounds, center) {
-      // Cache the last values used to define the map view by mutating props.
-      this.lastSetBounds = bounds || this.mapObject.getBounds();
-      this.lastSetCenter = center || this.lastSetBounds.getCenter();
-    },
-  },
-};
-
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-    if (typeof shadowMode !== 'boolean') {
-        createInjectorSSR = createInjector;
-        createInjector = shadowMode;
-        shadowMode = false;
-    }
-    // Vue.extend constructor export interop.
-    var options = typeof script === 'function' ? script.options : script;
-    // render functions
-    if (template && template.render) {
-        options.render = template.render;
-        options.staticRenderFns = template.staticRenderFns;
-        options._compiled = true;
-        // functional template
-        if (isFunctionalTemplate) {
-            options.functional = true;
-        }
-    }
-    // scopedId
-    if (scopeId) {
-        options._scopeId = scopeId;
-    }
-    var hook;
-    if (moduleIdentifier) {
-        // server build
-        hook = function (context) {
-            // 2.3 injection
-            context =
-                context || // cached call
-                    (this.$vnode && this.$vnode.ssrContext) || // stateful
-                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
-            // 2.2 with runInNewContext: true
-            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-                context = __VUE_SSR_CONTEXT__;
-            }
-            // inject component styles
-            if (style) {
-                style.call(this, createInjectorSSR(context));
-            }
-            // register component module identifier for async chunk inference
-            if (context && context._registeredComponents) {
-                context._registeredComponents.add(moduleIdentifier);
-            }
-        };
-        // used by ssr in case component is cached and beforeCreate
-        // never gets called
-        options._ssrRegister = hook;
-    }
-    else if (style) {
-        hook = shadowMode
-            ? function (context) {
-                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
-            }
-            : function (context) {
-                style.call(this, createInjector(context));
-            };
-    }
-    if (hook) {
-        if (options.functional) {
-            // register for functional component in vue file
-            var originalRender = options.render;
-            options.render = function renderWithStyleInjection(h, context) {
-                hook.call(context);
-                return originalRender(h, context);
-            };
-        }
-        else {
-            // inject component registration as beforeCreate hook
-            var existing = options.beforeCreate;
-            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
-        }
-    }
-    return script;
-}
-
-var isOldIE = typeof navigator !== 'undefined' &&
-    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
-function createInjector(context) {
-    return function (id, style) { return addStyle(id, style); };
-}
-var HEAD;
-var styles = {};
-function addStyle(id, css) {
-    var group = isOldIE ? css.media || 'default' : id;
-    var style = styles[group] || (styles[group] = { ids: new Set(), styles: [] });
-    if (!style.ids.has(id)) {
-        style.ids.add(id);
-        var code = css.source;
-        if (css.map) {
-            // https://developer.chrome.com/devtools/docs/javascript-debugging
-            // this makes source maps inside style tags work properly in Chrome
-            code += '\n/*# sourceURL=' + css.map.sources[0] + ' */';
-            // http://stackoverflow.com/a/26603875
-            code +=
-                '\n/*# sourceMappingURL=data:application/json;base64,' +
-                    btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) +
-                    ' */';
-        }
-        if (!style.element) {
-            style.element = document.createElement('style');
-            style.element.type = 'text/css';
-            if (css.media)
-                { style.element.setAttribute('media', css.media); }
-            if (HEAD === undefined) {
-                HEAD = document.head || document.getElementsByTagName('head')[0];
-            }
-            HEAD.appendChild(style.element);
-        }
-        if ('styleSheet' in style.element) {
-            style.styles.push(code);
-            style.element.styleSheet.cssText = style.styles
-                .filter(Boolean)
-                .join('\n');
-        }
-        else {
-            var index = style.ids.size - 1;
-            var textNode = document.createTextNode(code);
-            var nodes = style.element.childNodes;
-            if (nodes[index])
-                { style.element.removeChild(nodes[index]); }
-            if (nodes.length)
-                { style.element.insertBefore(textNode, nodes[index]); }
-            else
-                { style.element.appendChild(textNode); }
-        }
-    }
-}
-
-/* script */
-var __vue_script__ = script;
-
-/* template */
-var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vue2leaflet-map"},[(_vm.ready)?_vm._t("default"):_vm._e()],2)};
-var __vue_staticRenderFns__ = [];
-
-  /* style */
-  var __vue_inject_styles__ = function (inject) {
-    if (!inject) { return }
-    inject("data-v-64f90fd7_0", { source: ".vue2leaflet-map{height:100%;width:100%}", map: undefined, media: undefined });
-
-  };
-  /* scoped */
-  var __vue_scope_id__ = undefined;
-  /* module identifier */
-  var __vue_module_identifier__ = undefined;
-  /* functional template */
-  var __vue_is_functional_template__ = false;
-  /* style inject SSR */
-  
-  /* style inject shadow dom */
-  
-
-  
-  var __vue_component__ = /*#__PURE__*/normalizeComponent(
-    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
-    __vue_inject_styles__,
-    __vue_script__,
-    __vue_scope_id__,
-    __vue_is_functional_template__,
-    __vue_module_identifier__,
-    false,
-    createInjector,
-    undefined,
-    undefined
-  );
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
-
-
-/***/ }),
-
-/***/ "./node_modules/vue2-leaflet/dist/components/LMarker.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/vue2-leaflet/dist/components/LMarker.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var debounce = function (fn, time) {
-  var timeout;
-
-  var debouncedFunction = function() {
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-
-    var context = this;
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(function () {
-      fn.apply(context, args);
-      timeout = null;
-    }, time);
-  };
-
-  debouncedFunction.cancel = function() {
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-  };
-
-  return debouncedFunction;
-};
-
-var capitalizeFirstLetter = function (string) {
-  if (!string || typeof string.charAt !== 'function') {
-    return string;
-  }
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
-var propsBinder = function (vueElement, leafletElement, props, options) {
-  var loop = function ( key ) {
-    var setMethodName = 'set' + capitalizeFirstLetter(key);
-    var deepValue =
-      props[key].type === Object ||
-      props[key].type === Array ||
-      Array.isArray(props[key].type);
-    if (props[key].custom && vueElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          vueElement[setMethodName](newVal, oldVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (setMethodName === 'setOptions') {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (leafletElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          leafletElement[setMethodName](newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    }
-  };
-
-  for (var key in props) loop( key );
-};
-
-var collectionCleaner = function (options) {
-  var result = {};
-  for (var key in options) {
-    var value = options[key];
-    if (value !== null && value !== undefined) {
-      result[key] = value;
-    }
-  }
-  return result;
-};
-
-var optionsMerger = function (props, instance) {
-  var options =
-    instance.options && instance.options.constructor === Object
-      ? instance.options
-      : {};
-  props = props && props.constructor === Object ? props : {};
-  var result = collectionCleaner(options);
-  props = collectionCleaner(props);
-  var defaultProps = instance.$options.props;
-  for (var key in props) {
-    var def = defaultProps[key]
-      ? defaultProps[key].default &&
-        typeof defaultProps[key].default === 'function'
-        ? defaultProps[key].default.call()
-        : defaultProps[key].default
-      : Symbol('unique');
-    var isEqual = false;
-    if (Array.isArray(def)) {
-      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
-    } else {
-      isEqual = def === props[key];
-    }
-    if (result[key] && !isEqual) {
-      console.warn(
-        (key + " props is overriding the value passed in the options props")
-      );
-      result[key] = props[key];
-    } else if (!result[key]) {
-      result[key] = props[key];
-    }
-  }
-  return result;
-};
-
-var findRealParent = function (firstVueParent) {
-  var found = false;
-  while (firstVueParent && !found) {
-    if (firstVueParent.mapObject === undefined) {
-      firstVueParent = firstVueParent.$parent;
-    } else {
-      found = true;
-    }
-  }
-  return firstVueParent;
-};
-
-var Layer = {
-  props: {
-    pane: {
-      type: String,
-      default: 'overlayPane',
-    },
-    attribution: {
-      type: String,
-      default: null,
-      custom: true,
-    },
-    name: {
-      type: String,
-      custom: true,
-      default: undefined,
-    },
-    layerType: {
-      type: String,
-      custom: true,
-      default: undefined,
-    },
-    visible: {
-      type: Boolean,
-      custom: true,
-      default: true,
-    },
-  },
-  mounted: function mounted() {
-    this.layerOptions = {
-      attribution: this.attribution,
-      pane: this.pane,
-    };
-  },
-  beforeDestroy: function beforeDestroy() {
-    this.unbindPopup();
-    this.unbindTooltip();
-    this.parentContainer.removeLayer(this);
-  },
-  methods: {
-    setAttribution: function setAttribution(val, old) {
-      var attributionControl = this.$parent.mapObject.attributionControl;
-      attributionControl.removeAttribution(old).addAttribution(val);
-    },
-    setName: function setName() {
-      this.parentContainer.removeLayer(this);
-      if (this.visible) {
-        this.parentContainer.addLayer(this);
-      }
-    },
-    setLayerType: function setLayerType() {
-      this.parentContainer.removeLayer(this);
-      if (this.visible) {
-        this.parentContainer.addLayer(this);
-      }
-    },
-    setVisible: function setVisible(isVisible) {
-      if (this.mapObject) {
-        if (isVisible) {
-          this.parentContainer.addLayer(this);
-        } else {
-          if (this.parentContainer.hideLayer) {
-            this.parentContainer.hideLayer(this);
-          } else {
-            this.parentContainer.removeLayer(this);
-          }
-        }
-      }
-    },
-    unbindTooltip: function unbindTooltip() {
-      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
-      if (tooltip) {
-        tooltip.unbindTooltip();
-      }
-    },
-    unbindPopup: function unbindPopup() {
-      var popup = this.mapObject ? this.mapObject.getPopup() : null;
-      if (popup) {
-        popup.unbindPopup();
-      }
-    },
-    updateVisibleProp: function updateVisibleProp(value) {
-      /**
-       * Triggers when the visible prop needs to be updated
-       * @type {boolean}
-       * @property {boolean} value - value of the visible property
-       */
-      this.$emit('update:visible', value);
-    },
-  },
-};
-
-var Options = {
-  props: {
-    /**
-     * Leaflet options to pass to the component constructor
-     */
-    options: {
-      type: Object,
-      default: function () { return ({}); }
-    }
-  }
-};
-
-/**
- * Marker component, lets you add and personalize markers on the map
- */
-var script = {
-  name: 'LMarker',
-  mixins: [Layer, Options],
-  props: {
-    pane: {
-      type: String,
-      default: 'markerPane',
-    },
-    draggable: {
-      type: Boolean,
-      custom: true,
-      default: false,
-    },
-    latLng: {
-      type: [Object, Array],
-      custom: true,
-      default: null,
-    },
-    icon: {
-      type: [Object],
-      custom: false,
-      default: function () { return new leaflet__WEBPACK_IMPORTED_MODULE_0__.Icon.Default(); },
-    },
-    zIndexOffset: {
-      type: Number,
-      custom: false,
-      default: null,
-    },
-  },
-  data: function data() {
-    return {
-      ready: false,
-    };
-  },
-  beforeDestroy: function beforeDestroy() {
-    if (this.debouncedLatLngSync) {
-      this.debouncedLatLngSync.cancel();
-    }
-  },
-  mounted: function mounted() {
-    var this$1 = this;
-
-    var options = optionsMerger(
-      Object.assign({}, this.layerOptions,
-        {icon: this.icon,
-        zIndexOffset: this.zIndexOffset,
-        draggable: this.draggable}),
-      this
-    );
-    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.marker)(this.latLng, options);
-    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
-    this.debouncedLatLngSync = debounce(this.latLngSync, 100);
-    this.mapObject.on('move', this.debouncedLatLngSync);
-    propsBinder(this, this.mapObject, this.$options.props);
-    this.parentContainer = findRealParent(this.$parent);
-    this.parentContainer.addLayer(this, !this.visible);
-    this.ready = true;
-    this.$nextTick(function () {
-      /**
-       * Triggers when the component is ready
-       * @type {object}
-       * @property {object} mapObject - reference to leaflet map object
-       */
-      this$1.$emit('ready', this$1.mapObject);
-    });
-  },
-  methods: {
-    setDraggable: function setDraggable(newVal, oldVal) {
-      if (this.mapObject.dragging) {
-        newVal
-          ? this.mapObject.dragging.enable()
-          : this.mapObject.dragging.disable();
-      }
-    },
-    setLatLng: function setLatLng(newVal) {
-      if (newVal == null) {
-        return;
-      }
-
-      if (this.mapObject) {
-        var oldLatLng = this.mapObject.getLatLng();
-        var newLatLng = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(newVal);
-        if (
-          newLatLng.lat !== oldLatLng.lat ||
-          newLatLng.lng !== oldLatLng.lng
-        ) {
-          this.mapObject.setLatLng(newLatLng);
-        }
-      }
-    },
-    latLngSync: function latLngSync(event) {
-      this.$emit('update:latLng', event.latlng);
-      this.$emit('update:lat-lng', event.latlng);
-    },
-  },
-  render: function(h) {
-    if (this.ready && this.$slots.default) {
-      return h('div', { style: { display: 'none' } }, this.$slots.default);
-    }
-    return null;
-  },
-};
-
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-    if (typeof shadowMode !== 'boolean') {
-        createInjectorSSR = createInjector;
-        createInjector = shadowMode;
-        shadowMode = false;
-    }
-    // Vue.extend constructor export interop.
-    var options = typeof script === 'function' ? script.options : script;
-    // render functions
-    if (template && template.render) {
-        options.render = template.render;
-        options.staticRenderFns = template.staticRenderFns;
-        options._compiled = true;
-        // functional template
-        if (isFunctionalTemplate) {
-            options.functional = true;
-        }
-    }
-    // scopedId
-    if (scopeId) {
-        options._scopeId = scopeId;
-    }
-    var hook;
-    if (moduleIdentifier) {
-        // server build
-        hook = function (context) {
-            // 2.3 injection
-            context =
-                context || // cached call
-                    (this.$vnode && this.$vnode.ssrContext) || // stateful
-                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
-            // 2.2 with runInNewContext: true
-            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-                context = __VUE_SSR_CONTEXT__;
-            }
-            // inject component styles
-            if (style) {
-                style.call(this, createInjectorSSR(context));
-            }
-            // register component module identifier for async chunk inference
-            if (context && context._registeredComponents) {
-                context._registeredComponents.add(moduleIdentifier);
-            }
-        };
-        // used by ssr in case component is cached and beforeCreate
-        // never gets called
-        options._ssrRegister = hook;
-    }
-    else if (style) {
-        hook = shadowMode
-            ? function (context) {
-                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
-            }
-            : function (context) {
-                style.call(this, createInjector(context));
-            };
-    }
-    if (hook) {
-        if (options.functional) {
-            // register for functional component in vue file
-            var originalRender = options.render;
-            options.render = function renderWithStyleInjection(h, context) {
-                hook.call(context);
-                return originalRender(h, context);
-            };
-        }
-        else {
-            // inject component registration as beforeCreate hook
-            var existing = options.beforeCreate;
-            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
-        }
-    }
-    return script;
-}
-
-/* script */
-var __vue_script__ = script;
-
-/* template */
-
-  /* style */
-  var __vue_inject_styles__ = undefined;
-  /* scoped */
-  var __vue_scope_id__ = undefined;
-  /* module identifier */
-  var __vue_module_identifier__ = undefined;
-  /* functional template */
-  var __vue_is_functional_template__ = undefined;
-  /* style inject */
-  
-  /* style inject SSR */
-  
-  /* style inject shadow dom */
-  
-
-  
-  var __vue_component__ = /*#__PURE__*/normalizeComponent(
-    {},
-    __vue_inject_styles__,
-    __vue_script__,
-    __vue_scope_id__,
-    __vue_is_functional_template__,
-    __vue_module_identifier__,
-    false,
-    undefined,
-    undefined,
-    undefined
-  );
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
-
-
-/***/ }),
-
-/***/ "./node_modules/vue2-leaflet/dist/components/LPopup.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/vue2-leaflet/dist/components/LPopup.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var capitalizeFirstLetter = function (string) {
-  if (!string || typeof string.charAt !== 'function') {
-    return string;
-  }
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
-var propsBinder = function (vueElement, leafletElement, props, options) {
-  var loop = function ( key ) {
-    var setMethodName = 'set' + capitalizeFirstLetter(key);
-    var deepValue =
-      props[key].type === Object ||
-      props[key].type === Array ||
-      Array.isArray(props[key].type);
-    if (props[key].custom && vueElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          vueElement[setMethodName](newVal, oldVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (setMethodName === 'setOptions') {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (leafletElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          leafletElement[setMethodName](newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    }
-  };
-
-  for (var key in props) loop( key );
-};
-
-var collectionCleaner = function (options) {
-  var result = {};
-  for (var key in options) {
-    var value = options[key];
-    if (value !== null && value !== undefined) {
-      result[key] = value;
-    }
-  }
-  return result;
-};
-
-var optionsMerger = function (props, instance) {
-  var options =
-    instance.options && instance.options.constructor === Object
-      ? instance.options
-      : {};
-  props = props && props.constructor === Object ? props : {};
-  var result = collectionCleaner(options);
-  props = collectionCleaner(props);
-  var defaultProps = instance.$options.props;
-  for (var key in props) {
-    var def = defaultProps[key]
-      ? defaultProps[key].default &&
-        typeof defaultProps[key].default === 'function'
-        ? defaultProps[key].default.call()
-        : defaultProps[key].default
-      : Symbol('unique');
-    var isEqual = false;
-    if (Array.isArray(def)) {
-      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
-    } else {
-      isEqual = def === props[key];
-    }
-    if (result[key] && !isEqual) {
-      console.warn(
-        (key + " props is overriding the value passed in the options props")
-      );
-      result[key] = props[key];
-    } else if (!result[key]) {
-      result[key] = props[key];
-    }
-  }
-  return result;
-};
-
-var findRealParent = function (firstVueParent) {
-  var found = false;
-  while (firstVueParent && !found) {
-    if (firstVueParent.mapObject === undefined) {
-      firstVueParent = firstVueParent.$parent;
-    } else {
-      found = true;
-    }
-  }
-  return firstVueParent;
-};
-
-var Popper = {
-  props: {
-    content: {
-      type: String,
-      default: null,
-      custom: true
-    }
-  },
-  mounted: function mounted () {
-    this.popperOptions = {};
-  },
-  methods: {
-    setContent: function setContent (newVal) {
-      if (this.mapObject && newVal !== null && newVal !== undefined) {
-        this.mapObject.setContent(newVal);
-      }
-    }
-  },
-  render: function render (h) {
-    if (this.$slots.default) {
-      return h('div', this.$slots.default);
-    }
-    return null;
-  }
-};
-
-var Options = {
-  props: {
-    /**
-     * Leaflet options to pass to the component constructor
-     */
-    options: {
-      type: Object,
-      default: function () { return ({}); }
-    }
-  }
-};
-
-/**
- * Display a popup on the map
- */
-var script = {
-  name: 'LPopup',
-  mixins: [Popper, Options],
-  props: {
-    latLng: {
-      type: [Object, Array],
-      default: function () { return []; },
-    },
-  },
-  mounted: function mounted() {
-    var this$1 = this;
-
-    var options = optionsMerger(this.popperOptions, this);
-    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.popup)(options);
-    if (this.latLng !== undefined) {
-      this.mapObject.setLatLng(this.latLng);
-    }
-    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
-    propsBinder(this, this.mapObject, this.$options.props);
-    this.mapObject.setContent(this.content || this.$el);
-    this.parentContainer = findRealParent(this.$parent);
-    this.parentContainer.mapObject.bindPopup(this.mapObject);
-    this.$nextTick(function () {
-      /**
-       * Triggers when the component is ready
-       * @type {object}
-       * @property {object} mapObject - reference to leaflet map object
-       */
-      this$1.$emit('ready', this$1.mapObject);
-    });
-  },
-  beforeDestroy: function beforeDestroy() {
-    if (this.parentContainer) {
-      if (this.parentContainer.unbindPopup) {
-        this.parentContainer.unbindPopup();
-      } else if (
-        this.parentContainer.mapObject &&
-        this.parentContainer.mapObject.unbindPopup
-      ) {
-        this.parentContainer.mapObject.unbindPopup();
-      }
-    }
-  },
-};
-
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-    if (typeof shadowMode !== 'boolean') {
-        createInjectorSSR = createInjector;
-        createInjector = shadowMode;
-        shadowMode = false;
-    }
-    // Vue.extend constructor export interop.
-    var options = typeof script === 'function' ? script.options : script;
-    // render functions
-    if (template && template.render) {
-        options.render = template.render;
-        options.staticRenderFns = template.staticRenderFns;
-        options._compiled = true;
-        // functional template
-        if (isFunctionalTemplate) {
-            options.functional = true;
-        }
-    }
-    // scopedId
-    if (scopeId) {
-        options._scopeId = scopeId;
-    }
-    var hook;
-    if (moduleIdentifier) {
-        // server build
-        hook = function (context) {
-            // 2.3 injection
-            context =
-                context || // cached call
-                    (this.$vnode && this.$vnode.ssrContext) || // stateful
-                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
-            // 2.2 with runInNewContext: true
-            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-                context = __VUE_SSR_CONTEXT__;
-            }
-            // inject component styles
-            if (style) {
-                style.call(this, createInjectorSSR(context));
-            }
-            // register component module identifier for async chunk inference
-            if (context && context._registeredComponents) {
-                context._registeredComponents.add(moduleIdentifier);
-            }
-        };
-        // used by ssr in case component is cached and beforeCreate
-        // never gets called
-        options._ssrRegister = hook;
-    }
-    else if (style) {
-        hook = shadowMode
-            ? function (context) {
-                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
-            }
-            : function (context) {
-                style.call(this, createInjector(context));
-            };
-    }
-    if (hook) {
-        if (options.functional) {
-            // register for functional component in vue file
-            var originalRender = options.render;
-            options.render = function renderWithStyleInjection(h, context) {
-                hook.call(context);
-                return originalRender(h, context);
-            };
-        }
-        else {
-            // inject component registration as beforeCreate hook
-            var existing = options.beforeCreate;
-            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
-        }
-    }
-    return script;
-}
-
-/* script */
-var __vue_script__ = script;
-
-/* template */
-
-  /* style */
-  var __vue_inject_styles__ = undefined;
-  /* scoped */
-  var __vue_scope_id__ = undefined;
-  /* module identifier */
-  var __vue_module_identifier__ = undefined;
-  /* functional template */
-  var __vue_is_functional_template__ = undefined;
-  /* style inject */
-  
-  /* style inject SSR */
-  
-  /* style inject shadow dom */
-  
-
-  
-  var __vue_component__ = /*#__PURE__*/normalizeComponent(
-    {},
-    __vue_inject_styles__,
-    __vue_script__,
-    __vue_scope_id__,
-    __vue_is_functional_template__,
-    __vue_module_identifier__,
-    false,
-    undefined,
-    undefined,
-    undefined
-  );
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
-
-
-/***/ }),
-
-/***/ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/vue2-leaflet/dist/components/LTileLayer.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var capitalizeFirstLetter = function (string) {
-  if (!string || typeof string.charAt !== 'function') {
-    return string;
-  }
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
-var propsBinder = function (vueElement, leafletElement, props, options) {
-  var loop = function ( key ) {
-    var setMethodName = 'set' + capitalizeFirstLetter(key);
-    var deepValue =
-      props[key].type === Object ||
-      props[key].type === Array ||
-      Array.isArray(props[key].type);
-    if (props[key].custom && vueElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          vueElement[setMethodName](newVal, oldVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (setMethodName === 'setOptions') {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    } else if (leafletElement[setMethodName]) {
-      vueElement.$watch(
-        key,
-        function (newVal, oldVal) {
-          leafletElement[setMethodName](newVal);
-        },
-        {
-          deep: deepValue,
-        }
-      );
-    }
-  };
-
-  for (var key in props) loop( key );
-};
-
-var collectionCleaner = function (options) {
-  var result = {};
-  for (var key in options) {
-    var value = options[key];
-    if (value !== null && value !== undefined) {
-      result[key] = value;
-    }
-  }
-  return result;
-};
-
-var optionsMerger = function (props, instance) {
-  var options =
-    instance.options && instance.options.constructor === Object
-      ? instance.options
-      : {};
-  props = props && props.constructor === Object ? props : {};
-  var result = collectionCleaner(options);
-  props = collectionCleaner(props);
-  var defaultProps = instance.$options.props;
-  for (var key in props) {
-    var def = defaultProps[key]
-      ? defaultProps[key].default &&
-        typeof defaultProps[key].default === 'function'
-        ? defaultProps[key].default.call()
-        : defaultProps[key].default
-      : Symbol('unique');
-    var isEqual = false;
-    if (Array.isArray(def)) {
-      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
-    } else {
-      isEqual = def === props[key];
-    }
-    if (result[key] && !isEqual) {
-      console.warn(
-        (key + " props is overriding the value passed in the options props")
-      );
-      result[key] = props[key];
-    } else if (!result[key]) {
-      result[key] = props[key];
-    }
-  }
-  return result;
-};
-
-var findRealParent = function (firstVueParent) {
-  var found = false;
-  while (firstVueParent && !found) {
-    if (firstVueParent.mapObject === undefined) {
-      firstVueParent = firstVueParent.$parent;
-    } else {
-      found = true;
-    }
-  }
-  return firstVueParent;
-};
-
-var Layer = {
-  props: {
-    pane: {
-      type: String,
-      default: 'overlayPane',
-    },
-    attribution: {
-      type: String,
-      default: null,
-      custom: true,
-    },
-    name: {
-      type: String,
-      custom: true,
-      default: undefined,
-    },
-    layerType: {
-      type: String,
-      custom: true,
-      default: undefined,
-    },
-    visible: {
-      type: Boolean,
-      custom: true,
-      default: true,
-    },
-  },
-  mounted: function mounted() {
-    this.layerOptions = {
-      attribution: this.attribution,
-      pane: this.pane,
-    };
-  },
-  beforeDestroy: function beforeDestroy() {
-    this.unbindPopup();
-    this.unbindTooltip();
-    this.parentContainer.removeLayer(this);
-  },
-  methods: {
-    setAttribution: function setAttribution(val, old) {
-      var attributionControl = this.$parent.mapObject.attributionControl;
-      attributionControl.removeAttribution(old).addAttribution(val);
-    },
-    setName: function setName() {
-      this.parentContainer.removeLayer(this);
-      if (this.visible) {
-        this.parentContainer.addLayer(this);
-      }
-    },
-    setLayerType: function setLayerType() {
-      this.parentContainer.removeLayer(this);
-      if (this.visible) {
-        this.parentContainer.addLayer(this);
-      }
-    },
-    setVisible: function setVisible(isVisible) {
-      if (this.mapObject) {
-        if (isVisible) {
-          this.parentContainer.addLayer(this);
-        } else {
-          if (this.parentContainer.hideLayer) {
-            this.parentContainer.hideLayer(this);
-          } else {
-            this.parentContainer.removeLayer(this);
-          }
-        }
-      }
-    },
-    unbindTooltip: function unbindTooltip() {
-      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
-      if (tooltip) {
-        tooltip.unbindTooltip();
-      }
-    },
-    unbindPopup: function unbindPopup() {
-      var popup = this.mapObject ? this.mapObject.getPopup() : null;
-      if (popup) {
-        popup.unbindPopup();
-      }
-    },
-    updateVisibleProp: function updateVisibleProp(value) {
-      /**
-       * Triggers when the visible prop needs to be updated
-       * @type {boolean}
-       * @property {boolean} value - value of the visible property
-       */
-      this.$emit('update:visible', value);
-    },
-  },
-};
-
-var GridLayer = {
-  mixins: [Layer],
-  props: {
-    pane: {
-      type: String,
-      default: 'tilePane'
-    },
-    opacity: {
-      type: Number,
-      custom: false,
-      default: 1.0
-    },
-    zIndex: {
-      type: Number,
-      default: 1
-    },
-    tileSize: {
-      type: Number,
-      default: 256
-    },
-    noWrap: {
-      type: Boolean,
-      default: false
-    }
-  },
-  mounted: function mounted () {
-    this.gridLayerOptions = Object.assign({}, this.layerOptions,
-      {pane: this.pane,
-      opacity: this.opacity,
-      zIndex: this.zIndex,
-      tileSize: this.tileSize,
-      noWrap: this.noWrap});
-  }
-};
-
-var TileLayerMixin = {
-  mixins: [GridLayer],
-  props: {
-    tms: {
-      type: Boolean,
-      default: false,
-    },
-    subdomains: {
-      type: [String, Array],
-      default: 'abc',
-      validator: function (prop) {
-        if (typeof prop === 'string') { return true; }
-        // Validates array that array only contains only strings
-        if (Array.isArray(prop)) {
-          return prop.every(function (subdomain) { return typeof subdomain === 'string'; });
-        }
-        return false;
-      },
-    },
-    detectRetina: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  mounted: function mounted() {
-    this.tileLayerOptions = Object.assign({}, this.gridLayerOptions,
-      {tms: this.tms,
-      subdomains: this.subdomains,
-      detectRetina: this.detectRetina});
-  },
-  render: function render() {
-    return null;
-  },
-};
-
-var Options = {
-  props: {
-    /**
-     * Leaflet options to pass to the component constructor
-     */
-    options: {
-      type: Object,
-      default: function () { return ({}); }
-    }
-  }
-};
-
-//
-
-/**
- * Load tiles from a map server and display them accordingly to map zoom, center and size
- */
-var script = {
-  name: 'LTileLayer',
-  mixins: [TileLayerMixin, Options],
-  props: {
-    url: {
-      type: String,
-      default: null,
-    },
-    tileLayerClass: {
-      type: Function,
-      default: leaflet__WEBPACK_IMPORTED_MODULE_0__.tileLayer,
-    },
-  },
-  mounted: function mounted() {
-    var this$1 = this;
-
-    var options = optionsMerger(this.tileLayerOptions, this);
-    this.mapObject = this.tileLayerClass(this.url, options);
-    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
-    propsBinder(this, this.mapObject, this.$options.props);
-    this.parentContainer = findRealParent(this.$parent);
-    this.parentContainer.addLayer(this, !this.visible);
-    this.$nextTick(function () {
-      /**
-       * Triggers when the component is ready
-       * @type {object}
-       * @property {object} mapObject - reference to leaflet map object
-       */
-      this$1.$emit('ready', this$1.mapObject);
-    });
-  },
-};
-
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-    if (typeof shadowMode !== 'boolean') {
-        createInjectorSSR = createInjector;
-        createInjector = shadowMode;
-        shadowMode = false;
-    }
-    // Vue.extend constructor export interop.
-    var options = typeof script === 'function' ? script.options : script;
-    // render functions
-    if (template && template.render) {
-        options.render = template.render;
-        options.staticRenderFns = template.staticRenderFns;
-        options._compiled = true;
-        // functional template
-        if (isFunctionalTemplate) {
-            options.functional = true;
-        }
-    }
-    // scopedId
-    if (scopeId) {
-        options._scopeId = scopeId;
-    }
-    var hook;
-    if (moduleIdentifier) {
-        // server build
-        hook = function (context) {
-            // 2.3 injection
-            context =
-                context || // cached call
-                    (this.$vnode && this.$vnode.ssrContext) || // stateful
-                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
-            // 2.2 with runInNewContext: true
-            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-                context = __VUE_SSR_CONTEXT__;
-            }
-            // inject component styles
-            if (style) {
-                style.call(this, createInjectorSSR(context));
-            }
-            // register component module identifier for async chunk inference
-            if (context && context._registeredComponents) {
-                context._registeredComponents.add(moduleIdentifier);
-            }
-        };
-        // used by ssr in case component is cached and beforeCreate
-        // never gets called
-        options._ssrRegister = hook;
-    }
-    else if (style) {
-        hook = shadowMode
-            ? function (context) {
-                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
-            }
-            : function (context) {
-                style.call(this, createInjector(context));
-            };
-    }
-    if (hook) {
-        if (options.functional) {
-            // register for functional component in vue file
-            var originalRender = options.render;
-            options.render = function renderWithStyleInjection(h, context) {
-                hook.call(context);
-                return originalRender(h, context);
-            };
-        }
-        else {
-            // inject component registration as beforeCreate hook
-            var existing = options.beforeCreate;
-            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
-        }
-    }
-    return script;
-}
-
-/* script */
-var __vue_script__ = script;
-
-/* template */
-var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div')};
-var __vue_staticRenderFns__ = [];
-
-  /* style */
-  var __vue_inject_styles__ = undefined;
-  /* scoped */
-  var __vue_scope_id__ = undefined;
-  /* module identifier */
-  var __vue_module_identifier__ = undefined;
-  /* functional template */
-  var __vue_is_functional_template__ = false;
-  /* style inject */
-  
-  /* style inject SSR */
-  
-  /* style inject shadow dom */
-  
-
-  
-  var __vue_component__ = /*#__PURE__*/normalizeComponent(
-    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
-    __vue_inject_styles__,
-    __vue_script__,
-    __vue_scope_id__,
-    __vue_is_functional_template__,
-    __vue_module_identifier__,
-    false,
-    undefined,
-    undefined,
-    undefined
-  );
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
 
 
 /***/ }),
@@ -76977,6 +75601,2392 @@ Vue.compile = compileToFunctions;
 
 /***/ }),
 
+/***/ "./node_modules/vue2-leaflet/dist/components/LIcon.js":
+/*!************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LIcon.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+//
+
+/**
+ * Easy and reactive way to configure the icon of a marker
+ */
+var script = {
+  name: 'LIcon',
+  props: {
+    iconUrl: {
+      type: String,
+      custom: true,
+      default: null,
+    },
+    iconRetinaUrl: {
+      type: String,
+      custom: true,
+      default: null,
+    },
+    iconSize: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    iconAnchor: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    popupAnchor: {
+      type: [Object, Array],
+      custom: true,
+      default: function () { return [0, 0]; },
+    },
+    tooltipAnchor: {
+      type: [Object, Array],
+      custom: true,
+      default: function () { return [0, 0]; },
+    },
+    shadowUrl: {
+      type: String,
+      custom: true,
+      default: null,
+    },
+    shadowRetinaUrl: {
+      type: String,
+      custom: true,
+      default: null,
+    },
+    shadowSize: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    shadowAnchor: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    bgPos: {
+      type: [Object, Array],
+      custom: true,
+      default: function () { return [0, 0]; },
+    },
+    className: {
+      type: String,
+      custom: true,
+      default: '',
+    },
+    options: {
+      type: Object,
+      custom: true,
+      default: function () { return ({}); },
+    },
+  },
+
+  data: function data() {
+    return {
+      parentContainer: null,
+      observer: null,
+      recreationNeeded: false,
+      swapHtmlNeeded: false,
+    };
+  },
+
+  mounted: function mounted() {
+    var this$1 = this;
+
+    this.parentContainer = findRealParent(this.$parent);
+
+    propsBinder(this, this.$parent.mapObject, this.$options.props);
+
+    this.observer = new MutationObserver(function () {
+      this$1.scheduleHtmlSwap();
+    });
+    this.observer.observe(this.$el, {
+      attributes: true,
+      childList: true,
+      characterData: true,
+      subtree: true,
+    });
+    this.scheduleCreateIcon();
+  },
+
+  beforeDestroy: function beforeDestroy() {
+    if (this.parentContainer.mapObject) {
+      this.parentContainer.mapObject.setIcon(this.parentContainer.$props.icon);
+    }
+
+    this.observer.disconnect();
+  },
+
+  methods: {
+    scheduleCreateIcon: function scheduleCreateIcon() {
+      this.recreationNeeded = true;
+
+      this.$nextTick(this.createIcon);
+    },
+
+    scheduleHtmlSwap: function scheduleHtmlSwap() {
+      this.htmlSwapNeeded = true;
+
+      this.$nextTick(this.createIcon);
+    },
+
+    createIcon: function createIcon() {
+      // If only html of a divIcon changed, we can just replace the DOM without the need of recreating the whole icon
+      if (
+        this.htmlSwapNeeded &&
+        !this.recreationNeeded &&
+        this.iconObject &&
+        this.parentContainer.mapObject.getElement()
+      ) {
+        this.parentContainer.mapObject.getElement().innerHTML = this.$el.innerHTML;
+
+        this.htmlSwapNeeded = false;
+        return;
+      }
+
+      if (!this.recreationNeeded) {
+        return;
+      }
+
+      if (this.iconObject) {
+        leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.off(this.iconObject, this.$listeners);
+      }
+
+      var options = optionsMerger(
+        {
+          iconUrl: this.iconUrl,
+          iconRetinaUrl: this.iconRetinaUrl,
+          iconSize: this.iconSize,
+          iconAnchor: this.iconAnchor,
+          popupAnchor: this.popupAnchor,
+          tooltipAnchor: this.tooltipAnchor,
+          shadowUrl: this.shadowUrl,
+          shadowRetinaUrl: this.shadowRetinaUrl,
+          shadowSize: this.shadowSize,
+          shadowAnchor: this.shadowAnchor,
+          bgPos: this.bgPos,
+          className: this.className,
+          html: this.$el.innerHTML || this.html,
+        },
+        this
+      );
+
+      if (options.html) {
+        this.iconObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.divIcon)(options);
+      } else {
+        this.iconObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.icon)(options);
+      }
+
+      leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.iconObject, this.$listeners);
+
+      this.parentContainer.mapObject.setIcon(this.iconObject);
+
+      this.recreationNeeded = false;
+      this.htmlSwapNeeded = false;
+    },
+
+    setIconUrl: function setIconUrl() {
+      this.scheduleCreateIcon();
+    },
+    setIconRetinaUrl: function setIconRetinaUrl() {
+      this.scheduleCreateIcon();
+    },
+    setIconSize: function setIconSize() {
+      this.scheduleCreateIcon();
+    },
+    setIconAnchor: function setIconAnchor() {
+      this.scheduleCreateIcon();
+    },
+    setPopupAnchor: function setPopupAnchor() {
+      this.scheduleCreateIcon();
+    },
+    setTooltipAnchor: function setTooltipAnchor() {
+      this.scheduleCreateIcon();
+    },
+    setShadowUrl: function setShadowUrl() {
+      this.scheduleCreateIcon();
+    },
+    setShadowRetinaUrl: function setShadowRetinaUrl() {
+      this.scheduleCreateIcon();
+    },
+    setShadowAnchor: function setShadowAnchor() {
+      this.scheduleCreateIcon();
+    },
+    setBgPos: function setBgPos() {
+      this.scheduleCreateIcon();
+    },
+    setClassName: function setClassName() {
+      this.scheduleCreateIcon();
+    },
+    setHtml: function setHtml() {
+      this.scheduleCreateIcon();
+    },
+  },
+
+  render: function render() {
+    return null;
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._t("default")],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LMap.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LMap.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var debounce = function (fn, time) {
+  var timeout;
+
+  var debouncedFunction = function() {
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    var context = this;
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(function () {
+      fn.apply(context, args);
+      timeout = null;
+    }, time);
+  };
+
+  debouncedFunction.cancel = function() {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+  };
+
+  return debouncedFunction;
+};
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * Base component, contains and wrap all the other components.
+ */
+var script = {
+  name: 'LMap',
+  mixins: [Options],
+  props: {
+    /**
+     * The center of the map, supports .sync modifier
+     */
+    center: {
+      type: [Object, Array],
+      custom: true,
+      default: function () { return [0, 0]; },
+    },
+    /**
+     * The bounds of the map, supports .sync modifier
+     */
+    bounds: {
+      type: [Array, Object],
+      custom: true,
+      default: null,
+    },
+    /**
+     * The max bounds of the map
+     */
+    maxBounds: {
+      type: [Array, Object],
+      default: null,
+    },
+    /**
+     * The zoom of the map, supports .sync modifier
+     */
+    zoom: {
+      type: Number,
+      custom: true,
+      default: 0,
+    },
+    /**
+     * The minZoom of the map
+     */
+    minZoom: {
+      type: Number,
+      default: null,
+    },
+    /**
+     * The maxZoom of the map
+     */
+    maxZoom: {
+      type: Number,
+      default: null,
+    },
+    /**
+     * The paddingBottomRight of the map
+     */
+    paddingBottomRight: {
+      type: Array,
+      custom: true,
+      default: null,
+    },
+    /**
+     * The paddingTopLeft of the map
+     */
+    paddingTopLeft: {
+      type: Array,
+      custom: true,
+      default: null,
+    },
+    /**
+     * The padding of the map
+     */
+    padding: {
+      type: Array,
+      custom: true,
+      default: null,
+    },
+    /**
+     * The worldCopyJump option for the map
+     */
+    worldCopyJump: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * The crs option for the map
+     * @values CRS.EPSG3857
+     */
+    crs: {
+      type: Object,
+      custom: true,
+      default: function () { return leaflet__WEBPACK_IMPORTED_MODULE_0__.CRS.EPSG3857; },
+    },
+    maxBoundsViscosity: {
+      type: Number,
+      default: null,
+    },
+    inertia: {
+      type: Boolean,
+      default: null,
+    },
+    inertiaDeceleration: {
+      type: Number,
+      default: null,
+    },
+    inertiaMaxSpeed: {
+      type: Number,
+      default: null,
+    },
+    easeLinearity: {
+      type: Number,
+      default: null,
+    },
+    zoomAnimation: {
+      type: Boolean,
+      default: null,
+    },
+    zoomAnimationThreshold: {
+      type: Number,
+      default: null,
+    },
+    fadeAnimation: {
+      type: Boolean,
+      default: null,
+    },
+    markerZoomAnimation: {
+      type: Boolean,
+      default: null,
+    },
+    noBlockingAnimations: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data: function data() {
+    return {
+      ready: false,
+      lastSetCenter: this.center ? (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(this.center) : null,
+      lastSetBounds: this.bounds ? (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLngBounds)(this.bounds) : null,
+      layerControl: undefined,
+      layersToAdd: [],
+      layersInControl: [],
+    };
+  },
+  computed: {
+    fitBoundsOptions: function fitBoundsOptions() {
+      var options = {
+        animate: this.noBlockingAnimations ? false : null,
+      };
+      if (this.padding) {
+        options.padding = this.padding;
+      } else {
+        if (this.paddingBottomRight) {
+          options.paddingBottomRight = this.paddingBottomRight;
+        }
+        if (this.paddingTopLeft) {
+          options.paddingTopLeft = this.paddingTopLeft;
+        }
+      }
+      return options;
+    },
+  },
+  beforeDestroy: function beforeDestroy() {
+    if (this.debouncedMoveEndHandler) {
+      this.debouncedMoveEndHandler.cancel();
+    }
+
+    if (this.mapObject) {
+      this.mapObject.remove();
+    }
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(
+      {
+        minZoom: this.minZoom,
+        maxZoom: this.maxZoom,
+        maxBounds: this.maxBounds,
+        maxBoundsViscosity: this.maxBoundsViscosity,
+        worldCopyJump: this.worldCopyJump,
+        crs: this.crs,
+        center: this.center,
+        zoom: this.zoom,
+        inertia: this.inertia,
+        inertiaDeceleration: this.inertiaDeceleration,
+        inertiaMaxSpeed: this.inertiaMaxSpeed,
+        easeLinearity: this.easeLinearity,
+        zoomAnimation: this.zoomAnimation,
+        zoomAnimationThreshold: this.zoomAnimationThreshold,
+        fadeAnimation: this.fadeAnimation,
+        markerZoomAnimation: this.markerZoomAnimation,
+      },
+      this
+    );
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.map)(this.$el, options);
+    if (this.bounds) {
+      this.mapObject.fitBounds(this.bounds);
+    }
+    this.debouncedMoveEndHandler = debounce(this.moveEndHandler, 100);
+    this.mapObject.on('moveend', this.debouncedMoveEndHandler);
+    this.mapObject.on('overlayadd', this.overlayAddHandler);
+    this.mapObject.on('overlayremove', this.overlayRemoveHandler);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.ready = true;
+    /**
+     * DEPRECATED event
+     * @deprecated
+     */
+    this.$emit('leaflet:load');
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  methods: {
+    registerLayerControl: function registerLayerControl(lControlLayers) {
+      var this$1 = this;
+
+      this.layerControl = lControlLayers;
+      this.mapObject.addControl(lControlLayers.mapObject);
+      this.layersToAdd.forEach(function (layer) {
+        this$1.layerControl.addLayer(layer);
+      });
+      this.layersToAdd = [];
+    },
+    addLayer: function addLayer(layer, alreadyAdded) {
+      if (layer.layerType !== undefined) {
+        if (this.layerControl === undefined) {
+          this.layersToAdd.push(layer);
+        } else {
+          var exist = this.layersInControl.find(
+            function (l) { return l.mapObject._leaflet_id === layer.mapObject._leaflet_id; }
+          );
+          if (!exist) {
+            this.layerControl.addLayer(layer);
+            this.layersInControl.push(layer);
+          }
+        }
+      }
+      if (!alreadyAdded && layer.visible !== false) {
+        this.mapObject.addLayer(layer.mapObject);
+      }
+    },
+    hideLayer: function hideLayer(layer) {
+      this.mapObject.removeLayer(layer.mapObject);
+    },
+    removeLayer: function removeLayer(layer, alreadyRemoved) {
+      if (layer.layerType !== undefined) {
+        if (this.layerControl === undefined) {
+          this.layersToAdd = this.layersToAdd.filter(
+            function (l) { return l.name !== layer.name; }
+          );
+        } else {
+          this.layerControl.removeLayer(layer);
+          this.layersInControl = this.layersInControl.filter(
+            function (l) { return l.mapObject._leaflet_id !== layer.mapObject._leaflet_id; }
+          );
+        }
+      }
+      if (!alreadyRemoved) {
+        this.mapObject.removeLayer(layer.mapObject);
+      }
+    },
+    setZoom: function setZoom(newVal, oldVal) {
+      if (newVal === undefined || newVal === null) { return; }
+      this.mapObject.setZoom(newVal, {
+        animate: this.noBlockingAnimations ? false : null,
+      });
+      this.cacheMapView();
+    },
+    setCenter: function setCenter(newVal, oldVal) {
+      if (newVal == null) {
+        return;
+      }
+      var newCenter = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(newVal);
+      var oldCenter = this.lastSetCenter || this.mapObject.getCenter();
+      if (oldCenter.lat !== newCenter.lat || oldCenter.lng !== newCenter.lng) {
+        this.lastSetCenter = newCenter;
+        this.mapObject.panTo(newCenter, {
+          animate: this.noBlockingAnimations ? false : null,
+        });
+        this.cacheMapView(undefined, newCenter);
+      }
+    },
+    setBounds: function setBounds(newVal, oldVal) {
+      if (!newVal) {
+        return;
+      }
+      var newBounds = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLngBounds)(newVal);
+      if (!newBounds.isValid()) {
+        return;
+      }
+      var oldBounds = this.lastSetBounds || this.mapObject.getBounds();
+      var boundsChanged = !oldBounds.equals(newBounds, 0); // set maxMargin to 0 - check exact equals
+      if (boundsChanged) {
+        this.mapObject.fitBounds(newBounds, this.fitBoundsOptions);
+        this.cacheMapView(newBounds);
+      }
+    },
+    setPaddingBottomRight: function setPaddingBottomRight(newVal, oldVal) {
+      this.paddingBottomRight = newVal;
+    },
+    setPaddingTopLeft: function setPaddingTopLeft(newVal, oldVal) {
+      this.paddingTopLeft = newVal;
+    },
+    setPadding: function setPadding(newVal, oldVal) {
+      this.padding = newVal;
+    },
+    setCrs: function setCrs(newVal, oldVal) {
+      var mapObject = this.mapObject,
+        prevBounds = mapObject.getBounds();
+      mapObject.options.crs = newVal;
+      mapObject.fitBounds(prevBounds, { animate: false, padding: [0, 0] });
+    },
+    fitBounds: function fitBounds(bounds) {
+      this.mapObject.fitBounds(bounds, {
+        animate: this.noBlockingAnimations ? false : null,
+      });
+    },
+    moveEndHandler: function moveEndHandler() {
+      /**
+       * Triggers when zoom is updated
+       * @type {number,string}
+       */
+      this.$emit('update:zoom', this.mapObject.getZoom());
+      var center = this.mapObject.getCenter();
+      /**
+       * Triggers when center is updated
+       * @type {object,array}
+       */
+      this.$emit('update:center', center);
+      var bounds = this.mapObject.getBounds();
+      /**
+       * Triggers when bounds are updated
+       * @type {object}
+       */
+      this.$emit('update:bounds', bounds);
+    },
+    overlayAddHandler: function overlayAddHandler(e) {
+      var layer = this.layersInControl.find(function (l) { return l.name === e.name; });
+      if (layer) {
+        layer.updateVisibleProp(true);
+      }
+    },
+    overlayRemoveHandler: function overlayRemoveHandler(e) {
+      var layer = this.layersInControl.find(function (l) { return l.name === e.name; });
+      if (layer) {
+        layer.updateVisibleProp(false);
+      }
+    },
+    cacheMapView: function cacheMapView(bounds, center) {
+      // Cache the last values used to define the map view by mutating props.
+      this.lastSetBounds = bounds || this.mapObject.getBounds();
+      this.lastSetCenter = center || this.lastSetBounds.getCenter();
+    },
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
+function createInjector(context) {
+    return function (id, style) { return addStyle(id, style); };
+}
+var HEAD;
+var styles = {};
+function addStyle(id, css) {
+    var group = isOldIE ? css.media || 'default' : id;
+    var style = styles[group] || (styles[group] = { ids: new Set(), styles: [] });
+    if (!style.ids.has(id)) {
+        style.ids.add(id);
+        var code = css.source;
+        if (css.map) {
+            // https://developer.chrome.com/devtools/docs/javascript-debugging
+            // this makes source maps inside style tags work properly in Chrome
+            code += '\n/*# sourceURL=' + css.map.sources[0] + ' */';
+            // http://stackoverflow.com/a/26603875
+            code +=
+                '\n/*# sourceMappingURL=data:application/json;base64,' +
+                    btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) +
+                    ' */';
+        }
+        if (!style.element) {
+            style.element = document.createElement('style');
+            style.element.type = 'text/css';
+            if (css.media)
+                { style.element.setAttribute('media', css.media); }
+            if (HEAD === undefined) {
+                HEAD = document.head || document.getElementsByTagName('head')[0];
+            }
+            HEAD.appendChild(style.element);
+        }
+        if ('styleSheet' in style.element) {
+            style.styles.push(code);
+            style.element.styleSheet.cssText = style.styles
+                .filter(Boolean)
+                .join('\n');
+        }
+        else {
+            var index = style.ids.size - 1;
+            var textNode = document.createTextNode(code);
+            var nodes = style.element.childNodes;
+            if (nodes[index])
+                { style.element.removeChild(nodes[index]); }
+            if (nodes.length)
+                { style.element.insertBefore(textNode, nodes[index]); }
+            else
+                { style.element.appendChild(textNode); }
+        }
+    }
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"vue2leaflet-map"},[(_vm.ready)?_vm._t("default"):_vm._e()],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = function (inject) {
+    if (!inject) { return }
+    inject("data-v-64f90fd7_0", { source: ".vue2leaflet-map{height:100%;width:100%}", map: undefined, media: undefined });
+
+  };
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    createInjector,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LMarker.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LMarker.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var debounce = function (fn, time) {
+  var timeout;
+
+  var debouncedFunction = function() {
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    var context = this;
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(function () {
+      fn.apply(context, args);
+      timeout = null;
+    }, time);
+  };
+
+  debouncedFunction.cancel = function() {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+  };
+
+  return debouncedFunction;
+};
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/**
+ * Marker component, lets you add and personalize markers on the map
+ */
+var script = {
+  name: 'LMarker',
+  mixins: [Layer, Options],
+  props: {
+    pane: {
+      type: String,
+      default: 'markerPane',
+    },
+    draggable: {
+      type: Boolean,
+      custom: true,
+      default: false,
+    },
+    latLng: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    icon: {
+      type: [Object],
+      custom: false,
+      default: function () { return new leaflet__WEBPACK_IMPORTED_MODULE_0__.Icon.Default(); },
+    },
+    zIndexOffset: {
+      type: Number,
+      custom: false,
+      default: null,
+    },
+  },
+  data: function data() {
+    return {
+      ready: false,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    if (this.debouncedLatLngSync) {
+      this.debouncedLatLngSync.cancel();
+    }
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(
+      Object.assign({}, this.layerOptions,
+        {icon: this.icon,
+        zIndexOffset: this.zIndexOffset,
+        draggable: this.draggable}),
+      this
+    );
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.marker)(this.latLng, options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    this.debouncedLatLngSync = debounce(this.latLngSync, 100);
+    this.mapObject.on('move', this.debouncedLatLngSync);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.ready = true;
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  methods: {
+    setDraggable: function setDraggable(newVal, oldVal) {
+      if (this.mapObject.dragging) {
+        newVal
+          ? this.mapObject.dragging.enable()
+          : this.mapObject.dragging.disable();
+      }
+    },
+    setLatLng: function setLatLng(newVal) {
+      if (newVal == null) {
+        return;
+      }
+
+      if (this.mapObject) {
+        var oldLatLng = this.mapObject.getLatLng();
+        var newLatLng = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(newVal);
+        if (
+          newLatLng.lat !== oldLatLng.lat ||
+          newLatLng.lng !== oldLatLng.lng
+        ) {
+          this.mapObject.setLatLng(newLatLng);
+        }
+      }
+    },
+    latLngSync: function latLngSync(event) {
+      this.$emit('update:latLng', event.latlng);
+      this.$emit('update:lat-lng', event.latlng);
+    },
+  },
+  render: function(h) {
+    if (this.ready && this.$slots.default) {
+      return h('div', { style: { display: 'none' } }, this.$slots.default);
+    }
+    return null;
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LPopup.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LPopup.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Popper = {
+  props: {
+    content: {
+      type: String,
+      default: null,
+      custom: true
+    }
+  },
+  mounted: function mounted () {
+    this.popperOptions = {};
+  },
+  methods: {
+    setContent: function setContent (newVal) {
+      if (this.mapObject && newVal !== null && newVal !== undefined) {
+        this.mapObject.setContent(newVal);
+      }
+    }
+  },
+  render: function render (h) {
+    if (this.$slots.default) {
+      return h('div', this.$slots.default);
+    }
+    return null;
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/**
+ * Display a popup on the map
+ */
+var script = {
+  name: 'LPopup',
+  mixins: [Popper, Options],
+  props: {
+    latLng: {
+      type: [Object, Array],
+      default: function () { return []; },
+    },
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(this.popperOptions, this);
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.popup)(options);
+    if (this.latLng !== undefined) {
+      this.mapObject.setLatLng(this.latLng);
+    }
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.mapObject.setContent(this.content || this.$el);
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.mapObject.bindPopup(this.mapObject);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  beforeDestroy: function beforeDestroy() {
+    if (this.parentContainer) {
+      if (this.parentContainer.unbindPopup) {
+        this.parentContainer.unbindPopup();
+      } else if (
+        this.parentContainer.mapObject &&
+        this.parentContainer.mapObject.unbindPopup
+      ) {
+        this.parentContainer.mapObject.unbindPopup();
+      }
+    }
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LTileLayer.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var GridLayer = {
+  mixins: [Layer],
+  props: {
+    pane: {
+      type: String,
+      default: 'tilePane'
+    },
+    opacity: {
+      type: Number,
+      custom: false,
+      default: 1.0
+    },
+    zIndex: {
+      type: Number,
+      default: 1
+    },
+    tileSize: {
+      type: Number,
+      default: 256
+    },
+    noWrap: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted: function mounted () {
+    this.gridLayerOptions = Object.assign({}, this.layerOptions,
+      {pane: this.pane,
+      opacity: this.opacity,
+      zIndex: this.zIndex,
+      tileSize: this.tileSize,
+      noWrap: this.noWrap});
+  }
+};
+
+var TileLayerMixin = {
+  mixins: [GridLayer],
+  props: {
+    tms: {
+      type: Boolean,
+      default: false,
+    },
+    subdomains: {
+      type: [String, Array],
+      default: 'abc',
+      validator: function (prop) {
+        if (typeof prop === 'string') { return true; }
+        // Validates array that array only contains only strings
+        if (Array.isArray(prop)) {
+          return prop.every(function (subdomain) { return typeof subdomain === 'string'; });
+        }
+        return false;
+      },
+    },
+    detectRetina: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  mounted: function mounted() {
+    this.tileLayerOptions = Object.assign({}, this.gridLayerOptions,
+      {tms: this.tms,
+      subdomains: this.subdomains,
+      detectRetina: this.detectRetina});
+  },
+  render: function render() {
+    return null;
+  },
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * Load tiles from a map server and display them accordingly to map zoom, center and size
+ */
+var script = {
+  name: 'LTileLayer',
+  mixins: [TileLayerMixin, Options],
+  props: {
+    url: {
+      type: String,
+      default: null,
+    },
+    tileLayerClass: {
+      type: Function,
+      default: leaflet__WEBPACK_IMPORTED_MODULE_0__.tileLayer,
+    },
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(this.tileLayerOptions, this);
+    this.mapObject = this.tileLayerClass(this.url, options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div')};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
 /***/ "./resources/js sync recursive \\.vue$/":
 /*!************************************!*\
   !*** ./resources/js/ sync \.vue$/ ***!
@@ -76993,6 +78003,7 @@ var map = {
 	"./components/Explore/ExploreMap.vue": "./resources/js/components/Explore/ExploreMap.vue",
 	"./components/Explore/MarkerModal.vue": "./resources/js/components/Explore/MarkerModal.vue",
 	"./components/Explore/MarkerSchedule.vue": "./resources/js/components/Explore/MarkerSchedule.vue",
+	"./components/Media/MediaCarousel.vue": "./resources/js/components/Media/MediaCarousel.vue",
 	"./components/Schedule/ScheduleCreateModal.vue": "./resources/js/components/Schedule/ScheduleCreateModal.vue",
 	"./components/Schedule/ScheduleDeleteModal.vue": "./resources/js/components/Schedule/ScheduleDeleteModal.vue",
 	"./components/Schedule/ScheduleEditModal.vue": "./resources/js/components/Schedule/ScheduleEditModal.vue",
@@ -77001,6 +78012,7 @@ var map = {
 	"./components/Station/StationDropboxList.vue": "./resources/js/components/Station/StationDropboxList.vue",
 	"./components/Station/StationEditModal.vue": "./resources/js/components/Station/StationEditModal.vue",
 	"./components/Station/StationList.vue": "./resources/js/components/Station/StationList.vue",
+	"./components/Station/StationMediaManager.vue": "./resources/js/components/Station/StationMediaManager.vue",
 	"./components/Station/StationScheduleList.vue": "./resources/js/components/Station/StationScheduleList.vue",
 	"./components/User/UserCreateModal.vue": "./resources/js/components/User/UserCreateModal.vue",
 	"./components/User/UserEditModal.vue": "./resources/js/components/User/UserEditModal.vue",

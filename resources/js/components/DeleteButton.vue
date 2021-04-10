@@ -1,6 +1,8 @@
 <template>
-    <button @click="doDelete()" class="btn btn-outline-danger" :disabled="isLoading">
-        <span v-show="!isLoading">Delete</span>
+    <button @click="doDelete()" class="btn btn-danger" :disabled="isLoading">
+        <span v-show="!isLoading">
+            <slot></slot>
+        </span>
         <span v-show="isLoading">Deleting...</span>
     </button>
 </template>
@@ -24,7 +26,7 @@
         methods: {
             async doDelete() {
                 if (!confirm('Are you sure?')) return;
-                
+
                 this.isLoading = true
 
                 try {
@@ -34,7 +36,7 @@
                 } catch (error) {
                     alert(error.response.data.message)
                 }
-                
+
                 this.isLoading = false
             }
         },

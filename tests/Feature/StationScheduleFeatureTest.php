@@ -9,6 +9,8 @@ use Tests\TestCase;
 
 class StationScheduleFeatureTest extends TestCase
 {
+    use RefreshDatabase;
+    
     /** @test */
     public function user_can_store_station_schedule()
     {
