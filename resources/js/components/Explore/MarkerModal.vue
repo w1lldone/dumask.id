@@ -10,13 +10,7 @@
                         </button>
                     </div>
                     <div class="modal-body mx-4">
-                        <!-- <div class="d-flex">
-                            <img src="img/dummy_image.png" alt="" class="img-fluid mx-auto" style="max-height:200px">
-                        </div> -->
-                        <div class="d-flex align-items-center justify-content-center text-muted card card-body border rounded bg-light" style="height:200px">
-                            <span class="mdi mdi-image-filter h1"></span>
-                            <h3>Foto belum tersedia</h3>
-                        </div>
+                        <media-carousel :station-id="station.id"></media-carousel>
                         <div class="mt-4">
                             <h5 class="text-secondary font-weight-bold">{{ station.name }}</h5>
                             <p>{{ station.address }}</p>
@@ -24,13 +18,15 @@
                                 <div>
                                     <span class="mdi mdi-archive-outline text-secondary"></span>
                                     <span class="text-secondary font-weight-bold align-middle ml-2">{{ station.dropboxes_count }} Dropbox tersedia</span>
+                                    <div class="text-primary align-middle ml-4">
+                                        Dropbox ini khusus untuk limbah APD dari masyarakat, bukan untuk limbah dari RS/Klinik
+                                    </div>
                                 </div>
-                                <div class="d-flex">
-                                    <img src="img/icon_clock.svg" alt="" style="max-height:16px">
-                                    <span class="text-secondary font-weight-bold align-middle ml-2">
-                                        Senin-Jumat: Buka 08.00 - 15.00 WIB <br>
-                                        Sabtu dan Minggu: Tutup
-                                    </span>
+                                <div>
+
+                                </div>
+                                <div>
+                                    <marker-schedule :schedules="station.schedules"></marker-schedule>
                                 </div>
                                 <div v-if="distance">
                                     <span class="mdi mdi-crosshairs-gps text-secondary"></span>
@@ -56,8 +52,10 @@
 </template>
 <script>
 import { latLng } from "leaflet";
+import MarkerSchedule from './MarkerSchedule.vue';
 
 export default {
+  components: { MarkerSchedule },
     name: "MarkerModal",
 
     props: {
