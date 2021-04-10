@@ -3,25 +3,24 @@
     id="carouselExampleIndicators"
     class="carousel slide"
     data-ride="carousel"
+    v-if="media.length"
   >
     <ol class="carousel-indicators">
       <li
+        v-for="(item, index) in media"
+        :key="item.id"
         data-target="#carouselExampleIndicators"
-        data-slide-to="0"
-        class="active"
+        :data-slide-to="index"
       ></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="" class="d-block w-100" alt="" />
-      </div>
-      <div class="carousel-item">
-        <img src="" class="d-block w-100" alt="" />
-      </div>
-      <div class="carousel-item">
-        <img src="" class="d-block w-100" alt="" />
+      <div
+        class="carousel-item bg-dark rounded"
+        :class="{ active: index == 0 }"
+        v-for="(item, index) in media"
+        :key="item.id"
+      >
+        <img :src="item.url" class="d-block" />
       </div>
     </div>
     <a
@@ -50,12 +49,39 @@ export default {
   name: "MediaCarousel",
 
   props: {
-    media: {
-      type: Array,
+    station: {
+      type: Object,
     },
+  },
+
+  data() {
+    return {
+      media: [],
+    };
+  },
+
+  methods: {
+    async doFetch() {
+      try {
+        let response = await axios.get(`/station/${this.station.id}/media`);
+        this.media = response.data.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+
+  mounted() {
+    this.doFetch();
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.carousel-item img {
+  max-height: 200px;
+  min-width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
