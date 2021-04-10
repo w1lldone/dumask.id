@@ -23,6 +23,8 @@ Route::get('/', [App\Http\Controllers\ExploreController::class, 'index']);
 
 Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
 Route::view('/about', 'about')->name('about');
+Route::view('/policy', 'privacy-policy')->name('privacy-policy');
+Route::view('/terms', 'terms-of-service')->name('terms');
 
 Route::prefix('user')->name('user.')->middleware('auth')->group(function ()
 {
