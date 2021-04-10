@@ -10,7 +10,7 @@
             Website Terms and Conditions of Use
         </h2>
         <hr class="my-2">
-        <div class="text-secondary text-justify mt-4 mx-auto">
+        <div class="text-secondary text-justify mt-4 mx-md-2">
             <h4 class="font-weight-bold mt-3">
                 1. Terms
             </h4>

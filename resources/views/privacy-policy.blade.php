@@ -11,14 +11,14 @@
         </h2>
         <hr class="my-2">
         <div class="text-secondary text-justify mt-4 mx-auto">
-            <h5 class="mx-md-4 mt-3" style="line-height: 175%">
+            <h5 class="mx-md-4 mt-2" style="line-height: 175%">
                 At Dumask.id, accessible from <a href="https://dumask.id/">https://dumask.id/</a>, 
                 one of our main priorities is the privacy of our visitors. This Privacy Policy document 
                 contains types of information that is collected and recorded by Dumask.id and how we use it.
                 If you have additional questions or require more information about our Privacy Policy, 
                 do not hesitate to contact us.
             </h5>
-            <h4 class="font-weight-bold mt-3">
+            <h4 class="font-weight-bold mt-3 mx-md-4">
                 Log Files
             </h4>
             <h5 class="mx-md-4" style="line-height: 175%">
@@ -30,7 +30,7 @@
                 The purpose of the information is for analyzing trends, administering the site, tracking users' 
                 movement on the website, and gathering demographic information.
             </h5>
-            <h4 class="font-weight-bold mt-3">
+            <h4 class="font-weight-bold mt-3 mx-md-4">
                 Cookies and Web Beacons
             </h4>
             <h5 class="mx-md-4" style="line-height: 175%">
@@ -40,7 +40,7 @@
                 on visitors' browser type and/or other information. For more general information on cookies, please read 
                 <a href="https://www.privacypolicyonline.com/what-are-cookies">"What Are Cookies" from Cookie Consent.</a>
             </h5>
-            <h4 class="font-weight-bold mt-3">
+            <h4 class="font-weight-bold mt-3 mx-md-4">
                 Google DoubleClick DART Cookie
             </h4>
             <h5 class="mx-md-4" style="line-height: 175%">
@@ -50,7 +50,7 @@
                 Google ad and content network Privacy Policy at the following URL – <br>
                 <a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>
             </h5>
-            <h4 class="font-weight-bold mt-3">
+            <h4 class="font-weight-bold mt-3 mx-md-4">
                 Our Advertising Partners
             </h4>
             <h5 class="mx-md-4" style="line-height: 175%">
@@ -64,7 +64,7 @@
                     </li>
                 </ul>
             </h5>
-            <h4 class="font-weight-bold mt-3">
+            <h4 class="font-weight-bold mt-3 mx-md-4">
                 Privacy Policies
             </h4>
             <h5 class="mx-md-4" style="line-height: 175%">
@@ -78,7 +78,7 @@
                 Note that Dumask.id has no access to or control over these cookies that are
                  used by third-party advertisers.
             </h5>
-            <h4 class="font-weight-bold mt-3">
+            <h4 class="font-weight-bold mt-3 mx-md-4">
                 Third Party Privacy Policies
             </h4>
             <h5 class="mx-md-4" style="line-height: 175%">
@@ -90,7 +90,7 @@
                 cookie management with specific web browsers, it can be found at the browsers' respective websites. 
                 <a href="https://www.privacypolicyonline.com/what-are-cookies">What Are Cookies?</a>
             </h5>
-            <h4 class="font-weight-bold mt-3">
+            <h4 class="font-weight-bold mt-3 mx-md-4">
                 Children's Information
             </h4>
             <h5 class="mx-md-4" style="line-height: 175%">
@@ -102,7 +102,7 @@
                 immediately and we will do our best efforts to promptly remove such information from 
                 our records.
             </h5>
-            <h4 class="font-weight-bold mt-3">
+            <h4 class="font-weight-bold mt-3 mx-md-4">
                 Online Privacy Policy Only
             </h4>
             <h5 class="mx-md-4" style="line-height: 175%">
@@ -111,7 +111,7 @@
                 This policy is not applicable to any information collected offline or via channels other than 
                 this website.
             </h5>
-            <h4 class="font-weight-bold mt-3">
+            <h4 class="font-weight-bold mt-3 mx-md-4">
                 Consent
             </h4>
             <h5 class="mx-md-4" style="line-height: 175%">
