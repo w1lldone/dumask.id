@@ -17,7 +17,9 @@
             </div>
             <div class="col-md-2">
                 <user-edit-modal :permissions="permissions" class="d-inline" :editedUser="user"></user-edit-modal>
-                <delete-button :delete-url="`/user/${user.id}`" @deleted="handleDeleted(index)"></delete-button>
+                <delete-button :delete-url="`/user/${user.id}`" @deleted="handleDeleted(index)">
+                    <span class="mdi mdi-delete"></span>
+                </delete-button>
             </div>
         </div>
     </div>
@@ -51,7 +53,7 @@ import UserEditModal from './UserEditModal.vue'
             editUser(user) {
                 console.log(user)
                 this.editedUser = user;
-                
+
             }
         },
     }
