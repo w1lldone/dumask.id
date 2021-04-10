@@ -38,9 +38,11 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <div class="col-md-6 mb-2">
-                <label class="btn btn-block btn-file btn-outline-primary h-100 d-flex align-items-center flex-column justify-content-center">
-                  <div class="mdi mdi-image"></div>
+              <div v-show="!isLoading" class="col-md-6 mb-2">
+                <label
+                  class="btn btn-block btn-file btn-outline-primary h-100 d-flex align-items-center flex-column justify-content-center"
+                >
+                  <div class="h2 mdi mdi-image"></div>
                   <div>Upload New Image</div>
                   <div id="uploadMediaForm">
                     <input
@@ -54,12 +56,31 @@
                   </div>
                 </label>
               </div>
-              <div v-for="(item, index) in media" :key="item.id" class="col-md-6 mb-2">
+              <div v-show="isLoading" class="col-md-6 mb-2">
+                <label
+                  class="btn btn-block disabled btn-file btn-outline-primary h-100 d-flex align-items-center flex-column justify-content-center"
+                >
+                  <div class="h2 mdi mdi-upload"></div>
+                  <div>{{ uploadProgress }} %</div>
+                </label>
+              </div>
+              <div
+                v-for="(item, index) in media"
+                :key="item.id"
+                class="col-md-6 mb-2"
+              >
                 <div class="card border-primary">
-                  <img :src="item.url" style="max-height: 200px" class="rounded mx-auto d-block" alt="">
-                  <button class="btn btn-danger" style="position: absolute; bottom: 10px; right: 10px" @click="doDelete(item.id, index)">
-                    <span class="mdi mdi-delete"></span>
-                  </button>
+                  <img
+                    :src="item.url"
+                    style="max-height: 200px"
+                    class="rounded mx-auto d-block"
+                    alt=""
+                  />
+                  <delete-button
+                    style="position: absolute; bottom: 10px; right: 10px"
+                    :delete-url="`/station/${station.id}/media/${item.id}`"
+                    @deleted="handleDeleted(index)"
+                  ></delete-button>
                 </div>
               </div>
             </div>
@@ -83,7 +104,7 @@ export default {
       media: [],
       isLoading: false,
       uploadProgress: 0,
-      errors: {}
+      errors: {},
     };
   },
 
@@ -95,43 +116,43 @@ export default {
       formData.append("media", media);
 
       try {
-        let response = await axios.post(`/station/${this.station.id}/media`, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data"
-          },
-          onUploadProgress: function(progressEvent) {
-            this.uploadProgress = parseInt(
-              Math.round((progressEvent.loaded * 100) / progressEvent.total)
-            );
-          }.bind(this)
-        });
-        this.media.push(response.data.data)
+        let response = await axios.post(
+          `/station/${this.station.id}/media`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+            onUploadProgress: function (progressEvent) {
+              this.uploadProgress = parseInt(
+                Math.round((progressEvent.loaded * 100) / progressEvent.total)
+              );
+            }.bind(this),
+          }
+        );
+        this.media.push(response.data.data);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
 
+      this.isLoading = false;
     },
     async doFetch() {
       try {
-        let response = await axios.get(`/station/${this.station.id}/media`)
-        this.media = response.data.data
+        let response = await axios.get(`/station/${this.station.id}/media`);
+        this.media = response.data.data;
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     },
-    async doDelete(mediaId, index) {
-      try {
-        let response = await axios.delete(`/station/${this.station.id}/media/${mediaId}`)
-        this.media.splice(index, 1)
-      } catch (error) {
-        console.log(error)
-      }
-    }
+    handleDeleted(index) {
+      this.media.splice(index, 1);
+    },
   },
 
   mounted() {
-    this.doFetch()
-  }
+    this.doFetch();
+  },
 };
 </script>
 
