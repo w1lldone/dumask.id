@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         <div class="col-md-5">
-                            <media-carousel :station='@json($station)'></media-carousel>
+                            <media-carousel :station-id="{{ $station->id }}"></media-carousel>
                             <station-media-manager class="float-right mt-2" :station='@json($station)'></station-media-manager>
                         </div>
                     </div>

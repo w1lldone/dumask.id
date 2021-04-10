@@ -3,9 +3,16 @@
     id="carouselExampleIndicators"
     class="carousel slide"
     data-ride="carousel"
-    v-if="media.length"
   >
-    <ol class="carousel-indicators">
+    <div
+      class="d-flex align-items-center justify-content-center text-muted card card-body border rounded bg-light"
+      style="height: 200px"
+      v-if="media.length == 0"
+    >
+      <span class="mdi mdi-image-filter h1"></span>
+      <h3>Foto belum tersedia</h3>
+    </div>
+    <ol class="carousel-indicators" v-else>
       <li
         v-for="(item, index) in media"
         :key="item.id"
@@ -49,8 +56,8 @@ export default {
   name: "MediaCarousel",
 
   props: {
-    station: {
-      type: Object,
+    stationId: {
+      type: Number,
     },
   },
 
@@ -60,10 +67,20 @@ export default {
     };
   },
 
+  watch: {
+    stationId(newValue, oldValue) {
+      this.doFetch();
+    },
+  },
+
   methods: {
     async doFetch() {
+      if (this.stationId == null) {
+        return;
+      }
+
       try {
-        let response = await axios.get(`/station/${this.station.id}/media`);
+        let response = await axios.get(`/station/${this.stationId}/media`);
         this.media = response.data.data;
       } catch (error) {
         console.log(error);

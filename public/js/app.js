@@ -3291,12 +3291,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3553,17 +3547,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "MediaCarousel",
   props: {
-    station: {
-      type: Object
+    stationId: {
+      type: Number
     }
   },
   data: function data() {
     return {
       media: []
     };
+  },
+  watch: {
+    stationId: function stationId(newValue, oldValue) {
+      this.doFetch();
+    }
   },
   methods: {
     doFetch: function doFetch() {
@@ -3575,27 +3581,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
-                return axios.get("/station/".concat(_this.station.id, "/media"));
+                if (!(_this.stationId == null)) {
+                  _context.next = 2;
+                  break;
+                }
 
-              case 3:
+                return _context.abrupt("return");
+
+              case 2:
+                _context.prev = 2;
+                _context.next = 5;
+                return axios.get("/station/".concat(_this.stationId, "/media"));
+
+              case 5:
                 response = _context.sent;
                 _this.media = response.data.data;
-                _context.next = 10;
+                _context.next = 12;
                 break;
 
-              case 7:
-                _context.prev = 7;
-                _context.t0 = _context["catch"](0);
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](2);
                 console.log(_context.t0);
 
-              case 10:
+              case 12:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 7]]);
+        }, _callee, null, [[2, 9]]);
       }))();
     }
   },
@@ -60235,131 +60249,142 @@ var render = function() {
             _c("div", { staticClass: "modal-content" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "modal-body mx-4" }, [
-                _vm._m(1),
-                _vm._v(" "),
-                _c("div", { staticClass: "mt-4" }, [
-                  _c("h5", { staticClass: "text-secondary font-weight-bold" }, [
-                    _vm._v(_vm._s(_vm.station.name))
-                  ]),
+              _c(
+                "div",
+                { staticClass: "modal-body mx-4" },
+                [
+                  _c("media-carousel", {
+                    attrs: { "station-id": _vm.station.id }
+                  }),
                   _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(_vm.station.address))]),
-                  _vm._v(" "),
-                  _vm.station.dropboxes_count
-                    ? _c("div", [
-                        _c("div", [
-                          _c("span", {
-                            staticClass:
-                              "mdi mdi-archive-outline text-secondary"
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            {
+                  _c("div", { staticClass: "mt-4" }, [
+                    _c(
+                      "h5",
+                      { staticClass: "text-secondary font-weight-bold" },
+                      [_vm._v(_vm._s(_vm.station.name))]
+                    ),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.station.address))]),
+                    _vm._v(" "),
+                    _vm.station.dropboxes_count
+                      ? _c("div", [
+                          _c("div", [
+                            _c("span", {
                               staticClass:
-                                "text-secondary font-weight-bold align-middle ml-2"
-                            },
-                            [
-                              _vm._v(
-                                _vm._s(_vm.station.dropboxes_count) +
-                                  " Dropbox tersedia"
-                              )
-                            ]
-                          ),
+                                "mdi mdi-archive-outline text-secondary"
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "text-secondary font-weight-bold align-middle ml-2"
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.station.dropboxes_count) +
+                                    " Dropbox tersedia"
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "text-primary align-middle ml-4" },
+                              [
+                                _vm._v(
+                                  "\n                                    Dropbox ini khusus untuk limbah APD dari masyarakat, bukan untuk limbah dari RS/Klinik\n                                "
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div"),
                           _vm._v(" "),
                           _c(
                             "div",
-                            { staticClass: "text-primary align-middle ml-4" },
                             [
-                              _vm._v(
-                                "\n                                    Dropbox ini khusus untuk limbah APD dari masyarakat, bukan untuk limbah dari RS/Klinik\n                                "
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div"),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          [
-                            _c("marker-schedule", {
-                              attrs: { schedules: _vm.station.schedules }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _vm.distance
-                          ? _c("div", [
-                              _c("span", {
-                                staticClass:
-                                  "mdi mdi-crosshairs-gps text-secondary"
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
+                              _c("marker-schedule", {
+                                attrs: { schedules: _vm.station.schedules }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _vm.distance
+                            ? _c("div", [
+                                _c("span", {
                                   staticClass:
-                                    "text-secondary font-weight-bold align-middle ml-2"
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(_vm.distance) +
-                                      " km dari lokasi Anda"
-                                  )
-                                ]
-                              )
-                            ])
-                          : _c("div", [
-                              _c("span", {
-                                staticClass: "mdi mdi-crosshairs text-muted"
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "text-muted font-weight-bold align-middle ml-2"
-                                },
-                                [
-                                  _vm._v(
-                                    "Nyalakan lokasi untuk menghitung jarak"
-                                  )
-                                ]
-                              )
-                            ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "text-right" }, [
+                                    "mdi mdi-crosshairs-gps text-secondary"
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "text-secondary font-weight-bold align-middle ml-2"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.distance) +
+                                        " km dari lokasi Anda"
+                                    )
+                                  ]
+                                )
+                              ])
+                            : _c("div", [
+                                _c("span", {
+                                  staticClass: "mdi mdi-crosshairs text-muted"
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "text-muted font-weight-bold align-middle ml-2"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "Nyalakan lokasi untuk menghitung jarak"
+                                    )
+                                  ]
+                                )
+                              ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "text-right" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary shadow",
+                                attrs: { target: "_blank", href: _vm.routeUrl }
+                              },
+                              [
+                                _vm._v("ROUTE "),
+                                _c("span", {
+                                  staticClass: "mdi mdi-open-in-new"
+                                })
+                              ]
+                            )
+                          ])
+                        ])
+                      : _c("div", [
                           _c(
-                            "a",
+                            "h5",
                             {
-                              staticClass: "btn btn-primary shadow",
-                              attrs: { target: "_blank", href: _vm.routeUrl }
+                              staticClass:
+                                "text-secondary text-center font-weight-bold my-4"
                             },
                             [
-                              _vm._v("ROUTE "),
-                              _c("span", { staticClass: "mdi mdi-open-in-new" })
+                              _vm._v(
+                                "Dropbox DUMASK.ID akan segera hadir di lokasi ini."
+                              )
                             ]
                           )
                         ])
-                      ])
-                    : _c("div", [
-                        _c(
-                          "h5",
-                          {
-                            staticClass:
-                              "text-secondary text-center font-weight-bold my-4"
-                          },
-                          [
-                            _vm._v(
-                              "Dropbox DUMASK.ID akan segera hadir di lokasi ini."
-                            )
-                          ]
-                        )
-                      ])
-                ])
-              ])
+                  ])
+                ],
+                1
+              )
             ])
           ]
         )
@@ -60395,24 +60420,6 @@ var staticRenderFns = [
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "d-flex align-items-center justify-content-center text-muted card card-body border rounded bg-light",
-        staticStyle: { height: "200px" }
-      },
-      [
-        _c("span", { staticClass: "mdi mdi-image-filter h1" }),
-        _vm._v(" "),
-        _c("h3", [_vm._v("Foto belum tersedia")])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -60541,15 +60548,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.media.length
-    ? _c(
-        "div",
-        {
-          staticClass: "carousel slide",
-          attrs: { id: "carouselExampleIndicators", "data-ride": "carousel" }
-        },
-        [
-          _c(
+  return _c(
+    "div",
+    {
+      staticClass: "carousel slide",
+      attrs: { id: "carouselExampleIndicators", "data-ride": "carousel" }
+    },
+    [
+      _vm.media.length == 0
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "d-flex align-items-center justify-content-center text-muted card card-body border rounded bg-light",
+              staticStyle: { height: "200px" }
+            },
+            [
+              _c("span", { staticClass: "mdi mdi-image-filter h1" }),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Foto belum tersedia")])
+            ]
+          )
+        : _c(
             "ol",
             { staticClass: "carousel-indicators" },
             _vm._l(_vm.media, function(item, index) {
@@ -60563,35 +60583,29 @@ var render = function() {
             }),
             0
           ),
-          _vm._v(" "),
-          _c(
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "carousel-inner" },
+        _vm._l(_vm.media, function(item, index) {
+          return _c(
             "div",
-            { staticClass: "carousel-inner" },
-            _vm._l(_vm.media, function(item, index) {
-              return _c(
-                "div",
-                {
-                  key: item.id,
-                  staticClass: "carousel-item bg-dark rounded",
-                  class: { active: index == 0 }
-                },
-                [
-                  _c("img", {
-                    staticClass: "d-block",
-                    attrs: { src: item.url }
-                  })
-                ]
-              )
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._m(1)
-        ]
-      )
-    : _vm._e()
+            {
+              key: item.id,
+              staticClass: "carousel-item bg-dark rounded",
+              class: { active: index == 0 }
+            },
+            [_c("img", { staticClass: "d-block", attrs: { src: item.url } })]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1)
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
