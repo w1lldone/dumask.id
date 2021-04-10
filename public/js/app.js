@@ -3375,6 +3375,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "MarkerSchedule",
@@ -3385,67 +3388,73 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    getOpenHourOnDay: function getOpenHourOnDay(day) {
-      var openHour = "Buka Hari Ini";
+    getScheduleOnDay: function getScheduleOnDay(schedule, day) {
+      schedule.opened_at = "";
+      schedule.closed_at = "";
+      schedule.summary = "Buka Hari Ini";
 
       for (var i = 0; i < this.schedules.length; i++) {
         // Cari hari
         if (this.schedules[i].day == day) {
           if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
-            openHour = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at;
+            schedule.opened_at = this.schedules[i].opened_at;
+            schedule.closed_at = this.schedules[i].closed_at;
+            schedule.summary = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at;
           } else {
-            openHour = "Tutup";
+            schedule.summary = "Tutup";
           }
         }
       }
 
-      return openHour;
+      return schedule;
     },
-    getTodaySchedule: function getTodaySchedule() {
-      var date = new Date();
-      var today = date.getDay();
-      var todaySchedule = {};
-
-      for (var i = 0; i < this.schedules.length; i++) {
-        // Cari hari
-        if (this.schedules[i].day == today) {
-          if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
-            // Split jam & menit
-            var openTime = this.schedules[i].opened_at.split(':');
-            var closeTime = this.schedules[i].closed_at.split(':');
-            var open = new Date();
-            open.setHours(openTime[0], openTime[1], 0);
-            var close = new Date();
-            close.setHours(closeTime[0], closeTime[1], 0);
-            todaySchedule.open = open;
-            todaySchedule.close = close;
-            break;
-          }
-        }
-      }
-
-      return todaySchedule;
-    },
-    isNowOpen: function isNowOpen() {
-      var schedule = this.sortedSchedules[0];
+    getNow: function getNow() {
+      var today = this.sortedSchedules[0];
       var now = new Date();
-      var nowOpen;
+      var getNow = {};
 
-      if (schedule.open_hour == "Buka Hari Ini") {
-        nowOpen = true;
-      } else if (schedule.open_hour == "Tutup") {
-        nowOpen = false;
+      if (today.summary == "Buka Hari Ini") {
+        getNow.isOpen = true;
+        getNow.nextOpen = today.summary;
+      } else if (today.summary == "Tutup") {
+        getNow.isOpen = false;
+        getNow.nextOpen = this.nextOpen();
       } else {
-        var todaySchedule = this.getTodaySchedule();
+        var openTime = today.opened_at.split(':');
+        var closeTime = today.closed_at.split(':');
+        var openHour = new Date();
+        openHour.setHours(openTime[0], openTime[1], 0);
+        var closeHour = new Date();
+        closeHour.setHours(closeTime[0], closeTime[1], 0); // Belum buka
 
-        if (now >= todaySchedule.open && now < todaySchedule.close) {
-          nowOpen = true;
-        } else {
-          nowOpen = false;
-        }
+        if (now < openHour) {
+          getNow.isOpen = false;
+          getNow.nextOpen = "Buka: " + today.summary;
+        } else // Sedang Buka
+          if (now >= openHour && now < closeHour) {
+            getNow.isOpen = true;
+            getNow.nextOpen = "(" + today.summary + ")";
+          } // Sudah Tutup
+          else {
+              getNow.isOpen = false;
+              getNow.nextOpen = this.nextOpen();
+            }
       }
 
-      return nowOpen;
+      return getNow;
+    },
+    nextOpen: function nextOpen() {
+      var scheduleList = this.sortedSchedules;
+
+      for (var i = 1; i < scheduleList.length; i++) {
+        if (scheduleList[i].summary == "Buka Hari Ini") {
+          return "Buka: " + scheduleList[i].day;
+        }
+
+        if (scheduleList[i].summary != "Buka Hari Ini" && scheduleList[i].summary != "Tutup") {
+          return "Buka: " + scheduleList[i].day + " (" + scheduleList[i].summary + ")";
+        }
+      }
     }
   },
   computed: {
@@ -3458,7 +3467,7 @@ __webpack_require__.r(__webpack_exports__);
       for (var i = today; i < days.length; i++) {
         var schedule = new Object();
         schedule.day = days[i];
-        schedule.open_hour = this.getOpenHourOnDay(i);
+        this.getScheduleOnDay(schedule, i);
         sortedSchedules.push(schedule);
       } // Minggu ... today-1
 
@@ -3466,7 +3475,7 @@ __webpack_require__.r(__webpack_exports__);
       for (var _i = 0; _i < today; _i++) {
         var schedule = new Object();
         schedule.day = days[_i];
-        schedule.open_hour = this.getOpenHourOnDay(_i);
+        this.getScheduleOnDay(schedule, _i);
         sortedSchedules.push(schedule);
       }
 
@@ -59812,7 +59821,7 @@ var render = function() {
           staticClass: "mdi mdi-clock-outline text-secondary font-weight-bold"
         }),
         _vm._v(" "),
-        _vm.isNowOpen()
+        _vm.getNow().isOpen
           ? _c(
               "span",
               {
@@ -59825,6 +59834,12 @@ var render = function() {
               { staticClass: "text-danger font-weight-bold align-middle ml-2" },
               [_vm._v("\n            Tutup\n        ")]
             ),
+        _vm._v(" "),
+        _c("span", { staticClass: "text-primary align-middle ml-3" }, [
+          _vm._v(
+            "\n            " + _vm._s(_vm.getNow().nextOpen) + "\n        "
+          )
+        ]),
         _vm._v(" "),
         _c("span", {
           staticClass:
@@ -59847,18 +59862,18 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            schedule.open_hour == "Tutup"
+            schedule.summary == "Tutup"
               ? _c("div", { staticClass: "col-9 text-danger px-0" }, [
                   _vm._v(
                     "\n                    " +
-                      _vm._s(schedule.open_hour) +
+                      _vm._s(schedule.summary) +
                       "\n                "
                   )
                 ])
               : _c("div", { staticClass: "col-9 px-0" }, [
                   _vm._v(
                     "\n                    " +
-                      _vm._s(schedule.open_hour) +
+                      _vm._s(schedule.summary) +
                       "\n                "
                   )
                 ])

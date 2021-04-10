@@ -2,11 +2,14 @@
     <div>
         <a class="d-flex flex-row nav-link px-0" data-toggle="collapse" href="#station-schedule" role="button" aria-expanded="false" aria-controls="collapseExample">
             <span class="mdi mdi-clock-outline text-secondary font-weight-bold"></span>
-            <span v-if="isNowOpen()" class="text-secondary font-weight-bold align-middle ml-2">
+            <span v-if="getNow().isOpen" class="text-secondary font-weight-bold align-middle ml-2">
                 Buka Sekarang
             </span>
             <span v-else class="text-danger font-weight-bold align-middle ml-2">
                 Tutup
+            </span>
+            <span class="text-primary align-middle ml-3">
+                {{ getNow().nextOpen }}
             </span>
             <span class="mdi mdi-chevron-down text-secondary font-weight-bold ml-auto"></span>
         </a>
@@ -20,11 +23,11 @@
                     <div class="col-3 px-0">
                         {{ schedule.day }}
                     </div>
-                    <div v-if="schedule.open_hour == 'Tutup'" class="col-9 text-danger px-0">
-                        {{ schedule.open_hour }}
+                    <div v-if="schedule.summary == 'Tutup'" class="col-9 text-danger px-0">
+                        {{ schedule.summary }}
                     </div>
                     <div v-else class="col-9 px-0">
-                        {{ schedule.open_hour }}
+                        {{ schedule.summary }}
                     </div>
                 </div>
             </div>
@@ -47,72 +50,81 @@ export default {
     },
 
     methods: {
-        getOpenHourOnDay(day) {
-            var openHour = "Buka Hari Ini"
+        getScheduleOnDay(schedule, day) {
+            schedule.opened_at = ""
+            schedule.closed_at = ""
+            schedule.summary = "Buka Hari Ini"
+
             for (let i = 0; i < this.schedules.length; i++) {
                 // Cari hari
                 if (this.schedules[i].day == day) {
                     if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
-                        openHour = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at
+                        schedule.opened_at = this.schedules[i].opened_at
+                        schedule.closed_at = this.schedules[i].closed_at
+                        schedule.summary = this.schedules[i].opened_at + " - " + this.schedules[i].closed_at
                     } else {
-                        openHour = "Tutup"
+                        schedule.summary = "Tutup"
                     }
                 }
             }
-            return openHour
+            return schedule
         },
 
-        getTodaySchedule(){
-            var date = new Date()
-            var today = date.getDay()
-
-            var todaySchedule = {}
-
-            for (let i = 0; i < this.schedules.length; i++) {
-                // Cari hari
-                if (this.schedules[i].day == today) {
-                    if (this.schedules[i].opened_at && this.schedules[i].closed_at) {
-                        // Split jam & menit
-                        var openTime = this.schedules[i].opened_at.split(':')
-                        var closeTime = this.schedules[i].closed_at.split(':')
-
-                        var open = new Date()
-                        open.setHours(openTime[0], openTime[1], 0)
-
-                        var close = new Date()
-                        close.setHours(closeTime[0], closeTime[1], 0)
-
-                        todaySchedule.open = open
-                        todaySchedule.close = close
-                        break
-                    }
-                }
-            }
-            return todaySchedule
-        },
-
-        isNowOpen() {
-            var schedule = this.sortedSchedules[0]
+        getNow() {
+            var today = this.sortedSchedules[0]
 
             var now = new Date()
-            var nowOpen
+            var getNow = {}
             
-            if (schedule.open_hour == "Buka Hari Ini") {
-                nowOpen = true
-            } else if (schedule.open_hour == "Tutup") {
-                nowOpen = false
+            if (today.summary == "Buka Hari Ini") {
+                getNow.isOpen = true
+                getNow.nextOpen = today.summary
+            } else if (today.summary == "Tutup") {
+                getNow.isOpen = false
+                getNow.nextOpen = this.nextOpen()
             } else {
-                var todaySchedule = this.getTodaySchedule()
-                if (now >= todaySchedule.open && now < todaySchedule.close ) {
-                    nowOpen = true
-                }
-                else {
-                    nowOpen = false
-                }
+                var openTime = today.opened_at.split(':')
+                var closeTime = today.closed_at.split(':')
+
+                var openHour = new Date()
+                openHour.setHours(openTime[0], openTime[1], 0)
+
+                var closeHour = new Date()
+                closeHour.setHours(closeTime[0], closeTime[1], 0)
+
+                // Belum buka
+                if (now < openHour) {
+                    getNow.isOpen = false
+                    getNow.nextOpen = "Buka: " + today.summary
+                } else
+                // Sedang Buka
+                    if (now >= openHour && now < closeHour ) {
+                        getNow.isOpen = true
+                        getNow.nextOpen = "(" + today.summary + ")"
+                    }
+                    // Sudah Tutup
+                    else {
+                        getNow.isOpen = false
+                        getNow.nextOpen = this.nextOpen()
+                    }
             }
             
-            return nowOpen
+            return getNow
         },
+
+        nextOpen() {
+            var scheduleList = this.sortedSchedules
+
+            for (let i = 1; i < scheduleList.length; i++) {
+                if (scheduleList[i].summary == "Buka Hari Ini") {
+                    return "Buka: " + scheduleList[i].day
+                }
+                if (scheduleList[i].summary != "Buka Hari Ini" && scheduleList[i].summary != "Tutup") {
+                     return "Buka: " + scheduleList[i].day + " (" + scheduleList[i].summary + ")"
+                }
+            }
+        },
+
     },
 
     computed: {
@@ -128,7 +140,7 @@ export default {
                 var schedule = new Object()
 
                 schedule.day = days[i]
-                schedule.open_hour = this.getOpenHourOnDay(i)
+                this.getScheduleOnDay(schedule, i)
                 
                 sortedSchedules.push(schedule)
             }
@@ -138,11 +150,10 @@ export default {
                 var schedule = new Object()
 
                 schedule.day = days[i]
-                schedule.open_hour = this.getOpenHourOnDay(i)
+                this.getScheduleOnDay(schedule, i)
                 
                 sortedSchedules.push(schedule)
             }
-
 
             return sortedSchedules
         }
