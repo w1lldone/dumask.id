@@ -25,7 +25,7 @@
               class="modal-title font-weight-bold text-muted"
               id="modal-title"
             >
-              Station Media Manager
+              Station Galery Manager
             </h5>
             <button
               type="button"
