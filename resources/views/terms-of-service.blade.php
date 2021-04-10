@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tentang Dumask.id')
+@section('title', 'Terms of Service Dumask.id')
     
 @section('content')
 
@@ -35,77 +35,72 @@
                     <li>Remove any copyright or other proprietary notations from the materials; or</li>
                     <li>Transferring the materials to another person or "mirror" the materials on any other server.</li>
                 </ul>
-                    This will let Dumask.id to terminate upon violations of any of these restrictions. 
-                    Upon termination, your viewing right will also be terminated and you should destroy 
-                    any downloaded materials in your possession whether it is printed or electronic format. 
-                <h4 class="font-weight-bold mt-3">
-                    3. Disclaimer
-                </h4>
-                <h5 class="mx-md-4" style="line-height: 175%">
-                    All the materials on Dumask.id's Website are provided "as is". 
-                    Dumask.id makes no warranties, may it be expressed or implied, 
-                    therefore negates all other warranties. Furthermore, Dumask.id 
-                    does not make any representations concerning the accuracy or reliability 
-                    of the use of the materials on its Website or otherwise relating to such 
-                    materials or any sites linked to this Website.
-                </h5>
-                <h4 class="font-weight-bold mt-3">
-                    4. Limitations
-                </h4>
-                <h5 class="mx-md-4" style="line-height: 175%">
-                    Dumask.id or its suppliers will not be hold accountable for any 
-                    damages that will arise with the use or inability to use the materials 
-                    on Dumask.id’s Website, even if Dumask.id or an authorize representative 
-                    of this Website has been notified, orally or written, of the possibility 
-                    of such damage. Some jurisdiction does not allow limitations on implied 
-                    warranties or limitations of liability for incidental damages, these 
-                    limitations may not apply to you.
-                </h5>
-                <h4 class="font-weight-bold mt-3">
-                    5. Revisions and Errata
-                </h4>
-                <h5 class="mx-md-4" style="line-height: 175%">
-                    The materials appearing on Dumask.id’s Website may include technical, 
-                    typographical, or photographic errors. Dumask.id will not promise that 
-                    any of the materials in this Website are accurate, complete, or current. 
-                    Dumask.id may change the materials contained on its Website at any time without notice. 
-                    Dumask.id does not make any commitment to update the materials.
-                </h5>
-                <h4 class="font-weight-bold mt-3">
-                    6. Links
-                </h4>
-                <h5 class="mx-md-4" style="line-height: 175%">
-                    Dumask.id has not reviewed all of the sites linked to its Website and is not 
-                    responsible for the contents of any such linked site. 
-                    The presence of any link does not imply endorsement by Dumask.id of the site. 
-                    The use of any linked website is at the user’s own risk.
-                </h5>
-                <h4 class="font-weight-bold mt-3">
-                    7. Site Terms of Use Modifications
-                </h4>
-                <h5 class="mx-md-4" style="line-height: 175%">
-                    Dumask.id may revise these Terms of Use for its Website at any time without prior notice. 
-                    By using this Website, you are agreeing to be bound by the current 
-                    version of these Terms and Conditions of Use.
-                </h5>
-                <h4 class="font-weight-bold mt-3">
-                    8. Your Privacy
-                </h4>
-                <h5 class="mx-md-4" style="line-height: 175%">
-                    Please read our <a href="{{ route('privacy-policy') }}">Privacy Policy.</a>
-                </h5>
-                <h4 class="font-weight-bold mt-3">
-                    9. Governing Law
-                </h4>
-                <h5 class="mx-md-4" style="line-height: 175%">
-                    Any claim related to Dumask.id's Website shall be governed by the 
-                    laws of id without regards to its conflict of law provisions.
-                </h5>
-
-
-
-
-
+                This will let Dumask.id to terminate upon violations of any of these restrictions. 
+                Upon termination, your viewing right will also be terminated and you should destroy 
+                any downloaded materials in your possession whether it is printed or electronic format. 
+            </h5>
+            <h4 class="font-weight-bold mt-3">
+                3. Disclaimer
+            </h4>
+            <h5 class="mx-md-4" style="line-height: 175%">
+                All the materials on Dumask.id's Website are provided "as is". 
+                Dumask.id makes no warranties, may it be expressed or implied, 
+                therefore negates all other warranties. Furthermore, Dumask.id 
+                does not make any representations concerning the accuracy or reliability 
+                of the use of the materials on its Website or otherwise relating to such 
+                materials or any sites linked to this Website.
+            </h5>
+            <h4 class="font-weight-bold mt-3">
+                4. Limitations
+            </h4>
+            <h5 class="mx-md-4" style="line-height: 175%">
+                Dumask.id or its suppliers will not be hold accountable for any 
+                damages that will arise with the use or inability to use the materials 
+                on Dumask.id’s Website, even if Dumask.id or an authorize representative 
+                of this Website has been notified, orally or written, of the possibility 
+                of such damage. Some jurisdiction does not allow limitations on implied 
+                warranties or limitations of liability for incidental damages, these 
+                limitations may not apply to you.
+            </h5>
+            <h4 class="font-weight-bold mt-3">
+                5. Revisions and Errata
+            </h4>
+            <h5 class="mx-md-4" style="line-height: 175%">
+                The materials appearing on Dumask.id’s Website may include technical, 
+                typographical, or photographic errors. Dumask.id will not promise that 
+                any of the materials in this Website are accurate, complete, or current. 
+                Dumask.id may change the materials contained on its Website at any time without notice. 
+                Dumask.id does not make any commitment to update the materials.
+            </h5>
+            <h4 class="font-weight-bold mt-3">
+                6. Links
+            </h4>
+            <h5 class="mx-md-4" style="line-height: 175%">
+                Dumask.id has not reviewed all of the sites linked to its Website and is not 
+                responsible for the contents of any such linked site. 
+                The presence of any link does not imply endorsement by Dumask.id of the site. 
+                The use of any linked website is at the user’s own risk.
+            </h5>
+            <h4 class="font-weight-bold mt-3">
+                7. Site Terms of Use Modifications
+            </h4>
+            <h5 class="mx-md-4" style="line-height: 175%">
+                Dumask.id may revise these Terms of Use for its Website at any time without prior notice. 
+                By using this Website, you are agreeing to be bound by the current 
+                version of these Terms and Conditions of Use.
+            </h5>
+            <h4 class="font-weight-bold mt-3">
+                8. Your Privacy
+            </h4>
+            <h5 class="mx-md-4" style="line-height: 175%">
+                Please read our <a href="{{ route('privacy-policy') }}">Privacy Policy.</a>
+            </h5>
+            <h4 class="font-weight-bold mt-3">
+                9. Governing Law
+            </h4>
+            <h5 class="mx-md-4" style="line-height: 175%">
+                Any claim related to Dumask.id's Website shall be governed by the 
+                laws of id without regards to its conflict of law provisions.
             </h5>
         </div>
     </div>    
