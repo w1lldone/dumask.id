@@ -57,12 +57,22 @@
                 </label>
               </div>
               <div v-show="isLoading" class="col-md-6 mb-2">
-                <label
-                  class="btn btn-block disabled btn-file btn-outline-primary h-100 d-flex align-items-center flex-column justify-content-center"
-                >
-                  <div class="h2 mdi mdi-upload"></div>
-                  <div>{{ uploadProgress }} %</div>
-                </label>
+                <div class="card card-body border-primary h-100">
+                  <div class="text-primary text-center my-auto">
+                    <span class="h2 mdi mdi-upload"></span>
+                    <div>{{ uploadProgress }} %</div>
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        :style="{ width: uploadProgress+'%' }"
+                        aria-valuenow="25"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div
                 v-for="(item, index) in media"
@@ -80,7 +90,9 @@
                     style="position: absolute; bottom: 10px; right: 10px"
                     :delete-url="`/station/${station.id}/media/${item.id}`"
                     @deleted="handleDeleted(index)"
-                  ></delete-button>
+                  >
+                    <span class="mdi mdi-delete"></span>
+                  </delete-button>
                 </div>
               </div>
             </div>
