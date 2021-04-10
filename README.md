@@ -11,7 +11,7 @@ Dumask.id menyediakan tempat pembuangan khusus masker dan sarung tangan bekas pa
 - MySQL v5.7
 - Bootstrap v4
 - laravel/socialite
-- spatie/laravel-medialibrary v8
+- spatie/laravel-medialibrary v7
 
 ## Instalation
 - Clone this repository
