@@ -47,6 +47,5 @@ Route::middleware('auth')
     ->resource('station.schedule', StationScheduleController::class)
     ->only(['index', 'store', 'update', 'destroy']);
 
-Route::middleware('auth')
-    ->resource('station.media', StationMediaController::class)
+Route::resource('station.media', StationMediaController::class)
     ->only(['index', 'store', 'destroy']);
