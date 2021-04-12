@@ -12,9 +12,9 @@ class StationController extends Controller
     public function index(Request $request)
     {
         $this->authorize('viewAny', Station::class);
-        
+
         $station = $this->stationQuery(new Station, $request);
-        
+
         $stations = $station->paginate();
 
         return view('station.index', compact('stations'));
@@ -40,8 +40,11 @@ class StationController extends Controller
     public function show(Station $station)
     {
         $this->authorize('view', $station);
-        
-        $station->load('dropboxes');
+
+        $station->load(['dropboxes', 'schedules' => function ($query)
+        {
+            $query->orderBy('day');
+        }]);
 
         return view('station.show', compact('station'));
     }
@@ -60,7 +63,7 @@ class StationController extends Controller
 
         $station->update($data);
 
-        return $station->fresh(); 
+        return $station->fresh();
     }
 
     public function destroy(Station $station)

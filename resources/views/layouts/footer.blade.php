@@ -23,7 +23,15 @@
             </div>
             <div class="col-md-3 mb-3 mb-md-0">
                 <h5 class="font-weight-bold">Tautan</h5>
-                <a href="{{ route('about') }}">About Us</a>
+                <div>
+                    <a href="{{ route('about') }}">About Us</a>
+                </div>
+                <div>
+                    <a href="{{ route('privacy-policy') }}">Privacy Policy</a>
+                </div>
+                <div>
+                    <a href="{{ route('terms') }}">Terms of Service</a>
+                </div>
             </div>
             <div class="col-md-5 mb-3 mb-md-0">
                 <h5 class="font-weight-bold">Tentang Dumask.id</h5>

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\StationDropboxController;
+use App\Http\Controllers\StationMediaController;
+use App\Http\Controllers\StationScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,8 @@ Route::get('/', [App\Http\Controllers\ExploreController::class, 'index']);
 
 Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
 Route::view('/about', 'about')->name('about');
+Route::view('/policy', 'privacy-policy')->name('privacy-policy');
+Route::view('/terms', 'terms-of-service')->name('terms');
 
 Route::prefix('user')->name('user.')->middleware('auth')->group(function ()
 {
@@ -38,3 +42,10 @@ Route::middleware('auth')
 Route::middleware('auth')
     ->resource('station.dropbox', StationDropboxController::class)
     ->only(['store', 'update', 'destroy']);
+
+Route::middleware('auth')
+    ->resource('station.schedule', StationScheduleController::class)
+    ->only(['index', 'store', 'update', 'destroy']);
+
+Route::resource('station.media', StationMediaController::class)
+    ->only(['index', 'store', 'destroy']);

@@ -32,6 +32,16 @@ class StationModelTest extends TestCase
     }
 
     /** @test */
+    public function it_has_many_schedules()
+    {
+        $station = Station::factory()
+            ->hasSchedules(6)
+            ->create();
+
+        $this->assertCount(6, $station->schedules);
+    }
+
+    /** @test */
     public function it_can_select_and_sort_distances()
     {
         // current location. Godean Street, West Ringroad;
@@ -89,5 +99,16 @@ class StationModelTest extends TestCase
         $station->delete();
         
         $this->assertDeleted($dropbox);
+    }
+
+    /** @test */
+    public function it_removes_schedules_after_deleted()
+    {
+        $station = Station::factory()->hasSchedules(1)->create();
+        $schedule = $station->schedules->first();
+
+        $station->delete();
+
+        $this->assertDeleted($schedule);
     }
 }
