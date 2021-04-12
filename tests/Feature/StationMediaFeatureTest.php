@@ -12,7 +12,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class StationMediaFeatureTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     /** @test */
     public function authorized_user_can_upload_station_media()
     {
@@ -40,5 +40,19 @@ class StationMediaFeatureTest extends TestCase
 
         $response->assertNoContent();
         $this->assertDeleted($media);
+    }
+
+    /** @test */
+    public function all_user_can_get_stations_media()
+    {
+        $station = Station::factory()->create();
+        $fileOne = UploadedFile::fake()->image('picture.jpg');
+        $fileTwo = UploadedFile::fake()->image('picture.jpg');
+
+        $station->addMedia($fileOne)->toMediaCollection('images');
+        $station->addMedia($fileTwo)->toMediaCollection('images');
+        $response = $this->getJson(route('station.media.index', $station));
+
+        $response->assertOk()->assertJsonCount(2, 'data');
     }
 }

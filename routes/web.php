@@ -24,6 +24,8 @@ Route::get('/', [App\Http\Controllers\ExploreController::class, 'index']);
 
 Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
 Route::view('/about', 'about')->name('about');
+Route::view('/policy', 'privacy-policy')->name('privacy-policy');
+Route::view('/terms', 'terms-of-service')->name('terms');
 
 Route::prefix('user')->name('user.')->middleware('auth')->group(function ()
 {
@@ -45,6 +47,5 @@ Route::middleware('auth')
     ->resource('station.schedule', StationScheduleController::class)
     ->only(['index', 'store', 'update', 'destroy']);
 
-Route::middleware('auth')
-    ->resource('station.media', StationMediaController::class)
+Route::resource('station.media', StationMediaController::class)
     ->only(['index', 'store', 'destroy']);
