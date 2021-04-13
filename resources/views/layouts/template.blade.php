@@ -140,7 +140,7 @@
             <div class="row mx-auto w-100">
                 <div class="col-md-2 d-none d-md-flex">
                     <div class="card border-0 shadow mt-4 sticky-top w-100" style="height: 100vh; border-radius:0.75em">
-                        <div class="card-body flex-column">
+                        <div class="card-body flex-column px-2">
                             <div class="mx-auto text-center">
                                 <div class="container mb-4">
                                     <a class="flex" href="{{ url('/')}}">

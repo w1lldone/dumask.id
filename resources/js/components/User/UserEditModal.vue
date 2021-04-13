@@ -1,11 +1,11 @@
 <template>
   <div>
     <button
-      class="btn btn-warning"
+      class="btn btn-primary"
       data-toggle="modal"
       :data-target="'#edit-user-modal-' + editedUser.id"
     >
-      Edit
+      <span class="mdi mdi-pencil"></span>
     </button>
     <div
       class="modal fade"

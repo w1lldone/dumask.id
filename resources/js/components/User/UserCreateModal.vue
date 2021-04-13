@@ -5,7 +5,7 @@
       data-toggle="modal"
       data-target="#create-user-modal-id"
     >
-      Create new User
+      TAMBAH USER
     </button>
     <div
       class="modal fade"
