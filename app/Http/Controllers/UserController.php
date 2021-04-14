@@ -60,6 +60,8 @@ class UserController extends Controller
     {
         $this->authorize('update', $user);
         
+        $request['is_superadmin'] = $request['is_superadmin'] == 'true' ? true : false;
+        
         $data = $request->validate([
             'name' => 'string|max:255|min:3',
             'email' => ['email', Rule::unique('users', 'email')->ignore($user)],

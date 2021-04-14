@@ -5698,6 +5698,68 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "UserEditModal",
   props: {
@@ -5763,10 +5825,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return "";
+    },
+    doReset: function doReset() {
+      this.form = _objectSpread({}, this.editedUser);
+      this.form.is_superadmin = this.form.is_superadmin == true ? 'true' : 'false';
+
+      if (this.form.permissions == null) {
+        this.form.permissions = [];
+      }
     }
   },
   mounted: function mounted() {
     this.form = _objectSpread({}, this.editedUser);
+    this.form.is_superadmin = this.form.is_superadmin == true ? 'true' : 'false';
 
     if (this.form.permissions == null) {
       this.form.permissions = [];
@@ -63644,32 +63715,75 @@ var render = function() {
             _c("div", { staticClass: "modal-content" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "modal-body mx-4" }, [
+              _c("div", { staticClass: "modal-body text-left mx-4" }, [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+                  _vm._m(1),
                   _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.name,
-                        expression: "form.name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    class: { "is-invalid": _vm.hasErrors("name") },
-                    attrs: { type: "text" },
-                    domProps: { value: _vm.form.name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                  _c("div", { staticClass: "input-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.name,
+                          expression: "form.name"
                         }
-                        _vm.$set(_vm.form, "name", $event.target.value)
+                      ],
+                      staticClass: "form-control",
+                      class: {
+                        "is-invalid": _vm.hasErrors("name"),
+                        "border-right-0": _vm.form.name,
+                        rounded: !_vm.form.name
+                      },
+                      attrs: { type: "text", required: "" },
+                      domProps: { value: _vm.form.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "name", $event.target.value)
+                        }
                       }
-                    }
-                  }),
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.form.name,
+                            expression: "form.name"
+                          }
+                        ],
+                        staticClass: "input-group-append"
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn border-dark border-left-0",
+                            staticStyle: {
+                              "border-color": "#ced4da !important"
+                            },
+                            on: {
+                              click: function($event) {
+                                _vm.form.name = null
+                              }
+                            }
+                          },
+                          [
+                            _c("span", {
+                              staticClass: "mdi mdi-close text-dark",
+                              staticStyle: { "font-size": "14px !important" }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "invalid-feedback" }, [
                     _vm._v(
@@ -63681,30 +63795,80 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+                  _vm._m(2),
                   _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.email,
-                        expression: "form.email"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    class: { "is-invalid": _vm.hasErrors("email") },
-                    attrs: { type: "email", required: "" },
-                    domProps: { value: _vm.form.email },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                  _c("div", { staticClass: "input-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.email,
+                          expression: "form.email"
                         }
-                        _vm.$set(_vm.form, "email", $event.target.value)
+                      ],
+                      staticClass: "form-control",
+                      class: {
+                        "is-invalid": _vm.hasErrors("email"),
+                        "border-right-0": _vm.form.email,
+                        rounded: !_vm.form.email
+                      },
+                      attrs: { type: "email", required: "" },
+                      domProps: { value: _vm.form.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "email", $event.target.value)
+                        }
                       }
-                    }
-                  }),
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.form.email,
+                            expression: "form.email"
+                          }
+                        ],
+                        staticClass: "input-group-append"
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn border-dark border-left-0",
+                            class: { "is-invalid": _vm.hasErrors("email") },
+                            staticStyle: {
+                              "border-color": "#ced4da !important"
+                            },
+                            on: {
+                              click: function($event) {
+                                _vm.form.email = null
+                              }
+                            }
+                          },
+                          [
+                            _c("span", {
+                              staticClass: "mdi mdi-close text-dark",
+                              staticStyle: { "font-size": "14px !important" }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("small", { staticClass: "text-dark" }, [
+                    _vm._v(
+                      "Pastikan email yang Anda gunakan masih aktif. Contoh : nama@mail.com"
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "invalid-feedback" }, [
                     _vm._v(
@@ -63715,14 +63879,11 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "form-group py-2" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "custom-control custom-checkbox form-check-inline"
-                    },
-                    [
+                _c("div", { staticClass: "form-group" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "d-flex" }, [
+                    _c("div", { staticClass: "custom-control custom-radio" }, [
                       _c("input", {
                         directives: [
                           {
@@ -63734,40 +63895,16 @@ var render = function() {
                         ],
                         staticClass: "custom-control-input",
                         attrs: {
-                          type: "checkbox",
-                          id: "checkbox-user-" + _vm.editedUser.id
+                          type: "radio",
+                          id: "role-" + _vm.editedUser.id + "-superadmin",
+                          value: "true"
                         },
                         domProps: {
-                          checked: Array.isArray(_vm.form.is_superadmin)
-                            ? _vm._i(_vm.form.is_superadmin, null) > -1
-                            : _vm.form.is_superadmin
+                          checked: _vm._q(_vm.form.is_superadmin, "true")
                         },
                         on: {
                           change: function($event) {
-                            var $$a = _vm.form.is_superadmin,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = null,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.form,
-                                    "is_superadmin",
-                                    $$a.concat([$$v])
-                                  )
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    _vm.form,
-                                    "is_superadmin",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
-                              }
-                            } else {
-                              _vm.$set(_vm.form, "is_superadmin", $$c)
-                            }
+                            return _vm.$set(_vm.form, "is_superadmin", "true")
                           }
                         }
                       }),
@@ -63776,120 +63913,196 @@ var render = function() {
                         "label",
                         {
                           staticClass: "custom-control-label",
-                          attrs: { for: "checkbox-user-" + _vm.editedUser.id }
+                          attrs: {
+                            for: "role-" + _vm.editedUser.id + "-superadmin"
+                          }
                         },
-                        [_vm._v("Make user superadmin")]
+                        [
+                          _vm._v(
+                            "\n                    Superadmin\n                  "
+                          )
+                        ]
                       )
-                    ]
-                  )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "custom-control custom-radio ml-4" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.is_superadmin,
+                              expression: "form.is_superadmin"
+                            }
+                          ],
+                          staticClass: "custom-control-input",
+                          attrs: {
+                            type: "radio",
+                            id: "role-" + _vm.editedUser.id + "-member",
+                            value: "false"
+                          },
+                          domProps: {
+                            checked: _vm._q(_vm.form.is_superadmin, "false")
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$set(
+                                _vm.form,
+                                "is_superadmin",
+                                "false"
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "custom-control-label",
+                            attrs: {
+                              for: "role-" + _vm.editedUser.id + "-member"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                    Member\n                  "
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
-                _vm.form.is_superadmin == false
-                  ? _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("label", { attrs: { for: "permissions" } }, [
-                          _vm._v("Permissions")
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.permissions, function(permission) {
-                          return _c(
-                            "div",
-                            {
-                              key: permission,
-                              staticClass:
-                                "custom-control custom-checkbox form-check-inline"
-                            },
-                            [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.form.permissions,
-                                    expression: "form.permissions"
-                                  }
-                                ],
-                                staticClass: "custom-control-input",
-                                attrs: {
-                                  type: "checkbox",
-                                  id:
-                                    "permission-" +
-                                    _vm.editedUser.id +
-                                    "-" +
-                                    permission
-                                },
-                                domProps: {
-                                  value: permission,
-                                  checked: Array.isArray(_vm.form.permissions)
-                                    ? _vm._i(_vm.form.permissions, permission) >
-                                      -1
-                                    : _vm.form.permissions
-                                },
-                                on: {
-                                  change: function($event) {
-                                    var $$a = _vm.form.permissions,
-                                      $$el = $event.target,
-                                      $$c = $$el.checked ? true : false
-                                    if (Array.isArray($$a)) {
-                                      var $$v = permission,
-                                        $$i = _vm._i($$a, $$v)
-                                      if ($$el.checked) {
-                                        $$i < 0 &&
-                                          _vm.$set(
-                                            _vm.form,
-                                            "permissions",
-                                            $$a.concat([$$v])
-                                          )
-                                      } else {
-                                        $$i > -1 &&
-                                          _vm.$set(
-                                            _vm.form,
-                                            "permissions",
-                                            $$a
-                                              .slice(0, $$i)
-                                              .concat($$a.slice($$i + 1))
-                                          )
-                                      }
-                                    } else {
-                                      _vm.$set(_vm.form, "permissions", $$c)
+                _vm.form.is_superadmin == "false"
+                  ? _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "permissions" } }, [
+                        _vm._v("Permissions")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "d-flex" },
+                        [
+                          _vm._l(_vm.permissions, function(permission) {
+                            return _c(
+                              "div",
+                              {
+                                key: permission,
+                                staticClass:
+                                  "custom-control custom-checkbox mr-4"
+                              },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.form.permissions,
+                                      expression: "form.permissions"
                                     }
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "custom-control-label",
+                                  ],
+                                  staticClass: "custom-control-input",
                                   attrs: {
-                                    for:
+                                    type: "checkbox",
+                                    id:
                                       "permission-" +
                                       _vm.editedUser.id +
                                       "-" +
                                       permission
+                                  },
+                                  domProps: {
+                                    value: permission,
+                                    checked: Array.isArray(_vm.form.permissions)
+                                      ? _vm._i(
+                                          _vm.form.permissions,
+                                          permission
+                                        ) > -1
+                                      : _vm.form.permissions
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = _vm.form.permissions,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = permission,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            _vm.$set(
+                                              _vm.form,
+                                              "permissions",
+                                              $$a.concat([$$v])
+                                            )
+                                        } else {
+                                          $$i > -1 &&
+                                            _vm.$set(
+                                              _vm.form,
+                                              "permissions",
+                                              $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1))
+                                            )
+                                        }
+                                      } else {
+                                        _vm.$set(_vm.form, "permissions", $$c)
+                                      }
+                                    }
                                   }
-                                },
-                                [_vm._v(_vm._s(permission))]
-                              )
-                            ]
-                          )
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          _vm._v(
-                            "\n              " +
-                              _vm._s(_vm.getErrors("permissions")) +
-                              "\n            "
-                          )
-                        ])
-                      ],
-                      2
-                    )
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "custom-control-label",
+                                    staticStyle: {
+                                      "text-transform": "capitalize"
+                                    },
+                                    attrs: {
+                                      for:
+                                        "permission-" +
+                                        _vm.editedUser.id +
+                                        "-" +
+                                        permission
+                                    }
+                                  },
+                                  [_vm._v(_vm._s(permission))]
+                                )
+                              ]
+                            )
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "invalid-feedback" }, [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(_vm.getErrors("permissions")) +
+                                "\n              "
+                            )
+                          ])
+                        ],
+                        2
+                      )
+                    ])
                   : _vm._e(),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group mt-4 text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary text-white shadow mx-2",
+                      on: {
+                        click: function($event) {
+                          return _vm.doReset()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              RESET\n            ")]
+                  ),
+                  _vm._v(" "),
                   _c(
                     "button",
                     {
@@ -63901,14 +64114,14 @@ var render = function() {
                           expression: "!isLoading"
                         }
                       ],
-                      staticClass: "btn btn-success",
+                      staticClass: "btn btn-primary shadow",
                       on: {
                         click: function($event) {
                           return _vm.doSubmit()
                         }
                       }
                     },
-                    [_vm._v("\n              Save user\n            ")]
+                    [_vm._v("\n              Save\n            ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -63922,7 +64135,7 @@ var render = function() {
                           expression: "isLoading"
                         }
                       ],
-                      staticClass: "btn btn-success",
+                      staticClass: "btn btn-primary",
                       attrs: { disabled: "" }
                     },
                     [_vm._v("\n              Saving...\n            ")]
@@ -63963,6 +64176,33 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "name" } }, [
+      _vm._v("\n              Nama\n              "),
+      _c("abbr", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "email" } }, [
+      _vm._v("\n              Email\n            "),
+      _c("abbr", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "role" } }, [
+      _vm._v("\n              Role\n            "),
+      _c("abbr", { staticClass: "text-danger" }, [_vm._v("*")])
     ])
   }
 ]
