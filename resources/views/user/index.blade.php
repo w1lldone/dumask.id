@@ -30,7 +30,7 @@
                 USERS LIST
             </h4>
             {{-- User Create Modal --}}
-            <user-create-modal class="ml-auto"></user-create-modal>
+            <user-create-modal :permissions='@json(\App\Models\User::$permissions)' class="ml-auto"></user-create-modal>
         </div>
         <hr style="border-bottom: 2px solid #c4c4c4;">
         

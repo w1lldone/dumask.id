@@ -32,11 +32,14 @@ class UserController extends Controller
     {
         $this->authorize('create', User::class);
 
+        $request['is_superadmin'] = $request['is_superadmin'] == 'true' ? true : false;
+
         $data = $request->validate([
             'name' => 'required|string|min:3|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
-            'is_superadmin' => 'nullable|boolean'
+            'is_superadmin' => 'nullable|boolean',
+            'permissions' => ['array', Rule::in(User::$permissions), 'nullable']
         ]);
 
         $data['password'] = Hash::make($data['password']);

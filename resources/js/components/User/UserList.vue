@@ -1,6 +1,6 @@
 <template>
     <div>
-        <table class="table table-borderless">
+        <table class="table table-borderless table-responsive d-md-table">
             <thead style="border-bottom: 1px solid #c4c4c4;">
                 <tr>
                     <th scope="col">Nama</th>
@@ -27,15 +27,15 @@
                             <span v-if="permission == 'manage users'" class="badge text-white badge-secondary mx-1">
                                 Manage Users
                             </span>
-                            <span v-if="permission == 'manage stations'" class="badge text-white badge-gray mx-1" style="background: #5c5c5c">
+                            <span v-if="permission == 'manage stations'" class="badge text-white mx-1" style="background: #5c5c5c">
                                 Manage Stations
                             </span>
                         </span>
                     </td>
-                    <td>
+                    <td class="align-middle text-right">
                         <div>
                             <user-edit-modal :permissions="permissions" class="d-inline" :editedUser="user"></user-edit-modal>
-                            <delete-button :delete-url="`/user/${user.id}`" @deleted="handleDeleted(index)">
+                            <delete-button class="d-inline mx-1" :delete-url="`/user/${user.id}`" @deleted="handleDeleted(index)">
                                 <span class="mdi mdi-delete"></span>
                             </delete-button>
                         </div>

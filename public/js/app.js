@@ -5350,15 +5350,83 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "UserCreateModal",
+  props: {
+    permissions: Array
+  },
   data: function data() {
     return {
       form: {
         name: null,
         email: null,
-        is_superadmin: false,
-        password: null
+        is_superadmin: 'false',
+        password: null,
+        permissions: []
       },
       isLoading: false,
       errors: {}
@@ -62797,7 +62865,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "modal-body mx-4" }, [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+                  _vm._m(1),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -62832,7 +62900,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -62857,6 +62925,12 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
+                  _c("small", { staticClass: "text-dark" }, [
+                    _vm._v(
+                      "Pastikan email yang Anda gunakan masih aktif. Contoh : nama@mail.com"
+                    )
+                  ]),
+                  _vm._v(" "),
                   _c("div", { staticClass: "invalid-feedback" }, [
                     _vm._v(
                       "\n              " +
@@ -62866,14 +62940,11 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "form-group py-2" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "custom-control custom-checkbox form-check-inline"
-                    },
-                    [
+                _c("div", { staticClass: "form-group" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "d-flex" }, [
+                    _c("div", { staticClass: "custom-control custom-radio" }, [
                       _c("input", {
                         directives: [
                           {
@@ -62884,38 +62955,17 @@ var render = function() {
                           }
                         ],
                         staticClass: "custom-control-input",
-                        attrs: { type: "checkbox", id: "customCheckDisabled" },
+                        attrs: {
+                          type: "radio",
+                          id: "role-radio-one",
+                          value: "true"
+                        },
                         domProps: {
-                          checked: Array.isArray(_vm.form.is_superadmin)
-                            ? _vm._i(_vm.form.is_superadmin, null) > -1
-                            : _vm.form.is_superadmin
+                          checked: _vm._q(_vm.form.is_superadmin, "true")
                         },
                         on: {
                           change: function($event) {
-                            var $$a = _vm.form.is_superadmin,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = null,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.form,
-                                    "is_superadmin",
-                                    $$a.concat([$$v])
-                                  )
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    _vm.form,
-                                    "is_superadmin",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
-                              }
-                            } else {
-                              _vm.$set(_vm.form, "is_superadmin", $$c)
-                            }
+                            return _vm.$set(_vm.form, "is_superadmin", "true")
                           }
                         }
                       }),
@@ -62924,18 +62974,170 @@ var render = function() {
                         "label",
                         {
                           staticClass: "custom-control-label",
-                          attrs: { for: "customCheckDisabled" }
+                          attrs: { for: "role-radio-one" }
                         },
-                        [_vm._v("Make user superadmin")]
+                        [
+                          _vm._v(
+                            "\n                    Superadmin\n                  "
+                          )
+                        ]
                       )
-                    ]
-                  )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "custom-control custom-radio ml-4" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.is_superadmin,
+                              expression: "form.is_superadmin"
+                            }
+                          ],
+                          staticClass: "custom-control-input",
+                          attrs: {
+                            type: "radio",
+                            id: "role-radio-two",
+                            value: "false"
+                          },
+                          domProps: {
+                            checked: _vm._q(_vm.form.is_superadmin, "false")
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$set(
+                                _vm.form,
+                                "is_superadmin",
+                                "false"
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "custom-control-label",
+                            attrs: { for: "role-radio-two" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                    Member\n                  "
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
+                _vm.form.is_superadmin == "false"
+                  ? _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "permissions" } }, [
+                        _vm._v("Permissions")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "d-flex" },
+                        [
+                          _vm._l(_vm.permissions, function(permission) {
+                            return _c(
+                              "div",
+                              {
+                                key: permission,
+                                staticClass:
+                                  "custom-control custom-checkbox mr-4"
+                              },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.form.permissions,
+                                      expression: "form.permissions"
+                                    }
+                                  ],
+                                  staticClass: "custom-control-input",
+                                  attrs: {
+                                    type: "checkbox",
+                                    id: "permission-" + permission
+                                  },
+                                  domProps: {
+                                    value: permission,
+                                    checked: Array.isArray(_vm.form.permissions)
+                                      ? _vm._i(
+                                          _vm.form.permissions,
+                                          permission
+                                        ) > -1
+                                      : _vm.form.permissions
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$a = _vm.form.permissions,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = permission,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            _vm.$set(
+                                              _vm.form,
+                                              "permissions",
+                                              $$a.concat([$$v])
+                                            )
+                                        } else {
+                                          $$i > -1 &&
+                                            _vm.$set(
+                                              _vm.form,
+                                              "permissions",
+                                              $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1))
+                                            )
+                                        }
+                                      } else {
+                                        _vm.$set(_vm.form, "permissions", $$c)
+                                      }
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "custom-control-label",
+                                    staticStyle: {
+                                      "text-transform": "capitalize"
+                                    },
+                                    attrs: { for: "permission-" + permission }
+                                  },
+                                  [_vm._v(_vm._s(permission))]
+                                )
+                              ]
+                            )
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "invalid-feedback" }, [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(_vm.getErrors("permissions")) +
+                                "\n              "
+                            )
+                          ])
+                        ],
+                        2
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "password" } }, [
-                    _vm._v("Password")
-                  ]),
+                  _vm._m(4),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -62948,7 +63150,7 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     class: { "is-invalid": _vm.hasErrors("password") },
-                    attrs: { type: "text" },
+                    attrs: { type: "password" },
                     domProps: { value: _vm.form.password },
                     on: {
                       input: function($event) {
@@ -62959,6 +63161,10 @@ var render = function() {
                       }
                     }
                   }),
+                  _vm._v(" "),
+                  _c("small", { staticClass: "text-dark" }, [
+                    _vm._v("Minimal 8 karakter")
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "invalid-feedback" }, [
                     _vm._v(
@@ -62973,6 +63179,20 @@ var render = function() {
                   _c(
                     "button",
                     {
+                      staticClass: "btn text-white shadow mx-2",
+                      staticStyle: { background: "#A7A7A7" },
+                      on: {
+                        click: function($event) {
+                          return _vm.doReset()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              RESET\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
                       directives: [
                         {
                           name: "show",
@@ -62981,14 +63201,14 @@ var render = function() {
                           expression: "!isLoading"
                         }
                       ],
-                      staticClass: "btn btn-success",
+                      staticClass: "btn btn-primary shadow",
                       on: {
                         click: function($event) {
                           return _vm.doSubmit()
                         }
                       }
                     },
-                    [_vm._v("\n              Save user\n            ")]
+                    [_vm._v("\n              SAVE\n            ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -63005,7 +63225,7 @@ var render = function() {
                       staticClass: "btn btn-success",
                       attrs: { disabled: "" }
                     },
-                    [_vm._v("\n              Saving...\n            ")]
+                    [_vm._v("\n              SAVING...\n            ")]
                   )
                 ])
               ])
@@ -63028,7 +63248,7 @@ var staticRenderFns = [
           staticClass: "modal-title font-weight-bold text-muted",
           attrs: { id: "modal-title" }
         },
-        [_vm._v("\n            Create user\n          ")]
+        [_vm._v("\n            TAMBAH USER\n          ")]
       ),
       _vm._v(" "),
       _c(
@@ -63043,6 +63263,42 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "name" } }, [
+      _vm._v("\n              Nama\n              "),
+      _c("abbr", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "email" } }, [
+      _vm._v("\n              Email\n            "),
+      _c("abbr", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "role" } }, [
+      _vm._v("\n              Role\n            "),
+      _c("abbr", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "password" } }, [
+      _vm._v("\n              Password\n              "),
+      _c("abbr", { staticClass: "text-danger" }, [_vm._v("*")])
     ])
   }
 ]
@@ -63449,103 +63705,108 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("table", { staticClass: "table table-borderless" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.users, function(user, index) {
-          return _c("tr", { key: user.id }, [
-            _c("td", { staticClass: "align-middle" }, [
-              _vm._v(_vm._s(user.name))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "align-middle" }, [
-              _vm._v(_vm._s(user.email))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "align-middle" }, [
-              user.is_superadmin
-                ? _c("b", [
-                    _vm._v(
-                      "\n                        Superadmin\n                    "
-                    )
-                  ])
-                : _c("b", [
-                    _vm._v(
-                      "\n                        Member\n                    "
-                    )
-                  ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "td",
-              { staticClass: "align-middle" },
-              _vm._l(user.permissions, function(permission, index) {
-                return _c("span", { key: index }, [
-                  permission == "manage users"
-                    ? _c(
-                        "span",
-                        {
-                          staticClass: "badge text-white badge-secondary mx-1"
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Manage Users\n                        "
-                          )
-                        ]
+    _c(
+      "table",
+      { staticClass: "table table-borderless table-responsive d-md-table" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.users, function(user, index) {
+            return _c("tr", { key: user.id }, [
+              _c("td", { staticClass: "align-middle" }, [
+                _vm._v(_vm._s(user.name))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-middle" }, [
+                _vm._v(_vm._s(user.email))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-middle" }, [
+                user.is_superadmin
+                  ? _c("b", [
+                      _vm._v(
+                        "\n                        Superadmin\n                    "
                       )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  permission == "manage stations"
-                    ? _c(
-                        "span",
-                        {
-                          staticClass: "badge text-white badge-gray mx-1",
-                          staticStyle: { background: "#5c5c5c" }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Manage Stations\n                        "
-                          )
-                        ]
+                    ])
+                  : _c("b", [
+                      _vm._v(
+                        "\n                        Member\n                    "
                       )
-                    : _vm._e()
-                ])
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("td", [
+                    ])
+              ]),
+              _vm._v(" "),
               _c(
-                "div",
-                [
-                  _c("user-edit-modal", {
-                    staticClass: "d-inline",
-                    attrs: { permissions: _vm.permissions, editedUser: user }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "delete-button",
-                    {
-                      attrs: { "delete-url": "/user/" + user.id },
-                      on: {
-                        deleted: function($event) {
-                          return _vm.handleDeleted(index)
+                "td",
+                { staticClass: "align-middle" },
+                _vm._l(user.permissions, function(permission, index) {
+                  return _c("span", { key: index }, [
+                    permission == "manage users"
+                      ? _c(
+                          "span",
+                          {
+                            staticClass: "badge text-white badge-secondary mx-1"
+                          },
+                          [
+                            _vm._v(
+                              "\n                            Manage Users\n                        "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    permission == "manage stations"
+                      ? _c(
+                          "span",
+                          {
+                            staticClass: "badge text-white mx-1",
+                            staticStyle: { background: "#5c5c5c" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            Manage Stations\n                        "
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ])
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-middle text-right" }, [
+                _c(
+                  "div",
+                  [
+                    _c("user-edit-modal", {
+                      staticClass: "d-inline",
+                      attrs: { permissions: _vm.permissions, editedUser: user }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "delete-button",
+                      {
+                        staticClass: "d-inline mx-1",
+                        attrs: { "delete-url": "/user/" + user.id },
+                        on: {
+                          deleted: function($event) {
+                            return _vm.handleDeleted(index)
+                          }
                         }
-                      }
-                    },
-                    [_c("span", { staticClass: "mdi mdi-delete" })]
-                  )
-                ],
-                1
-              )
+                      },
+                      [_c("span", { staticClass: "mdi mdi-delete" })]
+                    )
+                  ],
+                  1
+                )
+              ])
             ])
-          ])
-        }),
-        0
-      )
-    ])
+          }),
+          0
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
