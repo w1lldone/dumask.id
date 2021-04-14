@@ -39,12 +39,27 @@
                 Nama
                 <abbr class="text-danger">*</abbr>
               </label>
-              <input
-                type="text"
-                class="form-control"
-                :class="{ 'is-invalid': hasErrors('name') }"
-                v-model="form.name"
-              />
+              <div class="input-group">
+                <input
+                  type="text"
+                  required
+                  class="form-control"
+                  :class="{ 'is-invalid': hasErrors('name'), 'border-right-0' : form.name, 'rounded' : !form.name }"
+                  v-model="form.name"
+                />
+                <div
+                  v-show="form.name"
+                  class="input-group-append"
+                >
+                  <button
+                    class="btn border-dark border-left-0"
+                    style="border-color: #ced4da !important"
+                    @click="form.name = null"
+                  >
+                    <span class="mdi mdi-close text-dark" style="font-size: 14px !important"></span>
+                  </button>
+                </div>
+              </div>    
               <div class="invalid-feedback">
                 {{ getErrors("name") }}
               </div>
@@ -54,12 +69,26 @@
                 Email
               <abbr class="text-danger">*</abbr>
               </label>
-              <input type="email"
-              required 
-              v-model="form.email" 
-              class="form-control"
-              :class="{ 'is-invalid': hasErrors('email') }"
-              />
+              <div class="input-group">
+                <input type="email"
+                required 
+                v-model="form.email" 
+                class="form-control"
+                :class="{ 'is-invalid': hasErrors('email'), 'border-right-0' : form.email, 'rounded' : !form.email }"
+                />
+                <div
+                  v-show="form.email"
+                  class="input-group-append"
+                >
+                  <button
+                    class="btn border-dark border-left-0"
+                    style="border-color: #ced4da !important"
+                    @click="form.email = null"
+                  >
+                    <span class="mdi mdi-close text-dark" style="font-size: 14px !important"></span>
+                  </button>
+                </div>
+              </div>
               <small class="text-dark">Pastikan email yang Anda gunakan masih aktif. Contoh : nama@mail.com</small>
               <div class="invalid-feedback">
                 {{ getErrors("email") }}
@@ -129,7 +158,33 @@
                 Password
                 <abbr class="text-danger">*</abbr>
               </label>
-              <input type="password" v-model="form.password" class="form-control" :class="{ 'is-invalid': hasErrors('password') }"/>
+              <div class="input-group">
+                <input 
+                  :type="passwordInputType" 
+                  v-model="form.password" 
+                  class="form-control border-right-0" 
+                  :class="{ 'is-invalid': hasErrors('password') }"
+                />
+                <div class="input-group-append">
+                  <button
+                    v-show="form.password"
+                    class="btn border-dark border-left-0 border-right-0"
+                    style="border-color: #ced4da !important"
+                    @click="form.password = null"
+                  >
+                    <span class="mdi mdi-close text-dark" style="font-size: 14px !important"></span>
+                  </button>
+                  <div
+                    v-on:mousedown="passwordInputType = 'text'"
+                    v-on:mouseup="passwordInputType = 'password'"
+                    class="btn border-dark border-left-0"
+                    :class="{ 'text-dark' : (passwordInputType == 'password') }"
+                    style="border-color: #ced4da !important"
+                  >
+                    <span class="mdi mdi-eye-outline" style="font-size: 14px !important"></span>
+                  </div>
+                </div>
+              </div>
               <small class="text-dark">Minimal 8 karakter</small>
               <div class="invalid-feedback">
                 {{ getErrors("password") }}
@@ -180,6 +235,7 @@ export default {
       },
       isLoading: false,
       errors: {},
+      passwordInputType : 'password'
     };
   },
 
@@ -212,6 +268,20 @@ export default {
 
       return "";
     },
+
+    doReset() {
+      this.form = {
+        name: null,
+        email: null,
+        is_superadmin: 'false',
+        password: null,
+        permissions: [],
+      }
+    },
+
+    showPassword() {
+
+    }
   },
 };
 </script>

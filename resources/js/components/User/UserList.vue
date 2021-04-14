@@ -35,7 +35,7 @@
                     <td class="align-middle text-right">
                         <div>
                             <user-edit-modal :permissions="permissions" class="d-inline" :editedUser="user"></user-edit-modal>
-                            <delete-button class="d-inline mx-1" :delete-url="`/user/${user.id}`" @deleted="handleDeleted(index)">
+                            <delete-button class="d-inline mx-md-1" :delete-url="`/user/${user.id}`" @deleted="handleDeleted(index)">
                                 <span class="mdi mdi-delete"></span>
                             </delete-button>
                         </div>
