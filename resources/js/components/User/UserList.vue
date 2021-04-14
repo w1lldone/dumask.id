@@ -1,7 +1,7 @@
 <template>
     <div>
-        <table class="table">
-            <thead>
+        <table class="table table-borderless">
+            <thead style="border-bottom: 1px solid #c4c4c4;">
                 <tr>
                     <th scope="col">Nama</th>
                     <th scope="col">Email</th>

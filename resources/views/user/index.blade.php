@@ -23,32 +23,6 @@
                 </div>
             </div>
         </form>
-        {{-- <form @submit.prevent="fetchStations()">
-            <div class="input-group shadow">
-              <input
-                type="text"
-                placeholder="Cari Station"
-                class="form-control border-0"
-                v-model="form.keywords"
-                aria-label="Cari Station"
-              />
-              <div class="input-group-append text-primary">
-                <button
-                  v-show="form.keywords"
-                  type="button"
-                  class="btn border-0"
-                  @click="form.keywords = null"
-                >
-                  <span class="mdi mdi-close"></span>
-                </button>
-                <button type="submit" class="btn border-0">
-                  <span class="mdi mdi-magnify"></span>
-                </button>
-              </div>
-            </div>
-          </form> --}}
-
-
     </div>
     <div class="flex card border-0 px-4 py-4" style="border-radius:0.75em">
         <div class="d-flex">
@@ -58,12 +32,15 @@
             {{-- User Create Modal --}}
             <user-create-modal class="ml-auto"></user-create-modal>
         </div>
-        <hr>
+        <hr style="border-bottom: 2px solid #c4c4c4;">
         
         {{-- Users list --}}
         <user-list :permissions='@json(\App\Models\User::$permissions)'
                     :initial-users='@json($users->items())'></user-list>
     </div>
-    {{ $users->links() }}
+    <div class="d-flex text-center pt-3">
+        {{ $users->links() }}
+    </div>
 </div>
+
 @endsection
