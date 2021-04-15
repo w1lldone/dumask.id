@@ -35,9 +35,14 @@
                     <td class="align-middle text-right">
                         <div>
                             <user-edit-modal :permissions="permissions" class="d-inline" :editedUser="user"></user-edit-modal>
-                            <delete-button class="d-inline mx-md-1" :delete-url="`/user/${user.id}`" @deleted="handleDeleted(index)">
-                                <span class="mdi mdi-delete"></span>
-                            </delete-button>
+                            <delete-modal 
+                                class="d-inline mx-md-1" 
+                                :delete-url="`/user/${user.id}`" 
+                                :delete-id="(user.id).toString()"
+                                :delete-name="user.name"
+                                delete-type="user"
+                                @deleted="handleDeleted(index)">
+                            </delete-modal>
                         </div>
                     </td>
                 </tr>
@@ -47,10 +52,10 @@
 </template>
 
 <script>
-import DeleteButton from '../DeleteButton.vue'
+import DeleteModal from '../DeleteModal.vue'
 import UserEditModal from './UserEditModal.vue'
     export default {
-  components: { DeleteButton, UserEditModal },
+  components: { DeleteModal, UserEditModal },
         name: "UserList",
 
         props: {
