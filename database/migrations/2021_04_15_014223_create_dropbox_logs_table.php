@@ -18,6 +18,7 @@ class CreateDropboxLogsTable extends Migration
             $table->unsignedBigInteger('dropbox_id')->index();
             $table->decimal('empty_box_weight')->nullable();
             $table->decimal('filled_box_weight')->nullable();
+            $table->decimal('final_weight')->nullable();
             $table->timestamp('deployed_at')->nullable();
             $table->timestamp('replaced_at')->nullable();
             $table->timestamps();
