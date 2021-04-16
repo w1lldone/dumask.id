@@ -3,8 +3,11 @@
     <div class="card border-0 shadow my-auto" style="border-radius: 0.5em">
       <div class="card-body">
           <div class="text-center mb-3">
-            <img src="/img/logo_navbar.svg" class="w-md-75" alt="logo_dumask">
+            <img src="/img/logo_navbar.svg" class="w-50" alt="logo_dumask">
           </div>
+          <h2 class="text-center font-weight-bold text-primary">
+              SELAMAT DATANG
+          </h2>
           <div class="flex text-center">
             <a 
               href="/auth/google/redirect" 
@@ -43,6 +46,13 @@
             />
             <div class="invalid-feedback">
               {{ getErrors("email") }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" v-model="form.password" class="form-control" :class="{ 'is-invalid': hasErrors('password') }"/>
+            <div class="invalid-feedback">
+              {{ getErrors("password") }}
             </div>
           </div>
           <div class="form-group">

@@ -2297,6 +2297,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "LoginPage",
   data: function data() {
@@ -59969,6 +59979,12 @@ var render = function() {
         _c("div", { staticClass: "card-body" }, [
           _vm._m(0),
           _vm._v(" "),
+          _c(
+            "h2",
+            { staticClass: "text-center font-weight-bold text-primary" },
+            [_vm._v("\n            SELAMAT DATANG\n        ")]
+          ),
+          _vm._v(" "),
           _vm._m(1),
           _vm._v(" "),
           _vm._m(2),
@@ -60003,6 +60019,41 @@ var render = function() {
               _vm._v(
                 "\n            " +
                   _vm._s(_vm.getErrors("email")) +
+                  "\n          "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "password" } }, [_vm._v("Password")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.password,
+                  expression: "form.password"
+                }
+              ],
+              staticClass: "form-control",
+              class: { "is-invalid": _vm.hasErrors("password") },
+              attrs: { type: "password" },
+              domProps: { value: _vm.form.password },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "password", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "invalid-feedback" }, [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.getErrors("password")) +
                   "\n          "
               )
             ])
@@ -60098,7 +60149,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center mb-3" }, [
       _c("img", {
-        staticClass: "w-md-75",
+        staticClass: "w-50",
         attrs: { src: "/img/logo_navbar.svg", alt: "logo_dumask" }
       })
     ])
