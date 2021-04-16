@@ -48,6 +48,7 @@
               {{ getErrors("email") }}
             </div>
           </div>
+
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password" v-model="form.password" class="form-control" :class="{ 'is-invalid': hasErrors('password') }"/>
@@ -55,13 +56,19 @@
               {{ getErrors("password") }}
             </div>
           </div>
+
           <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" v-model="form.password" class="form-control" :class="{ 'is-invalid': hasErrors('password') }"/>
-            <div class="invalid-feedback">
-              {{ getErrors("password") }}
+            <div class="custom-control custom-checkbox form-check-inline">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="remember_me"
+                  v-model="form.remember"
+                />
+               <label for="remember_me" class="custom-control-label inline-flex items-center">Remember me</label>
             </div>
           </div>
+
           <div class="form-group mt-4 text-right">
             <button
               class="btn btn-primary w-100"
@@ -95,6 +102,7 @@ export default {
       form: {
         email: null,
         password: null,
+        remember: false
       },
       isLoading: false,
       errors: {},
