@@ -20,8 +20,8 @@ class CreateDropboxLogsTable extends Migration
             $table->string('activity')->nullable();
             $table->decimal('weight')->nullable();
             $table->decimal('final_weight')->nullable();
-            $table->timestamp('deployed_at')->nullable();
-            $table->timestamp('replaced_at')->nullable();
+            $table->timestamp('starts_at')->nullable();
+            $table->timestamp('ends_at')->nullable();
             $table->timestamps();
         });
     }
