@@ -23,12 +23,12 @@
                         </b>
                     </td>
                     <td class="align-middle">
-                        <span v-for="(permission, index) in user.permissions" :key="index">    
-                            <span v-if="permission == 'manage users'" class="badge text-white badge-secondary mx-1">
-                                Manage Users
-                            </span>
-                            <span v-if="permission == 'manage stations'" class="badge text-white mx-1" style="background: #5c5c5c">
-                                Manage Stations
+                        <span v-for="(permission, index) in user.permissions" :key="index">
+                            <span 
+                                class="badge badge-secondary mx-1"
+                                style="text-transform: capitalize;"
+                            >
+                                {{ permission }}
                             </span>
                         </span>
                     </td>
@@ -62,7 +62,9 @@ import UserEditModal from './UserEditModal.vue'
             initialUsers: {
                 type: Array,
             },
-            permissions: Array,
+            permissions: {
+                type: Array,
+            },
         },
 
         data() {

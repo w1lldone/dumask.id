@@ -105,7 +105,7 @@
                       type="radio"
                       class="custom-control-input"
                       id="role-radio-one"
-                      value= "true"
+                      :value= true
                       v-model="form.is_superadmin"
                     />
                     <label class="custom-control-label" for="role-radio-one">
@@ -117,7 +117,7 @@
                       type="radio"
                       class="custom-control-input"
                       id="role-radio-two"
-                      value= "false"
+                      :value= false
                       v-model="form.is_superadmin"
                     />
                     <label class="custom-control-label" for="role-radio-two">
@@ -126,7 +126,7 @@
                 </div>
               </div>
             </div>
-            <div class="form-group" v-if="form.is_superadmin == 'false'">
+            <div class="form-group" v-if="form.is_superadmin == false">
               <label for="permissions">Permissions</label>
               <div class="d-flex">
                 <div
@@ -229,7 +229,7 @@ export default {
       form: {
         name: null,
         email: null,
-        is_superadmin: 'false',
+        is_superadmin: false,
         password: null,
         permissions: [],
       },
@@ -273,7 +273,7 @@ export default {
       this.form = {
         name: null,
         email: null,
-        is_superadmin: 'false',
+        is_superadmin: false,
         password: null,
         permissions: [],
       }

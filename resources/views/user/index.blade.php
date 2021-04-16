@@ -36,7 +36,8 @@
         
         {{-- Users list --}}
         <user-list :permissions='@json(\App\Models\User::$permissions)'
-                    :initial-users='@json($users->items())'></user-list>
+                    :initial-users='@json($users->items())'>
+        </user-list>
     </div>
     <div class="d-flex text-center pt-3">
         {{ $users->links() }}

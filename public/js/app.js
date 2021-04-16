@@ -5624,7 +5624,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form: {
         name: null,
         email: null,
-        is_superadmin: 'false',
+        is_superadmin: false,
         password: null,
         permissions: []
       },
@@ -5688,7 +5688,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form = {
         name: null,
         email: null,
-        is_superadmin: 'false',
+        is_superadmin: false,
         password: null,
         permissions: []
       };
@@ -5973,7 +5973,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     doReset: function doReset() {
       this.form = _objectSpread({}, this.editedUser);
-      this.form.is_superadmin = this.form.is_superadmin == true ? 'true' : 'false';
 
       if (this.form.permissions == null) {
         this.form.permissions = [];
@@ -5982,7 +5981,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   mounted: function mounted() {
     this.form = _objectSpread({}, this.editedUser);
-    this.form.is_superadmin = this.form.is_superadmin == true ? 'true' : 'false';
 
     if (this.form.permissions == null) {
       this.form.permissions = [];
@@ -6070,7 +6068,9 @@ __webpack_require__.r(__webpack_exports__);
     initialUsers: {
       type: Array
     },
-    permissions: Array
+    permissions: {
+      type: Array
+    }
   },
   data: function data() {
     return {
@@ -60626,7 +60626,7 @@ var render = function() {
                               expression: "form.keywords"
                             }
                           ],
-                          staticClass: "btn border-0",
+                          staticClass: "btn bg-white border-0",
                           attrs: { type: "button" },
                           on: {
                             click: function($event) {
@@ -60815,7 +60815,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "btn border-0", attrs: { type: "submit" } },
+      { staticClass: "btn bg-white border-0", attrs: { type: "submit" } },
       [_c("span", { staticClass: "mdi mdi-magnify" })]
     )
   }
@@ -63569,17 +63569,14 @@ var render = function() {
                           }
                         ],
                         staticClass: "custom-control-input",
-                        attrs: {
-                          type: "radio",
-                          id: "role-radio-one",
-                          value: "true"
-                        },
+                        attrs: { type: "radio", id: "role-radio-one" },
                         domProps: {
-                          checked: _vm._q(_vm.form.is_superadmin, "true")
+                          value: true,
+                          checked: _vm._q(_vm.form.is_superadmin, true)
                         },
                         on: {
                           change: function($event) {
-                            return _vm.$set(_vm.form, "is_superadmin", "true")
+                            return _vm.$set(_vm.form, "is_superadmin", true)
                           }
                         }
                       }),
@@ -63612,21 +63609,14 @@ var render = function() {
                             }
                           ],
                           staticClass: "custom-control-input",
-                          attrs: {
-                            type: "radio",
-                            id: "role-radio-two",
-                            value: "false"
-                          },
+                          attrs: { type: "radio", id: "role-radio-two" },
                           domProps: {
-                            checked: _vm._q(_vm.form.is_superadmin, "false")
+                            value: false,
+                            checked: _vm._q(_vm.form.is_superadmin, false)
                           },
                           on: {
                             change: function($event) {
-                              return _vm.$set(
-                                _vm.form,
-                                "is_superadmin",
-                                "false"
-                              )
+                              return _vm.$set(_vm.form, "is_superadmin", false)
                             }
                           }
                         }),
@@ -63648,7 +63638,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm.form.is_superadmin == "false"
+                _vm.form.is_superadmin == false
                   ? _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "permissions" } }, [
                         _vm._v("Permissions")
@@ -64287,15 +64277,15 @@ var render = function() {
                         staticClass: "custom-control-input",
                         attrs: {
                           type: "radio",
-                          id: "role-" + _vm.editedUser.id + "-superadmin",
-                          value: "true"
+                          id: "role-" + _vm.editedUser.id + "-superadmin"
                         },
                         domProps: {
-                          checked: _vm._q(_vm.form.is_superadmin, "true")
+                          value: 1,
+                          checked: _vm._q(_vm.form.is_superadmin, 1)
                         },
                         on: {
                           change: function($event) {
-                            return _vm.$set(_vm.form, "is_superadmin", "true")
+                            return _vm.$set(_vm.form, "is_superadmin", 1)
                           }
                         }
                       }),
@@ -64332,19 +64322,15 @@ var render = function() {
                           staticClass: "custom-control-input",
                           attrs: {
                             type: "radio",
-                            id: "role-" + _vm.editedUser.id + "-member",
-                            value: "false"
+                            id: "role-" + _vm.editedUser.id + "-member"
                           },
                           domProps: {
-                            checked: _vm._q(_vm.form.is_superadmin, "false")
+                            value: 0,
+                            checked: _vm._q(_vm.form.is_superadmin, 0)
                           },
                           on: {
                             change: function($event) {
-                              return _vm.$set(
-                                _vm.form,
-                                "is_superadmin",
-                                "false"
-                              )
+                              return _vm.$set(_vm.form, "is_superadmin", 0)
                             }
                           }
                         }),
@@ -64368,7 +64354,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm.form.is_superadmin == "false"
+                _vm.form.is_superadmin == false
                   ? _c("div", { staticClass: "form-group" }, [
                       _c("label", { attrs: { for: "permissions" } }, [
                         _vm._v("Permissions")
@@ -64657,34 +64643,20 @@ var render = function() {
                 { staticClass: "align-middle" },
                 _vm._l(user.permissions, function(permission, index) {
                   return _c("span", { key: index }, [
-                    permission == "manage users"
-                      ? _c(
-                          "span",
-                          {
-                            staticClass: "badge text-white badge-secondary mx-1"
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Manage Users\n                        "
-                            )
-                          ]
+                    _c(
+                      "span",
+                      {
+                        staticClass: "badge badge-secondary mx-1",
+                        staticStyle: { "text-transform": "capitalize" }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(permission) +
+                            "\n                        "
                         )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    permission == "manage stations"
-                      ? _c(
-                          "span",
-                          {
-                            staticClass: "badge text-white mx-1",
-                            staticStyle: { background: "#5c5c5c" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Manage Stations\n                        "
-                            )
-                          ]
-                        )
-                      : _vm._e()
+                      ]
+                    )
                   ])
                 }),
                 0

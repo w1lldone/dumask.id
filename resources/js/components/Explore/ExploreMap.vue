@@ -22,12 +22,12 @@
               <button
                 v-show="form.keywords"
                 type="button"
-                class="btn border-0"
+                class="btn bg-white border-0"
                 @click="form.keywords = null"
               >
                 <span class="mdi mdi-close"></span>
               </button>
-              <button type="submit" class="btn border-0">
+              <button type="submit" class="btn bg-white border-0">
                 <span class="mdi mdi-magnify"></span>
               </button>
             </div>

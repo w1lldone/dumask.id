@@ -26,7 +26,7 @@
     </head>
 
     
-    <body class="relative antialiased">
+    <body class="relative antialiased" style="background-color: #EBF1F7">
         
         <nav class="d-md-none navbar navbar-expand-md navbar-light bg-white rounded relative w-100">
             <div class="container py-0">

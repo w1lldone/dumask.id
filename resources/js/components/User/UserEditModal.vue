@@ -106,7 +106,7 @@
                       type="radio"
                       class="custom-control-input"
                       :id="`role-${editedUser.id}-superadmin`"
-                      value= "true"
+                      :value= 1
                       v-model="form.is_superadmin"
                     />
                     <label class="custom-control-label" :for="`role-${editedUser.id}-superadmin`">
@@ -118,7 +118,7 @@
                       type="radio"
                       class="custom-control-input"
                       :id="`role-${editedUser.id}-member`"
-                      value= "false"
+                      :value= 0
                       v-model="form.is_superadmin"
                     />
                     <label class="custom-control-label" :for="`role-${editedUser.id}-member`">
@@ -127,7 +127,7 @@
                 </div>
               </div>
             </div>
-            <div class="form-group" v-if="form.is_superadmin == 'false'">
+            <div class="form-group" v-if="form.is_superadmin == false">
               <label for="permissions">Permissions</label>
               <div class="d-flex">
                 <div
@@ -231,7 +231,6 @@ export default {
     },
     doReset() {
       this.form = {...this.editedUser}
-      this.form.is_superadmin = this.form.is_superadmin == true ? 'true' : 'false';
       if (this.form.permissions == null) {
         this.form.permissions = []
       }
@@ -239,7 +238,6 @@ export default {
   },
   mounted() {
     this.form = {...this.editedUser}
-    this.form.is_superadmin = this.form.is_superadmin == true ? 'true' : 'false';
     if (this.form.permissions == null) {
       this.form.permissions = []
     }
