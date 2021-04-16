@@ -16,8 +16,9 @@ class CreateDropboxLogsTable extends Migration
         Schema::create('dropbox_logs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('dropbox_id')->index();
-            $table->decimal('empty_box_weight')->nullable();
-            $table->decimal('filled_box_weight')->nullable();
+            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->string('activity')->nullable();
+            $table->decimal('weight')->nullable();
             $table->decimal('final_weight')->nullable();
             $table->timestamp('deployed_at')->nullable();
             $table->timestamp('replaced_at')->nullable();

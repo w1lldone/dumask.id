@@ -18,4 +18,23 @@ class DropboxLogModelTest extends TestCase
 
         $this->assertDatabaseHas('dropbox_logs', $dropboxLog->toArray());
     }
+
+    /** @test */
+    public function it_has_many_children()
+    {
+        $log = DropboxLog::factory()->create();
+        DropboxLog::factory(5)->create(['parent_id' => $log->id]);
+
+        $this->assertCount(5, $log->children);
+        $this->assertInstanceOf(DropboxLog::class, $log->children->first());
+    }
+
+    /** @test */
+    public function it_belongs_to_a_parent()
+    {
+        $parent = DropboxLog::factory()->create();
+        $child = DropboxLog::factory()->create(['parent_id' => $parent->id]);
+
+        $this->assertTrue($parent->is($child->parent));
+    }
 }

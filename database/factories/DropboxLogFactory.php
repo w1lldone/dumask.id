@@ -24,8 +24,9 @@ class DropboxLogFactory extends Factory
     {
         return [
             'dropbox_id' => Dropbox::factory(),
-            'empty_box_weight' => $this->faker->numberBetween(100, 150) / 100,
-            'filled_box_weight' => $this->faker->numberBetween(200, 500) / 100,
+            'activity' => $this->faker->randomElement(DropboxLog::$availableActivities),
+            'weight' => $this->faker->numberBetween(100, 150) / 100,
+            'final_weight' => $this->faker->numberBetween(200, 500) / 100,
             'deployed_at' => $this->faker->dateTime(),
             'replaced_at' => $this->faker->dateTime()
         ];
