@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DropboxOperationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StationController;
@@ -49,3 +50,9 @@ Route::middleware('auth')
 
 Route::resource('station.media', StationMediaController::class)
     ->only(['index', 'store', 'destroy']);
+
+Route::prefix('dropbox/{dropbox}')->middleware('auth')->name('dropbox.operation.')->group(function ()
+{
+    Route::post('/store', [DropboxOperationController::class, 'store'])->name('store');
+    Route::put('/inspect', [DropboxOperationController::class, 'inspect'])->name('inspect');
+});
