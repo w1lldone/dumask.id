@@ -40,7 +40,8 @@ class User extends Authenticatable
 
     public static $permissions = [
         'manage users',
-        'manage stations'
+        'manage stations',
+        'operate stations'
     ];
 
     public function hasPermission($permission)
