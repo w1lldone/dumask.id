@@ -10,7 +10,7 @@ class DropboxLog extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    static public $availableActivities = ['replacement', 'deployment', 'inspection'];
+    static public $availableActivities = ['replacement', 'inspection'];
 
     public function station()
     {
