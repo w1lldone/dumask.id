@@ -91,6 +91,17 @@
                 {{ getErrors("password") }}
               </div>
             </div>
+            <div class="form-group">
+              <div class="custom-control custom-checkbox form-check-inline">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="remember_me"
+                    v-model="form.remember"
+                  />
+                <label for="remember_me" class="custom-control-label inline-flex items-center">Remember me</label>
+              </div>
+            </div>
             <div class="form-group mt-4 text-right">
               <button
                 class="btn btn-primary w-100"
@@ -103,6 +114,9 @@
                 MASUK
               </button>
             </div>
+            <p class="text-center text-muted mt-2">
+              <span><a href="/forgot-password">Lupa Password?</a></span>
+            </p>
             <p class="text-center text-muted mt-2">
                 Belum punya akun? Daftar
                 <span><a href="#" @click="toggleModalType()">di sini.</a></span>
@@ -237,6 +251,7 @@ export default {
         email: null,
         password: null,
         password_confirmation: null,
+        remember: false,
       },
       isLoading: false,
       isPageLogin: true,

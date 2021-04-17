@@ -2226,6 +2226,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "LoginModal",
   data: function data() {
@@ -2234,7 +2248,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         name: null,
         email: null,
         password: null,
-        password_confirmation: null
+        password_confirmation: null,
+        remember: false
       },
       isLoading: false,
       isPageLogin: true,
@@ -59378,6 +59393,73 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "custom-control custom-checkbox form-check-inline"
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.remember,
+                            expression: "form.remember"
+                          }
+                        ],
+                        staticClass: "custom-control-input",
+                        attrs: { type: "checkbox", id: "remember_me" },
+                        domProps: {
+                          checked: Array.isArray(_vm.form.remember)
+                            ? _vm._i(_vm.form.remember, null) > -1
+                            : _vm.form.remember
+                        },
+                        on: {
+                          change: function($event) {
+                            var $$a = _vm.form.remember,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  _vm.$set(
+                                    _vm.form,
+                                    "remember",
+                                    $$a.concat([$$v])
+                                  )
+                              } else {
+                                $$i > -1 &&
+                                  _vm.$set(
+                                    _vm.form,
+                                    "remember",
+                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                  )
+                              }
+                            } else {
+                              _vm.$set(_vm.form, "remember", $$c)
+                            }
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass:
+                            "custom-control-label inline-flex items-center",
+                          attrs: { for: "remember_me" }
+                        },
+                        [_vm._v("Remember me")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
                 _c("div", { staticClass: "form-group mt-4 text-right" }, [
                   _c(
                     "button",
@@ -59417,6 +59499,8 @@ var render = function() {
                     [_vm._v("\n              MASUK\n            ")]
                   )
                 ]),
+                _vm._v(" "),
+                _vm._m(5),
                 _vm._v(" "),
                 _c("p", { staticClass: "text-center text-muted mt-2" }, [
                   _vm._v(
@@ -59458,14 +59542,14 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(5),
+              _vm._m(6),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body mx-4 pt-0" }, [
-                _vm._m(6),
-                _vm._v(" "),
                 _vm._m(7),
                 _vm._v(" "),
                 _vm._m(8),
+                _vm._v(" "),
+                _vm._m(9),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "name" } }, [_vm._v("Nama")]),
@@ -59802,6 +59886,18 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "text-center text-muted mt-2" }, [
+      _c("span", [
+        _c("a", { attrs: { href: "/forgot-password" } }, [
+          _vm._v("Lupa Password?")
+        ])
+      ])
+    ])
   },
   function() {
     var _vm = this
