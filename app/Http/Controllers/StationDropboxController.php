@@ -9,6 +9,13 @@ use Illuminate\Validation\Rule;
 
 class StationDropboxController extends Controller
 {
+    public function index(Station $station)
+    {
+        $dropboxes = $station->dropboxes()->with('activeLog.childern')->get();
+
+        return view('station.operate', compact('dropboxes', 'station'));
+    }
+
     public function store(Station $station, Request $request)
     {
         $this->authorize('update', $station);
@@ -27,7 +34,7 @@ class StationDropboxController extends Controller
     {
         $this->authorize('update', $station);
         $dropbox = $station->dropboxes()->findOrFail($dropbox);
-        
+
         $data = $request->validate([
             'model' => ['string', Rule::in(Dropbox::$availableModels)],
             'color' => ['string', Rule::in(Dropbox::$availableColors)]

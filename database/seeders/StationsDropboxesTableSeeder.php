@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Dropbox;
+use App\Models\DropboxLog;
 use App\Models\Station;
 use Illuminate\Database\Seeder;
 
@@ -17,6 +18,7 @@ class StationsDropboxesTableSeeder extends Seeder
     {
         Station::truncate();
         Dropbox::truncate();
+        DropboxLog::truncate();
 
         Station::factory()
         ->hasDropboxes(2)

@@ -23,14 +23,12 @@ class DropboxOperationController extends Controller
         }
 
         // Create a replacement dropbox log
+        // When a dropboxLog created, the related dropbox active_log_id will be automatically updated
         $log = $dropbox->dropboxLogs()->create([
             'activity' => 'replacement',
             'weight' => $request->empty_weight,
-            'starts_at' => $request->timestamp
+            'starts_at' => $request->timestamp,
         ]);
-
-        // Update $dropbox active_log_id
-        $dropbox->update(['active_log_id' => $log->id]);
 
         // Update station last_operation_at to now
         $dropbox->station->update(['last_operation_at' => $request->timestamp]);

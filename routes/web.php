@@ -42,7 +42,7 @@ Route::middleware('auth')
 
 Route::middleware('auth')
     ->resource('station.dropbox', StationDropboxController::class)
-    ->only(['store', 'update', 'destroy']);
+    ->only(['store', 'update', 'destroy', 'index']);
 
 Route::middleware('auth')
     ->resource('station.schedule', StationScheduleController::class)

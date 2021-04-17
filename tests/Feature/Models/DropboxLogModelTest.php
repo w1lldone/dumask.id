@@ -16,7 +16,10 @@ class DropboxLogModelTest extends TestCase
     {
         $dropboxLog = DropboxLog::factory()->create();
 
-        $this->assertDatabaseHas('dropbox_logs', $dropboxLog->toArray());
+        $this->assertDatabaseHas('dropbox_logs', [
+            'id' => $dropboxLog->id,
+            'dropbox_id' => $dropboxLog->dropbox_id
+        ]);
     }
 
     /** @test */
