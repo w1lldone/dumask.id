@@ -3,7 +3,6 @@
 namespace Tests\Feature\Models;
 
 use App\Models\Dropbox;
-use App\Models\DropboxLog;
 use App\Models\Station;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -27,14 +26,5 @@ class DropboxModelTest extends TestCase
         $dropbox = Dropbox::factory()->create();
 
         $this->assertInstanceOf(Station::class, $dropbox->station);
-    }
-
-    /** @test */
-    public function it_has_many_logs()
-    {
-        $dropbox = Dropbox::factory()->hasDropboxLogs(2)->create();
-
-        $this->assertCount(2, $dropbox->dropboxLogs);
-        $this->assertInstanceOf(DropboxLog::class, $dropbox->dropboxLogs->first());
     }
 }

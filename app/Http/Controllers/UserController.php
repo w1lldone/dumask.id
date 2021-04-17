@@ -36,8 +36,7 @@ class UserController extends Controller
             'name' => 'required|string|min:3|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
-            'is_superadmin' => 'nullable|boolean',
-            'permissions' => ['array', Rule::in(User::$permissions), 'nullable']
+            'is_superadmin' => 'nullable|boolean'
         ]);
 
         $data['password'] = Hash::make($data['password']);

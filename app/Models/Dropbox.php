@@ -18,9 +18,4 @@ class Dropbox extends Model
     {
         return $this->belongsTo('App\Models\Station');
     }
-
-    public function dropboxLogs()
-    {
-        return $this->hasMany('App\Models\DropboxLog');
-    }
 }
