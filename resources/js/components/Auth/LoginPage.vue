@@ -124,21 +124,6 @@ export default {
       this.isLoading = false;
     },
 
-    async doRegister() {
-      this.isLoading = true;
-
-      try {
-        let response = await axios.post("/register", this.form);
-        return location.reload();
-      } catch (error) {
-        console.log(error.response);
-        this.errors = error.response.data.errors;
-      }
-
-      this.isLoading = false;
-    },
-
-    
     hasErrors(key) {
       if (this.errors[key]) {
         return true;
