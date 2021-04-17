@@ -93,7 +93,8 @@ export default {
 
       try {
         let response = await axios.post("/reset-password", this.form);
-        //return location.href('/dashboard');
+        await axios.post("/login", this.form);
+        return window.location.href = '/dashboard';
       } catch (error) {
         console.log(error.response);
         this.errors = error.response.data.errors;
