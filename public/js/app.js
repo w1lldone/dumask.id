@@ -2850,24 +2850,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 4:
                 response = _context.sent;
-                _context.next = 11;
-                break;
+                _context.next = 7;
+                return axios.post("/login", _this.form);
 
               case 7:
-                _context.prev = 7;
+                return _context.abrupt("return", window.location.href = '/dashboard');
+
+              case 10:
+                _context.prev = 10;
                 _context.t0 = _context["catch"](1);
                 console.log(_context.t0.response);
                 _this.errors = _context.t0.response.data.errors;
 
-              case 11:
+              case 14:
                 _this.isLoading = false;
 
-              case 12:
+              case 15:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 7]]);
+        }, _callee, null, [[1, 10]]);
       }))();
     },
     hasErrors: function hasErrors(key) {
