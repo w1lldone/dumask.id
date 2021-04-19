@@ -11,8 +11,8 @@ class StationDropboxController extends Controller
 {
     public function index(Station $station)
     {
-        $dropboxes = $station->dropboxes()->with('activeLog.childern')->get();
-
+        $dropboxes = $station->dropboxes()->with('activeLog.children')->get();
+        return $dropboxes;
         return view('station.operate', compact('dropboxes', 'station'));
     }
 
