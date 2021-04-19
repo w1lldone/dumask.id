@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class StationOperationFeatureTest extends TestCase
+class DropboxOperationFeatureTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -45,6 +45,7 @@ class StationOperationFeatureTest extends TestCase
         $this->login();
         $timestamp = now()->toDateTimeString();
         $log = DropboxLog::factory()->create([
+            'activity' => 'replacement',
             'weight' => 330,
             'starts_at' => now()->subWeeks(2),
             'ends_at' => null
@@ -57,7 +58,7 @@ class StationOperationFeatureTest extends TestCase
         ];
         $response = $this->postJson(route('dropbox.operation.store', $log->dropbox_id), $data);
 
-        $response->dump()->assertCreated();
+        $response->assertCreated();
         $this->assertDatabaseHas('dropbox_logs', [
             'id' => $log->id,
             'final_weight' => 2500,
@@ -68,6 +69,39 @@ class StationOperationFeatureTest extends TestCase
             'activity' => 'inspection',
             'parent_id' => $log->id,
             'final_weight' => 2500,
+            'ends_at' => $timestamp
+        ]);
+    }
+
+    /** @test */
+    public function user_can_inspect_active_dropbox()
+    {
+        $this->login();
+        $timestamp = now()->toDateTimeString();
+        $log = DropboxLog::factory()->create([
+            'activity' => 'replacement',
+            'weight' => 330,
+            'starts_at' => now()->subWeeks(2),
+            'ends_at' => null
+        ]);
+
+        $data = [
+            'filled_weight' => 900,
+            'timestamp' => $timestamp,
+        ];
+        $response = $this->putJson(route('dropbox.operation.inspect', $log->dropbox_id), $data);
+
+        $response->assertCreated()
+            ->assertJson([
+                'activity' => 'inspection',
+                'final_weight' => 900,
+                'parent_id' => $log->id,
+                'ends_at' => $timestamp
+            ]);
+
+        $this->assertDatabaseHas('dropbox_logs', [
+            'id' => $log->id,
+            'final_weight' => 900,
             'ends_at' => $timestamp
         ]);
     }
