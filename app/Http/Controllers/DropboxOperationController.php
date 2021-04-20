@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dropbox;
 use App\Models\DropboxLog;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DropboxOperationController extends Controller
@@ -12,6 +13,9 @@ class DropboxOperationController extends Controller
     // Full dropbox weight and empty dropbox weight need to be recorded
     public function store(Dropbox $dropbox, Request $request)
     {
+        // Temporary
+        $this->authorize('update', $dropbox->station);
+
         $request->validate([
             'empty_weight' => 'numeric|required',
             'filled_weight' => 'numeric|nullable',
@@ -19,7 +23,7 @@ class DropboxOperationController extends Controller
         ]);
 
         if ($request->filled('filled_weight') && $dropbox->active_log_id) {
-            $this->createInspection($dropbox, $request->filled_weight, $request->timestamp);
+            $this->createInspection($dropbox, $request->filled_weight, $request->timestamp, $request->user());
         }
 
         // Create a replacement dropbox log
@@ -28,6 +32,7 @@ class DropboxOperationController extends Controller
             'activity' => 'replacement',
             'weight' => $request->empty_weight,
             'starts_at' => $request->timestamp,
+            'user_id' => $request->user()->id
         ]);
 
         // Update station last_operation_at to now
@@ -40,12 +45,18 @@ class DropboxOperationController extends Controller
     // This action should be executed when the dropbox is not yet full after several weeks
     public function inspect(Dropbox $dropbox, Request $request)
     {
+        // Temporary
+        $this->authorize('update', $dropbox->station);
+        if ($dropbox->active_log_id == null) {
+            return abort(400, 'Active dropbox not found');
+        }
+
         $request->validate([
             'filled_weight' => 'numeric|required',
             'timestamp' => 'date|required',
         ]);
 
-        $log = $this->createInspection($dropbox, $request->filled_weight, $request->timestamp);
+        $log = $this->createInspection($dropbox, $request->filled_weight, $request->timestamp, $request->user());
 
         // Update station last_operation_at to now
         $dropbox->station->update(['last_operation_at' => $request->timestamp]);
@@ -61,14 +72,15 @@ class DropboxOperationController extends Controller
      * @param $timestamp
      * @return DropboxLog
      */
-    protected function createInspection(Dropbox $dropbox, $weight, $timestamp)
+    protected function createInspection(Dropbox $dropbox, $weight, $timestamp, User $user)
     {
         // Create a new dropbox log with parent_id = $dropbox->active_log_id, type = inspection
         $log = $dropbox->dropboxLogs()->create([
             'activity' => 'inspection',
             'final_weight' => $weight,
             'ends_at' => $timestamp,
-            'parent_id' => $dropbox->active_log_id
+            'parent_id' => $dropbox->active_log_id,
+            'user_id' => $user->id
         ]);
 
         // Update parent final_weight, ends_at

@@ -11,9 +11,15 @@ class StationDropboxController extends Controller
 {
     public function index(Station $station)
     {
-        $dropboxes = $station->dropboxes()->with('activeLog.children')->get();
-        return $dropboxes;
-        return view('station.operate', compact('dropboxes', 'station'));
+        $dropboxes = $station->dropboxes()->with(['dropboxLogs' => function ($query)
+        {
+            $query->whereNull('parent_id')->with('children');
+        }])->get();
+
+        // Uncomment line below to see dropboxes data structure
+        // return $dropboxes;
+
+        return view('station.dropbox', compact('dropboxes', 'station'));
     }
 
     public function store(Station $station, Request $request)

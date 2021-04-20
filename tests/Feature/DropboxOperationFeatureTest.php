@@ -17,7 +17,7 @@ class DropboxOperationFeatureTest extends TestCase
     {
         $this->login();
         $dropbox = Dropbox::factory()->create();
-        $timestamp = now()->toDateTimeString();
+        $timestamp = now()->toAtomString();
 
         $data = [
             'empty_weight' => 330,
@@ -31,7 +31,7 @@ class DropboxOperationFeatureTest extends TestCase
 
         $response->assertCreated()->assertJson([
             'weight' => 330,
-            'starts_at' => $timestamp
+            'user_id' => $this->user->id
         ]);
         $this->assertDatabaseHas('dropboxes', [
             'id' => $dropbox->id,
@@ -63,13 +63,14 @@ class DropboxOperationFeatureTest extends TestCase
             'id' => $log->id,
             'final_weight' => 2500,
             'weight' => 330,
-            'ends_at' => $timestamp
+            'ends_at' => $timestamp,
         ]);
         $this->assertDatabaseHas('dropbox_logs', [
             'activity' => 'inspection',
             'parent_id' => $log->id,
             'final_weight' => 2500,
-            'ends_at' => $timestamp
+            'ends_at' => $timestamp,
+            'user_id' => $this->user->id
         ]);
     }
 
@@ -77,7 +78,7 @@ class DropboxOperationFeatureTest extends TestCase
     public function user_can_inspect_active_dropbox()
     {
         $this->login();
-        $timestamp = now()->toDateTimeString();
+        $timestamp = now()->toAtomString();
         $log = DropboxLog::factory()->create([
             'activity' => 'replacement',
             'weight' => 330,

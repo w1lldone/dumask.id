@@ -10,6 +10,11 @@ class DropboxLog extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $dates = ['starts_at', 'ends_at'];
+    protected $casts = [
+        'starts_at' => 'datetime:Y-m-d\TH:i:sP',
+        'ends_at' => 'datetime:Y-m-d\TH:i:sP',
+    ];
     static public $availableActivities = ['replacement', 'inspection'];
 
     /**

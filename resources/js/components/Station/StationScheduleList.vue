@@ -1,7 +1,9 @@
 <template>
   <div>
-    <schedule-create-modal :station="station" @created="handleCreated($event)"></schedule-create-modal>
-    <b class="my-2">Opening Hours</b>
+      <div class="d-flex align-items-center justify-content-between">
+          <h3>Opening Hours</h3>
+            <schedule-create-modal :station="station" @created="handleCreated($event)"></schedule-create-modal>
+      </div>
     <div class="d-flex">
       <div class="col-2">Day</div>
       <div class="col-2">opened_at</div>
