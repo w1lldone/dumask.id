@@ -17,7 +17,7 @@ class StationController extends Controller
 
         $station = $this->stationQuery($station, $request);
 
-        $stations = $station->paginate();
+        $stations = $station->with('schedules')->paginate();
 
         return $stations;
     }
