@@ -23,4 +23,9 @@ class Dropbox extends Model
     {
         return $this->hasMany('App\Models\DropboxLog');
     }
+
+    public function activeLog()
+    {
+        return $this->belongsTo('App\Models\DropboxLog', 'active_log_id');
+    }
 }

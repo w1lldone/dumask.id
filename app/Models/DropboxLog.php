@@ -10,9 +10,30 @@ class DropboxLog extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    static public $availableActivities = ['replacement', 'deployment', 'inspection'];
+    protected $dates = ['starts_at', 'ends_at'];
+    protected $casts = [
+        'starts_at' => 'datetime:Y-m-d\TH:i:sP',
+        'ends_at' => 'datetime:Y-m-d\TH:i:sP',
+    ];
+    static public $availableActivities = ['replacement', 'inspection'];
 
-    public function station()
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        // Listen to the created event
+        static::created(function ($dropboxLog) {
+            // Automatically update active_log_id on related Dropbox Model
+            if ($dropboxLog->activity == 'replacement') {
+                $dropboxLog->dropbox->update(['active_log_id' => $dropboxLog->id]);
+            }
+        });
+    }
+
+    public function dropbox()
     {
         return $this->belongsTo('App\Models\Dropbox');
     }
