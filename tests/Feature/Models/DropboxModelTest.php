@@ -37,4 +37,12 @@ class DropboxModelTest extends TestCase
         $this->assertCount(2, $dropbox->dropboxLogs);
         $this->assertInstanceOf(DropboxLog::class, $dropbox->dropboxLogs->first());
     }
+
+    /** @test */
+    public function it_automatically_generates_image_url()
+    {
+        $dropbox = Dropbox::factory()->create()->toArray();
+
+        $this->assertNotEmpty($dropbox['image_url']);
+    }
 }
