@@ -51,5 +51,13 @@ class ProfileController extends Controller
             ],
             'password' => 'string|min:8|confirmed'
         ]);
+
+        $user->update([
+            'password' => Hash::make($request->password)
+        ]);
+
+        return response([
+            'success' => true
+        ]);
     }
 }
