@@ -7,7 +7,7 @@
 <div class="container w-md-75 my-4">
     <explore-map></explore-map>
     <h3 class="text-primary text-center font-weight-bold" style="margin-top: 2.5em">
-        EVERYTHING YOU NEED TO KNOW ABOUT DUMASK.ID
+        Hal-hal yang perlu Kamu ketahui tentang Dumask.id
     </h3>
     <div class="card border-0 shadow p-4 my-4" style="border-radius: 0.5rem">
         <div class="my-2">
@@ -23,7 +23,7 @@
                Sampah apa yang bisa dibuang di dropbox Dumask?
             </h5>
             <h6>
-                Sampah masker dan sarung tangan bekas pakai dari masyarakat. 
+                Sampah masker dan sarung tangan bekas pakai dari masyarakat.
                 <b>Dropbox bukan untuk limbah medis dari RS/Klinik</b>.
             </h6>
         </div>
@@ -32,7 +32,7 @@
                Apa perbedaan dari variasi warna dan model dropbox Dumask?
             </h5>
             <h6>
-                Semua variasi warna dan model dropbox berfungsi sama, silahkan bebas pilih salah satu. 
+                Semua variasi warna dan model dropbox berfungsi sama, silahkan bebas pilih salah satu.
                 Pengelola melakukan variasi hanya untuk keperluan penelitian.
             </h6>
         </div>
