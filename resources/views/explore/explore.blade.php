@@ -6,10 +6,10 @@
 
 <div class="container w-md-75 my-4">
     <explore-map></explore-map>
-    <div class="card border-0 shadow p-4 mt-4" style="border-radius: 0.5rem">
-        <h3 class="text-primary text-center font-weight-bold mb-3">
-            EVERYTHING YOU NEED TO KNOW ABOUT DUMASK.ID
-        </h3>
+    <h3 class="text-primary text-center font-weight-bold" style="margin-top: 2.5em">
+        EVERYTHING YOU NEED TO KNOW ABOUT DUMASK.ID
+    </h3>
+    <div class="card border-0 shadow p-4 my-4" style="border-radius: 0.5rem">
         <div class="my-2">
             <h5 class="text-secondary font-weight-bold">
                Siapa pengelola Dumask.id?
