@@ -10,13 +10,19 @@ use Illuminate\Validation\Rule;
 
 class OperationController extends Controller
 {
+    use StationQueryTrait;
+
     public function index(Request $request)
     {
+        $this->authorize('viewAny', Station::class);
+
         $station = new Station;
 
-        $stations = $station->paginate();
+        $station = $this->stationQuery($station, $request);
 
-        return $stations;
+        $stations = $station->paginate(5);
+
+        return view('operation.index', compact('stations'));
     }
 
     public function replace(Station $station, Request $request)
@@ -63,7 +69,7 @@ class OperationController extends Controller
         // Uncomment line below to see dropboxes data structure
         // return $dropboxes;
 
-        return view('station.dropbox', compact('dropboxes', 'station'));
+        return view('operation.show', compact('dropboxes', 'station'));
     }
 
     public function inspect(Station $station, Request $request)
