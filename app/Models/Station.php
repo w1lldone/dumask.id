@@ -15,7 +15,6 @@ class Station extends Model implements HasMedia
 
     protected $guarded = ['id'];
     protected $withCount = ['dropboxes'];
-    protected $with = ['schedules'];
     protected $dates = ['last_operation_at'];
     protected $casts = [
         'last_operation_at' => 'datetime:Y-m-d\TH:i:sP',
