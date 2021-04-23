@@ -102,6 +102,7 @@ export default {
   data() {
     return {
       form: {
+        dropbox_id: this.dropbox.id,
         timestamp: this.$date(new Date(), "yyyy-MM-dd"),
         filled_weight: null,
       },
@@ -115,8 +116,8 @@ export default {
       this.isLoading = true;
 
       try {
-        let response = await axios.put(
-          `/dropbox/${this.dropbox.id}/inspect`,
+        let response = await axios.post(
+          `/operation/${this.dropbox.station_id}/inspect`,
           this.form
         );
         alert("Data Tersimpan");
@@ -127,7 +128,9 @@ export default {
       } catch (error) {
         console.log(error.response.data.errors);
         alert("Ada yang salah " + error.response.data.message);
-        this.errors = error.response.data.errors;
+        if (error.response.status == 422) {
+            this.errors = error.response.data.errors;
+        }
       }
 
       this.isLoading = false;

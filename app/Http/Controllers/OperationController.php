@@ -2,25 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dropbox;
-use App\Models\DropboxLog;
 use App\Models\User;
+use App\Models\Dropbox;
+use App\Models\Station;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
-class DropboxOperationController extends Controller
+class OperationController extends Controller
 {
-    // Replace full dropbox with a new empty dropbox
-    // Full dropbox weight and empty dropbox weight need to be recorded
-    public function store(Dropbox $dropbox, Request $request)
+    public function index(Request $request)
+    {
+        $station = new Station;
+
+        $stations = $station->paginate();
+
+        return $stations;
+    }
+
+    public function replace(Station $station, Request $request)
     {
         // Temporary
-        $this->authorize('update', $dropbox->station);
+        $this->authorize('update', $station);
 
         $request->validate([
+            'dropbox_id' => ['required', Rule::exists('dropboxes', 'id')->where('station_id', $station->id)],
             'empty_weight' => 'numeric|required',
             'filled_weight' => 'numeric|nullable',
             'timestamp' => 'date|required',
         ]);
+
+        $dropbox = $station->dropboxes()->find($request->dropbox_id);
 
         if ($request->filled('filled_weight') && $dropbox->active_log_id) {
             $this->createInspection($dropbox, $request->filled_weight, $request->timestamp, $request->user());
@@ -41,20 +52,32 @@ class DropboxOperationController extends Controller
         return $log;
     }
 
-    // Record current active dropbox weight
-    // This action should be executed when the dropbox is not yet full after several weeks
-    public function inspect(Dropbox $dropbox, Request $request)
+    public function show(Station $station)
+    {
+        $this->authorize('view', $station);
+
+        $dropboxes = $station->dropboxes()->with(['dropboxLogs' => function ($query) {
+            $query->whereNull('parent_id')->with('children');
+        }])->get();
+
+        // Uncomment line below to see dropboxes data structure
+        // return $dropboxes;
+
+        return view('station.dropbox', compact('dropboxes', 'station'));
+    }
+
+    public function inspect(Station $station, Request $request)
     {
         // Temporary
-        $this->authorize('update', $dropbox->station);
-        if ($dropbox->active_log_id == null) {
-            return abort(400, 'Active dropbox not found');
-        }
+        $this->authorize('update', $station);
 
         $request->validate([
+            'dropbox_id' => ['required', Rule::exists('dropboxes', 'id')->where('station_id', $station->id)->whereNotNull('active_log_id')],
             'filled_weight' => 'numeric|required',
             'timestamp' => 'date|required',
         ]);
+
+        $dropbox = $station->dropboxes()->find($request->dropbox_id);
 
         $log = $this->createInspection($dropbox, $request->filled_weight, $request->timestamp, $request->user());
 

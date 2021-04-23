@@ -121,6 +121,7 @@ export default {
   data() {
     return {
       form: {
+        dropbox_id: this.dropbox.id,
         timestamp: this.$date(new Date(), "yyyy-MM-dd"),
         filled_weight: null,
         empty_weight: null,
@@ -146,7 +147,7 @@ export default {
 
       try {
         let response = await axios.post(
-          `/dropbox/${this.dropbox.id}/store`,
+          `/operation/${this.dropbox.station_id}/replace`,
           this.form
         );
         alert("Data Tersimpan");
