@@ -26,6 +26,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'default_password'
     ];
 
     /**
@@ -51,5 +52,23 @@ class User extends Authenticatable
         }
 
         return in_array($permission, $this->permissions);
+    }
+
+    /**
+     * Users does not have password when they registered via Google
+     *
+     * @return bool
+     */
+    public function getHasNoPasswordAttribute()
+    {
+        if ($this->google_id == null) {
+            return false;
+        }
+
+        if ($this->password == $this->default_password) {
+            return true;
+        }
+
+        return false;
     }
 }
