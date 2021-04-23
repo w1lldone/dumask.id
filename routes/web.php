@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DropboxOperationController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StationController;
@@ -34,6 +35,13 @@ Route::prefix('user')->name('user.')->middleware('auth')->group(function ()
     Route::post('/', [UserController::class, 'store'])->name('store');
     Route::put('/{user}', [UserController::class, 'update'])->name('update');
     Route::delete('/{user}', [UserController::class, 'destroy'])->name('delete');
+});
+
+Route::prefix('profile')->name('profile.')->middleware('auth')->group(function ()
+{
+    Route::get('/', [ProfileController::class, 'index'])->name('index');
+    Route::put('/update', [ProfileController::class, 'update'])->name('update');
+    Route::put('/update-password', [ProfileController::class, 'updatePassword'])->name('update.password');
 });
 
 Route::middleware('auth')

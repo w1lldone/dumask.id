@@ -5,6 +5,7 @@ namespace Tests\Feature\Models;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class UserModelTest extends TestCase
@@ -30,7 +31,20 @@ class UserModelTest extends TestCase
         ]);
 
         $permission = $this->faker->randomElement(User::$permissions);
-        
+
         $this->assertTrue($user->hasPermission($permission));
+    }
+
+    /** @test */
+    public function it_determines_user_has_no_password()
+    {
+        $password = Hash::make('password');
+        $user = User::factory()->create([
+            'google_id' => $this->faker->uuid,
+            'default_password' => $password,
+            'password' => $password,
+        ]);
+
+        $this->assertTrue($user->has_no_password);
     }
 }

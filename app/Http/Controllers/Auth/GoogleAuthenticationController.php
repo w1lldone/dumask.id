@@ -25,13 +25,15 @@ class GoogleAuthenticationController extends Controller
             return redirect('/login');
         }
 
+        $password = Hash::make($user->token);
+
         $user = User::firstOrCreate([
             'email' => $user->getEmail(),
         ],[
             'name' => $user->getName(),
             'google_id' => $user->getId(),
-            'password' => Hash::make($user->token),
-            'default_password' => Hash::make($user->token),
+            'password' => $password,
+            'default_password' => $password,
             'email_verified_at' => now()
         ]);
 
