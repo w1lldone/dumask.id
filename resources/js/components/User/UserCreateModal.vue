@@ -5,7 +5,7 @@
       data-toggle="modal"
       data-target="#create-user-modal-id"
     >
-      Create new User
+      TAMBAH USER
     </button>
     <div
       class="modal fade"
@@ -22,7 +22,7 @@
               class="modal-title font-weight-bold text-muted"
               id="modal-title"
             >
-              Create user
+              TAMBAH USER
             </h5>
             <button
               type="button"
@@ -35,59 +35,178 @@
           </div>
           <div class="modal-body mx-4">
             <div class="form-group">
-              <label for="name">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                :class="{ 'is-invalid': hasErrors('name') }"
-                v-model="form.name"
-              />
+              <label for="name">
+                Nama
+                <abbr class="text-danger">*</abbr>
+              </label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  required
+                  class="form-control"
+                  :class="{ 'is-invalid': hasErrors('name'), 'border-right-0' : form.name, 'rounded' : !form.name }"
+                  v-model="form.name"
+                />
+                <div
+                  v-show="form.name"
+                  class="input-group-append"
+                >
+                  <button
+                    class="btn border-dark border-left-0"
+                    style="border-color: #ced4da !important"
+                    @click="form.name = null"
+                  >
+                    <span class="mdi mdi-close text-dark" style="font-size: 14px !important"></span>
+                  </button>
+                </div>
+              </div>    
               <div class="invalid-feedback">
                 {{ getErrors("name") }}
               </div>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email"
-              required 
-              v-model="form.email" 
-              class="form-control"
-              :class="{ 'is-invalid': hasErrors('email') }"
-              />
+              <label for="email">
+                Email
+              <abbr class="text-danger">*</abbr>
+              </label>
+              <div class="input-group">
+                <input type="email"
+                required 
+                v-model="form.email" 
+                class="form-control"
+                :class="{ 'is-invalid': hasErrors('email'), 'border-right-0' : form.email, 'rounded' : !form.email }"
+                />
+                <div
+                  v-show="form.email"
+                  class="input-group-append"
+                >
+                  <button
+                    class="btn border-dark border-left-0"
+                    style="border-color: #ced4da !important"
+                    @click="form.email = null"
+                  >
+                    <span class="mdi mdi-close text-dark" style="font-size: 14px !important"></span>
+                  </button>
+                </div>
+              </div>
+              <small class="text-dark">Pastikan email yang Anda gunakan masih aktif. Contoh : nama@mail.com</small>
               <div class="invalid-feedback">
                 {{ getErrors("email") }}
               </div>
             </div>
-            <div class="form-group py-2">
-              <div class="custom-control custom-checkbox form-check-inline">
-                <input
-                  type="checkbox"
-                  class="custom-control-input"
-                  id="customCheckDisabled"
-                  v-model="form.is_superadmin"
-                />
-                <label class="custom-control-label" for="customCheckDisabled"
-                  >Make user superadmin</label
+            <div class="form-group">
+              <label for="role">
+                Role
+              <abbr class="text-danger">*</abbr>
+              </label>
+              <div class="d-flex">
+                <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="role-radio-one"
+                      :value= true
+                      v-model="form.is_superadmin"
+                    />
+                    <label class="custom-control-label" for="role-radio-one">
+                      Superadmin
+                    </label>
+                </div>
+                <div class="custom-control custom-radio ml-4">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="role-radio-two"
+                      :value= false
+                      v-model="form.is_superadmin"
+                    />
+                    <label class="custom-control-label" for="role-radio-two">
+                      Member
+                    </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" v-if="form.is_superadmin == false">
+              <label for="permissions">Permissions</label>
+              <div class="d-flex">
+                <div
+                  class="custom-control custom-checkbox mr-4"
+                  v-for="(permission) in permissions"
+                  :key="permission"
                 >
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    :id="`permission-${permission}`"
+                    :value="permission"
+                    v-model="form.permissions"
+                  />
+                  <label
+                    class="custom-control-label"
+                    style="text-transform: capitalize;"
+                    :for="`permission-${permission}`"
+                    >{{ permission }}</label
+                  >
+                </div>
+                <div class="invalid-feedback">
+                  {{ getErrors("permissions") }}
+                </div>
               </div>
             </div>
             <div class="form-group">
-              <label for="password">Password</label>
-              <input type="text" v-model="form.password" class="form-control" :class="{ 'is-invalid': hasErrors('password') }"/>
+              <label for="password">
+                Password
+                <abbr class="text-danger">*</abbr>
+              </label>
+              <div class="input-group">
+                <input 
+                  :type="passwordInputType" 
+                  v-model="form.password" 
+                  class="form-control border-right-0" 
+                  :class="{ 'is-invalid': hasErrors('password') }"
+                />
+                <div class="input-group-append">
+                  <button
+                    v-show="form.password"
+                    class="btn border-dark border-left-0 border-right-0"
+                    style="border-color: #ced4da !important"
+                    @click="form.password = null"
+                  >
+                    <span class="mdi mdi-close text-dark" style="font-size: 14px !important"></span>
+                  </button>
+                  <div
+                    v-on:mousedown="passwordInputType = 'text'"
+                    v-on:mouseup="passwordInputType = 'password'"
+                    class="btn border-dark border-left-0"
+                    :class="{ 'text-dark' : (passwordInputType == 'password') }"
+                    style="border-color: #ced4da !important"
+                  >
+                    <span class="mdi mdi-eye-outline" style="font-size: 14px !important"></span>
+                  </div>
+                </div>
+              </div>
+              <small class="text-dark">Minimal 8 karakter</small>
               <div class="invalid-feedback">
                 {{ getErrors("password") }}
               </div>
             </div>
             <div class="form-group mt-4 text-right">
+               <button
+                style="background: #A7A7A7"
+                class="btn text-white shadow mx-2"
+                @click="doReset()"
+              >
+                RESET
+              </button>
               <button
-                class="btn btn-success"
+                class="btn btn-primary shadow"
                 v-show="!isLoading"
                 @click="doSubmit()"
               >
-                Save user
+                SAVE
               </button>
               <button class="btn btn-success" disabled v-show="isLoading">
-                Saving...
+                SAVING...
               </button>
             </div>
           </div>
@@ -101,6 +220,10 @@
 export default {
   name: "UserCreateModal",
 
+  props: {
+    permissions: Array
+  },
+
   data() {
     return {
       form: {
@@ -108,9 +231,11 @@ export default {
         email: null,
         is_superadmin: false,
         password: null,
+        permissions: [],
       },
       isLoading: false,
       errors: {},
+      passwordInputType : 'password'
     };
   },
 
@@ -143,6 +268,20 @@ export default {
 
       return "";
     },
+
+    doReset() {
+      this.form = {
+        name: null,
+        email: null,
+        is_superadmin: false,
+        password: null,
+        permissions: [],
+      }
+    },
+
+    showPassword() {
+
+    }
   },
 };
 </script>
