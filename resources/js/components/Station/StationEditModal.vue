@@ -5,7 +5,7 @@
       data-toggle="modal"
       data-target="#edit-station-modal-id"
     >
-      Edit Station
+      <span class="mdi mdi-pencil"></span>
     </button>
     <div
       class="modal fade"
