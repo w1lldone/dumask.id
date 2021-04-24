@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DropboxOperationController;
+use App\Http\Controllers\OperationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -50,7 +51,7 @@ Route::middleware('auth')
 
 Route::middleware('auth')
     ->resource('station.dropbox', StationDropboxController::class)
-    ->only(['store', 'update', 'destroy', 'index']);
+    ->only(['store', 'update', 'destroy']);
 
 Route::middleware('auth')
     ->resource('station.schedule', StationScheduleController::class)
@@ -59,8 +60,10 @@ Route::middleware('auth')
 Route::resource('station.media', StationMediaController::class)
     ->only(['index', 'store', 'destroy']);
 
-Route::prefix('dropbox/{dropbox}')->middleware('auth')->name('dropbox.operation.')->group(function ()
+Route::prefix('operation')->middleware('auth')->name('operation.')->group(function ()
 {
-    Route::post('/store', [DropboxOperationController::class, 'store'])->name('store');
-    Route::put('/inspect', [DropboxOperationController::class, 'inspect'])->name('inspect');
+    Route::get('/', [OperationController::class, 'index'])->name('index');
+    Route::get('/{station}', [OperationController::class, 'show'])->name('show');
+    Route::post('/{station}/replace', [OperationController::class, 'replace'])->name('replace');
+    Route::post('/{station}/inspect', [OperationController::class, 'inspect'])->name('inspect');
 });

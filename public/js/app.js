@@ -3815,6 +3815,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       form: {
+        dropbox_id: this.dropbox.id,
         timestamp: this.$date(new Date(), "yyyy-MM-dd"),
         filled_weight: null
       },
@@ -3835,7 +3836,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this.isLoading = true;
                 _context.prev = 1;
                 _context.next = 4;
-                return axios.put("/dropbox/".concat(_this.dropbox.id, "/inspect"), _this.form);
+                return axios.post("/operation/".concat(_this.dropbox.station_id, "/inspect"), _this.form);
 
               case 4:
                 response = _context.sent;
@@ -3852,7 +3853,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.t0 = _context["catch"](1);
                 console.log(_context.t0.response.data.errors);
                 alert("Ada yang salah " + _context.t0.response.data.message);
-                _this.errors = _context.t0.response.data.errors;
+
+                if (_context.t0.response.status == 422) {
+                  _this.errors = _context.t0.response.data.errors;
+                }
 
               case 17:
                 _this.isLoading = false;
@@ -3878,83 +3882,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return "";
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Dropbox/DropboxOperationStore.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Dropbox/DropboxOperationStore.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "DropboxOperationStore",
-  props: {
-    dropbox: {
-      type: Object
-    }
-  },
-  computed: {
-    modalId: function modalId() {
-      return Math.random().toString(36).substr(2, 5);
     }
   }
 });
@@ -4100,6 +4027,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       form: {
+        dropbox_id: this.dropbox.id,
         timestamp: this.$date(new Date(), "yyyy-MM-dd"),
         filled_weight: null,
         empty_weight: null
@@ -4130,7 +4058,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this.isLoading = true;
                 _context.prev = 1;
                 _context.next = 4;
-                return axios.post("/dropbox/".concat(_this.dropbox.id, "/store"), _this.form);
+                return axios.post("/operation/".concat(_this.dropbox.station_id, "/replace"), _this.form);
 
               case 4:
                 response = _context.sent;
@@ -78442,45 +78370,6 @@ component.options.__file = "resources/js/components/Dropbox/DropboxInspect.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/Dropbox/DropboxOperationStore.vue":
-/*!*******************************************************************!*\
-  !*** ./resources/js/components/Dropbox/DropboxOperationStore.vue ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _DropboxOperationStore_vue_vue_type_template_id_b098a3f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DropboxOperationStore.vue?vue&type=template&id=b098a3f0&scoped=true& */ "./resources/js/components/Dropbox/DropboxOperationStore.vue?vue&type=template&id=b098a3f0&scoped=true&");
-/* harmony import */ var _DropboxOperationStore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DropboxOperationStore.vue?vue&type=script&lang=js& */ "./resources/js/components/Dropbox/DropboxOperationStore.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _DropboxOperationStore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _DropboxOperationStore_vue_vue_type_template_id_b098a3f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _DropboxOperationStore_vue_vue_type_template_id_b098a3f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  "b098a3f0",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/Dropbox/DropboxOperationStore.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/components/Dropbox/DropboxReplace.vue":
 /*!************************************************************!*\
   !*** ./resources/js/components/Dropbox/DropboxReplace.vue ***!
@@ -79402,22 +79291,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Dropbox/DropboxOperationStore.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/Dropbox/DropboxOperationStore.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DropboxOperationStore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DropboxOperationStore.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Dropbox/DropboxOperationStore.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DropboxOperationStore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
-
 /***/ "./resources/js/components/Dropbox/DropboxReplace.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/Dropbox/DropboxReplace.vue?vue&type=script&lang=js& ***!
@@ -79970,23 +79843,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DropboxInspect_vue_vue_type_template_id_c9cd8294_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DropboxInspect_vue_vue_type_template_id_c9cd8294_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DropboxInspect.vue?vue&type=template&id=c9cd8294&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Dropbox/DropboxInspect.vue?vue&type=template&id=c9cd8294&scoped=true&");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/Dropbox/DropboxOperationStore.vue?vue&type=template&id=b098a3f0&scoped=true&":
-/*!**************************************************************************************************************!*\
-  !*** ./resources/js/components/Dropbox/DropboxOperationStore.vue?vue&type=template&id=b098a3f0&scoped=true& ***!
-  \**************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DropboxOperationStore_vue_vue_type_template_id_b098a3f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DropboxOperationStore_vue_vue_type_template_id_b098a3f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DropboxOperationStore_vue_vue_type_template_id_b098a3f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DropboxOperationStore.vue?vue&type=template&id=b098a3f0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Dropbox/DropboxOperationStore.vue?vue&type=template&id=b098a3f0&scoped=true&");
 
 
 /***/ }),
@@ -83268,107 +83124,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "input-group-append" }, [
       _c("span", { staticClass: "input-group-text" }, [_vm._v("gram")])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Dropbox/DropboxOperationStore.vue?vue&type=template&id=b098a3f0&scoped=true&":
-/*!*****************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Dropbox/DropboxOperationStore.vue?vue&type=template&id=b098a3f0&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-primary",
-        attrs: {
-          type: "button",
-          "data-toggle": "modal",
-          "data-target": "#" + _vm.modalId
-        }
-      },
-      [_vm._v("\n    Pasang / Ganti Dropbox\n  ")]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: _vm.modalId,
-          tabindex: "-1",
-          "aria-labelledby": "exampleModalLabel",
-          "aria-hidden": "true"
-        }
-      },
-      [_vm._m(0)]
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-dialog" }, [
-      _c("div", { staticClass: "modal-content" }, [
-        _c("div", { staticClass: "modal-header" }, [
-          _c(
-            "h5",
-            { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-            [_vm._v("Pasang / Ganti Dropbox")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "close",
-              attrs: {
-                type: "button",
-                "data-dismiss": "modal",
-                "aria-label": "Close"
-              }
-            },
-            [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "modal-body" }, [_vm._v("...")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "modal-footer" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secondary",
-              attrs: { type: "button", "data-dismiss": "modal" }
-            },
-            [_vm._v("\n            Close\n          ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-primary", attrs: { type: "button" } },
-            [_vm._v("Save changes")]
-          )
-        ])
-      ])
     ])
   }
 ]
@@ -106313,7 +106068,6 @@ var map = {
 	"./components/Dropbox/DropboxDeleteModal.vue": "./resources/js/components/Dropbox/DropboxDeleteModal.vue",
 	"./components/Dropbox/DropboxEditModal.vue": "./resources/js/components/Dropbox/DropboxEditModal.vue",
 	"./components/Dropbox/DropboxInspect.vue": "./resources/js/components/Dropbox/DropboxInspect.vue",
-	"./components/Dropbox/DropboxOperationStore.vue": "./resources/js/components/Dropbox/DropboxOperationStore.vue",
 	"./components/Dropbox/DropboxReplace.vue": "./resources/js/components/Dropbox/DropboxReplace.vue",
 	"./components/ExampleComponent.vue": "./resources/js/components/ExampleComponent.vue",
 	"./components/Explore/ExploreMap.vue": "./resources/js/components/Explore/ExploreMap.vue",

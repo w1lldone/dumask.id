@@ -39,7 +39,6 @@
                                 <station-dropbox-list :station='{{ json_encode($station) }}' :colors='@json(\App\Models\Dropbox::$availableColors)'
                                     :models='@json(\App\Models\Dropbox::$availableModels)'></station-dropbox-list>
                             </div>
-                            <a href="{{ route('station.dropbox.index', $station) }}">Lihat Log berat Dropbox</a>
                         </div>
                         <div class="col-md-12 py-4">
                             <div class="d-flex flex-column row">

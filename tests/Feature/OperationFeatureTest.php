@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class DropboxOperationFeatureTest extends TestCase
+class OperationFeatureTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -20,12 +20,13 @@ class DropboxOperationFeatureTest extends TestCase
         $timestamp = now()->toAtomString();
 
         $data = [
+            'dropbox_id' => $dropbox->id,
             'empty_weight' => 330,
             'timestamp' => $timestamp
         ];
 
         $response = $this->postJson(
-            route('dropbox.operation.store', $dropbox),
+            route('operation.replace', $dropbox->station_id),
             $data
         );
 
@@ -52,11 +53,12 @@ class DropboxOperationFeatureTest extends TestCase
         ]);
 
         $data = [
+            'dropbox_id' => $log->dropbox_id,
             'empty_weight' => 350,
             'filled_weight' => 2500,
             'timestamp' => $timestamp,
         ];
-        $response = $this->postJson(route('dropbox.operation.store', $log->dropbox_id), $data);
+        $response = $this->postJson(route('operation.replace', $log->dropbox->station_id), $data);
 
         $response->assertCreated();
         $this->assertDatabaseHas('dropbox_logs', [
@@ -87,10 +89,11 @@ class DropboxOperationFeatureTest extends TestCase
         ]);
 
         $data = [
+            'dropbox_id' => $log->dropbox_id,
             'filled_weight' => 900,
             'timestamp' => $timestamp,
         ];
-        $response = $this->putJson(route('dropbox.operation.inspect', $log->dropbox_id), $data);
+        $response = $this->postJson(route('operation.inspect', $log->dropbox->station_id), $data);
 
         $response->assertCreated()
             ->assertJson([
