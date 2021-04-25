@@ -5,7 +5,7 @@
       data-toggle="modal"
       data-target="#edit-station-modal-id"
     >
-      <span class="mdi mdi-pencil"></span>
+      EDIT STATION
     </button>
     <div
       class="modal fade"
@@ -22,7 +22,7 @@
               class="modal-title font-weight-bold text-muted"
               id="modal-title"
             >
-              Edit Station
+              EDIT STATION
             </h5>
             <button
               type="button"
@@ -33,10 +33,10 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body mx-4">
+          <div class="modal-body text-left mx-4">
 
             <div class="form-group">
-              <label for="name">Name</label>
+              <label for="name">Nama</label>
               <input
                 type="text"
                 class="form-control"
@@ -49,7 +49,7 @@
             </div>
 
             <div class="form-group">
-              <label for="email">Description</label>
+              <label for="email">Deskripsi</label>
               <textarea type="text"
               required 
               v-model="form.description" 
@@ -62,7 +62,7 @@
             </div>
 
             <div class="form-group">
-              <label for="address">Address</label>
+              <label for="address">Alamat</label>
               <textarea type="text"
               required 
               v-model="form.address" 
@@ -103,14 +103,20 @@
 
             <div class="form-group mt-4 text-right">
               <button
-                class="btn btn-success"
+                class="btn btn-secondary text-white shadow mx-2"
+                @click="doReset()"
+              >
+                RESET
+              </button>
+              <button
+                class="btn btn-primary shadow"
                 v-show="!isLoading"
                 @click="doSubmit()"
               >
-                Save Station
+                SAVE
               </button>
-              <button class="btn btn-success" disabled v-show="isLoading">
-                Saving...
+              <button class="btn btn-primary" disabled v-show="isLoading">
+                SAVING...
               </button>
             </div>
           </div>
@@ -169,6 +175,9 @@ export default {
 
       return "";
     },
+    doReset() {
+      this.form = {...this.station}
+    }
   },
 };
 </script>
