@@ -17,7 +17,7 @@ class ProfileController extends Controller
         // Appending $user->has_no_password attribute
         $user->append('has_no_password');
 
-        return $user;
+        return view('auth.profile', compact('user'));;
     }
 
     public function update(Request $request)
@@ -49,7 +49,7 @@ class ProfileController extends Controller
                     }
                 }
             ],
-            'password' => 'string|min:8|confirmed'
+            'password' => 'required|string|min:8|confirmed'
         ]);
 
         $user->update([
