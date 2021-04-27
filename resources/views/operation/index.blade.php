@@ -15,7 +15,7 @@
     <div class="my-md-3">
         <form action="{{ route('operation.index') }}" method="GET">
             <div class="input-group mb-4">
-                <input type="search" placeholder="Cari nama atau email" name="keywords" class="form-control border-0"
+                <input type="search" placeholder="Cari nama atau alamat" name="keywords" class="form-control border-0"
                     aria-label="Cari Station" value="{{ request('keywords') }}" />
                 <div class="input-group-append text-primary">
                     <button type="submit" class="btn bg-white border-0">
