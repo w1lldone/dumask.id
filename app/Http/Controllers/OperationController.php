@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Dropbox;
+use App\Models\DropboxLog;
 use App\Models\Station;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -63,7 +64,7 @@ class OperationController extends Controller
         $this->authorize('view', $station);
 
         $dropboxes = $station->dropboxes()->with(['dropboxLogs' => function ($query) {
-            $query->whereNull('parent_id')->with('children');
+            $query->whereNull('parent_id')->with('children.user', 'user');
         }])->get();
 
         // Uncomment line below to see dropboxes data structure
@@ -93,6 +94,17 @@ class OperationController extends Controller
         return $log;
     }
 
+    public function destroy(DropboxLog $dropboxLog)
+    {
+        $dropboxLog->load('dropbox.station');
+
+        $this->authorize('update', $dropboxLog->dropbox->station);
+
+        $dropboxLog->delete();
+
+        return response()->noContent();
+    }
+
     /**
      * Create a inspection typed log
      *
@@ -112,10 +124,12 @@ class OperationController extends Controller
             'user_id' => $user->id
         ]);
 
+        $latestLog = $log->parent->children()->orderBy('ends_at', 'desc')->first();
+
         // Update parent final_weight, ends_at
         $log->parent->update([
-            'final_weight' => $weight,
-            'ends_at' => $timestamp,
+            'final_weight' => $latestLog->final_weight,
+            'ends_at' => $latestLog->ends_at,
         ]);
 
         return $log;
