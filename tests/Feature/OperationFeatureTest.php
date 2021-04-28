@@ -109,4 +109,63 @@ class OperationFeatureTest extends TestCase
             'ends_at' => $timestamp
         ]);
     }
+
+    /** @test */
+    public function user_can_inspect_old_records()
+    {
+        $this->login();
+        $parent = DropboxLog::factory()->create([
+            'activity' => 'replacement',
+            'weight' => 330,
+            'starts_at' => now()->subWeeks(2),
+            'ends_at' => null
+        ]);
+        $latestLog = DropboxLog::factory()->create([
+            'dropbox_id' => $parent->dropbox_id,
+            'activity' => 'inspection',
+            'parent_id' => $parent->id,
+            'final_weight' => 2500,
+            'ends_at' => now(),
+            'user_id' => $this->user->id
+        ]);
+
+        $data = [
+            'dropbox_id' => $parent->dropbox_id,
+            'filled_weight' => 900,
+            'timestamp' => now()->subWeek(),
+        ];
+        $this->postJson(route('operation.inspect', $parent->dropbox->station_id), $data);
+
+        $this->assertDatabaseHas('dropbox_logs', [
+            'id' => $parent->id,
+            'final_weight' => $latestLog->final_weight,
+            'ends_at' => $latestLog->ends_at,
+        ]);
+    }
+
+    /** @test */
+    public function user_can_delete_dropbox_log()
+    {
+        $this->login();
+        $parent = DropboxLog::factory()->create([
+            'activity' => 'replacement',
+            'weight' => 330,
+            'starts_at' => now()->subWeeks(2),
+            'ends_at' => null
+        ]);
+        $latestLog = DropboxLog::factory()->create([
+            'dropbox_id' => $parent->dropbox_id,
+            'activity' => 'inspection',
+            'parent_id' => $parent->id,
+            'final_weight' => 2500,
+            'ends_at' => now(),
+            'user_id' => $this->user->id
+        ]);
+
+        $response = $this->deleteJson(route('operation.destroy', $latestLog->id));
+
+        $response->assertNoContent();
+        $this->assertDeleted($latestLog);
+    }
+
 }

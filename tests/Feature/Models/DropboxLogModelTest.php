@@ -40,4 +40,17 @@ class DropboxLogModelTest extends TestCase
 
         $this->assertTrue($parent->is($child->parent));
     }
+
+    /** @test */
+    public function it_deletes_related_children_after_being_deleted()
+    {
+        $log = DropboxLog::factory()->create();
+        DropboxLog::factory(5)->create(['parent_id' => $log->id]);
+
+        $log->delete();
+
+        $this->assertDatabaseMissing('dropbox_logs', [
+            'parent_id' => $log->id
+        ]);
+    }
 }
