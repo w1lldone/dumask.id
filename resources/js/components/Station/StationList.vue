@@ -21,7 +21,7 @@
                             :href = "'/station/' + station.id"
                             class="btn btn-primary "
                         >
-                            Detail Station
+                            DETAIl STATION
                         </a>
                     </td>
                 </tr>
