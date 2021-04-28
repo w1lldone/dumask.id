@@ -12,7 +12,7 @@
                 <div class="container">
                     <div class="row py-4 justify-content-between">
                         @foreach ($dropboxes as $dropbox)
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <div class="h3">
                                 Dropbox {{ $dropbox->color }} {{ $dropbox->model }}
                             </div>
@@ -26,17 +26,20 @@
                                     <tr>
                                         <th>Tanggal</th>
                                         <th>Berat</th>
+                                        <th>Diukur oleh</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>{{ $log->starts_at->format('j F Y') }}</td>
                                         <td>{{ $log->weight }}</td>
+                                        <td>{{ optional($log->user)->name }}</td>
                                     </tr>
                                     @foreach ($log->children as $child)
                                     <tr>
                                         <td>{{ $child->ends_at->format('j F Y') }}</td>
                                         <td>{{ $child->final_weight }}</td>
+                                        <td>{{ optional($child->user)->name }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

@@ -157,6 +157,7 @@ export default {
         this.error = {};
         $(`#replace${this.dropbox.id}`).modal("hide");
         this.$emit("succeed", response.data);
+        window.location.reload();
       } catch (error) {
         console.log(error.response.data.errors);
         alert("Ada yang salah " + error.response.data.message);

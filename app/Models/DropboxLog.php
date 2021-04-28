@@ -31,6 +31,14 @@ class DropboxLog extends Model
                 $dropboxLog->dropbox->update(['active_log_id' => $dropboxLog->id]);
             }
         });
+
+        // Listen to the deleted event
+        static::deleted(function ($dropboxLog) {
+            // If the parent gets deleted, the childern will be deleted too
+            if ($dropboxLog->parent_id == null) {
+                $dropboxLog->children()->delete();
+            }
+        });
     }
 
     public function dropbox()
@@ -46,5 +54,10 @@ class DropboxLog extends Model
     public function parent()
     {
         return $this->belongsTo('App\Models\DropboxLog', 'parent_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
     }
 }
