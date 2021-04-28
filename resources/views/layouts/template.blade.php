@@ -246,7 +246,11 @@
                             </div>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item disabled" href="">Profil</a>
+                            <a
+                                class="dropdown-item text-primary"
+                                href="{{ route('profile.index') }}">
+                                {{ __('Profil') }}
+                            </a>
                             <a
                                 class="dropdown-item text-primary"
                                 href="{{ route('logout') }}"
