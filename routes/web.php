@@ -66,4 +66,5 @@ Route::prefix('operation')->middleware('auth')->name('operation.')->group(functi
     Route::get('/{station}', [OperationController::class, 'show'])->name('show');
     Route::post('/{station}/replace', [OperationController::class, 'replace'])->name('replace');
     Route::post('/{station}/inspect', [OperationController::class, 'inspect'])->name('inspect');
+    Route::delete('/{dropboxLog}', [OperationController::class, 'destroy'])->name('destroy');
 });
