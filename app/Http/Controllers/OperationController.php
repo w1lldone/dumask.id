@@ -64,7 +64,10 @@ class OperationController extends Controller
         $this->authorize('view', $station);
 
         $dropboxes = $station->dropboxes()->with(['dropboxLogs' => function ($query) {
-            $query->whereNull('parent_id')->with('children.user', 'user');
+            $query->orderBy('starts_at')->whereNull('parent_id')->with(['user', 'children' => function ($children)
+            {
+                $children->with('user')->orderBy('ends_at', 'asc');
+            }]);
         }])->get();
 
         // Uncomment line below to see dropboxes data structure
