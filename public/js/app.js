@@ -5955,6 +5955,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "StationCreateModal",
   data: function data() {
@@ -6020,6 +6027,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return "";
+    },
+    doReset: function doReset() {
+      this.form = {
+        name: null,
+        description: null,
+        address: null,
+        longitude: null,
+        latitude: null
+      };
     }
   }
 });
@@ -6385,6 +6401,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "StationEditModal",
   props: {
@@ -6450,6 +6472,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       return "";
+    },
+    doReset: function doReset() {
+      this.form = _objectSpread({}, this.station);
     }
   }
 });
@@ -6467,6 +6492,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
 //
 //
 //
@@ -6781,25 +6809,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -6827,6 +6836,41 @@ __webpack_require__.r(__webpack_exports__);
     },
     handleCreated: function handleCreated(schedule) {
       this.schedules.push(schedule);
+    },
+    getScheduleSummary: function getScheduleSummary(schedule) {
+      var days = _mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__.default.computed.days();
+      var summary = "Buka Hari Ini";
+
+      for (var i = 0; i < days.length; i++) {
+        // Cari hari
+        if (schedule.day == i) {
+          if (schedule.opened_at && schedule.closed_at) {
+            summary = schedule.opened_at + " - " + schedule.closed_at;
+          } else {
+            summary = "Tutup";
+          }
+        }
+      }
+
+      return summary;
+    }
+  },
+  computed: {
+    sortedSchedules: function sortedSchedules() {
+      var days = _mixins_dayOfWeeks__WEBPACK_IMPORTED_MODULE_0__.default.computed.days();
+      var schedules = this.schedules;
+      var sortedSchedules = [];
+
+      for (var i = 0; i < schedules.length; i++) {
+        for (var j = 0; j < days.length; j++) {
+          if (schedules[i].day == j) {
+            schedules[i].summary = this.getScheduleSummary(schedules[i]);
+            sortedSchedules.push(schedules[i]);
+          }
+        }
+      }
+
+      return sortedSchedules;
     }
   }
 });
@@ -85195,7 +85239,7 @@ var render = function() {
           "data-target": "#create-schedule-modal-id"
         }
       },
-      [_vm._v("\n    Create new schedule\n  ")]
+      [_vm._v("\n    TAMBAH JAM OPERASIONAL\n  ")]
     ),
     _vm._v(" "),
     _c(
@@ -85533,7 +85577,7 @@ var render = function() {
           "data-target": "#delete-schedule-modal-" + _vm.schedule.id
         }
       },
-      [_vm._v("\n    Delete schedule\n  ")]
+      [_c("span", { staticClass: "mdi mdi-delete" })]
     ),
     _vm._v(" "),
     _c(
@@ -85680,13 +85724,13 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-warning",
+        staticClass: "btn btn-primary",
         attrs: {
           "data-toggle": "modal",
           "data-target": "#edit-schedule-modal-" + _vm.schedule.id
         }
       },
-      [_vm._v("\n    Update schedule\n  ")]
+      [_c("span", { staticClass: "mdi mdi-pencil" })]
     ),
     _vm._v(" "),
     _c(
@@ -85965,7 +86009,7 @@ var render = function() {
           "data-target": "#create-station-modal-id"
         }
       },
-      [_vm._v("\n    Create new Station\n  ")]
+      [_vm._v("\n    TAMBAH STATION\n  ")]
     ),
     _vm._v(" "),
     _c(
@@ -85993,7 +86037,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "modal-body mx-4" }, [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+                  _c("label", { attrs: { for: "name" } }, [_vm._v("Nama")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -86029,10 +86073,10 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "email" } }, [
-                    _vm._v("Description")
+                    _vm._v("Deskripsi")
                   ]),
                   _vm._v(" "),
-                  _c("input", {
+                  _c("textarea", {
                     directives: [
                       {
                         name: "model",
@@ -86066,10 +86110,10 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "address" } }, [
-                    _vm._v("Address")
+                    _vm._v("Alamat")
                   ]),
                   _vm._v(" "),
-                  _c("input", {
+                  _c("textarea", {
                     directives: [
                       {
                         name: "model",
@@ -86181,6 +86225,20 @@ var render = function() {
                   _c(
                     "button",
                     {
+                      staticClass: "btn text-white shadow mx-2",
+                      staticStyle: { background: "#A7A7A7" },
+                      on: {
+                        click: function($event) {
+                          return _vm.doReset()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              RESET\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
                       directives: [
                         {
                           name: "show",
@@ -86189,14 +86247,14 @@ var render = function() {
                           expression: "!isLoading"
                         }
                       ],
-                      staticClass: "btn btn-success",
+                      staticClass: "btn btn-primary shadow",
                       on: {
                         click: function($event) {
                           return _vm.doSubmit()
                         }
                       }
                     },
-                    [_vm._v("\n              Save Station\n            ")]
+                    [_vm._v("\n              SAVE\n            ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -86213,7 +86271,7 @@ var render = function() {
                       staticClass: "btn btn-success",
                       attrs: { disabled: "" }
                     },
-                    [_vm._v("\n              Saving...\n            ")]
+                    [_vm._v("\n              SAVING...\n            ")]
                   )
                 ])
               ])
@@ -86236,7 +86294,7 @@ var staticRenderFns = [
           staticClass: "modal-title font-weight-bold text-muted",
           attrs: { id: "modal-title" }
         },
-        [_vm._v("\n            Create Station\n          ")]
+        [_vm._v("\n            TAMBAH STATION\n          ")]
       ),
       _vm._v(" "),
       _c(
@@ -86548,7 +86606,7 @@ var render = function() {
           "data-target": "#edit-station-modal-id"
         }
       },
-      [_vm._v("\n    Edit Station\n  ")]
+      [_vm._v("\n    EDIT STATION\n  ")]
     ),
     _vm._v(" "),
     _c(
@@ -86574,9 +86632,9 @@ var render = function() {
             _c("div", { staticClass: "modal-content" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "modal-body mx-4" }, [
+              _c("div", { staticClass: "modal-body text-left mx-4" }, [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+                  _c("label", { attrs: { for: "name" } }, [_vm._v("Nama")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -86612,7 +86670,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "email" } }, [
-                    _vm._v("Description")
+                    _vm._v("Deskripsi")
                   ]),
                   _vm._v(" "),
                   _c("textarea", {
@@ -86649,7 +86707,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "address" } }, [
-                    _vm._v("Address")
+                    _vm._v("Alamat")
                   ]),
                   _vm._v(" "),
                   _c("textarea", {
@@ -86764,6 +86822,19 @@ var render = function() {
                   _c(
                     "button",
                     {
+                      staticClass: "btn btn-secondary text-white shadow mx-2",
+                      on: {
+                        click: function($event) {
+                          return _vm.doReset()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              RESET\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
                       directives: [
                         {
                           name: "show",
@@ -86772,14 +86843,14 @@ var render = function() {
                           expression: "!isLoading"
                         }
                       ],
-                      staticClass: "btn btn-success",
+                      staticClass: "btn btn-primary shadow",
                       on: {
                         click: function($event) {
                           return _vm.doSubmit()
                         }
                       }
                     },
-                    [_vm._v("\n              Save Station\n            ")]
+                    [_vm._v("\n              SAVE\n            ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -86793,10 +86864,10 @@ var render = function() {
                           expression: "isLoading"
                         }
                       ],
-                      staticClass: "btn btn-success",
+                      staticClass: "btn btn-primary",
                       attrs: { disabled: "" }
                     },
-                    [_vm._v("\n              Saving...\n            ")]
+                    [_vm._v("\n              SAVING...\n            ")]
                   )
                 ])
               ])
@@ -86819,7 +86890,7 @@ var staticRenderFns = [
           staticClass: "modal-title font-weight-bold text-muted",
           attrs: { id: "modal-title" }
         },
-        [_vm._v("\n            Edit Station\n          ")]
+        [_vm._v("\n            EDIT STATION\n          ")]
       ),
       _vm._v(" "),
       _c(
@@ -86859,48 +86930,89 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    _vm._l(_vm.stations, function(station) {
-      return _c("div", { key: station.id, staticClass: "row my-4" }, [
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("h5", { staticClass: "m-0" }, [
-            _vm._v(
-              "\n                " + _vm._s(station.name) + "\n            "
-            )
-          ])
-        ]),
+  return _c("div", [
+    _c(
+      "table",
+      { staticClass: "table table-borderless table-responsive d-md-table" },
+      [
+        _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-3" }, [
-          _vm._v("\n            " + _vm._s(station.description) + "\n        ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-3" }, [
-          _vm._v("\n            " + _vm._s(station.address) + "\n        ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-1 text-center" }, [
-          _vm._v(
-            "\n            " + _vm._s(station.dropboxes_count) + "\n        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-2 text-right" }, [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-primary ",
-              attrs: { href: "/station/" + station.id }
-            },
-            [_vm._v("\n            Detail Station\n            ")]
-          )
-        ])
-      ])
-    }),
-    0
-  )
+        _c(
+          "tbody",
+          _vm._l(_vm.stations, function(station) {
+            return _c("tr", { key: station.id }, [
+              _c(
+                "td",
+                { staticClass: "align-top text-primary font-weight-bold" },
+                [_vm._v(_vm._s(station.name))]
+              ),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-top" }, [
+                _vm._v(_vm._s(station.description))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-top" }, [
+                _vm._v(_vm._s(station.address))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-top text-center" }, [
+                _vm._v(_vm._s(station.dropboxes_count))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-top text-right" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary ",
+                    attrs: { href: "/station/" + station.id }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        DETAIl STATION\n                    "
+                    )
+                  ]
+                )
+              ])
+            ])
+          }),
+          0
+        )
+      ]
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "thead",
+      { staticStyle: { "border-bottom": "1px solid #c4c4c4" } },
+      [
+        _c("tr", [
+          _c("th", { staticStyle: { width: "20%" }, attrs: { scope: "col" } }, [
+            _vm._v("Nama")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { width: "25%" }, attrs: { scope: "col" } }, [
+            _vm._v("Deskripsi")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { width: "25%" }, attrs: { scope: "col" } }, [
+            _vm._v("Alamat")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { width: "15%" }, attrs: { scope: "col" } }, [
+            _vm._v("Total Dropbox")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { width: "15%" }, attrs: { scope: "col" } })
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -86934,7 +87046,7 @@ var render = function() {
           "data-target": "#stationMediaModal"
         }
       },
-      [_vm._v("\n    Manage Galery\n  ")]
+      [_vm._v("\n    EDIT GALERI\n  ")]
     ),
     _vm._v(" "),
     _c(
@@ -87157,97 +87269,72 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "d-flex align-items-center justify-content-between" },
-      [
-        _c("h3", [_vm._v("Opening Hours")]),
-        _vm._v(" "),
-        _c("schedule-create-modal", {
-          attrs: { station: _vm.station },
-          on: {
-            created: function($event) {
-              return _vm.handleCreated($event)
-            }
-          }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "d-flex flex-column" },
-      _vm._l(_vm.schedules, function(schedules, index) {
+  return _c(
+    "div",
+    [
+      _vm._l(_vm.sortedSchedules, function(schedules, index) {
         return _c("div", { key: schedules.id, staticClass: "d-flex my-2" }, [
-          _c("div", { staticClass: "col-2" }, [
-            _vm._v("\n        " + _vm._s(_vm.days[schedules.day]) + "\n      ")
+          _c(
+            "div",
+            { staticClass: "col-4 my-auto text-secondary font-weight-bold" },
+            [_vm._v(_vm._s(_vm.days[schedules.day]))]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4 my-auto" }, [
+            _vm._v(_vm._s(schedules.summary))
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-2" }, [
-            _vm._v("\n        " + _vm._s(schedules.opened_at) + "\n      ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-2" }, [
-            _vm._v("\n        " + _vm._s(schedules.closed_at) + "\n      ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-6 d-flex" }, [
-            _c(
-              "div",
-              { staticClass: "mx-2" },
-              [
-                _c("schedule-edit-modal", {
-                  attrs: { schedule: schedules },
-                  on: {
-                    updated: function($event) {
-                      return _vm.handleUpdated(index, $event)
-                    }
+          _c(
+            "div",
+            { staticClass: "col-4 d-flex align-middle" },
+            [
+              _c("schedule-edit-modal", {
+                staticClass: "mx-1",
+                attrs: { schedule: schedules },
+                on: {
+                  updated: function($event) {
+                    return _vm.handleUpdated(index, $event)
                   }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "mx-2" },
-              [
-                _c("schedule-delete-modal", {
-                  attrs: { schedule: schedules },
-                  on: {
-                    deleted: function($event) {
-                      return _vm.handleDeleted(index)
-                    }
+                }
+              }),
+              _vm._v(" "),
+              _c("schedule-delete-modal", {
+                staticClass: "mx-1",
+                attrs: { schedule: schedules },
+                on: {
+                  deleted: function($event) {
+                    return _vm.handleDeleted(index)
                   }
-                })
-              ],
-              1
-            )
-          ])
+                }
+              })
+            ],
+            1
+          )
         ])
       }),
-      0
-    )
-  ])
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex" }, [
+        _c(
+          "div",
+          { staticClass: "col-12" },
+          [
+            _c("schedule-create-modal", {
+              attrs: { station: _vm.station },
+              on: {
+                created: function($event) {
+                  return _vm.handleCreated($event)
+                }
+              }
+            })
+          ],
+          1
+        )
+      ])
+    ],
+    2
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex" }, [
-      _c("div", { staticClass: "col-2" }, [_vm._v("Day")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-2" }, [_vm._v("opened_at")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-2" }, [_vm._v("closed_at")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -88413,7 +88500,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("\n              Save\n            ")]
+                    [_vm._v("\n              SAVE\n            ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -88430,7 +88517,7 @@ var render = function() {
                       staticClass: "btn btn-primary",
                       attrs: { disabled: "" }
                     },
-                    [_vm._v("\n              Saving...\n            ")]
+                    [_vm._v("\n              SAVING...\n            ")]
                   )
                 ])
               ])
@@ -88453,7 +88540,7 @@ var staticRenderFns = [
           staticClass: "modal-title font-weight-bold text-muted",
           attrs: { id: "modal-title" }
         },
-        [_vm._v("\n            Edit User\n          ")]
+        [_vm._v("\n            EDIT USER\n          ")]
       ),
       _vm._v(" "),
       _c(

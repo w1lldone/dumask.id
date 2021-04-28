@@ -33,41 +33,47 @@
         </div>
         <hr style="border-bottom: 2px solid #c4c4c4;">
         
-        <div class="d-flex">
+        <div class="d-flex mb-4">
             <h3 class="text-secondary font-weight-bold my-auto">
                 {{ $station->name }}
             </h3>
         </div>
 
         <div class="row ">
-            <div class="col-md-6 rounded border-1 border-dark">
-                <div class="d-flex">
-                    <div class="col-4 text-secondary">
-                        Alamat
+            <div class="col-md-7">
+                <div class="col-12 px-0 rounded" style="border: 1px solid #c4c4c4;">
+                    <div class="d-flex my-3" >
+                        <div class="col-4 text-secondary">
+                            Alamat
+                        </div>
+                        <div class="col-8">
+                            {{ $station->address }}
+                        </div>
                     </div>
-                    <div class="col-8">
-                        {{ $station->address }}
+                    <div class="d-flex my-3">
+                        <div class="col-4 mt-3 text-secondary">
+                            Jam Operasional
+                        </div>
+                        <div class="col-8 px-0">
+                            <station-schedule-list :station='{{ json_encode($station) }}'></station-schedule-list>
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex">
-                    <div class="col-3 text-secondary">
-                        Jam Operasional
+                    <div class="d-flex my-3">
+                        <div class="col-4 text-secondary">
+                            Total Dropbox
+                        </div>
+                        <div class="col-8">
+                            {{ $station->dropboxes_count }}
+                        </div>
                     </div>
-                    <div class="col-9">
-                        <station-schedule-list :station='{{ json_encode($station) }}'></station-schedule-list>
-                    </div>
-                </div>
-                <div class="d-flex">
-                    <div class="col-3 text-secondary">
-                        Total Dropbox
-                    </div>
-                    <div class="col-9">
-                        {{ $station->dropboxes_count }}
+                    <div class="col-12 mb-3 text-right">
+                        <station-edit-modal :station='{{ json_encode($station) }}'></station-edit-modal>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-
+            <div class="col-md-5">
+                <media-carousel :station-id="{{ $station->id }}"></media-carousel>
+                <station-media-manager class="float-right mt-2" :station='@json($station)'></station-media-manager>
             </div>
         </div>
     </div>
@@ -76,9 +82,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex">
-                <station-edit-modal :station='{{ json_encode($station) }}'></station-edit-modal>
-            </div>
+            
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg my-4">
                 <div class="container py-4">
                     <div class="row">
@@ -94,10 +98,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-5">
-                            <media-carousel :station-id="{{ $station->id }}"></media-carousel>
-                            <station-media-manager class="float-right mt-2" :station='@json($station)'></station-media-manager>
-                        </div>
+                        
                         <div class="col-md-12 mt-5">
                             <div class="py-2 d-flex align-items-center justify-content-between">
                                 <h3>Dropboxes <span class="badge badge-primary">Total: {{ $station->dropboxes_count }}</span></h3>
