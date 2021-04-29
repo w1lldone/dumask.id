@@ -37,6 +37,9 @@
                 <h5 class="font-weight-bold">Tentang Dumask.id</h5>
                 Dumask.id merupakan kolaborasi antara peneliti PTNBH dari UGM, ITB, UNS dan UNAIR yang juga didukung oleh peneliti dari UAD, Politeknik ATK, UJB, dan UP45. Dumask.id menyediakan jalur pembuangan masker dan sarung tangan
                 bekas dari masyarakat umum yang aman dan ramah lingkungan.
+                <br><br>
+                <b>Powered by</b>
+                Resource Recovery and Waste Utilization PIAT UGM
             </div>
         </div>
     </div>
