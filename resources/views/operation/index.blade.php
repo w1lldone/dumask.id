@@ -59,6 +59,17 @@
                                 @if ($dropbox->active_log_id)
                                 <dropbox-inspect :dropbox='@json($dropbox)'></dropbox-inspect>
                                 @endif
+                                @if ($dropbox->active_log_id)
+                                    <div class="mt-3">
+                                        @if ($dropbox->activeLog->ends_at)
+                                            <b>Pengukuran Terakhir</b>: {{ $dropbox->activeLog->final_weight }} gram <br>
+                                            <b>Tanggal</b>: {{ optional($dropbox->activeLog->ends_at)->format('j F Y') }}
+                                        @else
+                                            <b>Pengukuran Terakhir</b>: {{ $dropbox->activeLog->weight }} gram <br>
+                                            <b>Tanggal</b>: {{ optional($dropbox->activeLog->starts_at)->format('j F Y') }}
+                                        @endif
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         @empty
