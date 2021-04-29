@@ -6227,6 +6227,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "StationDropboxList",
   props: {
@@ -86510,70 +86519,101 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    _vm._l(_vm.dropboxes, function(dropbox, index) {
-      return _c("div", { key: dropbox.id, staticClass: "row my-4" }, [
-        _c("div", { staticClass: "col-md-3" }, [
-          _vm._v(
-            "\n            box " +
-              _vm._s(dropbox.color) +
-              "-" +
-              _vm._s(dropbox.model) +
-              "\n        "
-          )
-        ]),
+  return _c("div", [
+    _c(
+      "table",
+      { staticClass: "table table-borderless table-responsive d-md-table" },
+      [
+        _vm._m(0),
         _vm._v(" "),
         _c(
-          "div",
-          { staticClass: "col-md-6" },
-          [
-            _c("dropbox-replace", {
-              staticClass: "d-inline",
-              attrs: { dropbox: dropbox },
-              on: {
-                succeed: function($event) {
-                  return _vm.handleSucceed($event, index)
-                }
-              }
-            }),
-            _vm._v(" "),
-            dropbox.active_log_id
-              ? _c("dropbox-inspect", {
-                  staticClass: "d-inline",
-                  attrs: { dropbox: dropbox }
-                })
-              : _vm._e()
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-md-3" },
-          [
-            _c("dropbox-edit-modal", {
-              staticClass: "d-inline",
-              attrs: {
-                dropbox: dropbox,
-                colors: _vm.colors,
-                models: _vm.models
-              }
-            }),
-            _vm._v(" "),
-            _c("dropbox-delete-modal", {
-              staticClass: "d-inline",
-              attrs: { dropbox: dropbox }
-            })
-          ],
-          1
+          "tbody",
+          _vm._l(_vm.dropboxes, function(dropbox, index) {
+            return _c("tr", { key: dropbox.id }, [
+              _c(
+                "td",
+                { staticClass: "align-top text-primary font-weight-bold" },
+                [
+                  _vm._v(
+                    "Box " + _vm._s(dropbox.color) + "-" + _vm._s(dropbox.model)
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                { staticClass: "align-top" },
+                [
+                  _c("dropbox-replace", {
+                    staticClass: "d-inline",
+                    attrs: { dropbox: dropbox },
+                    on: {
+                      succeed: function($event) {
+                        return _vm.handleSucceed($event, index)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  dropbox.active_log_id
+                    ? _c("dropbox-inspect", {
+                        staticClass: "d-inline",
+                        attrs: { dropbox: dropbox }
+                      })
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "td",
+                { staticClass: "align-top text-right" },
+                [
+                  _c("dropbox-edit-modal", {
+                    staticClass: "d-inline",
+                    attrs: {
+                      dropbox: dropbox,
+                      colors: _vm.colors,
+                      models: _vm.models
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("dropbox-delete-modal", {
+                    staticClass: "d-inline",
+                    attrs: { dropbox: dropbox }
+                  })
+                ],
+                1
+              )
+            ])
+          }),
+          0
         )
-      ])
-    }),
-    0
-  )
+      ]
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "thead",
+      { staticStyle: { "border-bottom": "1px solid #c4c4c4" } },
+      [
+        _c("tr", [
+          _c("th", { staticStyle: { width: "40%" }, attrs: { scope: "col" } }, [
+            _vm._v("Dropbox")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { width: "45%" }, attrs: { scope: "col" } }),
+          _vm._v(" "),
+          _c("th", { staticStyle: { width: "15%" }, attrs: { scope: "col" } })
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -86968,7 +87008,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                        DETAIl STATION\n                    "
+                      "\n                        DETAIL STATION\n                    "
                     )
                   ]
                 )
