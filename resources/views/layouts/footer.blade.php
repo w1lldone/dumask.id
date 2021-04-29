@@ -18,7 +18,8 @@
                     <a href="https://wa.me/6285729141485" target="_blank">+62 857-2914-1485 (WhatsApp Only)</a>
                 </div>
                 <div>
-
+                    <span class="mdi mdi-instagram mr-2"></span>
+                    <a href="https://www.instagram.com/dumask.indonesia/" target="_blank">dumask.indonesia</a>
                 </div>
             </div>
             <div class="col-md-3 mb-3 mb-md-0">
