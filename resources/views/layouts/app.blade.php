@@ -68,6 +68,10 @@
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
+
+                            {{-- Additional Navigation --}}
+                            @yield('additionalNav')
+
                             <!-- Authentication Links -->
                             @guest
                                 <login-modal></login-modal>
