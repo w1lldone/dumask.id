@@ -3,6 +3,7 @@
 use App\Http\Controllers\DropboxOperationController;
 use App\Http\Controllers\OperationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StaticPageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StationController;
@@ -26,7 +27,7 @@ require __DIR__ . '/auth.php';
 Route::get('/', [App\Http\Controllers\ExploreController::class, 'index']);
 
 Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
-Route::view('/about', 'about')->name('about');
+Route::get('/about/{lang?}', [StaticPageController::class, 'about'])->name('about');
 Route::view('/policy', 'privacy-policy')->name('privacy-policy');
 Route::view('/terms', 'terms-of-service')->name('terms');
 
