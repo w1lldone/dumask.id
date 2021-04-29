@@ -29,8 +29,16 @@
                         {{ __('Stations') }}
                     </x-nav-link>
                 </div>
-            @endcan
-                
+                @endcan
+
+                @can('viewAny', \App\Models\Station::class)
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('operation.index')" :active="request()->routeIs('operation.index')">
+                        {{ __('Operation') }}
+                    </x-nav-link>
+                </div>
+                @endcan
+
             </div>
 
             <!-- Settings Dropdown -->
