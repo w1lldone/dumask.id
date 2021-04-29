@@ -3249,6 +3249,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "DropboxCreateModal",
   props: {
@@ -3324,6 +3331,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return "";
+    },
+    doReset: function doReset() {
+      this.form = {
+        station_id: this.station.id,
+        color: null,
+        model: null
+      };
     }
   }
 });
@@ -3349,17 +3363,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3618,6 +3621,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "DropboxEditModal",
   props: {
@@ -3689,6 +3697,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       return "";
+    },
+    doReset: function doReset() {
+      this.form = _objectSpread({}, this.dropbox);
     }
   }
 });
@@ -6067,17 +6078,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -82677,13 +82677,13 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-primary",
+        staticClass: "btn btn-primary shadow",
         attrs: {
           "data-toggle": "modal",
           "data-target": "#create-dropbox-modal-id"
         }
       },
-      [_vm._v("\n    Create new Dropbox\n  ")]
+      [_vm._v("\n    TAMBAH DROPBOX\n  ")]
     ),
     _vm._v(" "),
     _c(
@@ -82707,26 +82707,9 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header mx-4" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title font-weight-bold text-muted",
-                    attrs: { id: "modal-title" }
-                  },
-                  [
-                    _vm._v(
-                      "\n            Create New Dropbox for " +
-                        _vm._s(_vm.station.name) +
-                        "\n          "
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _vm._m(0)
-              ]),
+              _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "modal-body mx-4" }, [
+              _c("div", { staticClass: "modal-body text-left mx-4" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "color" } }, [_vm._v("Color")]),
                   _vm._v(" "),
@@ -82855,6 +82838,20 @@ var render = function() {
                   _c(
                     "button",
                     {
+                      staticClass: "btn text-white shadow mx-2",
+                      staticStyle: { background: "#A7A7A7" },
+                      on: {
+                        click: function($event) {
+                          return _vm.doReset()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              RESET\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
                       directives: [
                         {
                           name: "show",
@@ -82863,14 +82860,14 @@ var render = function() {
                           expression: "!isLoading"
                         }
                       ],
-                      staticClass: "btn btn-success",
+                      staticClass: "btn btn-primary shadow",
                       on: {
                         click: function($event) {
                           return _vm.doSubmit()
                         }
                       }
                     },
-                    [_vm._v("\n              Create Dropbox\n            ")]
+                    [_vm._v("\n              SAVE\n            ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -82884,10 +82881,10 @@ var render = function() {
                           expression: "isLoading"
                         }
                       ],
-                      staticClass: "btn btn-success",
+                      staticClass: "btn btn-primary",
                       attrs: { disabled: "" }
                     },
-                    [_vm._v("\n              Creating...\n            ")]
+                    [_vm._v("\n              SAVING...\n            ")]
                   )
                 ])
               ])
@@ -82903,18 +82900,30 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "close",
-        attrs: {
-          type: "button",
-          "data-dismiss": "modal",
-          "aria-label": "Close"
-        }
-      },
-      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-    )
+    return _c("div", { staticClass: "modal-header mx-4" }, [
+      _c(
+        "h5",
+        {
+          staticClass: "modal-title font-weight-bold text-muted",
+          staticStyle: { "text-transform": "capitalize" },
+          attrs: { id: "modal-title" }
+        },
+        [_vm._v("\n            TAMBAH DROPBOX\n          ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -82949,7 +82958,7 @@ var render = function() {
           "data-target": "#delete-dropbox-modal-" + _vm.dropbox.id
         }
       },
-      [_vm._v("\n    Delete Dropbox\n  ")]
+      [_c("span", { staticClass: "mdi mdi-delete" })]
     ),
     _vm._v(" "),
     _c(
@@ -82975,10 +82984,31 @@ var render = function() {
             _c("div", { staticClass: "modal-content" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "modal-body mx-4" }, [
-                _c("h6", [_vm._v("\n            Are you sure?\n          ")]),
+              _c("div", { staticClass: "modal-body text-left mx-4" }, [
+                _c("div", [
+                  _vm._v(
+                    "\n                Apakah Anda yakin akan menghapus dropbox "
+                  ),
+                  _c("b", [
+                    _vm._v(
+                      _vm._s(_vm.dropbox.color) +
+                        "-" +
+                        _vm._s(_vm.dropbox.model)
+                    )
+                  ]),
+                  _vm._v("?\n            ")
+                ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "form-group mt-4 text-right" }, [
+                _c("div", { staticClass: "mt-4 text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary mx-2 shadow",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("TIDAK")]
+                  ),
+                  _vm._v(" "),
                   _c(
                     "button",
                     {
@@ -82990,35 +83020,14 @@ var render = function() {
                           expression: "!isLoading"
                         }
                       ],
-                      staticClass: "btn btn-danger",
+                      staticClass: "btn btn-secondary shadow",
                       on: {
                         click: function($event) {
                           return _vm.doDelete()
                         }
                       }
                     },
-                    [_vm._v("\n              Delete\n            ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: !_vm.isLoading,
-                          expression: "!isLoading"
-                        }
-                      ],
-                      staticClass: "btn",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [_vm._v("\n              Cancel\n            ")]
+                    [_vm._v("\n                    YA\n                ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -83032,27 +83041,10 @@ var render = function() {
                           expression: "isLoading"
                         }
                       ],
-                      staticClass: "btn btn-danger",
+                      staticClass: "btn btn-secondary",
                       attrs: { disabled: "" }
                     },
-                    [_vm._v("\n              Deleting...\n            ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.isLoading,
-                          expression: "isLoading"
-                        }
-                      ],
-                      staticClass: "btn",
-                      attrs: { disabled: "" }
-                    },
-                    [_vm._v("\n              Cancel\n            ")]
+                    [_vm._v("\n                    YA\n                ")]
                   )
                 ])
               ])
@@ -83073,9 +83065,9 @@ var staticRenderFns = [
         "h5",
         {
           staticClass: "modal-title font-weight-bold text-muted",
-          attrs: { id: "modal-title" }
+          staticStyle: { "text-transform": "uppercase" }
         },
-        [_vm._v("\n            Delete Dropbox\n          ")]
+        [_vm._v("\n            HAPUS DROPBOX\n            ")]
       ),
       _vm._v(" "),
       _c(
@@ -83119,13 +83111,13 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-warning",
+        staticClass: "btn btn-primary",
         attrs: {
           "data-toggle": "modal",
           "data-target": "#edit-dropbox-modal-" + _vm.dropbox.id
         }
       },
-      [_vm._v("\n    Update Dropbox\n  ")]
+      [_c("span", { staticClass: "mdi mdi-pencil" })]
     ),
     _vm._v(" "),
     _c(
@@ -83151,7 +83143,7 @@ var render = function() {
             _c("div", { staticClass: "modal-content" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "modal-body mx-4" }, [
+              _c("div", { staticClass: "modal-body text-left mx-4" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "color" } }, [_vm._v("Color")]),
                   _vm._v(" "),
@@ -83280,6 +83272,19 @@ var render = function() {
                   _c(
                     "button",
                     {
+                      staticClass: "btn btn-secondary text-white shadow mx-2",
+                      on: {
+                        click: function($event) {
+                          return _vm.doReset()
+                        }
+                      }
+                    },
+                    [_vm._v("\n              RESET\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
                       directives: [
                         {
                           name: "show",
@@ -83288,14 +83293,14 @@ var render = function() {
                           expression: "!isLoading"
                         }
                       ],
-                      staticClass: "btn btn-success",
+                      staticClass: "btn btn-primary shadow",
                       on: {
                         click: function($event) {
                           return _vm.doSubmit()
                         }
                       }
                     },
-                    [_vm._v("\n              Update Dropbox\n            ")]
+                    [_vm._v("\n              SAVE\n            ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -83309,10 +83314,10 @@ var render = function() {
                           expression: "isLoading"
                         }
                       ],
-                      staticClass: "btn btn-success",
+                      staticClass: "btn btn-primary",
                       attrs: { disabled: "" }
                     },
-                    [_vm._v("\n              Updating...\n            ")]
+                    [_vm._v("\n              SAVING...\n            ")]
                   )
                 ])
               ])
@@ -86277,7 +86282,7 @@ var render = function() {
                           expression: "isLoading"
                         }
                       ],
-                      staticClass: "btn btn-success",
+                      staticClass: "btn btn-primary",
                       attrs: { disabled: "" }
                     },
                     [_vm._v("\n              SAVING...\n            ")]
@@ -86347,13 +86352,13 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-danger",
+        staticClass: "btn btn-danger shadow",
         attrs: {
           "data-toggle": "modal",
           "data-target": "#delete-station-modal-id"
         }
       },
-      [_vm._v("\n    Delete Station\n  ")]
+      [_vm._v("\n    DELETE STATION\n  ")]
     ),
     _vm._v(" "),
     _c(
@@ -86379,10 +86384,25 @@ var render = function() {
             _c("div", { staticClass: "modal-content" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "modal-body mx-4" }, [
-                _c("h6", [_vm._v("\n            Are you sure?\n          ")]),
+              _c("div", { staticClass: "modal-body text-left mx-4" }, [
+                _c("div", [
+                  _vm._v(
+                    "\n                    Apakah Anda yakin akan menghapus station "
+                  ),
+                  _c("b", [_vm._v(_vm._s(_vm.station.name))]),
+                  _vm._v("?\n                ")
+                ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "form-group mt-4 text-right" }, [
+                _c("div", { staticClass: "mt-4 text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary mx-2 shadow",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("TIDAK")]
+                  ),
+                  _vm._v(" "),
                   _c(
                     "button",
                     {
@@ -86394,35 +86414,18 @@ var render = function() {
                           expression: "!isLoading"
                         }
                       ],
-                      staticClass: "btn btn-danger",
+                      staticClass: "btn btn-secondary shadow",
                       on: {
                         click: function($event) {
                           return _vm.doDelete()
                         }
                       }
                     },
-                    [_vm._v("\n              Delete\n            ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: !_vm.isLoading,
-                          expression: "!isLoading"
-                        }
-                      ],
-                      staticClass: "btn",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [_vm._v("\n              Cancel\n            ")]
+                    [
+                      _vm._v(
+                        "\n                        YA\n                    "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c(
@@ -86436,27 +86439,14 @@ var render = function() {
                           expression: "isLoading"
                         }
                       ],
-                      staticClass: "btn btn-danger",
+                      staticClass: "btn btn-secondary",
                       attrs: { disabled: "" }
                     },
-                    [_vm._v("\n              Deleting...\n            ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.isLoading,
-                          expression: "isLoading"
-                        }
-                      ],
-                      staticClass: "btn",
-                      attrs: { disabled: "" }
-                    },
-                    [_vm._v("\n              Cancel\n            ")]
+                    [
+                      _vm._v(
+                        "\n                        YA\n                    "
+                      )
+                    ]
                   )
                 ])
               ])
@@ -86477,9 +86467,9 @@ var staticRenderFns = [
         "h5",
         {
           staticClass: "modal-title font-weight-bold text-muted",
-          attrs: { id: "modal-title" }
+          staticStyle: { "text-transform": "uppercase" }
         },
-        [_vm._v("\n            Delete Station?\n          ")]
+        [_vm._v("\n                HAPUS STATION\n                ")]
       ),
       _vm._v(" "),
       _c(

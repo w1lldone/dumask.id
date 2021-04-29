@@ -1,11 +1,11 @@
 <template>
   <div>
     <button
-      class="btn btn-danger"
+      class="btn btn-danger shadow"
       data-toggle="modal"
       data-target="#delete-station-modal-id"
     >
-      Delete Station
+      DELETE STATION
     </button>
     <div
       class="modal fade"
@@ -16,53 +16,42 @@
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header mx-4">
-            <h5
-              class="modal-title font-weight-bold text-muted"
-              id="modal-title"
-            >
-              Delete Station?
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
+          <div class="modal-content">
+              <div class="modal-header mx-4">
+                  <h5
+                  class="modal-title font-weight-bold text-muted"
+                  style="text-transform: uppercase"
+                  >
+                  HAPUS STATION
+                  </h5>
+                  <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  >
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body text-left mx-4">
+                  <div>
+                      Apakah Anda yakin akan menghapus station <b>{{station.name}}</b>?
+                  </div>
+                  <div class="mt-4 text-right">
+                      <button type="button" class="btn btn-primary mx-2 shadow" data-dismiss="modal">TIDAK</button>
+                      <button
+                          class="btn btn-secondary shadow"
+                          v-show="!isLoading"
+                          @click="doDelete()"
+                      >
+                          YA
+                      </button>
+                      <button class="btn btn-secondary" disabled v-show="isLoading">
+                          YA
+                      </button>
+                  </div>
+              </div>
           </div>
-          <div class="modal-body mx-4">
-            <h6>
-              Are you sure?
-            </h6>
-            <div class="form-group mt-4 text-right">
-              <button
-                class="btn btn-danger"
-                v-show="!isLoading"
-                @click="doDelete()"
-              >
-                Delete
-              </button>
-              <button
-              type="button"
-              class="btn"
-              data-dismiss="modal"
-              v-show="!isLoading"
-              aria-label="Close"
-              >
-                Cancel
-              </button>
-              <button class="btn btn-danger" disabled v-show="isLoading">
-                Deleting...
-              </button>
-              <button class="btn" disabled v-show="isLoading">
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

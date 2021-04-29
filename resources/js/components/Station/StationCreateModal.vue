@@ -116,7 +116,7 @@
               >
                 SAVE
               </button>
-              <button class="btn btn-success" disabled v-show="isLoading">
+              <button class="btn btn-primary" disabled v-show="isLoading">
                 SAVING...
               </button>
             </div>

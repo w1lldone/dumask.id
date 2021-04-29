@@ -1,11 +1,11 @@
 <template>
   <div>
     <button
-      class="btn btn-primary"
+      class="btn btn-primary shadow"
       data-toggle="modal"
       data-target="#create-dropbox-modal-id"
     >
-      Create new Dropbox
+      TAMBAH DROPBOX
     </button>
     <div
       class="modal fade"
@@ -21,8 +21,9 @@
             <h5
               class="modal-title font-weight-bold text-muted"
               id="modal-title"
+              style="text-transform: capitalize;"
             >
-              Create New Dropbox for {{ station.name }}
+              TAMBAH DROPBOX
             </h5>
             <button
               type="button"
@@ -33,8 +34,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body mx-4">
-
+          <div class="modal-body text-left mx-4">
             <div class="form-group" >
               <label for="color">Color</label>
               <select 
@@ -80,15 +80,22 @@
             </div>
 
             <div class="form-group mt-4 text-right">
+               <button
+                style="background: #A7A7A7"
+                class="btn text-white shadow mx-2"
+                @click="doReset()"
+              >
+                RESET
+              </button>
               <button
-                class="btn btn-success"
+                class="btn btn-primary shadow"
                 v-show="!isLoading"
                 @click="doSubmit()"
               >
-                Create Dropbox
+                SAVE
               </button>
-              <button class="btn btn-success" disabled v-show="isLoading">
-                Creating...
+              <button class="btn btn-primary" disabled v-show="isLoading">
+                SAVING...
               </button>
             </div>
           </div>
@@ -155,6 +162,14 @@ export default {
 
       return "";
     },
+
+    doReset() {
+      this.form = {
+        station_id: this.station.id,
+        color: null,
+        model: null,
+      }
+    }
   },
 };
 </script>
