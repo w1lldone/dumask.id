@@ -7,7 +7,7 @@
             <h2 class="text-secondary font-weight-bold">STATIONS</h2>
             <span>
                 <a href="{{ route('station.index') }}">Stations List</a> 
-                <span class="mdi mdi-chevron-right"></span> {{ $station->name }}
+                <span class="mdi mdi-chevron-right"></span> Detail Station
             </span>
         </div>
     </div>
