@@ -5,7 +5,7 @@
       data-toggle="modal"
       data-target="#create-station-modal-id"
     >
-      Create new Station
+      TAMBAH STATION
     </button>
     <div
       class="modal fade"
@@ -22,7 +22,7 @@
               class="modal-title font-weight-bold text-muted"
               id="modal-title"
             >
-              Create Station
+              TAMBAH STATION
             </h5>
             <button
               type="button"
@@ -36,7 +36,7 @@
           <div class="modal-body mx-4">
 
             <div class="form-group">
-              <label for="name">Name</label>
+              <label for="name">Nama</label>
               <input
                 type="text"
                 class="form-control"
@@ -49,26 +49,26 @@
             </div>
 
             <div class="form-group">
-              <label for="email">Description</label>
-              <input type="text"
+              <label for="email">Deskripsi</label>
+              <textarea type="text"
               required 
               v-model="form.description" 
               class="form-control"
               :class="{ 'is-invalid': hasErrors('description') }"
-              />
+              ></textarea>
               <div class="invalid-feedback">
                 {{ getErrors("description") }}
               </div>
             </div>
 
             <div class="form-group">
-              <label for="address">Address</label>
-              <input type="text"
+              <label for="address">Alamat</label>
+              <textarea type="text"
               required 
               v-model="form.address" 
               class="form-control"
               :class="{ 'is-invalid': hasErrors('address') }"
-              />
+              ></textarea>
               <div class="invalid-feedback">
                 {{ getErrors("address") }}
               </div>
@@ -102,15 +102,22 @@
             </div>
 
             <div class="form-group mt-4 text-right">
+               <button
+                style="background: #A7A7A7"
+                class="btn text-white shadow mx-2"
+                @click="doReset()"
+              >
+                RESET
+              </button>
               <button
-                class="btn btn-success"
+                class="btn btn-primary shadow"
                 v-show="!isLoading"
                 @click="doSubmit()"
               >
-                Save Station
+                SAVE
               </button>
-              <button class="btn btn-success" disabled v-show="isLoading">
-                Saving...
+              <button class="btn btn-primary" disabled v-show="isLoading">
+                SAVING...
               </button>
             </div>
           </div>
@@ -167,6 +174,15 @@ export default {
 
       return "";
     },
+    doReset() {
+      this.form = {
+        name: null,
+        description: null,
+        address: null,
+        longitude: null,
+        latitude: null,
+      }
+    }
   },
 };
 </script>

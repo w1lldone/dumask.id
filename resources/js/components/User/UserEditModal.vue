@@ -22,7 +22,7 @@
               class="modal-title font-weight-bold text-muted"
               id="modal-title"
             >
-              Edit User
+              EDIT USER
             </h5>
             <button
               type="button"
@@ -166,10 +166,10 @@
                 v-show="!isLoading"
                 @click="doSubmit()"
               >
-                Save
+                SAVE
               </button>
               <button class="btn btn-primary" disabled v-show="isLoading">
-                Saving...
+                SAVING...
               </button>
             </div>
           </div>

@@ -1,11 +1,11 @@
 <template>
   <div>
     <button
-      class="btn btn-warning"
+      class="btn btn-primary"
       data-toggle="modal"
       :data-target="'#edit-dropbox-modal-' + dropbox.id"
     >
-      Update Dropbox
+      <span class="mdi mdi-pencil"></span>
     </button>
     <div
       class="modal fade"
@@ -33,8 +33,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body mx-4">
-
+          <div class="modal-body text-left mx-4">
             <div class="form-group" >
               <label for="color">Color</label>
               <select 
@@ -81,14 +80,20 @@
 
             <div class="form-group mt-4 text-right">
               <button
-                class="btn btn-success"
+                class="btn btn-secondary text-white shadow mx-2"
+                @click="doReset()"
+              >
+                RESET
+              </button>
+              <button
+                class="btn btn-primary shadow"
                 v-show="!isLoading"
                 @click="doSubmit()"
               >
-                Update Dropbox
+                SAVE
               </button>
-              <button class="btn btn-success" disabled v-show="isLoading">
-                Updating...
+              <button class="btn btn-primary" disabled v-show="isLoading">
+                SAVING...
               </button>
             </div>
           </div>
@@ -150,6 +155,10 @@ export default {
       }
 
       return "";
+    },
+
+    doReset() {
+      this.form = {...this.dropbox}
     },
   },
 };
