@@ -40,7 +40,7 @@
                 bekas dari masyarakat umum yang aman dan ramah lingkungan.
                 <br><br>
                 <b>Powered by</b>
-                Resource Recovery and Waste Utilization PIAT UGM
+                Resource Recovery and Waste Management PIAT UGM
             </div>
         </div>
     </div>

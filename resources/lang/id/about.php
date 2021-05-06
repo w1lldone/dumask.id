@@ -10,5 +10,7 @@ return [
                 Program penelitian ini merupakan kolaborasi antara peneliti PTNBH dari UGM, ITB, UNS dan UNAIR
                 yang juga didukung oleh para peneliti dari UAD, Politeknik ATK, UJB, dan UP45. DUMASK bertujuan
                 khusus untuk menyediakan jalur pembuangan masker dan sarung tangan bekas dari masyarakat umum yang
-                aman dan ramah lingkungan.'
+                aman dan ramah lingkungan.',
+
+    'closing' => 'Kumpulkan masker bekasmu di rumah, simpan dalam kantong plastik/kertas tertutup rapi dan buang ke dropbox Dumask terdekat.'
 ];

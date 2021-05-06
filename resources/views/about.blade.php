@@ -64,8 +64,7 @@
     </div>
     <div class="card rounded border-0 shadow px-4 py-2 mx-3 my-2" style="border-radius: 0.5rem">
         <h5 class="text-secondary text-center font-weight-bold my-2 mb-0">
-            Kumpulkan masker bekasmu di rumah, simpan dalam kantong plastik/kertas
-            tertutup rapi dan buang ke dropbox Dumask terdekat.
+            {{ __('about.closing') }}
         </h5>
     </div>
 
