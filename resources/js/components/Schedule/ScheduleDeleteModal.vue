@@ -5,7 +5,7 @@
       data-toggle="modal"
       :data-target="'#delete-schedule-modal-' + schedule.id"
     >
-      Delete schedule
+      <span class="mdi mdi-delete"></span>
     </button>
     <div
       class="modal fade"

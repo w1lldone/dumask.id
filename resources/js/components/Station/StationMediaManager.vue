@@ -7,7 +7,7 @@
       data-toggle="modal"
       data-target="#stationMediaModal"
     >
-      Manage Galery
+      EDIT GALERI
     </button>
 
     <!-- Modal -->

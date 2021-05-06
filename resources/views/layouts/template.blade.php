@@ -92,52 +92,52 @@
                     <ul class="navbar-nav text-left mr-auto">
                         <li class="nav-item text-left">
                             <a
-                            class="nav-link font-weight-bold px-3 {{ Request::is('dashboard') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
+                            class="nav-link font-weight-bold px-3 {{ Route::is('dashboard.*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                             href="{{ url('/dashboard')}}"
                             >
                             <span class="mdi mdi-view-dashboard" style="font-size: 18px"></span>
-                            <span class="ml-2 {{ Request::is('dashboard') ? '' : 'text-dark' }}">Dashboard</span>
+                            <span class="ml-2 {{ Route::is('dashboard.*') ? '' : 'text-dark' }}">Dashboard</span>
                             </a>
                         </li>
                         @can('viewAny', \App\Models\Station::class)
                         <li class="nav-item text-left">
                             <a
-                            class="nav-link font-weight-bold px-3 {{ Request::is('station') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
+                            class="nav-link font-weight-bold px-3 {{ Route::is('station.*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                             href="{{ url('/station')}}"
                             >
                             <span class="mdi mdi-flag" style="font-size: 18px"></span>
-                            <span class="ml-2 {{ Request::is('station') ? '' : 'text-dark' }}">Stations</span>
+                            <span class="ml-2 {{ Route::is('station.*') ? '' : 'text-dark' }}">Stations</span>
                             </a>
                         </li>
                         @endcan
                         @can('viewAny', \App\Models\User::class)
                         <li class="nav-item text-left">
                             <a
-                            class="nav-link font-weight-bold px-3 {{ Request::is('user') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
+                            class="nav-link font-weight-bold px-3 {{ Route::is('user.*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                             href="{{ url('/user')}}"
                             >
                             <span class="mdi mdi-account-supervisor" style="font-size: 18px"></span>
-                            <span class="ml-2 {{ Request::is('user') ? '' : 'text-dark' }}">Users</span>
+                            <span class="ml-2 {{ Route::is('user.*') ? '' : 'text-dark' }}">Users</span>
 
                             </a>
                         </li>
                         @endcan
                         @can('viewAny', \App\Models\Station::class)
                         <li class="nav-item text-left">
-                            <a class="nav-link font-weight-bold px-3 {{ Request::is('operation') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
+                            <a class="nav-link font-weight-bold px-3 {{ Route::is('operation.*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                                 href="{{ url('/operation')}}">
                                 <span class="mdi mdi-scale" style="font-size: 18px"></span>
-                                <span class="ml-2 {{ Request::is('operation') ? '' : 'text-dark' }}">Operations</span>
+                                <span class="ml-2 {{ Route::is('operation.*') ? '' : 'text-dark' }}">Operations</span>
                             </a>
                         </li>
                         @endcan
                         <li class="nav-item text-left">
                             <a
-                            class="nav-link font-weight-bold px-3 {{ Request::is('settings') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
+                            class="nav-link font-weight-bold px-3 {{ Request::is('settings/*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                             href="{{ url('/setting')}}"
                             >
                             <span class="mdi mdi-settings" style="font-size: 18px"></span>
-                            <span class="ml-2 {{ Request::is('settings') ? '' : 'text-dark' }}">Pengaturan</span>
+                            <span class="ml-2 {{ Request::is('settings/*') ? '' : 'text-dark' }}">Pengaturan</span>
                             </a>
                         </li>
                     </ul>
@@ -160,53 +160,53 @@
                                     <ul class="navbar-nav text-left mr-auto">
                                         <li class="nav-item text-left">
                                             <a
-                                            class="nav-link font-weight-bold px-3 {{ Request::is('dashboard') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
+                                            class="nav-link font-weight-bold px-3 {{ Route::is('dashboard.*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                                             href="{{ url('/dashboard')}}"
                                             >
                                             <span class="mdi mdi-view-dashboard" style="font-size: 18px"></span>
-                                            <span class="ml-2 {{ Request::is('dashboard') ? '' : 'text-dark' }}">Dashboard</span>
+                                            <span class="ml-2 {{ Route::is('dashboard.*') ? '' : 'text-dark' }}">Dashboard</span>
                                             </a>
                                         </li>
                                         @can('viewAny', \App\Models\Station::class)
                                         <li class="nav-item text-left">
                                             <a
-                                            class="nav-link font-weight-bold px-3 {{ Request::is('station') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
+                                            class="nav-link font-weight-bold px-3 {{ Route::is('station.*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                                             href="{{ url('/station')}}"
                                             >
                                             <span class="mdi mdi-flag" style="font-size: 18px"></span>
-                                            <span class="ml-2 {{ Request::is('station') ? '' : 'text-dark' }}">Stations</span>
+                                            <span class="ml-2 {{ Route::is('station.*') ? '' : 'text-dark' }}">Stations</span>
                                             </a>
                                         </li>
                                         @endcan
                                         @can('viewAny', \App\Models\User::class)
                                         <li class="nav-item text-left">
                                             <a
-                                            class="nav-link font-weight-bold px-3 {{ Request::is('user') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
+                                            class="nav-link font-weight-bold px-3 {{ Route::is('user.*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                                             href="{{ url('/user')}}"
                                             >
                                             <span class="mdi mdi-account-supervisor" style="font-size: 18px"></span>
-                                            <span class="ml-2 {{ Request::is('user') ? '' : 'text-dark' }}">Users</span>
+                                            <span class="ml-2 {{ Route::is('user.*') ? '' : 'text-dark' }}">Users</span>
 
                                             </a>
                                         </li>
                                         @endcan
                                         @can('viewAny', \App\Models\Station::class)
                                         <li class="nav-item text-left">
-                                            <a class="nav-link font-weight-bold px-3 {{ Request::is('operation') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
+                                            <a class="nav-link font-weight-bold px-3 {{ Route::is('operation.*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                                                 href="{{ url('/operation')}}">
                                                 <span class="mdi mdi-scale" style="font-size: 18px"></span>
-                                                <span class="ml-2 {{ Request::is('operation') ? '' : 'text-dark' }}">Operation</span>
+                                                <span class="ml-2 {{ Route::is('operation.*') ? '' : 'text-dark' }}">Operation</span>
 
                                             </a>
                                         </li>
                                         @endcan
                                         <li class="nav-item text-left">
                                             <a
-                                            class="nav-link font-weight-bold px-3 {{ Request::is('settings') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
+                                            class="nav-link font-weight-bold px-3 {{ Request::is('settings/*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                                             href="{{ url('/setting')}}"
                                             >
                                             <span class="mdi mdi-settings" style="font-size: 18px"></span>
-                                            <span class="ml-2 {{ Request::is('settings') ? '' : 'text-dark' }}">Pengaturan</span>
+                                            <span class="ml-2 {{ Request::is('settings/*') ? '' : 'text-dark' }}">Pengaturan</span>
                                             </a>
                                         </li>
                                     </ul>
