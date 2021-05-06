@@ -21,14 +21,14 @@ class StationFeatureTest extends TestCase
 
         $response->assertOk();
     }
-    
+
     /** @test */
     public function authorized_user_can_visit_station_show_page()
     {
         $this->login();
         $station = Station::factory()->hasDropboxes(2)->create();
 
-        $response = $this->get(route('station.show', $station));
+        $response = $this->getJson(route('station.show', $station));
 
         $response->assertOk();
     }
@@ -38,10 +38,10 @@ class StationFeatureTest extends TestCase
     {
         $this->login();
         $data = Station::factory()->make()->toArray();
-        
+
         $response = $this->postJson(route('station.store'), $data);
 
-        $response->assertCreated()->assertJson($data);      
+        $response->assertCreated()->assertJson($data);
     }
 
     /** @test */
@@ -50,7 +50,7 @@ class StationFeatureTest extends TestCase
         $this->login();
         $station = Station::factory()->hasDropboxes(2)->create();
         $data = Station::factory()->make()->toArray();
-        
+
         $response = $this->putJson(route('station.update', $station), $data);
         $data['id'] = $station->id;
 
@@ -63,7 +63,7 @@ class StationFeatureTest extends TestCase
     {
         $this->login();
         $station = Station::factory()->hasDropboxes(2)->create();
-        
+
         $response = $this->deleteJson(route('station.destroy', $station));
 
         $response->assertNoContent();

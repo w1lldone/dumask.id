@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRolesToUsersTable extends Migration
+class AddLastOperationAtToStationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddRolesToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_superadmin')->nullable()->default(false);
-            $table->json('permissions')->nullable();
+        Schema::table('stations', function (Blueprint $table) {
+            $table->timestamp('last_operation_at')->nullable();
         });
     }
 
@@ -26,8 +25,8 @@ class AddRolesToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['is_superadmin', 'permissions']);
+        Schema::table('stations', function (Blueprint $table) {
+            $table->dropColumn('last_operation_at');
         });
     }
 }

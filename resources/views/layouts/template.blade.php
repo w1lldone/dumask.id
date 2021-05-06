@@ -25,9 +25,9 @@
 
     </head>
 
-    
+
     <body class="relative antialiased" style="background-color: #EBF1F7">
-        
+
         <nav class="d-md-none navbar navbar-expand-md navbar-light bg-white rounded relative w-100">
             <div class="container py-0">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -48,35 +48,35 @@
                         </div>
                         <div class="d-flex mb-4">
                             <div class="flex-row">
-                                <button 
-                                type="button" 
-                                data-toggle="dropdown" 
-                                aria-haspopup="true" 
-                                aria-expanded="false" 
+                                <button
+                                type="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
                                 class="nav-link flex-row dropdown card border-0 rounded p-0"
                                 >
                                     <div>
-                                        <img 
-                                        class="img-fluid rounded" 
-                                        src="{{ asset('img/profile_photo.png')}}" 
-                                        alt="Profile" 
+                                        <img
+                                        class="img-fluid rounded"
+                                        src="{{ asset('img/profile_photo.png')}}"
+                                        alt="Profile"
                                         style="width: 42px; height: 42px"
                                         >
                                     </div>
-                                        
+
                                     <div class="d-flex flex-column text-left mx-2">
                                         <span class="text-primary font-weight-bold">{{ Auth::user()->name }}</span>
                                         <span class="text-dark" style="font-size: 12px">Admin</span>
                                     </div>
-        
+
                                     <div class="nav-link text-left dropdown-toggle my-auto">
-                                        
+
                                     </div>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item disabled" href="">Profil</a>
-                                    <a 
-                                        class="dropdown-item text-primary" 
+                                    <a
+                                        class="dropdown-item text-primary"
                                         href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
@@ -85,14 +85,14 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </ul>
                     <ul class="navbar-nav text-left mr-auto">
                         <li class="nav-item text-left">
-                            <a 
-                            class="nav-link font-weight-bold px-3 {{ Request::is('dashboard') ? 'btn-primary text-white rounded' : 'text-secondary' }}" 
+                            <a
+                            class="nav-link font-weight-bold px-3 {{ Request::is('dashboard') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                             href="{{ url('/dashboard')}}"
                             >
                             <span class="mdi mdi-view-dashboard" style="font-size: 18px"></span>
@@ -101,29 +101,38 @@
                         </li>
                         @can('viewAny', \App\Models\Station::class)
                         <li class="nav-item text-left">
-                            <a 
-                            class="nav-link font-weight-bold px-3 {{ Request::is('station') ? 'btn-primary text-white rounded' : 'text-secondary' }}" 
+                            <a
+                            class="nav-link font-weight-bold px-3 {{ Request::is('station') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                             href="{{ url('/station')}}"
                             >
                             <span class="mdi mdi-flag" style="font-size: 18px"></span>
                             <span class="ml-2 {{ Request::is('station') ? '' : 'text-dark' }}">Stations</span>
                             </a>
-                        </li>  
+                        </li>
                         @endcan
                         @can('viewAny', \App\Models\User::class)
                         <li class="nav-item text-left">
-                            <a 
+                            <a
                             class="nav-link font-weight-bold px-3 {{ Request::is('user') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                             href="{{ url('/user')}}"
                             >
                             <span class="mdi mdi-account-supervisor" style="font-size: 18px"></span>
                             <span class="ml-2 {{ Request::is('user') ? '' : 'text-dark' }}">Users</span>
-                            
+
+                            </a>
+                        </li>
+                        @endcan
+                        @can('viewAny', \App\Models\Station::class)
+                        <li class="nav-item text-left">
+                            <a class="nav-link font-weight-bold px-3 {{ Request::is('operation') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
+                                href="{{ url('/operation')}}">
+                                <span class="mdi mdi-scale" style="font-size: 18px"></span>
+                                <span class="ml-2 {{ Request::is('operation') ? '' : 'text-dark' }}">Operations</span>
                             </a>
                         </li>
                         @endcan
                         <li class="nav-item text-left">
-                            <a 
+                            <a
                             class="nav-link font-weight-bold px-3 {{ Request::is('settings') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                             href="{{ url('/setting')}}"
                             >
@@ -132,7 +141,7 @@
                             </a>
                         </li>
                     </ul>
-                    
+
                 </div>
             </div>
         </nav>
@@ -150,8 +159,8 @@
                                 <nav>
                                     <ul class="navbar-nav text-left mr-auto">
                                         <li class="nav-item text-left">
-                                            <a 
-                                            class="nav-link font-weight-bold px-3 {{ Request::is('dashboard') ? 'btn-primary text-white rounded' : 'text-secondary' }}" 
+                                            <a
+                                            class="nav-link font-weight-bold px-3 {{ Request::is('dashboard') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                                             href="{{ url('/dashboard')}}"
                                             >
                                             <span class="mdi mdi-view-dashboard" style="font-size: 18px"></span>
@@ -160,29 +169,39 @@
                                         </li>
                                         @can('viewAny', \App\Models\Station::class)
                                         <li class="nav-item text-left">
-                                            <a 
-                                            class="nav-link font-weight-bold px-3 {{ Request::is('station') ? 'btn-primary text-white rounded' : 'text-secondary' }}" 
+                                            <a
+                                            class="nav-link font-weight-bold px-3 {{ Request::is('station') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                                             href="{{ url('/station')}}"
                                             >
                                             <span class="mdi mdi-flag" style="font-size: 18px"></span>
                                             <span class="ml-2 {{ Request::is('station') ? '' : 'text-dark' }}">Stations</span>
                                             </a>
-                                        </li>  
+                                        </li>
                                         @endcan
                                         @can('viewAny', \App\Models\User::class)
                                         <li class="nav-item text-left">
-                                            <a 
+                                            <a
                                             class="nav-link font-weight-bold px-3 {{ Request::is('user') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                                             href="{{ url('/user')}}"
                                             >
                                             <span class="mdi mdi-account-supervisor" style="font-size: 18px"></span>
                                             <span class="ml-2 {{ Request::is('user') ? '' : 'text-dark' }}">Users</span>
-                                            
+
+                                            </a>
+                                        </li>
+                                        @endcan
+                                        @can('viewAny', \App\Models\Station::class)
+                                        <li class="nav-item text-left">
+                                            <a class="nav-link font-weight-bold px-3 {{ Request::is('operation') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
+                                                href="{{ url('/operation')}}">
+                                                <span class="mdi mdi-scale" style="font-size: 18px"></span>
+                                                <span class="ml-2 {{ Request::is('operation') ? '' : 'text-dark' }}">Operation</span>
+
                                             </a>
                                         </li>
                                         @endcan
                                         <li class="nav-item text-left">
-                                            <a 
+                                            <a
                                             class="nav-link font-weight-bold px-3 {{ Request::is('settings') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
                                             href="{{ url('/setting')}}"
                                             >
@@ -201,35 +220,39 @@
                         <button class="btn btn-primary rounded mx-2 shadow">
                             <span class="mdi mdi-bell" style="font-size: 16px"></span>
                         </button>
-                        <button 
-                            type="button" 
-                            data-toggle="dropdown" 
-                            aria-haspopup="true" 
-                            aria-expanded="false" 
+                        <button
+                            type="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
                             class="nav-link flex-row dropdown card border-0 rounded shadow p-0"
                         >
                             <div>
-                                <img 
-                                class="img-fluid rounded" 
-                                src="{{ asset('img/profile_photo.png')}}" 
-                                alt="Profile" 
+                                <img
+                                class="img-fluid rounded"
+                                src="{{ asset('img/profile_photo.png')}}"
+                                alt="Profile"
                                 style="width: 42px; height: 42px"
                                 >
                             </div>
-                                
+
                             <div class="d-flex flex-column text-left mx-2">
                                 <span class="text-primary font-weight-bold">{{ Auth::user()->name }}</span>
                                 <span class="text-dark" style="font-size: 12px">Admin</span>
                             </div>
 
                             <div class="nav-link text-left dropdown-toggle my-auto">
-                                
+
                             </div>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item disabled" href="">Profil</a>
-                            <a 
-                                class="dropdown-item text-primary" 
+                            <a
+                                class="dropdown-item text-primary"
+                                href="{{ route('profile.index') }}">
+                                {{ __('Profil') }}
+                            </a>
+                            <a
+                                class="dropdown-item text-primary"
                                 href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -239,7 +262,7 @@
                                 @csrf
                             </form>
                         </div>
-                        
+
                     </div>
                     <div>
                         @yield('content')

@@ -27,7 +27,7 @@ class StationDropboxController extends Controller
     {
         $this->authorize('update', $station);
         $dropbox = $station->dropboxes()->findOrFail($dropbox);
-        
+
         $data = $request->validate([
             'model' => ['string', Rule::in(Dropbox::$availableModels)],
             'color' => ['string', Rule::in(Dropbox::$availableColors)]

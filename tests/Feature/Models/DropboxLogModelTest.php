@@ -16,7 +16,10 @@ class DropboxLogModelTest extends TestCase
     {
         $dropboxLog = DropboxLog::factory()->create();
 
-        $this->assertDatabaseHas('dropbox_logs', $dropboxLog->toArray());
+        $this->assertDatabaseHas('dropbox_logs', [
+            'id' => $dropboxLog->id,
+            'dropbox_id' => $dropboxLog->dropbox_id
+        ]);
     }
 
     /** @test */
@@ -36,5 +39,18 @@ class DropboxLogModelTest extends TestCase
         $child = DropboxLog::factory()->create(['parent_id' => $parent->id]);
 
         $this->assertTrue($parent->is($child->parent));
+    }
+
+    /** @test */
+    public function it_deletes_related_children_after_being_deleted()
+    {
+        $log = DropboxLog::factory()->create();
+        DropboxLog::factory(5)->create(['parent_id' => $log->id]);
+
+        $log->delete();
+
+        $this->assertDatabaseMissing('dropbox_logs', [
+            'parent_id' => $log->id
+        ]);
     }
 }

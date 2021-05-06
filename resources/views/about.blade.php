@@ -2,21 +2,34 @@
 
 @section('title', 'Tentang Dumask.id')
 
+@section('additionalNav')
+<li class="nav-item dropdown">
+    <a id="navbarDropdown" class="nav-link text-primary font-weight-bold dropdown-toggle" href="#" role="button"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        <span class="mdi mdi-translate"></span> {{ strtoupper($lang) }}
+    </a>
+
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item text-primary" href="{{ route('about', 'id') }}">
+            Bahasa Indonesia
+        </a>
+
+        <a class="dropdown-item text-primary" href="{{ route('about', 'en') }}">English</a>
+    </div>
+</li>
+@endsection
+
 @section('content')
 
 <div class="container w-md-75 my-4">
     <div class="card rounded border-0 shadow px-4 py-2 mx-3 my-2" style="border-radius: 0.5rem">
         <h2 class="text-primary text-center font-weight-bold mt-2 mb-0">
-            ABOUT DUMASK.ID
+            {{ __('about.title') }}
         </h2>
         <hr class="my-2">
         <div class="text-secondary text-center mt-4 mx-auto">
             <h5 style="line-height: 175%">
-                Pada masa pandemi saat ini, penduduk dunia memakai
-                <b>129 milyar masker dan 65 milyar sarung tangan plastik</b> sekali pakai setiap bulannya.
-                Jumlah pemakaian yang luar biasa ini telah terlihat dampaknya di lingkungan sekitar berupa tercemarnya sungai,
-                pantai dan lautan serta berbagai macam hewan terjerat oleh limbah ini.
-                Mudah sekali saat ini dijumpai limbah masker bekas berserakan di pinggir jalan.
+                {{ __('about.background') }}
             </h5>
         </div>
     </div>
@@ -34,11 +47,7 @@
     <div class="card rounded border-0 shadow px-4 py-2 mx-3 my-2" style="border-radius: 0.5rem">
         <div class="text-secondary text-center my-2 mx-auto">
             <h5 style="line-height: 175%">
-                <b>Dumask</b> adalah penelitian kolaboratif yang didanai oleh program PPKI 2021 - 2023.
-                Program penelitian ini merupakan kolaborasi antara peneliti PTNBH dari UGM, ITB, UNS dan UNAIR
-                yang juga didukung oleh para peneliti dari UAD, Politeknik ATK, UJB, dan UP45. DUMASK bertujuan
-                khusus untuk menyediakan jalur pembuangan masker dan sarung tangan bekas dari masyarakat umum yang
-                aman dan ramah lingkungan.
+                {!! __('about.definition') !!}
             </h5>
         </div>
     </div>
@@ -55,8 +64,7 @@
     </div>
     <div class="card rounded border-0 shadow px-4 py-2 mx-3 my-2" style="border-radius: 0.5rem">
         <h5 class="text-secondary text-center font-weight-bold my-2 mb-0">
-            Kumpulkan masker bekasmu di rumah, simpan dalam kantong plastik/kertas
-            tertutup rapi dan buang ke dropbox Dumask terdekat.
+            {{ __('about.closing') }}
         </h5>
     </div>
 

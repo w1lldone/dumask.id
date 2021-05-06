@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\DropboxOperationController;
+use App\Http\Controllers\OperationController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StaticPageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StationController;
@@ -23,7 +27,7 @@ require __DIR__ . '/auth.php';
 Route::get('/', [App\Http\Controllers\ExploreController::class, 'index']);
 
 Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
-Route::view('/about', 'about')->name('about');
+Route::get('/about/{lang?}', [StaticPageController::class, 'about'])->name('about');
 Route::view('/policy', 'privacy-policy')->name('privacy-policy');
 Route::view('/terms', 'terms-of-service')->name('terms');
 
@@ -33,6 +37,13 @@ Route::prefix('user')->name('user.')->middleware('auth')->group(function ()
     Route::post('/', [UserController::class, 'store'])->name('store');
     Route::put('/{user}', [UserController::class, 'update'])->name('update');
     Route::delete('/{user}', [UserController::class, 'destroy'])->name('delete');
+});
+
+Route::prefix('profile')->name('profile.')->middleware('auth')->group(function ()
+{
+    Route::get('/', [ProfileController::class, 'index'])->name('index');
+    Route::put('/update', [ProfileController::class, 'update'])->name('update');
+    Route::put('/update-password', [ProfileController::class, 'updatePassword'])->name('update.password');
 });
 
 Route::middleware('auth')
@@ -49,3 +60,12 @@ Route::middleware('auth')
 
 Route::resource('station.media', StationMediaController::class)
     ->only(['index', 'store', 'destroy']);
+
+Route::prefix('operation')->middleware('auth')->name('operation.')->group(function ()
+{
+    Route::get('/', [OperationController::class, 'index'])->name('index');
+    Route::get('/{station}', [OperationController::class, 'show'])->name('show');
+    Route::post('/{station}/replace', [OperationController::class, 'replace'])->name('replace');
+    Route::post('/{station}/inspect', [OperationController::class, 'inspect'])->name('inspect');
+    Route::delete('/{dropboxLog}', [OperationController::class, 'destroy'])->name('destroy');
+});

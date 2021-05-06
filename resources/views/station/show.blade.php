@@ -29,20 +29,22 @@
                             <media-carousel :station-id="{{ $station->id }}"></media-carousel>
                             <station-media-manager class="float-right mt-2" :station='@json($station)'></station-media-manager>
                         </div>
-                    </div>
-
-                    <div class="py-2">
-                        <div class="d-flex flex-column row">
-                            <station-schedule-list :station='{{ json_encode($station) }}'></station-schedule-list>
+                        <div class="col-md-12 mt-5">
+                            <div class="py-2 d-flex align-items-center justify-content-between">
+                                <h3>Dropboxes <span class="badge badge-primary">Total: {{ $station->dropboxes_count }}</span></h3>
+                                <dropbox-create-modal :station='{{ json_encode($station) }}' :colors='@json(\App\Models\Dropbox::$availableColors)'
+                                    :models='@json(\App\Models\Dropbox::$availableModels)'></dropbox-create-modal>
+                            </div>
+                            <div class="py-2">
+                                <station-dropbox-list :station='{{ json_encode($station) }}' :colors='@json(\App\Models\Dropbox::$availableColors)'
+                                    :models='@json(\App\Models\Dropbox::$availableModels)'></station-dropbox-list>
+                            </div>
                         </div>
-                    </div>
-                    <div class="py-2">
-                        Dropboxes
-                        <span class="badge badge-primary">Total: {{ $station->dropboxes_count }}</span>
-                    </div>
-                    <div class="py-2">
-                        <dropbox-create-modal :station='{{ json_encode($station) }}' :colors='@json(\App\Models\Dropbox::$availableColors)' :models='@json(\App\Models\Dropbox::$availableModels)'></dropbox-create-modal>
-                        <station-dropbox-list :station='{{ json_encode($station) }}' :colors='@json(\App\Models\Dropbox::$availableColors)' :models='@json(\App\Models\Dropbox::$availableModels)'></station-dropbox-list>
+                        <div class="col-md-12 py-4">
+                            <div class="d-flex flex-column row">
+                                <station-schedule-list :station='{{ json_encode($station) }}'></station-schedule-list>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

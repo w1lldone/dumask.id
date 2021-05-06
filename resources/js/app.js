@@ -15,6 +15,13 @@ Vue.component("l-map", LMap);
 Vue.component("l-tile-layer", LTileLayer);
 Vue.component("l-marker", LMarker);
 
+import DatePicker from "vue2-datepicker";
+import "vue2-datepicker/index.css";
+Vue.component("date-picker", DatePicker);
+
+import VueDateFns from "vue-date-fns";
+Vue.use(VueDateFns);
+
 
 /**
  * The following block of code may be used to automatically register your

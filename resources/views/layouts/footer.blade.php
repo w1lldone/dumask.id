@@ -18,7 +18,8 @@
                     <a href="https://wa.me/6285729141485" target="_blank">+62 857-2914-1485 (WhatsApp Only)</a>
                 </div>
                 <div>
-
+                    <span class="mdi mdi-instagram mr-2"></span>
+                    <a href="https://www.instagram.com/dumask.indonesia/" target="_blank">dumask.indonesia</a>
                 </div>
             </div>
             <div class="col-md-3 mb-3 mb-md-0">
@@ -37,6 +38,9 @@
                 <h5 class="font-weight-bold">Tentang Dumask.id</h5>
                 Dumask.id merupakan kolaborasi antara peneliti PTNBH dari UGM, ITB, UNS dan UNAIR yang juga didukung oleh peneliti dari UAD, Politeknik ATK, UJB, dan UP45. Dumask.id menyediakan jalur pembuangan masker dan sarung tangan
                 bekas dari masyarakat umum yang aman dan ramah lingkungan.
+                <br><br>
+                <b>Powered by</b>
+                Resource Recovery and Waste Management PIAT UGM
             </div>
         </div>
     </div>
