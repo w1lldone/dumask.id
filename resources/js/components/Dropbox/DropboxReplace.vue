@@ -121,7 +121,6 @@ export default {
   data() {
     return {
       form: {
-        dropbox_id: this.dropbox.id,
         timestamp: this.$date(new Date(), "yyyy-MM-dd"),
         filled_weight: null,
         empty_weight: null,
@@ -133,7 +132,7 @@ export default {
 
   computed: {
     buttonText() {
-      if (this.dropbox.active_log_id) {
+      if (this.dropbox.active_log) {
         return "Ganti Dropbox Penuh";
       }
 
@@ -145,19 +144,21 @@ export default {
     async doSubmit() {
       this.isLoading = true;
 
+      this.form.dropbox_id = this.dropbox.id
+
       try {
         let response = await axios.post(
           `/operation/${this.dropbox.station_id}/replace`,
           this.form
         );
-        alert("Data Tersimpan");
+        // alert("Data Tersimpan");
         this.form.timestamp = this.$date(new Date(), "yyyy-MM-dd");
         this.form.filled_weight = null;
         this.form.empty_weight = null;
         this.error = {};
         $(`#replace${this.dropbox.id}`).modal("hide");
         this.$emit("succeed", response.data);
-        window.location.reload();
+        // window.location.reload();
       } catch (error) {
         console.log(error.response.data.errors);
         alert("Ada yang salah " + error.response.data.message);

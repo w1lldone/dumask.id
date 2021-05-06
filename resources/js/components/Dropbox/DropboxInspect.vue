@@ -120,11 +120,12 @@ export default {
           `/operation/${this.dropbox.station_id}/inspect`,
           this.form
         );
-        alert("Data Tersimpan");
+        // alert("Data Tersimpan");
         this.form.timestamp = this.$date(new Date(), "yyyy-MM-dd");
         this.form.filled_weight = null;
         this.error = {};
         $(`#inspect${this.dropbox.id}`).modal("hide");
+        this.$emit('succeed', response.data)
       } catch (error) {
         console.log(error.response.data.errors);
         alert("Ada yang salah " + error.response.data.message);

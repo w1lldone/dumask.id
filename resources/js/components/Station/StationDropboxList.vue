@@ -9,18 +9,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(dropbox, index) in dropboxes" :key="dropbox.id">
+                <tr v-for="(dropbox) in dropboxes" :key="dropbox.id">
                     <td class="align-top text-primary font-weight-bold">Box {{ dropbox.color }}-{{ dropbox.model }}</td>
                     <td class="align-top">
-                        <dropbox-replace @succeed="handleSucceed($event, index)" class="d-inline" :dropbox="dropbox"></dropbox-replace>
-                        <dropbox-inspect v-if="dropbox.active_log_id" class="d-inline" :dropbox="dropbox"></dropbox-inspect>
+
                     </td>
                     <td class="align-top text-right">
                         <dropbox-edit-modal :dropbox="dropbox" :colors='colors' :models='models' class="d-inline"></dropbox-edit-modal>
                         <dropbox-delete-modal :dropbox="dropbox" class="d-inline"></dropbox-delete-modal>
                     </td>
                 </tr>
-            </tbody> 
+            </tbody>
         </table>
     </div>
 </template>
