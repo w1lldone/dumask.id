@@ -3,7 +3,7 @@
     <div class="card border-0 shadow my-auto" style="border-radius: 0.5em">
       <div class="card-body">
           <div class="text-center mb-3">
-            <img src="/img/logo_navbar.svg" class="w-50" alt="logo_dumask">
+            <img src="/img/logo_navbar.svg" class="w-md-50" alt="logo_dumask">
           </div>
           <div class="flex text-center mb-3">
               <h2
