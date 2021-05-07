@@ -55,11 +55,13 @@
                             <img src="{{ $dropbox->image_url }}" alt="" style="max-height: 200px">
                             <div class="ml-3">
                                 <h5>Dropbox {{ $dropbox->color }} {{ $dropbox->model }}</h5>
-                                <dropbox-replace class="mb-2" :dropbox='@json($dropbox)'></dropbox-replace>
-                                @if ($dropbox->active_log_id)
+                                <operation-actions :initial-dropbox='@json($dropbox)'></operation-actions>
+                                {{-- <dropbox-replace class="mb-2" :dropbox='@json($dropbox)'></dropbox-replace> --}}
+
+                                {{-- @if ($dropbox->active_log_id)
                                 <dropbox-inspect :dropbox='@json($dropbox)'></dropbox-inspect>
-                                @endif
-                                @if ($dropbox->active_log_id)
+                                @endif --}}
+                                {{-- @if ($dropbox->active_log_id)
                                     <div class="mt-3">
                                         @if ($dropbox->activeLog->ends_at)
                                             <b>Pengukuran Terakhir</b>: {{ $dropbox->activeLog->final_weight }} gram <br>
@@ -69,7 +71,7 @@
                                             <b>Tanggal</b>: {{ optional($dropbox->activeLog->starts_at)->format('j F Y') }}
                                         @endif
                                     </div>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
                         @empty
