@@ -5,7 +5,7 @@
             <div class="col-12 col-md-4 flex card border-0 mt-4 py-2" style="border-radius:0.75em">
                 <h2 class="text-secondary font-weight-bold">OPERATIONS</h2>
                 <span>
-                    <a href="{{ route('operation.index') }}">Operations List</a> 
+                    <a href="{{ route('operation.index') }}">Operations List</a>
                     <span class="mdi mdi-chevron-right"></span> Detail Operation
                 </span>
             </div>
@@ -38,7 +38,7 @@
                             Dropbox {{ $dropbox->color }} {{ $dropbox->model }}
                         </h5>
                         <hr style="border-bottom: 2px solid #c4c4c4;">
-    
+
                         @foreach ($dropbox->dropboxLogs as $key => $log)
                         <div class="p-3 my-3" style="border: 1px solid #c4c4c4; border-radius:0.75em">
                             <h5 class="text-dark font-weight-bold my-auto">
@@ -55,20 +55,36 @@
                                     <tr>
                                         <th>Tanggal</th>
                                         <th>Berat (gram)</th>
-                                        <th>Diukur oleh</th>
+                                        {{-- <th>Diukur oleh</th> --}}
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-secondary">
                                     <tr>
                                         <td>{{ $log->starts_at->format('j F Y') }}</td>
-                                        <td>{{ $log->weight }}</td>
-                                        <td>{{ optional($log->user)->name }}</td>
+                                        <td>{{ $log->weight }} <span class="ml-2 mdi mdi-account-outline d-inline" data-toggle="tooltip" data-placement="top" title="Diukur oleh {{ $log->user->name }}"></span></td>
+                                        {{-- <td>{{ optional($log->user)->name }}</td> --}}
+                                        <td class="">
+                                            <operation-edit-modal class="d-inline" :initial-log='@json($log)'></operation-edit-modal>
+
+                                        </td>
                                     </tr>
                                     @foreach ($log->children as $child)
                                     <tr>
                                         <td>{{ $child->ends_at->format('j F Y') }}</td>
-                                        <td>{{ $child->final_weight }}</td>
-                                        <td>{{ optional($child->user)->name }}</td>
+                                        <td>{{ $child->final_weight }} <span class="ml-2 mdi mdi-account-outline d-inline" data-toggle="tooltip" data-placement="top"
+                                            title="Diukur oleh {{ $log->user->name }}"></span></td>
+                                        {{-- <td>{{ optional($child->user)->name }}</td> --}}
+                                        <td>
+                                            <operation-edit-modal class="d-inline" :initial-log='@json($child)'></operation-edit-modal>
+                                            <delete-modal class="d-inline"
+                                            btn-class="btn btn-sm btn-danger"
+                                            delete-url="{{ route('dropboxLog.destroy', $child) }}"
+                                            delete-type="dropboxLog"
+                                            delete-id="{{ $child->id }}"
+                                            :should-reload="true"
+                                            ></delete-modal>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
