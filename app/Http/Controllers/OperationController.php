@@ -127,14 +127,6 @@ class OperationController extends Controller
             'user_id' => $user->id
         ]);
 
-        $latestLog = $log->parent->children()->orderBy('ends_at', 'desc')->first();
-
-        // Update parent final_weight, ends_at
-        $log->parent->update([
-            'final_weight' => $latestLog->final_weight,
-            'ends_at' => $latestLog->ends_at,
-        ]);
-
         return $log;
     }
 }
