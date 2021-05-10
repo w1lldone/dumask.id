@@ -6,7 +6,7 @@
         <div class="col-12 col-md-4 flex card border-0 mt-4 py-2" style="border-radius:0.75em">
             <h2 class="text-secondary font-weight-bold">Operate Station</h2>
             <span>
-                stations List
+                Operations List
             </span>
         </div>
     </div>
