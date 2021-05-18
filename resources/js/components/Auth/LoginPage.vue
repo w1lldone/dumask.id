@@ -9,28 +9,28 @@
               SELAMAT DATANG
           </h2>
           <div class="flex text-center">
-            <a 
-              href="/auth/google/redirect" 
+            <a
+              href="/auth/google/redirect"
               class="btn btn-outline-dark btn-google my-2 mx-auto"
               style="padding-right: 8px; padding-left: 8px; height: 40px"
             >
               <div class="d-flex h-100">
-                  <img 
-                    src="/img/icon_google.png" 
-                    alt="" 
-                    class="ml-auto my-auto" 
+                  <img
+                    src="/img/icon_google.png"
+                    alt=""
+                    class="ml-auto my-auto"
                     style="max-width: 18px; height: 18px;">
-                  <span 
-                    class="mr-auto my-auto" 
+                  <span
+                    class="mr-auto my-auto"
                     style="font-weight: 500; font-size: 14px; padding-left: 24px;"
                   >
                   Sign in with Google
                   </span>
               </div>
-            </a>   
+            </a>
           </div>
-          <p 
-            class="text-center text-muted w-100 my-4" 
+          <p
+            class="text-center text-muted w-100 my-4"
             style="border-bottom: 1px solid #D5D5D5; line-height: 0.1em; margin: 10px 0 20px;"
           >
             <span style="background:#fff; padding:0 10px;">atau</span>
@@ -39,8 +39,8 @@
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email"
-            required 
-            v-model="form.email" 
+            required
+            v-model="form.email"
             class="form-control"
             :class="{ 'is-invalid': hasErrors('email') }"
             />
@@ -115,7 +115,7 @@ export default {
 
       try {
         let response = await axios.post("/login", this.form);
-        return location.reload();
+        window.location = response.data.redirect_url
       } catch (error) {
         console.log(error.response);
         this.errors = error.response.data.errors;
