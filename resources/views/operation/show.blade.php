@@ -62,7 +62,7 @@
                                 <tbody class="text-secondary">
                                     <tr>
                                         <td>{{ $log->starts_at->format('j F Y') }}</td>
-                                        <td>{{ $log->weight }} <span class="ml-2 mdi mdi-account-outline d-inline" data-toggle="tooltip" data-placement="top" title="Diukur oleh {{ $log->user->name }}"></span></td>
+                                        <td>{{ $log->weight }} <span class="ml-2 mdi mdi-account-outline d-inline" data-toggle="tooltip" data-placement="top" title="Diukur oleh {{ optional($log->user)->name }}"></span></td>
                                         {{-- <td>{{ optional($log->user)->name }}</td> --}}
                                         <td class="">
                                             <operation-edit-modal class="d-inline" :initial-log='@json($log)'></operation-edit-modal>
@@ -73,7 +73,7 @@
                                     <tr>
                                         <td>{{ $child->ends_at->format('j F Y') }}</td>
                                         <td>{{ $child->final_weight }} <span class="ml-2 mdi mdi-account-outline d-inline" data-toggle="tooltip" data-placement="top"
-                                            title="Diukur oleh {{ $log->user->name }}"></span></td>
+                                            title="Diukur oleh {{ optional($log->user)->name }}"></span></td>
                                         {{-- <td>{{ optional($child->user)->name }}</td> --}}
                                         <td>
                                             <operation-edit-modal class="d-inline" :initial-log='@json($child)'></operation-edit-modal>
