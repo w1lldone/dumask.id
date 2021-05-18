@@ -1,7 +1,7 @@
 <template>
     <div>
         <button
-        class="btn btn-danger"
+        :class="btnClass"
         data-toggle="modal"
         :data-target="'#delete-modal-' + deleteType + '-' + deleteId"
         >
@@ -35,7 +35,7 @@
                     </div>
                     <div class="modal-body text-left mx-4">
                         <div>
-                            Apakah Anda yakin akan menghapus {{ deleteType }} {{ deleteName }}
+                            Apakah Anda yakin akan menghapus {{ deleteType }} {{ deleteName }}. {{ message }}
                         </div>
                         <div class="mt-4 text-right">
                             <button type="button" class="btn btn-primary mx-2 shadow" data-dismiss="modal">TIDAK</button>
@@ -62,18 +62,17 @@
         name: "DeleteModal",
 
         props: {
-            deleteUrl: {
+            deleteUrl: String,
+            deleteType: String,
+            deleteName: String,
+            deleteId: String,
+            redirectTo: String,
+            shouldReload: Boolean,
+            btnClass: {
                 type: String,
+                default: "btn btn-danger"
             },
-            deleteType: {
-                type: String,
-            },
-            deleteName: {
-                type: String
-            },
-            deleteId: {
-                type: String
-            }
+            message: String
         },
 
         data() {
@@ -92,6 +91,14 @@
                     this.$emit('deleted')
                     $('.modal').modal('hide')
                     alert('deleted')
+
+                    if (this.shouldReload) {
+                        return window.location.reload()
+                    }
+
+                    if (this.redirectTo) {
+                        return window.location = this.redirectTo
+                    }
                 } catch (error) {
                     alert(error.response.data.message)
                 }

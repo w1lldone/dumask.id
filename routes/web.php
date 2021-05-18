@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DropboxLogControlle;
 use App\Http\Controllers\DropboxOperationController;
 use App\Http\Controllers\OperationController;
 use App\Http\Controllers\ProfileController;
@@ -68,4 +69,10 @@ Route::prefix('operation')->middleware('auth')->name('operation.')->group(functi
     Route::post('/{station}/replace', [OperationController::class, 'replace'])->name('replace');
     Route::post('/{station}/inspect', [OperationController::class, 'inspect'])->name('inspect');
     Route::delete('/{dropboxLog}', [OperationController::class, 'destroy'])->name('destroy');
+});
+
+Route::middleware('auth')->prefix('dropboxLog')->name('dropboxLog.')->group(function ()
+{
+    Route::put('/{dropboxLog}', [DropboxLogControlle::class, 'update'])->name('update');
+    Route::delete('/{dropboxLog}', [DropboxLogControlle::class, 'destroy'])->name('destroy');
 });

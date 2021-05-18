@@ -18,7 +18,7 @@ class StationApiTest extends TestCase
 
         $response = $this->get(route('api.stations.index'));
 
-        $response->assertOk()->assertJsonCount(15, 'data');
+        $response->assertOk();
     }
 
     /** @test */
@@ -35,7 +35,7 @@ class StationApiTest extends TestCase
             'latitude' => -7.782721,
             'longitude' => 110.401181,
         ]);
-        
+
         $longitude = "110.378565";
         $latitude = "-7.767970";
 
@@ -74,7 +74,7 @@ class StationApiTest extends TestCase
 
         $response->assertOk()
             ->assertJsonCount(1, 'data');
-        
+
         $this->assertEquals($expected->id, $response->json('data.0.id'));
     }
 }

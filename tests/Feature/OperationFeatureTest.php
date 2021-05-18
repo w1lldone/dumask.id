@@ -2,11 +2,12 @@
 
 namespace Tests\Feature;
 
+use Tests\TestCase;
+use App\Models\User;
 use App\Models\Dropbox;
 use App\Models\DropboxLog;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class OperationFeatureTest extends TestCase
 {
@@ -162,10 +163,30 @@ class OperationFeatureTest extends TestCase
             'user_id' => $this->user->id
         ]);
 
-        $response = $this->deleteJson(route('operation.destroy', $latestLog->id));
+        $response = $this->deleteJson(route('dropboxLog.destroy', $latestLog->id));
 
         $response->assertNoContent();
         $this->assertDeleted($latestLog);
     }
 
+    /** @test */
+    public function user_can_update_dropbox_log()
+    {
+        $this->login();
+        $log = DropboxLog::factory()->create([
+            'user_id' => User::factory()
+        ]);
+
+        $data = [
+            'final_weight' => 300,
+            'ends_at' => now()->addWeek()->toAtomString()
+        ];
+
+        $response = $this->putJson(route('dropboxLog.update', $log), $data);
+
+        $response->assertOk();
+        $data['id'] = $log->id;
+        $data['user_id'] = $this->user->id;
+        $this->assertDatabaseHas('dropbox_logs', $data);
+    }
 }

@@ -32,11 +32,33 @@ class DropboxLog extends Model
             }
         });
 
+        // Listen to saved event
+        static::saved(function ($dropboxLog)
+        {
+            // Update parent final_weight, ends_at
+            if ($dropboxLog->parent_id) {
+                $latestLog = $dropboxLog->parent->children()->orderBy('ends_at', 'desc')->first();
+                $dropboxLog->parent->update([
+                    'final_weight' => $latestLog->final_weight,
+                    'ends_at' => $latestLog->ends_at,
+                ]);
+            }
+        });
+
         // Listen to the deleted event
         static::deleted(function ($dropboxLog) {
             // If the parent gets deleted, the childern will be deleted too
             if ($dropboxLog->parent_id == null) {
                 $dropboxLog->children()->delete();
+            }
+
+            // Update parent final_weight, ends_at
+            if ($dropboxLog->parent_id) {
+                $latestLog = $dropboxLog->parent->children()->orderBy('ends_at', 'desc')->first();
+                $dropboxLog->parent->update([
+                    'final_weight' => optional($latestLog)->final_weight,
+                    'ends_at' => optional($latestLog)->ends_at,
+                ]);
             }
         });
     }

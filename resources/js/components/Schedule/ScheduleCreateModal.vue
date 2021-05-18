@@ -5,7 +5,7 @@
       data-toggle="modal"
       data-target="#create-schedule-modal-id"
     >
-      Create new schedule
+      TAMBAH JAM OPERASIONAL
     </button>
     <div
       class="modal fade"

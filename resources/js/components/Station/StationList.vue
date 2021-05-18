@@ -1,29 +1,32 @@
 <template>
     <div>
-        <div class="row my-4" v-for="(station) in stations" :key="station.id">
-            <div class="col-md-3">
-                <h5 class="m-0">
-                    {{ station.name }}
-                </h5>
-            </div>
-            <div class="col-md-3">
-                {{ station.description }}
-            </div>
-            <div class="col-md-3">
-                {{ station.address }}
-            </div>
-            <div class="col-md-1 text-center">
-                {{ station.dropboxes_count }}
-            </div>
-            <div class="col-md-2 text-right">
-                <a
-                    :href = "'/station/' + station.id"
-                    class="btn btn-primary "
-                >
-                Detail Station
-                </a>
-            </div>
-        </div>
+        <table class="table table-borderless table-responsive d-md-table">
+            <thead style="border-bottom: 1px solid #c4c4c4;">
+                <tr>
+                    <th scope="col" style="width: 20%">Nama</th>
+                    <th scope="col" style="width: 25%">Deskripsi</th>
+                    <th scope="col" style="width: 25%">Alamat</th>
+                    <th scope="col" style="width: 15%">Total Dropbox</th>
+                    <th scope="col" style="width: 15%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(station) in stations" :key="station.id">
+                    <td class="align-top text-primary font-weight-bold">{{ station.name }}</td>
+                    <td class="align-top">{{ station.description }}</td>
+                    <td class="align-top">{{ station.address }}</td>
+                    <td class="align-top text-center">{{ station.dropboxes_count }}</td>
+                    <td class="align-top text-right">
+                        <a
+                            :href = "'/station/' + station.id"
+                            class="btn btn-primary "
+                        >
+                            DETAIL STATION
+                        </a>
+                    </td>
+                </tr>
+            </tbody> 
+        </table>
     </div>
 </template>
 
