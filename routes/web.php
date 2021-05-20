@@ -78,7 +78,7 @@ Route::middleware('auth')->prefix('dropboxLog')->name('dropboxLog.')->group(func
     Route::delete('/{dropboxLog}', [DropboxLogControlle::class, 'destroy'])->name('destroy');
 });
 
-Route::get('/submit-report/{station}', [StationReportController::class, 'create'])->name('report.create');
+Route::get('/submit-report/{station}', [StationReportController::class, 'create'])->middleware('auth')->name('report.create');
 
 Route::middleware('auth')->prefix('station/{station}/report')->name('station.report.')->group(function ()
 {
