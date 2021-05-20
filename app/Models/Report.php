@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Resources\StationMediaResource;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -41,5 +42,14 @@ class Report extends Model implements HasMedia
     public function resolver()
     {
         return $this->belongsTo('App\Models\User', 'resolver_id');
+    }
+
+    public function getPhotoAttribute()
+    {
+        if ($media = $this->getFirstMedia()) {
+            return new StationMediaResource($media);
+        }
+
+        return null;
     }
 }

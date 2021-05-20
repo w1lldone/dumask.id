@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\StationDropboxController;
 use App\Http\Controllers\StationMediaController;
+use App\Http\Controllers\StationReportController;
 use App\Http\Controllers\StationScheduleController;
 
 /*
@@ -75,4 +76,11 @@ Route::middleware('auth')->prefix('dropboxLog')->name('dropboxLog.')->group(func
 {
     Route::put('/{dropboxLog}', [DropboxLogControlle::class, 'update'])->name('update');
     Route::delete('/{dropboxLog}', [DropboxLogControlle::class, 'destroy'])->name('destroy');
+});
+
+Route::get('/submit-report/{station}', [StationReportController::class, 'create'])->name('report.create');
+
+Route::middleware('auth')->prefix('station/{station}/report')->name('station.report.')->group(function ()
+{
+    Route::post('/', [StationReportController::class, 'store'])->name('store');
 });
