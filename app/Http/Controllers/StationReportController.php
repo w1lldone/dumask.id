@@ -12,7 +12,8 @@ class StationReportController extends Controller
 {
     public function create(Station $station)
     {
-        // Submit report view goes here
+       // return Report::getConditions();
+        return view('reports.create', compact('station'));
     }
 
     public function store(Station $station, Request $request)
