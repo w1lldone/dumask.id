@@ -35,6 +35,11 @@ class Station extends Model implements HasMedia
         return $this->hasMany('App\Models\Schedule');
     }
 
+    public function reports()
+    {
+        return $this->hasMany('App\Models\Report');
+    }
+
     /**
      * Scope a query to include distance of the given coordincates
      *
