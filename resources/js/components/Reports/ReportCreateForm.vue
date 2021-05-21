@@ -13,28 +13,60 @@
           Kondisi Dropbox
           <abbr class="text-danger">*</abbr>
         </label>
-        <div class="">
-          <div class="custom-control custom-radio"
-            v-for="(condition, index) in conditions"
-            :key="index"
-          >
-              <input
-                :value="index"
-                type="radio"
-                class="custom-control-input"
-                :id="'condition-' + index"
-                v-model="form.condition"
-              />
-              <label class="custom-control-label" :for="'condition-' + index">
-                {{ condition }}
-              </label>
-          </div>
+        <div class="custom-control custom-radio"
+          v-for="(condition, index) in conditions"
+          :key="index"
+        >
+            <input
+              :name="'conditon'"
+              :value="index"
+              type="radio"
+              class="custom-control-input"
+              :id="'condition-' + index"
+              v-model="form.condition"
+            />
+            <label class="custom-control-label" :for="'condition-' + index">
+              {{ condition }}
+            </label>
         </div>
-        <div class="invalid-feedback">
+        <div 
+          class="invalid-feedback"
+          :class="{ 'd-block': hasErrors('condition') }"
+        >
           {{ getErrors("condition") }}
         </div>
       </div>
 
+      <div class="form-group">
+        <label for="photo">
+          Foto (Opsional)
+        </label>
+        <div class="col-md-3 px-0">
+          <label
+            class="btn btn-outline-primary d-flex w-md-50"
+          >
+            <div class="mdi mdi-image"></div>
+            <div class="my-auto">Upload Image</div>
+              <div id="uploadPhotoForm">
+                <input
+                  type="file"
+                  style="display: none"
+                  ref="photo"
+                  name="photo"
+                  accept="image/*"
+                  @change="getNewFileName"
+                />
+              </div>
+          </label>
+        </div>
+        <div
+          id='photoName'
+        >
+          {{fileName}}
+        </div>
+      </div>
+
+      
 
 
       <div class="form-group mt-4 text-right">
@@ -50,10 +82,10 @@
           v-show="!isLoading"
           @click="doSubmit()"
         >
-          SAVE
+          SUBMIT
         </button>
         <button class="btn btn-primary" disabled v-show="isLoading">
-          SAVING...
+          SUBMITTING...
         </button>
       </div>
     </div>
@@ -81,6 +113,8 @@ export default {
         user_latitude: null,
         user_longitude: null,
       },
+      photo: [],
+      fileName: '',
       isLoading: false,
       errors: {},
     };
@@ -88,11 +122,25 @@ export default {
 
   methods: {
     async doSubmit() {
-      // this.isLoading = true;
+      this.isLoading = true;
       await this.getUserLocation() ;
       var url = "../station/" + this.station.id + "/report";
+
+      var config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+
+      var photo = this.$refs.photo.files[0];
+      var formData = new FormData();
+      formData.append('photo', photo);
+      formData.append('condition', this.form.condition);
+      formData.append('user_latitude', this.form.user_latitude);
+      formData.append('user_longitude', this.form.user_longitude);
+
       try {
-        let response = await axios.post(url, this.form);
+        let response = await axios.post(url, formData, config);
         return location.reload();
       } catch (error) {
         alert(error.response.data.message);
@@ -136,8 +184,14 @@ export default {
         this.form.user_longitude = position.coords.longitude;
       } catch (error) {
         alert("Please turn on your location service and try again.");
+        this.isLoading = false;
       }
     },
+
+    getNewFileName(event){
+      var fileData =  event.target.files[0];
+      this.fileName=fileData.name;
+    }
   },
 };
 </script>

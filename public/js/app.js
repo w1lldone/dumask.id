@@ -5574,6 +5574,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ReportCreateForm",
   props: {
@@ -5591,6 +5623,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         user_latitude: null,
         user_longitude: null
       },
+      photo: [],
+      fileName: '',
       isLoading: false,
       errors: {}
     };
@@ -5600,40 +5634,52 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var url, response;
+        var url, config, photo, formData, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                _this.isLoading = true;
+                _context.next = 3;
                 return _this.getUserLocation();
 
-              case 2:
+              case 3:
                 url = "../station/" + _this.station.id + "/report";
-                _context.prev = 3;
-                _context.next = 6;
-                return axios.post(url, _this.form);
+                config = {
+                  headers: {
+                    "Content-Type": "multipart/form-data"
+                  }
+                };
+                photo = _this.$refs.photo.files[0];
+                formData = new FormData();
+                formData.append('photo', photo);
+                formData.append('condition', _this.form.condition);
+                formData.append('user_latitude', _this.form.user_latitude);
+                formData.append('user_longitude', _this.form.user_longitude);
+                _context.prev = 11;
+                _context.next = 14;
+                return axios.post(url, formData, config);
 
-              case 6:
+              case 14:
                 response = _context.sent;
                 return _context.abrupt("return", location.reload());
 
-              case 10:
-                _context.prev = 10;
-                _context.t0 = _context["catch"](3);
+              case 18:
+                _context.prev = 18;
+                _context.t0 = _context["catch"](11);
                 alert(_context.t0.response.data.message);
                 console.log(_context.t0.response);
                 _this.errors = _context.t0.response.data.errors;
 
-              case 15:
+              case 23:
                 _this.isLoading = false;
 
-              case 16:
+              case 24:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[3, 10]]);
+        }, _callee, null, [[11, 18]]);
       }))();
     },
     hasErrors: function hasErrors(key) {
@@ -5690,21 +5736,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 position = _context3.sent;
                 _this2.form.user_latitude = position.coords.latitude;
                 _this2.form.user_longitude = position.coords.longitude;
-                _context3.next = 11;
+                _context3.next = 12;
                 break;
 
               case 8:
                 _context3.prev = 8;
                 _context3.t0 = _context3["catch"](0);
                 alert("Please turn on your location service and try again.");
+                _this2.isLoading = false;
 
-              case 11:
+              case 12:
               case "end":
                 return _context3.stop();
             }
           }
         }, _callee3, null, [[0, 8]]);
       }))();
+    },
+    getNewFileName: function getNewFileName(event) {
+      var fileData = event.target.files[0];
+      this.fileName = fileData.name;
     }
   }
 });
@@ -86449,12 +86500,12 @@ var render = function() {
     _c("hr", { staticStyle: { "border-bottom": "2px solid #c4c4c4" } }),
     _vm._v(" "),
     _c("div", { staticClass: "text-left" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "div",
-          {},
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _vm._m(1),
+          _vm._v(" "),
           _vm._l(_vm.conditions, function(condition, index) {
             return _c(
               "div",
@@ -86470,7 +86521,11 @@ var render = function() {
                     }
                   ],
                   staticClass: "custom-control-input",
-                  attrs: { type: "radio", id: "condition-" + index },
+                  attrs: {
+                    name: "conditon",
+                    type: "radio",
+                    id: "condition-" + index
+                  },
                   domProps: {
                     value: index,
                     checked: _vm._q(_vm.form.condition, index)
@@ -86490,18 +86545,58 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n              " + _vm._s(condition) + "\n            "
+                      "\n            " + _vm._s(condition) + "\n          "
                     )
                   ]
                 )
               ]
             )
           }),
-          0
-        ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "invalid-feedback",
+              class: { "d-block": _vm.hasErrors("condition") }
+            },
+            [
+              _vm._v(
+                "\n        " + _vm._s(_vm.getErrors("condition")) + "\n      "
+              )
+            ]
+          )
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "photo" } }, [
+          _vm._v("\n        Foto (Opsional)\n      ")
+        ]),
         _vm._v(" "),
-        _c("div", { staticClass: "invalid-feedback" }, [
-          _vm._v("\n        " + _vm._s(_vm.getErrors("condition")) + "\n      ")
+        _c("div", { staticClass: "col-md-3 px-0" }, [
+          _c(
+            "label",
+            { staticClass: "btn btn-outline-primary d-flex w-md-50" },
+            [
+              _c("div", { staticClass: "mdi mdi-image" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "my-auto" }, [_vm._v("Upload Image")]),
+              _vm._v(" "),
+              _c("div", { attrs: { id: "uploadPhotoForm" } }, [
+                _c("input", {
+                  ref: "photo",
+                  staticStyle: { display: "none" },
+                  attrs: { type: "file", name: "photo", accept: "image/*" },
+                  on: { change: _vm.getNewFileName }
+                })
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "photoName" } }, [
+          _vm._v("\n        " + _vm._s(_vm.fileName) + "\n      ")
         ])
       ]),
       _vm._v(" "),
@@ -86538,7 +86633,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("\n        SAVE\n      ")]
+          [_vm._v("\n        SUBMIT\n      ")]
         ),
         _vm._v(" "),
         _c(
@@ -86555,7 +86650,7 @@ var render = function() {
             staticClass: "btn btn-primary",
             attrs: { disabled: "" }
           },
-          [_vm._v("\n        SAVING...\n      ")]
+          [_vm._v("\n        SUBMITTING...\n      ")]
         )
       ])
     ])
