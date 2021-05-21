@@ -4577,6 +4577,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5603,9 +5604,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ReportCreateForm",
   props: {
@@ -5626,6 +5624,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       photo: [],
       fileName: '',
       isLoading: false,
+      isPhotoIncluded: false,
       errors: {}
     };
   },
@@ -5634,7 +5633,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var url, config, photo, formData, response;
+        var url, config, formData, photo, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -5650,23 +5649,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     "Content-Type": "multipart/form-data"
                   }
                 };
-                photo = _this.$refs.photo.files[0];
                 formData = new FormData();
-                formData.append('photo', photo);
+
+                if (_this.isPhotoIncluded) {
+                  photo = _this.$refs.photo.files[0];
+                  formData.append('photo', photo);
+                }
+
                 formData.append('condition', _this.form.condition);
                 formData.append('user_latitude', _this.form.user_latitude);
                 formData.append('user_longitude', _this.form.user_longitude);
-                _context.prev = 11;
-                _context.next = 14;
+                _context.prev = 10;
+                _context.next = 13;
                 return axios.post(url, formData, config);
 
-              case 14:
+              case 13:
                 response = _context.sent;
+                alert("Report submitted!");
                 return _context.abrupt("return", location.reload());
 
               case 18:
                 _context.prev = 18;
-                _context.t0 = _context["catch"](11);
+                _context.t0 = _context["catch"](10);
                 alert(_context.t0.response.data.message);
                 console.log(_context.t0.response);
                 _this.errors = _context.t0.response.data.errors;
@@ -5679,7 +5683,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.stop();
             }
           }
-        }, _callee, null, [[11, 18]]);
+        }, _callee, null, [[10, 18]]);
       }))();
     },
     hasErrors: function hasErrors(key) {
@@ -5699,7 +5703,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     doReset: function doReset() {
       this.form = {
         condition: null
-      };
+      }, this.photo = [], $('#inputPhoto').val(''), this.isPhotoIncluded = false, this.fileName = '';
     },
     getCoordinates: function getCoordinates() {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -5756,6 +5760,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     getNewFileName: function getNewFileName(event) {
       var fileData = event.target.files[0];
       this.fileName = fileData.name;
+      this.isPhotoIncluded = true;
     }
   }
 });
@@ -85337,7 +85342,25 @@ var render = function() {
                                 )
                               ]),
                           _vm._v(" "),
-                          _c("div", { staticClass: "text-right" }, [
+                          _c("div", { staticClass: "text-right mt-3" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "btn btn-dark text-white shadow mr-3",
+                                attrs: {
+                                  target: "_blank",
+                                  href: "/submit-report/" + _vm.station.id
+                                }
+                              },
+                              [
+                                _vm._v("REPORT"),
+                                _c("span", {
+                                  staticClass: "mdi mdi-open-in-new"
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
                             _c(
                               "a",
                               {
@@ -86587,7 +86610,12 @@ var render = function() {
                 _c("input", {
                   ref: "photo",
                   staticStyle: { display: "none" },
-                  attrs: { type: "file", name: "photo", accept: "image/*" },
+                  attrs: {
+                    id: "inputPhoto",
+                    type: "file",
+                    name: "photo",
+                    accept: "image/*"
+                  },
                   on: { change: _vm.getNewFileName }
                 })
               ])

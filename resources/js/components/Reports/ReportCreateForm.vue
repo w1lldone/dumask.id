@@ -49,6 +49,7 @@
             <div class="my-auto">Upload Image</div>
               <div id="uploadPhotoForm">
                 <input
+                  id="inputPhoto"
                   type="file"
                   style="display: none"
                   ref="photo"
@@ -65,10 +66,6 @@
           {{fileName}}
         </div>
       </div>
-
-      
-
-
       <div class="form-group mt-4 text-right">
         <button
           style="background: #A7A7A7"
@@ -116,6 +113,7 @@ export default {
       photo: [],
       fileName: '',
       isLoading: false,
+      isPhotoIncluded: false,
       errors: {},
     };
   },
@@ -132,15 +130,20 @@ export default {
         },
       }
 
-      var photo = this.$refs.photo.files[0];
       var formData = new FormData();
-      formData.append('photo', photo);
+
+      if (this.isPhotoIncluded) {
+        var photo = this.$refs.photo.files[0];  
+        formData.append('photo', photo);
+      }
+
       formData.append('condition', this.form.condition);
       formData.append('user_latitude', this.form.user_latitude);
       formData.append('user_longitude', this.form.user_longitude);
 
       try {
         let response = await axios.post(url, formData, config);
+        alert("Report submitted!");
         return location.reload();
       } catch (error) {
         alert(error.response.data.message);
@@ -168,7 +171,11 @@ export default {
     doReset() {
       this.form = {
         condition: null,
-      }
+      },
+      this.photo = [],
+      $('#inputPhoto').val(''),
+      this.isPhotoIncluded = false,
+      this.fileName = ''
     },
 
     async getCoordinates() {
@@ -191,6 +198,7 @@ export default {
     getNewFileName(event){
       var fileData =  event.target.files[0];
       this.fileName=fileData.name;
+      this.isPhotoIncluded = true;
     }
   },
 };

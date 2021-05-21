@@ -36,7 +36,8 @@
                                     <span class="mdi mdi-crosshairs text-muted"></span>
                                     <span class="text-muted font-weight-bold align-middle ml-2">Nyalakan lokasi untuk menghitung jarak</span>
                                 </div>
-                                <div class="text-right">
+                                <div class="text-right mt-3">
+                                    <a target="_blank" class="btn btn-dark text-white shadow mr-3" :href="'/submit-report/' + station.id">REPORT<span class="mdi mdi-open-in-new"></span></a>
                                     <a target="_blank" class="btn btn-primary shadow" :href="routeUrl">ROUTE <span class="mdi mdi-open-in-new"></span></a>
                                 </div>
                             </div>
