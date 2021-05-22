@@ -13,9 +13,9 @@ class Report extends Model implements HasMedia
     use HasFactory, HasMediaTrait;
 
     public static $conditions = [
-        'missing',
-        'full',
-        'damaged'
+        'missing' => 'Dropbox Hilang/Tidak Pada Tempatnya',
+        'full' => 'Dropbox Penuh',
+        'damaged' => 'Dropbox Rusak'
     ];
 
     protected $guarded = ['id'];
@@ -26,7 +26,7 @@ class Report extends Model implements HasMedia
 
     public static function getConditions()
     {
-        return self::$conditions;
+        return array_keys(self::$conditions);
     }
 
     public function station()
