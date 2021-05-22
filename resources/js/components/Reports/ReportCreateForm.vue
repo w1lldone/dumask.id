@@ -9,7 +9,7 @@
     <div class="text-left">
 
       <div class="form-group">
-        <label for="condition">
+        <label class="font-weight-bold" for="condition">
           Kondisi Dropbox
           <abbr class="text-danger">*</abbr>
         </label>
@@ -37,8 +37,34 @@
         </div>
       </div>
 
+      <div>
+        
+      </div>
+
       <div class="form-group">
-        <label for="photo">
+        <label class="font-weight-bold" for="location-checkbox">Kirimkan Lokasi</label>
+        <div class="d-flex">
+          <div class="custom-control custom-checkbox mr-4">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              id="location-checkbox"
+              v-model="form.send_location"
+            />
+            <label
+              class="custom-control-label"
+              for="location-checkbox"
+              >
+              Kirimkan lokasi saya saat ini (Pastikan GPS anda Aktif) <br>
+              Menyertakan lokasi dan foto bisa membantu pengelola dropbox memproses laporan Anda lebih cepat
+            </label
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="font-weight-bold" for="photo">
           Foto (Opsional)
         </label>
         <div class="col-md-3 px-0">
@@ -107,6 +133,7 @@ export default {
     return {
       form: {
         condition: null,
+        send_location: true,
         user_latitude: null,
         user_longitude: null,
       },
@@ -121,7 +148,7 @@ export default {
   methods: {
     async doSubmit() {
       this.isLoading = true;
-      await this.getUserLocation() ;
+
       var url = "../station/" + this.station.id + "/report";
 
       var config = {
@@ -135,6 +162,16 @@ export default {
       if (this.isPhotoIncluded) {
         var photo = this.$refs.photo.files[0];  
         formData.append('photo', photo);
+      }
+
+      if (this.form.send_location) {
+        this.form.user_latitude = null,
+        this.form.user_longitude= null,
+        await this.getUserLocation();
+      } 
+      else {
+        this.form.user_latitude = '',
+        this.form.user_longitude= '';
       }
 
       formData.append('condition', this.form.condition);
@@ -171,6 +208,7 @@ export default {
     doReset() {
       this.form = {
         condition: null,
+        send_location: true,
       },
       this.photo = [],
       $('#inputPhoto').val(''),
