@@ -10,6 +10,21 @@ use Illuminate\Validation\Rule;
 
 class StationReportController extends Controller
 {
+    public function index(Station $station, Request $request)
+    {
+        $this->authorize('viewReport', $station);
+
+        $report = $station->reports();
+
+        if ($request->show_all == false) {
+            $report = $report->whereNull('resolved_at');
+        }
+
+        $reports = $report->get();
+
+        return $reports;
+    }
+
     public function create(Station $station)
     {
        // return Report::getConditions();
@@ -38,5 +53,33 @@ class StationReportController extends Controller
         }
 
         return $report->load('media')->append('photo')->makeHidden('media');
+    }
+
+    public function resolve(Station $station, Request $request)
+    {
+        $this->authorize('resolveReport', $station);
+
+        $request->validate([
+            'resolve_all' => 'boolean',
+            'report_id' => 'array|required_unless:resolve_all,true',
+            'report_id.*' => 'integer',
+        ]);
+
+        $report = $station->reports();
+
+        if ($request->resolve_all == true) {
+            $report = $report->whereNull('resolved_at');
+        } else {
+            $report = $report->whereIn('id', $request->report_id);
+        }
+
+        $report->update([
+            'resolved_at' => now(),
+            'resolver_id' => $request->user()->id,
+        ]);
+
+        return response([
+            'success' => true
+        ]);
     }
 }
