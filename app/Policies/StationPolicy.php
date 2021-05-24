@@ -36,7 +36,7 @@ class StationPolicy
      */
     public function viewAny(User $user)
     {
-        
+
     }
 
     /**
@@ -84,5 +84,27 @@ class StationPolicy
     public function delete(User $user, Station $station)
     {
         //
+    }
+
+    public function viewReport(User $user, Station $station)
+    {
+        if ($user->hasPermission('manage stations')) {
+            return true;
+        }
+
+        if ($user->hasPermission('operation stations')) {
+            return true;
+        }
+    }
+
+    public function resolveReport(User $user, Station $station)
+    {
+        if ($user->hasPermission('manage stations')) {
+            return true;
+        }
+
+        if ($user->hasPermission('operation stations')) {
+            return true;
+        }
     }
 }
