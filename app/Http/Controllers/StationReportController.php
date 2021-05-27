@@ -22,8 +22,7 @@ class StationReportController extends Controller
 
         $reports = $report->get();
 
-        // The view should goes here
-        return $reports;
+        return view('reports.index', compact('reports'));
     }
 
     public function create(Station $station)

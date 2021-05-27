@@ -19,8 +19,13 @@
             </h4>
         </div>
         <hr style="border-bottom: 2px solid #c4c4c4;">
+        
         <div>
-            <report-list :reports='{{ json_encode($reports) }}'></report-list>
+            <report-list
+                :reports='@json($reports)'
+                :conditions='@json(array_keys(\App\Models\Report::$conditions))'
+            >
+            </report-list>
         </div>
     </div>
 </div>
