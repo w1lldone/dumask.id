@@ -20,7 +20,7 @@ class StationReportController extends Controller
             $report = $report->whereNull('resolved_at');
         }
 
-        $reports = $report->get();
+        $reports = $report->with('reporter')->get();
 
         return view('reports.index', compact('reports'));
     }

@@ -26,16 +26,20 @@
             <tbody>
                 <tr v-for="(report) in reports" :key="report.id">
                     <td class="align-top text-primary font-weight-bold">{{ report.condition }}</td>
-                    <td class="align-top">{{ report.created_at }}</td>
+                    <td class="align-top">{{ report.created_at | formatDate }}</td>
                     <td class="align-top">
-                        <div v-if="report.resolver_id">
-                            Resolved
-                        </div>
-                        <div v-else class="text-danger">
-                            Open
+                        <div>
+                            <h6>
+                                <span v-if="report.resolver_id" class="badge badge-success badge-pill">
+                                    Resolved
+                                </span>
+                                <span v-else class="badge badge-danger badge-pill">
+                                    Open
+                                </span>
+                            </h6>
                         </div>
                     </td>
-                    <td class="align-top text-center">{{ report.reporter_id }}</td>
+                    <td class="align-top text-center">{{ report.reporter.name }}</td>
                     <td class="align-top text-right">
                         <a
                             href = "#"
@@ -51,6 +55,8 @@
 </template>
 
 <script>
+    import moment from 'moment'
+    
     export default {
         name: "ReportList",
 
@@ -64,7 +70,7 @@
         },
 
         methods: {
-
+            
         },
 
         data() {
@@ -94,6 +100,14 @@
                 }
 
                 return groupedReports
+            }
+        },
+        
+        filters: {
+            formatDate: function(value) {
+                if (value) {
+                    return moment(String(value)).format('MM/DD/YYYY HH:MM')
+                }
             }
         },
     }
