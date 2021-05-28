@@ -24,6 +24,7 @@
             <report-list
                 :reports='@json($reports)'
                 :conditions='@json(array_keys(\App\Models\Report::$conditions))'
+                :detail='@json(\App\Models\Report::$conditions)'
             >
             </report-list>
         </div>

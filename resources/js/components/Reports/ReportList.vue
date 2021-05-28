@@ -25,7 +25,7 @@
             </thead>
             <tbody>
                 <tr v-for="(report) in reports" :key="report.id">
-                    <td class="align-top text-primary font-weight-bold">{{ report.condition }}</td>
+                    <td class="align-top text-primary font-weight-bold">{{ conditionDetails(report.condition) }}</td>
                     <td class="align-top">{{ report.created_at | formatDate }}</td>
                     <td class="align-top">
                         <div>
@@ -66,17 +66,22 @@
             },
             conditions: {
                 type : Array
+            },
+            detail : {
+                type : Object
             }
         },
 
         methods: {
-            
+            conditionDetails(condition) {
+                return this.detail[condition]
+            }
         },
 
         data() {
             return {
                 dataReports: this.reports,
-                dataConditions : this.conditions
+                dataConditions : this.conditions,
             };
         },
 
@@ -108,8 +113,8 @@
                 if (value) {
                     return moment(String(value)).format('MM/DD/YYYY HH:MM')
                 }
-            }
-        },
+            },
+        }
     }
 
 </script>
