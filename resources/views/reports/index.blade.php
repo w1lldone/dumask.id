@@ -35,12 +35,15 @@
             </form>
         </div>
         <div>
-            <report-list
-                :reports='@json($reports)'
-                :conditions='@json(array_keys(\App\Models\Report::$conditions))'
-                :detail='@json(\App\Models\Report::$conditions)'
-            >
-            </report-list>
+            @if ($reports)
+                <report-list
+                    :station='@json($station)'
+                    :reports='@json($reports)'
+                    :conditions='@json(array_keys(\App\Models\Report::$conditions))'
+                    :detail='@json(\App\Models\Report::$conditions)'
+                >
+                </report-list>
+            @endif
         </div>
     </div>
 </div>
