@@ -24,13 +24,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(report) in reports" :key="report.id">
+                <tr v-for="(report) in dataReports" :key="report.id">
                     <td class="align-top text-primary font-weight-bold">{{ conditionDetails(report.condition) }}</td>
                     <td class="align-top">{{ report.created_at | formatDate }}</td>
                     <td class="align-top">
                         <div>
                             <h6>
-                                <span v-if="report.resolver_id" class="badge badge-success badge-pill">
+                                <span v-if="report.resolved_at" class="badge badge-success badge-pill">
                                     Resolved
                                 </span>
                                 <span v-else class="badge badge-danger badge-pill">
@@ -75,7 +75,7 @@
         methods: {
             conditionDetails(condition) {
                 return this.detail[condition]
-            }
+            },
         },
 
         data() {
@@ -87,7 +87,7 @@
 
         computed: {
             groupedReports() {
-                const groupedReports = {};
+                const groupedReports = {}
 
                 var reports = this.dataReports
                 var conditions = this.dataConditions
