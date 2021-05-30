@@ -43,7 +43,7 @@
                             </h6>
                         </div>
                     </td>
-                    <td class="align-top text-center">{{ report.reporter.name }}</td>
+                    <td class="align-top">{{ report.reporter.name }}</td>
                     <td class="align-top text-right">
                         <a
                             href = "#"
@@ -55,10 +55,11 @@
                 </tr>
             </tbody> 
         </table>
-        <div class="d-flex text-right">
+        <div class="col-12 text-right">
             <button
                 style="background: #A7A7A7"
                 class="btn text-white shadow mr-2"
+                v-show="!isLoading"
                 @click="doReset()"
             >
             RESET
@@ -74,6 +75,29 @@
                 class="btn btn-secondary shadow"
                 v-show="!isLoading"
                 @click="doResolveAll()"
+            >
+            RESOLVE ALL
+            </button>
+
+            <button
+                style="background: #A7A7A7"
+                class="btn text-white shadow mr-2"
+                v-show="isLoading"
+                disabled
+            >
+            RESET
+            </button>
+            <button
+                class="btn btn-primary shadow mr-2"
+                v-show="isLoading"
+                disabled
+            >
+            RESOLVE
+            </button>
+            <button
+                class="btn btn-secondary shadow"
+                v-show="isLoading"
+                disabled
             >
             RESOLVE ALL
             </button>
