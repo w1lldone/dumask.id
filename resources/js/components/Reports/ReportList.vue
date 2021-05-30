@@ -27,7 +27,7 @@
             <tbody>
                 <tr v-for="(report) in dataReports" :key="report.id">
                     <td class="align-top">
-                        <input v-if="report.resolved_at == ''" class="custom-control" name="report_id" type="checkbox" :value="report.id" v-model="form.report_id">
+                        <input v-if="!report.resolved_at" class="custom-control" name="report_id" type="checkbox" :value="report.id" v-model="form.report_id">
                     </td>
                     <td class="align-top text-primary font-weight-bold">{{ conditionDetails(report.condition) }}</td>
                     <td class="align-top">{{ report.created_at | formatDate }}</td>
@@ -65,21 +65,6 @@
             RESET
             </button>
             <button
-                class="btn btn-primary shadow mr-2"
-                v-show="!isLoading"
-                @click="doSubmit()"
-            >
-            RESOLVE
-            </button>
-            <button
-                class="btn btn-secondary shadow"
-                v-show="!isLoading"
-                @click="doResolveAll()"
-            >
-            RESOLVE ALL
-            </button>
-
-            <button
                 style="background: #A7A7A7"
                 class="btn text-white shadow mr-2"
                 v-show="isLoading"
@@ -87,12 +72,28 @@
             >
             RESET
             </button>
+
             <button
                 class="btn btn-primary shadow mr-2"
-                v-show="isLoading"
+                v-show="!isLoading && form.report_id != ''"
+                @click="doSubmit()"
+            >
+            RESOLVE
+            </button>
+            <button
+                class="btn btn-primary shadow mr-2"
+                v-show="isLoading || form.report_id == ''"
                 disabled
             >
             RESOLVE
+            </button>
+
+            <button
+                class="btn btn-secondary shadow"
+                v-show="!isLoading"
+                @click="doResolveAll()"
+            >
+            RESOLVE ALL
             </button>
             <button
                 class="btn btn-secondary shadow"
