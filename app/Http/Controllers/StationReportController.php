@@ -25,6 +25,15 @@ class StationReportController extends Controller
         return view('reports.index', compact('reports', 'station'));
     }
 
+    public function show(Station $station, $report)
+    {
+        $this->authorize('viewReport', $station);
+
+        $report = $station->reports()->findOrFail($report);
+
+        return $report->load('reporter', 'media')->append('photo')->makeHidden('media');
+    }
+
     public function create(Station $station)
     {
        // return Report::getConditions();
