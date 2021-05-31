@@ -21,7 +21,12 @@ class OperationController extends Controller
 
         $station = $this->stationQuery($station, $request);
 
-        $stations = $station->with('dropboxes.activeLog')->paginate(5);
+        $stations = $station->with(['dropboxes.activeLog'])->withCount([
+            'reports' => function ($report)
+            {
+                $report->whereNull('resolved_at');
+            }
+        ])->paginate(5);
 
         return view('operation.index', compact('stations'));
     }
