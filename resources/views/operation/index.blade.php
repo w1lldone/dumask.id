@@ -37,10 +37,12 @@
             @foreach ($stations as $station)
             <div class="mb-5">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-8 mb-3">
                         <a href="{{ route('operation.show', $station) }}">
-                            <h3 class="text-secondary mb-3">{{ $station->name }}</h3>
+                            <h3 class="text-secondary mb-1">{{ $station->name }}</h3>
                         </a>
+                        <a title="Kelola Laporan" class="text-{{ $station->reports_count ? 'danger' : 'muted' }}" data-toggle="tooltip" target="_blank" href="{{ route('station.report.index', $station) }}">
+                        Laporan diterima: {{ $station->reports_count }} <span class="mdi mdi-open-in-new"></span></a>
                     </div>
                     <div class="col text-right">
                         <a href="{{ route('operation.show', $station) }}">
@@ -56,22 +58,6 @@
                             <div class="ml-3">
                                 <h5>Dropbox {{ $dropbox->color }} {{ $dropbox->model }}</h5>
                                 <operation-actions :initial-dropbox='@json($dropbox)'></operation-actions>
-                                {{-- <dropbox-replace class="mb-2" :dropbox='@json($dropbox)'></dropbox-replace> --}}
-
-                                {{-- @if ($dropbox->active_log_id)
-                                <dropbox-inspect :dropbox='@json($dropbox)'></dropbox-inspect>
-                                @endif --}}
-                                {{-- @if ($dropbox->active_log_id)
-                                    <div class="mt-3">
-                                        @if ($dropbox->activeLog->ends_at)
-                                            <b>Pengukuran Terakhir</b>: {{ $dropbox->activeLog->final_weight }} gram <br>
-                                            <b>Tanggal</b>: {{ optional($dropbox->activeLog->ends_at)->format('j F Y') }}
-                                        @else
-                                            <b>Pengukuran Terakhir</b>: {{ $dropbox->activeLog->weight }} gram <br>
-                                            <b>Tanggal</b>: {{ optional($dropbox->activeLog->starts_at)->format('j F Y') }}
-                                        @endif
-                                    </div>
-                                @endif --}}
                             </div>
                         </div>
                         @empty
