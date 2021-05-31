@@ -20,10 +20,9 @@ class StationReportController extends Controller
             $report = $report->whereNull('resolved_at');
         }
 
-        $reports = $report->get();
+        $reports = $report->with('reporter')->latest()->get();
 
-        // The view should goes here
-        return $reports;
+        return view('reports.index', compact('reports', 'station'));
     }
 
     public function create(Station $station)

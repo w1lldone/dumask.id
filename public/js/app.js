@@ -5809,6 +5809,284 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Reports/ReportList.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Reports/ReportList.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "ReportList",
+  props: {
+    station: {
+      type: Object
+    },
+    reports: {
+      type: Array
+    },
+    conditions: {
+      type: Object
+    }
+  },
+  data: function data() {
+    return {
+      isLoading: false,
+      dataReports: this.reports,
+      form: {
+        report_id: []
+      }
+    };
+  },
+  computed: {
+    groupedReports: function groupedReports() {
+      var groupedReports = {};
+      var reports = this.dataReports;
+      var conditions = Object.keys(this.conditions);
+
+      for (var i = 0; i < conditions.length; i++) {
+        groupedReports[conditions[i]] = 0;
+      }
+
+      for (var _i = 0; _i < reports.length; _i++) {
+        for (var j = 0; j < conditions.length; j++) {
+          if (reports[_i].condition == conditions[j]) {
+            groupedReports[conditions[j]] += 1;
+          }
+        }
+      }
+
+      return groupedReports;
+    }
+  },
+  methods: {
+    conditionDetails: function conditionDetails(condition) {
+      return this.conditions[condition];
+    },
+    doSubmit: function doSubmit() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var url, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.isLoading = true;
+                url = "/station/" + _this.station.id + "/report/resolve";
+                _context.prev = 2;
+                _context.next = 5;
+                return axios.put(url, _this.form);
+
+              case 5:
+                response = _context.sent;
+                alert("Reports Resolved!");
+                return _context.abrupt("return", location.reload());
+
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](2);
+                alert(_context.t0.response.data.message);
+                console.log(_context.t0.response);
+                _this.errors = _context.t0.response.data.errors;
+
+              case 15:
+                _this.isLoading = false;
+
+              case 16:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[2, 10]]);
+      }))();
+    },
+    doResolveAll: function doResolveAll() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var url, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.isLoading = true;
+                _this2.form.resolve_all = true;
+                url = "/station/" + _this2.station.id + "/report/resolve";
+                _context2.prev = 3;
+                _context2.next = 6;
+                return axios.put(url, _this2.form);
+
+              case 6:
+                response = _context2.sent;
+                alert("Reports Resolved!");
+                return _context2.abrupt("return", location.reload());
+
+              case 11:
+                _context2.prev = 11;
+                _context2.t0 = _context2["catch"](3);
+                alert(_context2.t0.response.data.message);
+                console.log(_context2.t0.response);
+                _this2.errors = _context2.t0.response.data.errors;
+
+              case 16:
+                _this2.isLoading = false;
+
+              case 17:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[3, 11]]);
+      }))();
+    },
+    doReset: function doReset() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _this3.isLoading = false;
+                _this3.form = {
+                  report_id: [],
+                  resolve_all: false
+                };
+
+              case 2:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Schedule/ScheduleCreateModal.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Schedule/ScheduleCreateModal.vue?vue&type=script&lang=js& ***!
@@ -79798,6 +80076,45 @@ component.options.__file = "resources/js/components/Reports/ReportCreateForm.vue
 
 /***/ }),
 
+/***/ "./resources/js/components/Reports/ReportList.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/Reports/ReportList.vue ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ReportList_vue_vue_type_template_id_f05a71e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ReportList.vue?vue&type=template&id=f05a71e6&scoped=true& */ "./resources/js/components/Reports/ReportList.vue?vue&type=template&id=f05a71e6&scoped=true&");
+/* harmony import */ var _ReportList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReportList.vue?vue&type=script&lang=js& */ "./resources/js/components/Reports/ReportList.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _ReportList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _ReportList_vue_vue_type_template_id_f05a71e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ReportList_vue_vue_type_template_id_f05a71e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "f05a71e6",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Reports/ReportList.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Schedule/ScheduleCreateModal.vue":
 /*!******************************************************************!*\
   !*** ./resources/js/components/Schedule/ScheduleCreateModal.vue ***!
@@ -80643,6 +80960,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Reports/ReportList.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/Reports/ReportList.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ReportList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ReportList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Reports/ReportList.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ReportList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Schedule/ScheduleCreateModal.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************!*\
   !*** ./resources/js/components/Schedule/ScheduleCreateModal.vue?vue&type=script&lang=js& ***!
@@ -81282,6 +81615,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReportCreateForm_vue_vue_type_template_id_3e012c0f_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReportCreateForm_vue_vue_type_template_id_3e012c0f_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ReportCreateForm.vue?vue&type=template&id=3e012c0f&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Reports/ReportCreateForm.vue?vue&type=template&id=3e012c0f&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Reports/ReportList.vue?vue&type=template&id=f05a71e6&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/Reports/ReportList.vue?vue&type=template&id=f05a71e6&scoped=true& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReportList_vue_vue_type_template_id_f05a71e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReportList_vue_vue_type_template_id_f05a71e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReportList_vue_vue_type_template_id_f05a71e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ReportList.vue?vue&type=template&id=f05a71e6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Reports/ReportList.vue?vue&type=template&id=f05a71e6&scoped=true&");
 
 
 /***/ }),
@@ -86704,6 +87054,317 @@ var staticRenderFns = [
         _vm._v(
           "\n            Menyertakan lokasi dan foto bisa membantu pengelola dropbox memproses laporan Anda lebih cepat\n          "
         )
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Reports/ReportList.vue?vue&type=template&id=f05a71e6&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Reports/ReportList.vue?vue&type=template&id=f05a71e6&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "d-flex flex-row card border-0 py-3 mt-2 mb-4 shadow" },
+      _vm._l(_vm.groupedReports, function(groupedReport, index) {
+        return _c("div", { key: index, staticClass: "col text-center" }, [
+          _c(
+            "h5",
+            {
+              staticClass: "text-dark",
+              staticStyle: { "text-transform": "Capitalize" }
+            },
+            [_vm._v("\n                " + _vm._s(index) + "\n            ")]
+          ),
+          _vm._v(" "),
+          _c("h4", { staticClass: "text-secondary font-weight-bold" }, [
+            _vm._v(_vm._s(groupedReport))
+          ])
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "table table-borderless table-responsive d-md-table" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.dataReports, function(report) {
+            return _c("tr", { key: report.id }, [
+              _c("td", { staticClass: "align-top" }, [
+                !report.resolved_at
+                  ? _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.report_id,
+                          expression: "form.report_id"
+                        }
+                      ],
+                      staticClass: "custom-control",
+                      attrs: { name: "report_id", type: "checkbox" },
+                      domProps: {
+                        value: report.id,
+                        checked: Array.isArray(_vm.form.report_id)
+                          ? _vm._i(_vm.form.report_id, report.id) > -1
+                          : _vm.form.report_id
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$a = _vm.form.report_id,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = report.id,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                _vm.$set(
+                                  _vm.form,
+                                  "report_id",
+                                  $$a.concat([$$v])
+                                )
+                            } else {
+                              $$i > -1 &&
+                                _vm.$set(
+                                  _vm.form,
+                                  "report_id",
+                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                )
+                            }
+                          } else {
+                            _vm.$set(_vm.form, "report_id", $$c)
+                          }
+                        }
+                      }
+                    })
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c(
+                "td",
+                { staticClass: "align-top text-primary font-weight-bold" },
+                [_vm._v(_vm._s(_vm.conditionDetails(report.condition)))]
+              ),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-top" }, [
+                _vm._v(
+                  _vm._s(
+                    _vm._f("date")(new Date(report.created_at), "dd MMMM yyyy")
+                  )
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-top" }, [
+                _c("div", [
+                  _c("h6", [
+                    report.resolved_at
+                      ? _c(
+                          "span",
+                          { staticClass: "badge badge-success badge-pill" },
+                          [
+                            _vm._v(
+                              "\n                                Resolved\n                            "
+                            )
+                          ]
+                        )
+                      : _c(
+                          "span",
+                          { staticClass: "badge badge-danger badge-pill" },
+                          [
+                            _vm._v(
+                              "\n                                Open\n                            "
+                            )
+                          ]
+                        )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-top" }, [
+                _vm._v(_vm._s(report.reporter.name))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-top text-right" })
+            ])
+          }),
+          0
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-12 text-right" }, [
+      _c(
+        "button",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: !_vm.isLoading,
+              expression: "!isLoading"
+            }
+          ],
+          staticClass: "btn text-white shadow mr-2",
+          staticStyle: { background: "#A7A7A7" },
+          on: {
+            click: function($event) {
+              return _vm.doReset()
+            }
+          }
+        },
+        [_vm._v("\n        RESET\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.isLoading,
+              expression: "isLoading"
+            }
+          ],
+          staticClass: "btn text-white shadow mr-2",
+          staticStyle: { background: "#A7A7A7" },
+          attrs: { disabled: "" }
+        },
+        [_vm._v("\n        RESET\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: !_vm.isLoading && _vm.form.report_id != "",
+              expression: "!isLoading && form.report_id != ''"
+            }
+          ],
+          staticClass: "btn btn-primary shadow mr-2",
+          on: {
+            click: function($event) {
+              return _vm.doSubmit()
+            }
+          }
+        },
+        [_vm._v("\n        RESOLVE\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.isLoading || _vm.form.report_id == "",
+              expression: "isLoading || form.report_id == ''"
+            }
+          ],
+          staticClass: "btn btn-primary shadow mr-2",
+          attrs: { disabled: "" }
+        },
+        [_vm._v("\n        RESOLVE\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: !_vm.isLoading,
+              expression: "!isLoading"
+            }
+          ],
+          staticClass: "btn btn-secondary shadow",
+          on: {
+            click: function($event) {
+              return _vm.doResolveAll()
+            }
+          }
+        },
+        [_vm._v("\n        RESOLVE ALL\n        ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.isLoading,
+              expression: "isLoading"
+            }
+          ],
+          staticClass: "btn btn-secondary shadow",
+          attrs: { disabled: "" }
+        },
+        [_vm._v("\n        RESOLVE ALL\n        ")]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "thead",
+      { staticStyle: { "border-bottom": "1px solid #c4c4c4" } },
+      [
+        _c("tr", [
+          _c("th", { staticStyle: { width: "5%" }, attrs: { scope: "col" } }),
+          _vm._v(" "),
+          _c("th", { staticStyle: { width: "25%" }, attrs: { scope: "col" } }, [
+            _vm._v("Kategori")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { width: "20%" }, attrs: { scope: "col" } }, [
+            _vm._v("Tanggal Laporan")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { width: "10%" }, attrs: { scope: "col" } }, [
+            _vm._v("Status")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { width: "15%" }, attrs: { scope: "col" } }, [
+            _vm._v("Pelapor")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { width: "15%" }, attrs: { scope: "col" } })
+        ])
       ]
     )
   }
@@ -108604,6 +109265,7 @@ var map = {
 	"./components/Operation/OperationEditModal.vue": "./resources/js/components/Operation/OperationEditModal.vue",
 	"./components/Profile/ProfilePage.vue": "./resources/js/components/Profile/ProfilePage.vue",
 	"./components/Reports/ReportCreateForm.vue": "./resources/js/components/Reports/ReportCreateForm.vue",
+	"./components/Reports/ReportList.vue": "./resources/js/components/Reports/ReportList.vue",
 	"./components/Schedule/ScheduleCreateModal.vue": "./resources/js/components/Schedule/ScheduleCreateModal.vue",
 	"./components/Schedule/ScheduleDeleteModal.vue": "./resources/js/components/Schedule/ScheduleDeleteModal.vue",
 	"./components/Schedule/ScheduleEditModal.vue": "./resources/js/components/Schedule/ScheduleEditModal.vue",
