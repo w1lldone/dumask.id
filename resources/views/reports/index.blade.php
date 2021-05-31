@@ -19,9 +19,9 @@
         <div class="custom-control custom-switch">
             <form id="form-show-all" action="{{ route('station.report.index', ['station' => $station->id])  }}" method="GET">
                 <div class="input-group mb-4">
-                    <input 
-                        type="checkbox" 
-                        class="custom-control-input" 
+                    <input
+                        type="checkbox"
+                        class="custom-control-input"
                         id="show_all"
                         name="show_all"
                         value="true"
@@ -35,12 +35,11 @@
             </form>
         </div>
         <div>
-            @if ($reports)
+            @if ($reports->count())
                 <report-list
                     :station='@json($station)'
                     :reports='@json($reports)'
-                    :conditions='@json(array_keys(\App\Models\Report::$conditions))'
-                    :detail='@json(\App\Models\Report::$conditions)'
+                    :conditions='@json(\App\Models\Report::$conditions)'
                 >
                 </report-list>
             @endif
