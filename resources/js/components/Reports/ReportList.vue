@@ -45,15 +45,18 @@
                     </td>
                     <td class="align-top">{{ report.reporter.name }}</td>
                     <td class="align-top text-right">
-                        <!-- <a
-                            href = "#"
-                            class="btn btn-primary "
+                        <button
+                            class="btn btn-primary"
+                            data-toggle="modal"
+                            data-target="#report-detail-modal"
+                            @click="showReportDetail(report)"
                         >
-                            DETAIL LAPORAN
-                        </a> -->
+                            REPORT DETAILS
+                        </button>
                     </td>
                 </tr>
             </tbody>
+            <report-detail-modal :report="selectedReport" :station="this.station" :conditions="this.conditions"></report-detail-modal>
         </table>
         <div class="col-12 text-right">
             <button
@@ -128,7 +131,8 @@
                 dataReports: this.reports,
                 form : {
                     report_id : []
-                }
+                },
+                selectedReport : {}
             };
         },
 
@@ -203,6 +207,9 @@
                 }
             },
 
+            showReportDetail(report) {
+                this.selectedReport = report
+            }
         },
     }
 
