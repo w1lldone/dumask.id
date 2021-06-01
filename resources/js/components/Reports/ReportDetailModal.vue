@@ -27,7 +27,6 @@
             </button>
           </div>
           <div v-if="report.id" class="modal-body text-left mx-4">
-            <!-- {{ report }} -->
             <div class="text-secondary my-2">
                 <b>Jenis Laporan</b>
                 <br>
