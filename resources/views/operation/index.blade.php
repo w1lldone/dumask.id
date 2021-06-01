@@ -14,13 +14,24 @@
 <div class="mt-4 d-flex-column">
     <div class="my-md-3">
         <form action="{{ route('operation.index') }}" method="GET">
-            <div class="input-group mb-4">
-                <input type="search" placeholder="Cari nama atau alamat" name="keywords" class="form-control border-0"
-                    aria-label="Cari Station" value="{{ request('keywords') }}" />
-                <div class="input-group-append text-primary">
-                    <button type="submit" class="btn bg-white border-0">
-                        <span class="mdi mdi-magnify"></span>
-                    </button>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="input-group mb-4">
+                        <input type="search" placeholder="Cari nama atau alamat" name="keywords" class="form-control border-0"
+                            aria-label="Cari Station" value="{{ request('keywords') }}" />
+                        <div class="input-group-append text-primary">
+                            <button type="submit" class="btn bg-white border-0">
+                                <span class="mdi mdi-magnify"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <select name="sort" class="form-control" id="" onchange="this.form.submit()">
+                        @foreach (\App\Models\Station::$sorts as $key => $value)
+                            <option value="{{ $key }}" {{ $sort == $key ? 'selected' : '' }}>{{ $value }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
         </form>

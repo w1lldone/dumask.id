@@ -19,16 +19,21 @@ class OperationController extends Controller
 
         $station = new Station;
 
-        $station = $this->stationQuery($station, $request);
-
-        $stations = $station->with(['dropboxes.activeLog'])->withCount([
-            'reports' => function ($report)
-            {
+        $station = $this->stationQuery($station, $request)->with(['dropboxes.activeLog'])->withCount([
+            'reports' => function ($report) {
                 $report->whereNull('resolved_at');
             }
-        ])->paginate(5);
+        ]);
 
-        return view('operation.index', compact('stations'));
+        if (key_exists($request->sort, Station::$sorts) == false || $request->sort == null) {
+            $sort = array_keys(Station::$sorts)[0];
+        } else {
+            $sort = $request->sort;
+        }
+        $orderBy = explode(".", $sort);
+        $stations = $station->orderBy($orderBy[0], $orderBy[1])->paginate(5);
+
+        return view('operation.index', compact('stations', 'sort'));
     }
 
     public function replace(Station $station, Request $request)
