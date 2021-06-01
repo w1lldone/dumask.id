@@ -25,15 +25,27 @@ class OperationController extends Controller
             }
         ]);
 
-        if (key_exists($request->sort, Station::$sorts) == false || $request->sort == null) {
-            $sort = array_keys(Station::$sorts)[0];
-        } else {
-            $sort = $request->sort;
-        }
+        $sort = $this->sortIsAllowed($request->sort) ? $request->sort : array_keys(Station::$sorts)[0];
         $orderBy = explode(".", $sort);
+
         $stations = $station->orderBy($orderBy[0], $orderBy[1])->paginate(5);
 
         return view('operation.index', compact('stations', 'sort'));
+    }
+
+    /**
+     * Determine wheater the sort parameter is alllowed
+     *
+     * @param string $sort
+     * @return bool
+     */
+    protected function sortIsAllowed(string $sort = null)
+    {
+        if (!$sort) {
+            return false;
+        }
+
+        return key_exists($sort, Station::$sorts);
     }
 
     public function replace(Station $station, Request $request)

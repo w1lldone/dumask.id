@@ -27,11 +27,18 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <select name="sort" class="form-control" id="" onchange="this.form.submit()">
-                        @foreach (\App\Models\Station::$sorts as $key => $value)
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                                Sort
+                            </span>
+                        </div>
+                        <select name="sort" class="custom-select" id="" onchange="this.form.submit()">
+                            @foreach (\App\Models\Station::$sorts as $key => $value)
                             <option value="{{ $key }}" {{ $sort == $key ? 'selected' : '' }}>{{ $value }}</option>
-                        @endforeach
-                    </select>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </div>
         </form>

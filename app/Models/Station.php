@@ -20,8 +20,8 @@ class Station extends Model implements HasMedia
         'last_operation_at' => 'datetime:Y-m-d\TH:i:sP',
     ];
     public static $sorts = [
-        'id.asc' => 'Paling Lama',
-        'id.desc' => 'Terbaru',
+        'id.asc' => 'Dibuat (Lama - Baru)',
+        'id.desc' => 'Dibuat (Baru - Lama)',
         'reports_count.desc' => 'Laporan Terbanyak',
         'last_operation_at.asc' => 'Pengukuran Terakhir'
     ];
