@@ -26,12 +26,12 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body text-left mx-4">
-            {{ report }}
+          <div v-if="report.id" class="modal-body text-left mx-4">
+            <!-- {{ report }} -->
             <div class="text-secondary my-2">
                 <b>Jenis Laporan</b>
                 <br>
-                {{ report.condition }}
+                {{ conditionDetails(report.condition) }}
             </div>
             <div class="text-secondary my-2">
                 <b>Pembuat Laporan</b>
@@ -41,7 +41,17 @@
             <div class="text-secondary my-2">
                 <b>Tanggal Laporan</b>
                 <br>
-                {{ new Date(report.created_at) | date("dd MMMM yyyy") }}
+                {{ new Date(report.created_at) | date("dd MMMM yyyy") }} 
+            </div>
+            <div class="text-secondary my-2">
+                <b>Lokasi Pelapor dari Station</b>
+                <br>
+                <div v-if="distance">
+                  {{ distance }} m
+                </div>
+                <div v-else class="text-dark">
+                  Pelapor tidak memberikan lokasi
+                </div>
             </div>
             <div class="text-secondary my-2">
                 <b>Foto Laporan</b>
@@ -58,26 +68,40 @@
 </template>
 
 <script>
+import { latLng } from "leaflet";
 export default {
   name: "ReportDetailModal",
 
   props: {
     report: {
       type: Object
-    }
+    },
+    station: {
+      type: Object
+    },
+    conditions: {
+      type : Object
+    },
   },
 
   methods: {
-    doReset() {
-      this.form = {
-        name: null,
-        description: null,
-        address: null,
-        longitude: null,
-        latitude: null,
-      }
+    conditionDetails(condition) {
+        return this.conditions[condition]
     },
   },
+
+  computed: {
+    distance() {
+      if (this.report.user_latitude && this.report.user_longitude) {
+        var userLat = this.report.user_latitude
+        var userLong = this.report.user_longitude
+          return Math.round(latLng([userLat, userLong]).distanceTo([this.station.latitude, this.station.longitude]) * 10) / 10;
+      }
+
+      return null;
+    }
+  }
+
 };
 </script>
 

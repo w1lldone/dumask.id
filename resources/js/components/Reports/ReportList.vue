@@ -49,14 +49,14 @@
                             class="btn btn-primary"
                             data-toggle="modal"
                             data-target="#report-detail-modal"
-                            @click="updateReportDetail(report)"
+                            @click="showReportDetail(report)"
                         >
                             REPORT DETAILS
                         </button>
                     </td>
                 </tr>
             </tbody>
-            <report-detail-modal :report="selectedReport"></report-detail-modal>
+            <report-detail-modal :report="selectedReport" :station="this.station" :conditions="this.conditions"></report-detail-modal>
         </table>
         <div class="col-12 text-right">
             <button
@@ -207,7 +207,7 @@
                 }
             },
 
-            updateReportDetail(report) {
+            showReportDetail(report) {
                 this.selectedReport = report
             }
         },

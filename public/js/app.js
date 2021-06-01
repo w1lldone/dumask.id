@@ -4948,44 +4948,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "ReportMedia",
+  name: "MediaReport",
   props: {
-    stationId: {
+    reportId: {
       type: Number
     },
-    reportId: {
+    stationId: {
       type: Number
     }
   },
@@ -5961,6 +5930,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -6020,22 +5991,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ReportDetailModal",
   props: {
     report: {
       type: Object
+    },
+    station: {
+      type: Object
+    },
+    conditions: {
+      type: Object
     }
   },
   methods: {
-    doReset: function doReset() {
-      this.form = {
-        name: null,
-        description: null,
-        address: null,
-        longitude: null,
-        latitude: null
-      };
+    conditionDetails: function conditionDetails(condition) {
+      return this.conditions[condition];
+    }
+  },
+  computed: {
+    distance: function distance() {
+      if (this.report.user_latitude && this.report.user_longitude) {
+        var userLat = this.report.user_latitude;
+        var userLong = this.report.user_longitude;
+        return Math.round((0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)([userLat, userLong]).distanceTo([this.station.latitude, this.station.longitude]) * 10) / 10;
+      }
+
+      return null;
     }
   }
 });
@@ -6319,7 +6312,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee3);
       }))();
     },
-    updateReportDetail: function updateReportDetail(report) {
+    showReportDetail: function showReportDetail(report) {
       this.selectedReport = report;
     }
   }
@@ -86410,10 +86403,10 @@ var render = function() {
     "div",
     {
       staticClass: "carousel slide",
-      attrs: { id: "report-media", "data-ride": "carousel" }
+      attrs: { id: "carouselExampleIndicators", "data-ride": "carousel" }
     },
     [
-      _vm.media.length == 0
+      _vm.media == null
         ? _c(
             "div",
             {
@@ -86427,86 +86420,19 @@ var render = function() {
               _c("h3", [_vm._v("Foto tidak tersedia")])
             ]
           )
-        : _c(
-            "ol",
-            { staticClass: "carousel-indicators" },
-            _vm._l(_vm.media, function(item, index) {
-              return _c("li", {
-                key: item.id,
-                attrs: {
-                  "data-target": "#report-media",
-                  "data-slide-to": index
-                }
+        : _c("div", [
+            _c("div", { staticClass: "carousel-inner bg-dark" }, [
+              _c("img", {
+                staticClass: "d-block mx-auto",
+                staticStyle: { "max-height": "200px" },
+                attrs: { src: _vm.media.url }
               })
-            }),
-            0
-          ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "carousel-inner" },
-        _vm._l(_vm.media, function(item, index) {
-          return _c(
-            "div",
-            {
-              key: item.id,
-              staticClass: "carousel-item bg-dark rounded",
-              class: { active: index == 0 }
-            },
-            [_c("img", { staticClass: "d-block", attrs: { src: item.url } })]
-          )
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1)
+            ])
+          ])
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-prev",
-        attrs: { href: "#report-media", role: "button", "data-slide": "prev" }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-prev-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-next",
-        attrs: { href: "#report-media", role: "button", "data-slide": "next" }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-next-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -87680,60 +87606,81 @@ var render = function() {
             _c("div", { staticClass: "modal-content" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "modal-body text-left mx-4" },
-                [
-                  _vm._v("\n          " + _vm._s(_vm.report) + "\n          "),
-                  _c("div", { staticClass: "text-secondary my-2" }, [
-                    _c("b", [_vm._v("Jenis Laporan")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(_vm.report.condition) +
-                        "\n          "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text-secondary my-2" }, [
-                    _c("b", [_vm._v("Pembuat Laporan")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(_vm.report.reporter.name) +
-                        "\n          "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text-secondary my-2" }, [
-                    _c("b", [_vm._v("Tanggal Laporan")]),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(
-                      "\n              " +
-                        _vm._s(
-                          _vm._f("date")(
-                            new Date(_vm.report.created_at),
-                            "dd MMMM yyyy"
-                          )
-                        ) +
-                        "\n          "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c("media-report", {
-                    attrs: {
-                      stationId: _vm.report.station_id,
-                      reportId: _vm.report.id
-                    }
-                  })
-                ],
-                1
-              )
+              _vm.report.id
+                ? _c(
+                    "div",
+                    { staticClass: "modal-body text-left mx-4" },
+                    [
+                      _c("div", { staticClass: "text-secondary my-2" }, [
+                        _c("b", [_vm._v("Jenis Laporan")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.conditionDetails(_vm.report.condition)) +
+                            "\n          "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-secondary my-2" }, [
+                        _c("b", [_vm._v("Pembuat Laporan")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(_vm.report.reporter.name) +
+                            "\n          "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-secondary my-2" }, [
+                        _c("b", [_vm._v("Tanggal Laporan")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(
+                              _vm._f("date")(
+                                new Date(_vm.report.created_at),
+                                "dd MMMM yyyy"
+                              )
+                            ) +
+                            " \n          "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-secondary my-2" }, [
+                        _c("b", [_vm._v("Lokasi Pelapor dari Station")]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _vm.distance
+                          ? _c("div", [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(_vm.distance) +
+                                  " m\n              "
+                              )
+                            ])
+                          : _c("div", { staticClass: "text-dark" }, [
+                              _vm._v(
+                                "\n                Pelapor tidak memberikan lokasi\n              "
+                              )
+                            ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("media-report", {
+                        attrs: {
+                          stationId: _vm.report.station_id,
+                          reportId: _vm.report.id
+                        }
+                      })
+                    ],
+                    1
+                  )
+                : _vm._e()
             ])
           ]
         )
@@ -87940,7 +87887,7 @@ var render = function() {
                     },
                     on: {
                       click: function($event) {
-                        return _vm.updateReportDetail(report)
+                        return _vm.showReportDetail(report)
                       }
                     }
                   },
@@ -87956,7 +87903,13 @@ var render = function() {
           0
         ),
         _vm._v(" "),
-        _c("report-detail-modal", { attrs: { report: _vm.selectedReport } })
+        _c("report-detail-modal", {
+          attrs: {
+            report: _vm.selectedReport,
+            station: this.station,
+            conditions: this.conditions
+          }
+        })
       ],
       1
     ),
