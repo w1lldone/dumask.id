@@ -84,6 +84,6 @@ Route::middleware('auth')->prefix('station/{station}/report')->name('station.rep
 {
     Route::get('/', [StationReportController::class, 'index'])->name('index');
     Route::get('/{report}', [StationReportController::class, 'show'])->name('show');
-    Route::post('/', [StationReportController::class, 'store'])->name('store');
+    Route::post('/', [StationReportController::class, 'store'])->middleware('throttle:report.store')->name('store');
     Route::put('/resolve', [StationReportController::class, 'resolve'])->name('resolve');
 });
