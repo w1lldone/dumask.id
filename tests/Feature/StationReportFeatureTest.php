@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Report;
 use App\Models\Station;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -96,5 +97,30 @@ class StationReportFeatureTest extends TestCase
         $response->assertOk();
         $this->assertEquals(2, Report::whereNotNull('resolved_at')->count());
         $this->assertEquals(3, Report::whereNull('resolved_at')->count());
+    }
+
+    /** @test */
+    public function user_can_submit_report_but_rate_limited()
+    {
+        $user = User::factory()->create();
+        $station = Station::factory()->create();
+        $this->login($user);
+
+        $data = [
+            'condition' => 'missing',
+            'user_latitude' => $this->faker->latitude,
+            'user_longitude' => $this->faker->longitude,
+            'photo' => null
+        ];
+
+        $this->postJson(route('station.report.store', $station), $data);
+        $this->postJson(route('station.report.store', $station), $data);
+        $this->postJson(route('station.report.store', $station), $data);
+        $this->postJson(route('station.report.store', $station), $data);
+        $responseOne = $this->postJson(route('station.report.store', $station), $data);
+        $responseTwo = $this->postJson(route('station.report.store', $station), $data);
+
+        $responseOne->assertCreated();
+        $responseTwo->assertStatus(429);
     }
 }
