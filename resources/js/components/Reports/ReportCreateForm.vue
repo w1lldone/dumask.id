@@ -2,7 +2,7 @@
   <form @submit.prevent="doSubmit()">
     <div class="d-flex">
       <h5 class="text-secondary font-weight-bold my-auto">
-          Laporkan Kondisi Station
+          Laporkan Kondisi Dropbox
       </h5>
     </div>
     <hr style="border-bottom: 2px solid #c4c4c4;">
