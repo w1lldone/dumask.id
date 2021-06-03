@@ -1,4 +1,7 @@
 @extends('layouts.template')
+
+@section('title', 'Laporkan keadaan station')
+
 @section('content')
 
 <div class="row">
