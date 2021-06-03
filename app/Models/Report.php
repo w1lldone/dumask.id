@@ -13,8 +13,8 @@ class Report extends Model implements HasMedia
     use HasFactory, HasMediaTrait;
 
     public static $conditions = [
-        'missing' => 'Dropbox Hilang/Tidak Pada Tempatnya',
         'full' => 'Dropbox Penuh',
+        'missing' => 'Dropbox Hilang/Tidak Pada Tempatnya',
         'damaged' => 'Dropbox Rusak'
     ];
 
