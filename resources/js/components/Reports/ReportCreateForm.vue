@@ -6,110 +6,118 @@
       </h5>
     </div>
     <hr style="border-bottom: 2px solid #c4c4c4;">
+
     <div class="text-left">
-
-      <div class="form-group">
-        <label class="font-weight-bold" for="condition">
-          Kondisi Dropbox
-          <abbr class="text-danger">*</abbr>
-        </label>
-        <div class="custom-control custom-radio"
-          v-for="(condition, index) in conditions"
-          :key="index"
-        >
-            <input
-              :name="'conditon'"
-              :value="index"
-              type="radio"
-              class="custom-control-input"
-              :id="'condition-' + index"
-              v-model="form.condition"
-            />
-            <label class="custom-control-label" :for="'condition-' + index">
-              {{ condition }}
-            </label>
-        </div>
-        <div 
-          class="invalid-feedback"
-          :class="{ 'd-block': hasErrors('condition') }"
-        >
-          {{ getErrors("condition") }}
-        </div>
-      </div>
-
-      <div>
-        
-      </div>
-
-      <div class="form-group">
-        <label class="font-weight-bold" for="location-checkbox">Kirimkan Lokasi</label>
-        <div class="d-flex">
-          <div class="custom-control custom-checkbox mr-4">
-            <input
-              type="checkbox"
-              class="custom-control-input"
-              id="location-checkbox"
-              v-model="form.send_location"
-            />
-            <label
-              class="custom-control-label"
-              for="location-checkbox"
-              >
-              Kirimkan lokasi saya saat ini (Pastikan GPS anda Aktif) <br>
-              Menyertakan lokasi dan foto bisa membantu pengelola dropbox memproses laporan Anda lebih cepat
-            </label
-            >
+      <h4 class="text-secondary font-weight-bold" style="text-transform: uppercase;">{{ station.name }}</h4>
+      <span class="mdi mdi-archive-outline text-secondary"></span>
+      <span class="text-secondary font-weight-bold align-middle ml-2">{{ station.dropboxes_count }} Dropbox</span>
+      <div class="mt-4">
+        <div class="form-group">
+          <label class="font-weight-bold" for="condition">
+            Bagaimana kondisi dropbox di station ini?
+            <small class="text-dark">(wajib diisi)</small>
+          </label>
+          <div class="custom-control custom-radio"
+            v-for="(condition, index) in conditions"
+            :key="index"
+          >
+              <input
+                :name="'conditon'"
+                :value="index"
+                type="radio"
+                class="custom-control-input"
+                :id="'condition-' + index"
+                v-model="form.condition"
+              />
+              <label class="custom-control-label" :for="'condition-' + index">
+                {{ condition }}
+              </label>
+          </div>
+          <div 
+            class="invalid-feedback"
+            :class="{ 'd-block': hasErrors('condition') }"
+          >
+            {{ getErrors("condition") }}
           </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="font-weight-bold" for="photo">
-          Foto (Opsional)
-        </label>
-        <div class="col-md-3 px-0">
-          <label
-            class="btn btn-outline-primary d-flex w-md-50"
-          >
-            <div class="mdi mdi-image"></div>
-            <div class="my-auto">Upload Image</div>
-              <div id="uploadPhotoForm">
-                <input
-                  id="inputPhoto"
-                  type="file"
-                  style="display: none"
-                  ref="photo"
-                  name="photo"
-                  accept="image/*"
-                  @change="getNewFileName"
-                />
-              </div>
+        <div class="form-group">
+          <label class="font-weight-bold" for="photo">
+            Unggah foto pendukung
+            <small class="text-dark">(opsional)</small>
           </label>
+          <div class="col-md-3 px-0">
+            <label
+              class="btn btn-outline-dark rounded d-flex"
+            >
+              <div class="mdi mdi-image"></div>
+              <div class="my-auto">Unggah foto</div>
+                <div id="uploadPhotoForm">
+                  <input
+                    id="inputPhoto"
+                    type="file"
+                    style="display: none"
+                    ref="photo"
+                    name="photo"
+                    accept="image/*"
+                    @change="getNewFileName"
+                  />
+                </div>
+            </label>
+          </div>
+          <div
+            id='photoName'
+          >
+            {{fileName}}
+          </div>
+          <small class="text-dark">Foto yang anda kirimkan dapat membantu kami memproses laporan dengan lebih tepat.</small>
         </div>
-        <div
-          id='photoName'
-        >
-          {{fileName}}
+
+        <div class="form-group">
+           
+            
+          <div>
+            <div class="custom-control custom-checkbox mr-4">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="location-checkbox"
+                v-model="form.send_location"
+              />
+              <label
+                class="custom-control-label font-weight-bold"
+                for="location-checkbox"
+                >
+                Saya setuju mengirimkan lokasi saya saat ini
+                <small class="text-dark">(opsional)</small>
+              </label>
+              <div>
+              </div>
+            </div>
+            <small class="text-dark">Lokasi yang Anda kirimkan dapat membantu kami memproses laporan dengan lebih cepat.</small>
+          </div>
         </div>
-      </div>
-      <div class="form-group mt-4 text-right">
-        <button
-          style="background: #A7A7A7"
-          class="btn text-white shadow mx-2"
-          @click="doReset()"
-        >
-          RESET
-        </button>
-        <button
-          class="btn btn-primary shadow"
-          v-show="!isLoading"
-          @click="doSubmit()"
-        >
-          SUBMIT
-        </button>
-        <button class="btn btn-primary" disabled v-show="isLoading">
-          SUBMITTING...
-        </button>
+
+        
+        <div class="form-group mt-4 text-right">
+          <button
+            style="background: #A7A7A7"
+            class="btn text-white shadow mx-2"
+            @click="doReset()"
+          >
+            RESET
+          </button>
+          <button
+            class="btn btn-primary shadow"
+            v-show="!isLoading"
+            @click="doSubmit()"
+          >
+            SUBMIT
+          </button>
+          <button class="btn btn-primary" disabled v-show="isLoading">
+            SUBMITTING...
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -180,10 +188,10 @@ export default {
 
       try {
         let response = await axios.post(url, formData, config);
-        alert("Report submitted!");
-        return location.reload();
+        alert("Terima kasih atas laporan Anda!");
+        return location.href = "/";
       } catch (error) {
-        alert(error.response.data.message);
+        alert(error.response.data.message ?? error.response.data);
         console.log(error.response);
         this.errors = error.response.data.errors;
       }

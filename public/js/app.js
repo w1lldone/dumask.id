@@ -5740,6 +5740,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ReportCreateForm",
   props: {
@@ -5770,7 +5778,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var url, config, formData, photo, response;
+        var url, config, formData, photo, response, _error$response$data$;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -5816,13 +5825,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 19:
                 response = _context.sent;
-                alert("Report submitted!");
-                return _context.abrupt("return", location.reload());
+                alert("Terima kasih atas laporan Anda!");
+                return _context.abrupt("return", location.href = "/");
 
               case 24:
                 _context.prev = 24;
                 _context.t0 = _context["catch"](16);
-                alert(_context.t0.response.data.message);
+                alert((_error$response$data$ = _context.t0.response.data.message) !== null && _error$response$data$ !== void 0 ? _error$response$data$ : _context.t0.response.data);
                 console.log(_context.t0.response);
                 _this.errors = _context.t0.response.data.errors;
 
@@ -87290,225 +87299,247 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "text-left" }, [
       _c(
-        "div",
-        { staticClass: "form-group" },
-        [
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._l(_vm.conditions, function(condition, index) {
-            return _c(
-              "div",
-              { key: index, staticClass: "custom-control custom-radio" },
-              [
-                _c("input", {
-                  directives: [
+        "h4",
+        {
+          staticClass: "text-secondary font-weight-bold",
+          staticStyle: { "text-transform": "uppercase" }
+        },
+        [_vm._v(_vm._s(_vm.station.name))]
+      ),
+      _vm._v(" "),
+      _c("span", { staticClass: "mdi mdi-archive-outline text-secondary" }),
+      _vm._v(" "),
+      _c(
+        "span",
+        { staticClass: "text-secondary font-weight-bold align-middle ml-2" },
+        [_vm._v(_vm._s(_vm.station.dropboxes_count) + " Dropbox")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "mt-4" }, [
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._l(_vm.conditions, function(condition, index) {
+              return _c(
+                "div",
+                { key: index, staticClass: "custom-control custom-radio" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.condition,
+                        expression: "form.condition"
+                      }
+                    ],
+                    staticClass: "custom-control-input",
+                    attrs: {
+                      name: "conditon",
+                      type: "radio",
+                      id: "condition-" + index
+                    },
+                    domProps: {
+                      value: index,
+                      checked: _vm._q(_vm.form.condition, index)
+                    },
+                    on: {
+                      change: function($event) {
+                        return _vm.$set(_vm.form, "condition", index)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.condition,
-                      expression: "form.condition"
-                    }
-                  ],
-                  staticClass: "custom-control-input",
-                  attrs: {
-                    name: "conditon",
-                    type: "radio",
-                    id: "condition-" + index
-                  },
-                  domProps: {
-                    value: index,
-                    checked: _vm._q(_vm.form.condition, index)
-                  },
-                  on: {
-                    change: function($event) {
-                      return _vm.$set(_vm.form, "condition", index)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "custom-control-label",
-                    attrs: { for: "condition-" + index }
-                  },
-                  [
-                    _vm._v(
-                      "\n            " + _vm._s(condition) + "\n          "
-                    )
-                  ]
+                      staticClass: "custom-control-label",
+                      attrs: { for: "condition-" + index }
+                    },
+                    [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(condition) +
+                          "\n            "
+                      )
+                    ]
+                  )
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "invalid-feedback",
+                class: { "d-block": _vm.hasErrors("condition") }
+              },
+              [
+                _vm._v(
+                  "\n          " +
+                    _vm._s(_vm.getErrors("condition")) +
+                    "\n        "
                 )
               ]
             )
-          }),
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _vm._m(2),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "invalid-feedback",
-              class: { "d-block": _vm.hasErrors("condition") }
-            },
-            [
-              _vm._v(
-                "\n        " + _vm._s(_vm.getErrors("condition")) + "\n      "
-              )
-            ]
-          )
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c("div"),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c(
-          "label",
-          {
-            staticClass: "font-weight-bold",
-            attrs: { for: "location-checkbox" }
-          },
-          [_vm._v("Kirimkan Lokasi")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "d-flex" }, [
-          _c("div", { staticClass: "custom-control custom-checkbox mr-4" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.send_location,
-                  expression: "form.send_location"
-                }
-              ],
-              staticClass: "custom-control-input",
-              attrs: { type: "checkbox", id: "location-checkbox" },
-              domProps: {
-                checked: Array.isArray(_vm.form.send_location)
-                  ? _vm._i(_vm.form.send_location, null) > -1
-                  : _vm.form.send_location
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.form.send_location,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = null,
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 &&
-                        _vm.$set(_vm.form, "send_location", $$a.concat([$$v]))
-                    } else {
-                      $$i > -1 &&
-                        _vm.$set(
-                          _vm.form,
-                          "send_location",
-                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                        )
-                    }
-                  } else {
-                    _vm.$set(_vm.form, "send_location", $$c)
-                  }
-                }
-              }
-            }),
-            _vm._v(" "),
-            _vm._m(2)
+          _c("div", { staticClass: "col-md-3 px-0" }, [
+            _c(
+              "label",
+              { staticClass: "btn btn-outline-dark rounded d-flex" },
+              [
+                _c("div", { staticClass: "mdi mdi-image" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "my-auto" }, [_vm._v("Unggah foto")]),
+                _vm._v(" "),
+                _c("div", { attrs: { id: "uploadPhotoForm" } }, [
+                  _c("input", {
+                    ref: "photo",
+                    staticStyle: { display: "none" },
+                    attrs: {
+                      id: "inputPhoto",
+                      type: "file",
+                      name: "photo",
+                      accept: "image/*"
+                    },
+                    on: { change: _vm.getNewFileName }
+                  })
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "photoName" } }, [
+            _vm._v("\n          " + _vm._s(_vm.fileName) + "\n        ")
+          ]),
+          _vm._v(" "),
+          _c("small", { staticClass: "text-dark" }, [
+            _vm._v(
+              "Foto yang anda kirimkan dapat membantu kami memproses laporan dengan lebih tepat."
+            )
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c(
-          "label",
-          { staticClass: "font-weight-bold", attrs: { for: "photo" } },
-          [_vm._v("\n        Foto (Opsional)\n      ")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-3 px-0" }, [
-          _c(
-            "label",
-            { staticClass: "btn btn-outline-primary d-flex w-md-50" },
-            [
-              _c("div", { staticClass: "mdi mdi-image" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "my-auto" }, [_vm._v("Upload Image")]),
-              _vm._v(" "),
-              _c("div", { attrs: { id: "uploadPhotoForm" } }, [
-                _c("input", {
-                  ref: "photo",
-                  staticStyle: { display: "none" },
-                  attrs: {
-                    id: "inputPhoto",
-                    type: "file",
-                    name: "photo",
-                    accept: "image/*"
-                  },
-                  on: { change: _vm.getNewFileName }
-                })
-              ])
-            ]
-          )
         ]),
         _vm._v(" "),
-        _c("div", { attrs: { id: "photoName" } }, [
-          _vm._v("\n        " + _vm._s(_vm.fileName) + "\n      ")
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", [
+            _c("div", { staticClass: "custom-control custom-checkbox mr-4" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.send_location,
+                    expression: "form.send_location"
+                  }
+                ],
+                staticClass: "custom-control-input",
+                attrs: { type: "checkbox", id: "location-checkbox" },
+                domProps: {
+                  checked: Array.isArray(_vm.form.send_location)
+                    ? _vm._i(_vm.form.send_location, null) > -1
+                    : _vm.form.send_location
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.form.send_location,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = null,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 &&
+                          _vm.$set(_vm.form, "send_location", $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          _vm.$set(
+                            _vm.form,
+                            "send_location",
+                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                          )
+                      }
+                    } else {
+                      _vm.$set(_vm.form, "send_location", $$c)
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(3),
+              _vm._v(" "),
+              _c("div")
+            ]),
+            _vm._v(" "),
+            _c("small", { staticClass: "text-dark" }, [
+              _vm._v(
+                "Lokasi yang Anda kirimkan dapat membantu kami memproses laporan dengan lebih cepat."
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mt-4 text-right" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn text-white shadow mx-2",
+              staticStyle: { background: "#A7A7A7" },
+              on: {
+                click: function($event) {
+                  return _vm.doReset()
+                }
+              }
+            },
+            [_vm._v("\n          RESET\n        ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.isLoading,
+                  expression: "!isLoading"
+                }
+              ],
+              staticClass: "btn btn-primary shadow",
+              on: {
+                click: function($event) {
+                  return _vm.doSubmit()
+                }
+              }
+            },
+            [_vm._v("\n          SUBMIT\n        ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.isLoading,
+                  expression: "isLoading"
+                }
+              ],
+              staticClass: "btn btn-primary",
+              attrs: { disabled: "" }
+            },
+            [_vm._v("\n          SUBMITTING...\n        ")]
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mt-4 text-right" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn text-white shadow mx-2",
-            staticStyle: { background: "#A7A7A7" },
-            on: {
-              click: function($event) {
-                return _vm.doReset()
-              }
-            }
-          },
-          [_vm._v("\n        RESET\n      ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.isLoading,
-                expression: "!isLoading"
-              }
-            ],
-            staticClass: "btn btn-primary shadow",
-            on: {
-              click: function($event) {
-                return _vm.doSubmit()
-              }
-            }
-          },
-          [_vm._v("\n        SUBMIT\n      ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.isLoading,
-                expression: "isLoading"
-              }
-            ],
-            staticClass: "btn btn-primary",
-            attrs: { disabled: "" }
-          },
-          [_vm._v("\n        SUBMITTING...\n      ")]
-        )
       ])
     ])
   ])
@@ -87532,8 +87563,23 @@ var staticRenderFns = [
       "label",
       { staticClass: "font-weight-bold", attrs: { for: "condition" } },
       [
-        _vm._v("\n        Kondisi Dropbox\n        "),
-        _c("abbr", { staticClass: "text-danger" }, [_vm._v("*")])
+        _vm._v(
+          "\n          Bagaimana kondisi dropbox di station ini?\n          "
+        ),
+        _c("small", { staticClass: "text-dark" }, [_vm._v("(wajib diisi)")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "font-weight-bold", attrs: { for: "photo" } },
+      [
+        _vm._v("\n          Unggah foto pendukung\n          "),
+        _c("small", { staticClass: "text-dark" }, [_vm._v("(opsional)")])
       ]
     )
   },
@@ -87544,17 +87590,14 @@ var staticRenderFns = [
     return _c(
       "label",
       {
-        staticClass: "custom-control-label",
+        staticClass: "custom-control-label font-weight-bold",
         attrs: { for: "location-checkbox" }
       },
       [
         _vm._v(
-          "\n            Kirimkan lokasi saya saat ini (Pastikan GPS anda Aktif) "
+          "\n              Saya setuju mengirimkan lokasi saya saat ini\n              "
         ),
-        _c("br"),
-        _vm._v(
-          "\n            Menyertakan lokasi dan foto bisa membantu pengelola dropbox memproses laporan Anda lebih cepat\n          "
-        )
+        _c("small", { staticClass: "text-dark" }, [_vm._v("(opsional)")])
       ]
     )
   }
