@@ -123,4 +123,27 @@ class StationReportFeatureTest extends TestCase
         $responseOne->assertCreated();
         $responseTwo->assertStatus(429);
     }
+
+    /** @test */
+    public function authorized_user_should_not_rate_limited()
+    {
+        $this->login();
+        $station = Station::factory()->create();
+
+        $data = [
+            'condition' => 'missing',
+            'user_latitude' => $this->faker->latitude,
+            'user_longitude' => $this->faker->longitude,
+            'photo' => null
+        ];
+
+        $this->postJson(route('station.report.store', $station), $data);
+        $this->postJson(route('station.report.store', $station), $data);
+        $this->postJson(route('station.report.store', $station), $data);
+        $this->postJson(route('station.report.store', $station), $data);
+        $this->postJson(route('station.report.store', $station), $data);
+        $response = $this->postJson(route('station.report.store', $station), $data);
+
+        $response->assertCreated();
+    }
 }
