@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <form @submit.prevent="doSubmit()">
     <div class="d-flex">
-      <h5 class="text-dark font-weight-bold my-auto">
-          REPORT STATION
+      <h5 class="text-secondary font-weight-bold my-auto">
+          Laporkan Kondisi Station
       </h5>
     </div>
     <hr style="border-bottom: 2px solid #c4c4c4;">
@@ -15,14 +15,15 @@
         <div class="form-group">
           <label class="font-weight-bold" for="condition">
             Bagaimana kondisi dropbox di station ini?
-            <small class="text-dark">(wajib diisi)</small>
+            <small class="text-muted">(wajib diisi)</small>
           </label>
           <div class="custom-control custom-radio"
             v-for="(condition, index) in conditions"
             :key="index"
           >
               <input
-                :name="'conditon'"
+                required
+                name="conditon"
                 :value="index"
                 type="radio"
                 class="custom-control-input"
@@ -33,7 +34,7 @@
                 {{ condition }}
               </label>
           </div>
-          <div 
+          <div
             class="invalid-feedback"
             :class="{ 'd-block': hasErrors('condition') }"
           >
@@ -44,11 +45,11 @@
         <div class="form-group">
           <label class="font-weight-bold" for="photo">
             Unggah foto pendukung
-            <small class="text-dark">(opsional)</small>
+            <small class="text-muted">(opsional)</small>
           </label>
           <div class="col-md-3 px-0">
             <label
-              class="btn btn-outline-dark rounded d-flex"
+              class="btn btn-outline-secondary rounded d-flex"
             >
               <div class="mdi mdi-image"></div>
               <div class="my-auto">Unggah foto</div>
@@ -70,12 +71,12 @@
           >
             {{fileName}}
           </div>
-          <small class="text-dark">Foto yang anda kirimkan dapat membantu kami memproses laporan dengan lebih tepat.</small>
+          <small class="text-muted">Foto yang anda kirimkan dapat membantu kami memproses laporan dengan lebih tepat.</small>
         </div>
 
         <div class="form-group">
-           
-            
+
+
           <div>
             <div class="custom-control custom-checkbox mr-4">
               <input
@@ -89,18 +90,19 @@
                 for="location-checkbox"
                 >
                 Saya setuju mengirimkan lokasi saya saat ini
-                <small class="text-dark">(opsional)</small>
+                <small class="text-muted">(opsional)</small>
               </label>
               <div>
               </div>
             </div>
-            <small class="text-dark">Lokasi yang Anda kirimkan dapat membantu kami memproses laporan dengan lebih cepat.</small>
+            <small class="text-muted">Lokasi yang Anda kirimkan dapat membantu kami memproses laporan dengan lebih cepat.</small>
           </div>
         </div>
 
-        
+
         <div class="form-group mt-4 text-right">
           <button
+            type="button"
             style="background: #A7A7A7"
             class="btn text-white shadow mx-2"
             @click="doReset()"
@@ -108,9 +110,9 @@
             RESET
           </button>
           <button
+            type="submit"
             class="btn btn-primary shadow"
             v-show="!isLoading"
-            @click="doSubmit()"
           >
             SUBMIT
           </button>
@@ -120,7 +122,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -134,7 +136,7 @@ export default {
     conditions: {
       type: Object
     }
-    
+
   },
 
   data() {
@@ -156,7 +158,6 @@ export default {
   methods: {
     async doSubmit() {
       this.isLoading = true;
-
       var url = "../station/" + this.station.id + "/report";
 
       var config = {
@@ -168,15 +169,20 @@ export default {
       var formData = new FormData();
 
       if (this.isPhotoIncluded) {
-        var photo = this.$refs.photo.files[0];  
+        var photo = this.$refs.photo.files[0];
         formData.append('photo', photo);
       }
 
       if (this.form.send_location) {
-        this.form.user_latitude = null,
-        this.form.user_longitude= null,
-        await this.getUserLocation();
-      } 
+        this.form.user_latitude = null
+        this.form.user_longitude= null
+        try {
+            await this.getUserLocation();
+        } catch (error) {
+            this.isLoading = false
+            return alert("Kami tidak dapat mendapatkan lokasi Anda. Pastikan GPS Anda aktif lalu silahkan coba lagi.");
+        }
+      }
       else {
         this.form.user_latitude = '',
         this.form.user_longitude= '';
@@ -192,8 +198,9 @@ export default {
         return location.href = "/";
       } catch (error) {
         alert(error.response.data.message ?? error.response.data);
-        console.log(error.response);
-        this.errors = error.response.data.errors;
+        if (error.response.status == 422) {
+            this.errors = error.response.data.errors;
+        }
       }
 
       this.isLoading = false;
@@ -231,14 +238,9 @@ export default {
     },
 
     async getUserLocation() {
-      try {
         const position = await this.getCoordinates();
         this.form.user_latitude = position.coords.latitude;
         this.form.user_longitude = position.coords.longitude;
-      } catch (error) {
-        alert("Please turn on your location service and try again.");
-        this.isLoading = false;
-      }
     },
 
     getNewFileName(event){
