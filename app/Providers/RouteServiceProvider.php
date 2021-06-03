@@ -64,11 +64,15 @@ class RouteServiceProvider extends ServiceProvider
 
         RateLimiter::for('report.store', function (Request $request)
         {
-            if ($request->user()->hasPermission('manage station')) {
+            if ($request->user()->is_superadmin) {
                 return Limit::none();
             }
 
-            if ($request->user()->hasPermission('operate station')) {
+            if ($request->user()->hasPermission('manage stations')) {
+                return Limit::none();
+            }
+
+            if ($request->user()->hasPermission('operate stations')) {
                 return Limit::none();
             }
 
