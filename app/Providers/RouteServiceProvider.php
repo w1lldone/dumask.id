@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
-use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -59,6 +60,26 @@ class RouteServiceProvider extends ServiceProvider
     {
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
+        });
+
+        RateLimiter::for('report.store', function (Request $request)
+        {
+            if ($request->user()->is_superadmin) {
+                return Limit::none();
+            }
+
+            if ($request->user()->hasPermission('manage stations')) {
+                return Limit::none();
+            }
+
+            if ($request->user()->hasPermission('operate stations')) {
+                return Limit::none();
+            }
+
+            return Limit::perMinutes(3, 5)->by($request->user()->id)->response(function () use ($request)
+            {
+                return response("Maximum attempts reached. Please try again in few minutes", 429);
+            });
         });
     }
 }

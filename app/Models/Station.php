@@ -19,6 +19,12 @@ class Station extends Model implements HasMedia
     protected $casts = [
         'last_operation_at' => 'datetime:Y-m-d\TH:i:sP',
     ];
+    public static $sorts = [
+        'id.asc' => 'Dibuat (Lama - Baru)',
+        'id.desc' => 'Dibuat (Baru - Lama)',
+        'reports_count.desc' => 'Laporan Terbanyak',
+        'last_operation_at.asc' => 'Pengukuran Terakhir'
+    ];
 
     public function registerMediaCollections(): void
     {
@@ -33,6 +39,11 @@ class Station extends Model implements HasMedia
     public function schedules()
     {
         return $this->hasMany('App\Models\Schedule');
+    }
+
+    public function reports()
+    {
+        return $this->hasMany('App\Models\Report');
     }
 
     /**
