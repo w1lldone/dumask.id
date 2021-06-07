@@ -28,7 +28,7 @@ class OperationController extends Controller
         $sort = $this->sortIsAllowed($request->sort) ? $request->sort : array_keys(Station::$sorts)[0];
         $orderBy = explode(".", $sort);
 
-        $stations = $station->orderBy($orderBy[0], $orderBy[1])->paginate(5);
+        $stations = $station->orderBy($orderBy[0], $orderBy[1])->paginate(5)->appends($request->all());
 
         return view('operation.index', compact('stations', 'sort'));
     }

@@ -36,9 +36,9 @@
                                     <span class="mdi mdi-crosshairs text-muted"></span>
                                     <span class="text-muted font-weight-bold align-middle ml-2">Nyalakan lokasi untuk menghitung jarak</span>
                                 </div>
-                                <div class="text-right mt-3">
-                                    <a target="_blank" class="btn btn-dark text-white shadow mr-3" :href="'/submit-report/' + station.id">REPORT<span class="mdi mdi-open-in-new"></span></a>
-                                    <a target="_blank" class="btn btn-primary shadow" :href="routeUrl">ROUTE <span class="mdi mdi-open-in-new"></span></a>
+                                <div class="mt-3 d-flex align-content-between">
+                                    <a target="_blank" class="btn btn-warning shadow mr-3" :href="'/submit-report/' + station.id">Laporkan Kondisi Dropbox <span class="mdi mdi-open-in-new"></span></a>
+                                    <a target="_blank" class="btn btn-primary shadow ml-auto" :href="routeUrl">ROUTE <span class="mdi mdi-open-in-new"></span></a>
                                 </div>
                             </div>
                             <div v-else>
