@@ -79,7 +79,8 @@
             <button
                 class="btn btn-primary shadow mr-2"
                 v-show="!isLoading && form.report_id != ''"
-                @click="doSubmit()"
+                data-toggle="modal" 
+                data-target="#resolve-modal"
             >
             RESOLVE
             </button>
@@ -94,7 +95,8 @@
             <button
                 class="btn btn-secondary shadow"
                 v-show="!isLoading"
-                @click="doResolveAll()"
+                data-toggle="modal" 
+                data-target="#resolve-all-modal"
             >
             RESOLVE ALL
             </button>
@@ -105,6 +107,104 @@
             >
             RESOLVE ALL
             </button>
+        </div>
+        <!-- Modals -->
+        <div
+            class="modal fade"
+            id="resolve-modal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modal-id"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header mx-4">
+                        <h5
+                        class="modal-title font-weight-bold text-muted"
+                        style="text-transform: uppercase"
+                        >
+                        RESOLVE REPORTS
+                        </h5>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-left mx-4">
+                        <div>
+                            Apakah Anda yakin akan mengubah status laporan menjadi resolved?<br>
+                            Pastikan laporan telah selesai ditangani!
+                        </div>
+                        <div class="mt-4 text-right">
+                            <button type="button" class="btn btn-primary mx-2 shadow" data-dismiss="modal">TIDAK</button>
+                            <button
+                                class="btn btn-secondary shadow"
+                                v-show="!isLoading"
+                                @click="doSubmit()"
+                            >
+                                YA
+                            </button>
+                            <button class="btn btn-secondary" disabled v-show="isLoading">
+                                YA
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="modal fade"
+            id="resolve-all-modal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modal-id"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header mx-4">
+                        <h5
+                        class="modal-title font-weight-bold text-muted"
+                        style="text-transform: uppercase"
+                        >
+                        RESOLVE ALL REPORTS
+                        </h5>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-left mx-4">
+                        <div>
+                            Apakah Anda yakin akan mengubah status <b>semua</b> laporan menjadi resolved?<br>
+                            Pastikan laporan telah selesai ditangani!
+                        </div>
+                        <div class="mt-4 text-right">
+                            <button type="button" class="btn btn-primary mx-2 shadow" data-dismiss="modal">TIDAK</button>
+                            <button
+                                class="btn btn-secondary shadow"
+                                v-show="!isLoading"
+                                @click="doResolveAll()"
+                            >
+                                YA
+                            </button>
+                            <button class="btn btn-secondary" disabled v-show="isLoading">
+                                YA
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
