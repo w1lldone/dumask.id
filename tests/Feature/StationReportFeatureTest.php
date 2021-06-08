@@ -2,13 +2,17 @@
 
 namespace Tests\Feature;
 
+use App\Jobs\SendReportNotification;
 use App\Models\Report;
 use App\Models\Station;
 use App\Models\User;
+use App\Notifications\ReportSubmittedNotification;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 
 class StationReportFeatureTest extends TestCase
@@ -18,6 +22,7 @@ class StationReportFeatureTest extends TestCase
     /** @test */
     public function user_can_submit_a_report_with_photo()
     {
+        Queue::fake();
         $this->login();
         $station = Station::factory()->create();
 
@@ -31,6 +36,7 @@ class StationReportFeatureTest extends TestCase
 
         $response->assertCreated();
         $this->assertNotEmpty($response->json('photo.url'));
+        Queue::assertPushed(SendReportNotification::class);
     }
 
     /** @test */
@@ -145,5 +151,21 @@ class StationReportFeatureTest extends TestCase
         $response = $this->postJson(route('station.report.store', $station), $data);
 
         $response->assertCreated();
+    }
+
+    /** @test */
+    public function operators_receive_notification_on_report_submitted()
+    {
+        Notification::fake();
+        $operator = User::factory()->create(['permissions' => ['operate stations']]);
+        $member = User::factory()->create();
+        $manager = User::factory()->create(['permissions' => ['manage stations']]);
+        $report = Report::factory()->create();
+
+        SendReportNotification::dispatch($report);
+
+        Notification::assertSentTo($operator, ReportSubmittedNotification::class);
+        Notification::assertNotSentTo($member, ReportSubmittedNotification::class);
+        Notification::assertNotSentTo($manager, ReportSubmittedNotification::class);
     }
 }
