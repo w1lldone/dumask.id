@@ -21,7 +21,7 @@ class ReportSubmittedNotification extends Notification implements ShouldQueue
      */
     public function __construct(Report $report)
     {
-        $this->report = $report;
+        $this->report = $report->load('station');
     }
 
     /**
@@ -32,7 +32,7 @@ class ReportSubmittedNotification extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -44,8 +44,22 @@ class ReportSubmittedNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject('Laporan Kondisi Dropbox Diterima')
+                    ->greeting("Hai {$notifiable->name}")
+                    ->line("Pengguna telah melaporkan kondisi dropbox pada station.")
+                    ->line("Nama Station: {$this->report->station->name}")
+                    ->line("Kondisi Dropbox: {$this->report->description()}")
+                    ->line("Anda bisa melihat detail laporan melalui tombol di bawah ini.")
+                    ->action('Lihat Laporan', route('notification.show', $this->id));
+    }
+
+    public function toDatabase($notifiable)
+    {
+        return [
+            'title' => "Laporan Kondisi Dropbox Diterima",
+            'body' => "Laporan Baru untuk Station {$this->report->station->name}",
+            'action' => route('station.report.index', $this->report->station_id),
+            'icon' => 'mdi-home-alert-outline'
+        ];
     }
 }

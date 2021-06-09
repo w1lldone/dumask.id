@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DropboxLogControlle;
 use App\Http\Controllers\DropboxOperationController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OperationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StaticPageController;
@@ -86,4 +87,11 @@ Route::middleware('auth')->prefix('station/{station}/report')->name('station.rep
     Route::get('/{report}', [StationReportController::class, 'show'])->name('show');
     Route::post('/', [StationReportController::class, 'store'])->middleware('throttle:report.store')->name('store');
     Route::put('/resolve', [StationReportController::class, 'resolve'])->name('resolve');
+});
+
+Route::middleware('auth')->prefix('notification')->name('notification.')->group(function ()
+{
+    Route::get('/', [NotificationController::class, 'index'])->name('index');
+    Route::get('/{notification}', [NotificationController::class, 'show'])->name('show');
+    Route::put('/readAll', [NotificationController::class, 'readAll'])->name('readAll');
 });
