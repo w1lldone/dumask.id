@@ -10023,3 +10023,21 @@ h3 {
   font-size: 16px !important;
   font-weight: 700;
 }
+
+a.notification-read {
+  background-color: #FFFFFF !important;
+  border-left: 4px solid transparent !important;
+}
+
+a.notification-read:hover {
+  border-color: #02BAD3 !important;
+}
+
+a.notification-unread {
+  background-color: #EBF1F7 !important;
+  border-left: 4px solid transparent !important;
+}
+
+a.notification-unread:hover {
+  border-color: #02BAD3 !important;
+}

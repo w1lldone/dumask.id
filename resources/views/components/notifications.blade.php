@@ -5,16 +5,16 @@
         <hr class="my-0">
         <a
             class="dropdown-item px-2"
-            href="{{ $notification->data['action'] }}"
+            href="{{ route('notification.show', ['notification' => $notification->id])  }}"
         >
             <div class="d-flex">
                 <span class="iconify text-secondary my-auto mr-2" data-icon="{{ $notification->data['icon'] }}" data-inline="false" style="font-size: 36px"></span>
                 <div>
-                    <div class="text-primary font-weight-bold">
+                    <div class="text-secondary font-weight-bold">
                         {{ $notification->data['title'] }}
                     </div>
-                    <div class="text-dark">
-                        {{ $notification->data['body'] }}
+                    <div class="text-muted">
+                        {!! Str::words($notification->data['body'], 8, ' ...') !!}
                     </div>
                 </div>
             </div>
