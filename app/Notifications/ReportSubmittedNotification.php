@@ -59,7 +59,7 @@ class ReportSubmittedNotification extends Notification implements ShouldQueue
             'title' => "Laporan Kondisi Dropbox Diterima",
             'body' => "Laporan Baru untuk Station {$this->report->station->name}",
             'action' => route('station.report.index', $this->report->station_id),
-            'icon' => 'mdi-home-alert-outline'
+            'icon' => 'mdi-home-alert'
         ];
     }
 }
