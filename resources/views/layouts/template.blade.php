@@ -23,7 +23,7 @@
         {{-- <link rel="stylesheet" href="{{ mix('css/tailwind.css') }}"> --}}
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+        {{-- <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script> --}}
 
     </head>
 
@@ -44,9 +44,9 @@
                     </div>
                     <ul class="navbar-nav ml-auto d-flex flex-row">
                         <div class="mb-4">
-                            <button class="btn btn-primary rounded mr-2">
+                            <a class="btn btn-primary rounded mr-2" href="{{ route('notification.index') }}">
                                 <span class="mdi mdi-bell" style="font-size: 18px"></span>
-                            </button>
+                            </a>
                         </div>
                         <div class="d-flex mb-4">
                             <div class="flex-row">

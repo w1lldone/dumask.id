@@ -46,7 +46,6 @@ class NotificationController extends Controller
 
         $notifications->markAsRead();
 
-        return redirect('notification');
-        //return response()->noContent();
+        return response()->noContent();
     }
 }

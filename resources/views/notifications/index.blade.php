@@ -98,13 +98,11 @@
                                     Apakah Anda yakin akan menandai semua notifikasi sudah dibaca?
                                 </div>
                                 <div class="mt-4 text-right">
-                                    <form id="form-read-all" action="{{ route('notification.readAll')  }}" method="POST">
+                                    <form id="form-read-all">
                                         <button type="button" class="btn btn-primary mx-2 shadow" data-dismiss="modal">TIDAK</button>
-                                        {{ method_field('PUT') }}
-                                        {{ csrf_field() }}
                                         <button
                                             class="btn btn-secondary shadow"
-                                            onclick="this.form.submit()"
+                                            onclick="doSubmit()"
                                             data-dismiss="modal"
                                         >
                                             YA
@@ -121,4 +119,16 @@
         </div>
     </div>
 </div>
+
 @endsection
+
+<script>
+    async function doSubmit() {
+        try {
+            let response = await axios.put("notification/readAll")
+            location.reload()
+        } catch (error) {
+            alert(error.response.data)
+        }
+    }
+</script>
