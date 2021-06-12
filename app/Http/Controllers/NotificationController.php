@@ -26,7 +26,7 @@ class NotificationController extends Controller
         }
 
         // View goes here
-        return $notifications;
+        return view('notifications.index', compact('notifications'));
     }
 
     public function show(Request $request, $notification)
