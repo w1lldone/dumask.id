@@ -58,10 +58,67 @@
                         </div>
                     </a>
                 @endforeach
+                <div class="d-flex mt-4">
+                    <button
+                        class="btn btn-secondary shadow ml-auto"
+                        data-toggle="modal" 
+                        data-target="#read-all"
+                    >
+                    MARK ALL AS READ
+                    </button>
+                </div>
+                <div
+                    class="modal fade"
+                    id="read-all"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="modal-id"
+                    aria-hidden="true"
+                >
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header mx-4">
+                                <h5
+                                class="modal-title font-weight-bold text-muted"
+                                style="text-transform: uppercase"
+                                >
+                                MARK ALL AS READ
+                                </h5>
+                                <button
+                                    type="button"
+                                    class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close"
+                                >
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-left mx-4">
+                                <div>
+                                    Apakah Anda yakin akan menandai semua notifikasi sudah dibaca?
+                                </div>
+                                <div class="mt-4 text-right">
+                                    <form id="form-read-all" action="{{ route('notification.readAll')  }}" method="POST">
+                                        <button type="button" class="btn btn-primary mx-2 shadow" data-dismiss="modal">TIDAK</button>
+                                        {{ method_field('PUT') }}
+                                        {{ csrf_field() }}
+                                        <button
+                                            class="btn btn-secondary shadow"
+                                            onclick="this.form.submit()"
+                                            data-dismiss="modal"
+                                        >
+                                            YA
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @else
+                <h5 class="text-secondary text-center">Semua notifikasi sudah dibaca</h5>
             @endif
         </div>
     </div>
 </div>
-
-
 @endsection
