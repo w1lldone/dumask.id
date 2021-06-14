@@ -1,13 +1,8 @@
 <template>
     <div>
         <div class="d-flex">
-            <div class="col-md-3">
-                <img
-                    class="img-fluid rounded-circle p-2 w-100"
-                    src="img/profile_photo.png"
-                    alt="Profile Picture"
-                    
-                >
+            <div class="col-md-3 text-center">
+                <div class="mdi mdi-account-circle-outline" style="font-size: 100px !important;"></div>
             </div>
             <div class="col-md-9">
                 <div class="d-flex my-3">
@@ -54,44 +49,44 @@
                     </div>
                 </div>
                 <div class="d-md-flex">
-                    <button 
-                        v-show="!isEdit" 
+                    <button
+                        v-show="!isEdit"
                         class="btn btn-primary col-12 col-md-4 mx-3"
                         @click="isEdit = true"
                     >
                         EDIT PROFIL
                     </button>
 
-                    <button 
-                        v-show="isEdit && !isLoading" 
+                    <button
+                        v-show="isEdit && !isLoading"
                         class="btn btn-success col-12 col-md-2 mx-3"
                         @click="doSave()"
                     >
                         SAVE
                     </button>
-                    <button 
-                        v-show="isEdit && isLoading" 
+                    <button
+                        v-show="isEdit && isLoading"
                         disabled
                         class="btn btn-success col-12 col-md-2 mx-3"
                     >
                         SAVING
                     </button>
-                    <button 
-                        v-show="isEdit && !isLoading" 
+                    <button
+                        v-show="isEdit && !isLoading"
                         class="btn btn-outline-primary col-12 col-md-2 mx-3"
                         @click="doResetEdit()"
                     >
                         CANCEL
                     </button>
-                    <button 
-                        v-show="isEdit && isLoading" 
+                    <button
+                        v-show="isEdit && isLoading"
                         disabled
                         class="btn btn-outline-primary col-12 col-md-2 mx-3"
                     >
                         CANCEL
                     </button>
 
-                    <button 
+                    <button
                         v-show="!isUpdatePassword"
                         class="btn btn-primary col-12 col-md-4 mx-3"
                         @click="isUpdatePassword = true"
@@ -99,8 +94,8 @@
                         GANTI PASSWORD
                     </button>
                 </div>
-                
-                
+
+
                 <div v-show="isUpdatePassword" class="mt-4">
                     <div v-if="!user.has_no_password" class="d-flex my-3">
                         <div class="col-3 my-auto text-secondary font-weight-bold">
@@ -156,31 +151,31 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="d-md-flex">
-                        <button 
-                            v-show="isUpdatePassword && !isLoading" 
+                        <button
+                            v-show="isUpdatePassword && !isLoading"
                             class="btn btn-success col-12 col-md-2 mx-3"
                             @click="doUpdatePassword()"
                         >
                             SAVE
                         </button>
-                        <button 
-                            v-show="isUpdatePassword && isLoading" 
+                        <button
+                            v-show="isUpdatePassword && isLoading"
                             disabled
                             class="btn btn-success col-12 col-md-2 mx-3"
                         >
                             SAVING
                         </button>
-                        <button 
-                            v-show="isUpdatePassword && !isLoading" 
+                        <button
+                            v-show="isUpdatePassword && !isLoading"
                             class="btn btn-outline-primary col-12 col-md-2 mx-3"
                             @click="doResetUpdatePassword()"
                         >
                             CANCEL
                         </button>
-                        <button 
-                            v-show="isUpdatePassword && isLoading" 
+                        <button
+                            v-show="isUpdatePassword && isLoading"
                             disabled
                             class="btn btn-outline-primary col-12 col-md-2 mx-3"
                         >
@@ -203,17 +198,17 @@
             },
         },
 
-        
+
 
         data() {
             return {
-                form: {...this.user},    
+                form: {...this.user},
                 isLoading: false,
                 isEdit: false,
                 isUpdatePassword: false,
                 errors: {}
             }
-            
+
         },
 
         methods: {
@@ -274,7 +269,7 @@
 
             return "";
             },
-            
+
         },
     }
 </script>

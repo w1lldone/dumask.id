@@ -133,15 +133,6 @@
                             </a>
                         </li>
                         @endcan
-                        <li class="nav-item text-left">
-                            <a
-                            class="nav-link font-weight-bold px-3 {{ Request::is('settings/*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
-                            href="{{ url('/setting')}}"
-                            >
-                            <span class="mdi mdi-settings" style="font-size: 18px"></span>
-                            <span class="ml-2 {{ Request::is('settings/*') ? '' : 'text-dark' }}">Pengaturan</span>
-                            </a>
-                        </li>
                     </ul>
 
                 </div>
@@ -202,15 +193,6 @@
                                             </a>
                                         </li>
                                         @endcan
-                                        <li class="nav-item text-left">
-                                            <a
-                                            class="nav-link font-weight-bold px-3 {{ Request::is('settings/*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
-                                            href="{{ url('/setting')}}"
-                                            >
-                                            <span class="mdi mdi-settings" style="font-size: 18px"></span>
-                                            <span class="ml-2 {{ Request::is('settings/*') ? '' : 'text-dark' }}">Pengaturan</span>
-                                            </a>
-                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -221,7 +203,7 @@
                     <div class="d-none d-md-flex float-right mt-4">
                         {{-- Notification --}}
                         <div>
-                            <button 
+                            <button
                                 type="button"
                                 data-toggle="dropdown"
                                 aria-haspopup="true"
@@ -234,7 +216,7 @@
                                 <x-notifications-component/>
                             </div>
                         </div>
-    
+
                         <div>
                             <button
                                 type="button"
@@ -252,14 +234,14 @@
                                     style="width: 42px; height: 42px"
                                     >
                                 </div>
-    
+
                                 <div class="d-flex flex-column text-left mx-2">
                                     <span class="text-primary font-weight-bold">{{ Auth::user()->name }}</span>
                                     <span class="text-dark" style="font-size: 12px">Admin</span>
                                 </div>
-    
+
                                 <div class="nav-link text-left dropdown-toggle my-auto">
-    
+
                                 </div>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -279,7 +261,7 @@
                                     @csrf
                                 </form>
                             </div>
-    
+
                         </div>
                     </div>
                     <div>
