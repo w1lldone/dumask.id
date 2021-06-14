@@ -12,7 +12,8 @@
                         {{ $notification->data['title'] }}
                     </div>
                     <div class="text-muted">
-                        {!! Str::words($notification->data['body'], 8, ' ...') !!}
+                        {!! Str::words($notification->data['body'], 8, ' ...') !!} <br>
+                        {{ $notification->created_at->diffForHumans() }}
                     </div>
                 </div>
             </div>

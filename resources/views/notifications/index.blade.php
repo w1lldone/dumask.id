@@ -53,7 +53,8 @@
                                     {{ $notification->data['title'] }}
                                 </div>
                                 <div class="text-muted">
-                                    {{ $notification->data['body'] }}
+                                    {{ $notification->data['body'] }} <br>
+                                    {{ $notification->created_at->diffForHumans() }}
                                 </div>
                             </div>
                         </div>
@@ -62,7 +63,7 @@
                 <div class="d-flex mt-4">
                     <button
                         class="btn btn-secondary shadow ml-auto"
-                        data-toggle="modal" 
+                        data-toggle="modal"
                         data-target="#read-all"
                     >
                     MARK ALL AS READ
