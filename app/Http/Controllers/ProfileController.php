@@ -15,9 +15,18 @@ class ProfileController extends Controller
         $user = $request->user();
 
         // Appending $user->has_no_password attribute
-        $user->append('has_no_password');
+        $user->append('has_no_password')->loadCount('reports');
 
-        return view('auth.profile', compact('user'));;
+        return view('auth.profile', compact('user'));
+    }
+
+    public function reportIndex(Request $request)
+    {
+        /** @var User */
+        $user = $request->user();
+        $reports=  $user->reports()->latest()->paginate();
+
+        return view('auth.report', compact('user', 'reports'));
     }
 
     public function update(Request $request)
