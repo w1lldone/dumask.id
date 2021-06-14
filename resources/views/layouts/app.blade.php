@@ -98,7 +98,7 @@
                                         <span class="mdi mdi-bell text-primary" style="font-size: 16px"></span>
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right py-0 mt-2 shadow" aria-labelledby="navbarDropdown" style="right:-200px !important;">
+                                    <div class="dropdown-menu dropdown-menu-right py-0 mt-2 shadow" aria-labelledby="navbarDropdown">
                                         <x-notifications-component/>
                                     </div>
                                 </li>
