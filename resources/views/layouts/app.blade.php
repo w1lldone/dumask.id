@@ -86,7 +86,7 @@
                                 <login-modal></login-modal>
                             @else
                                 {{-- Notification --}}
-                                <li class="nav-item dropdown">
+                                <li class="nav-item d-md-flex dropdown">
                                     <a
                                         class="d-none d-md-block nav-link text-primary font-weight-bold"
                                         href="#" 
@@ -98,7 +98,7 @@
                                         <span class="mdi mdi-bell text-primary" style="font-size: 16px"></span>
                                     </a>
 
-                                    <div class="dropdown-menu py-0 mt-2 shadow" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu dropdown-menu-right py-0 mt-2 shadow" aria-labelledby="navbarDropdown">
                                         <x-notifications-component/>
                                     </div>
                                 </li>
