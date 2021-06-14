@@ -226,15 +226,6 @@
                                 aria-expanded="false"
                                 class="nav-link flex-row dropdown card border-0 rounded shadow p-0"
                             >
-                                <div>
-                                    <img
-                                    class="img-fluid rounded"
-                                    src="{{ asset('img/profile_photo.png')}}"
-                                    alt="Profile"
-                                    style="width: 42px; height: 42px"
-                                    >
-                                </div>
-
                                 <div class="d-flex flex-column text-left mx-2">
                                     <span class="text-primary font-weight-bold">{{ Auth::user()->name }}</span>
                                     <span class="text-dark" style="font-size: 12px">Admin</span>

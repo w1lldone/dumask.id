@@ -17,4 +17,16 @@
         </div>
     </div>
 </div>
+<div class="mt-3 row">
+    <div class="col-md-6">
+        <div class="card card-body border-0">
+            <h2 class="text-secondary font-weight-bold">Laporan</h2>
+            <div class="d-flex justify-content-between">
+                <h5>Jumlah Laporan diajukan:</h5>
+                <h5>{{ $user->reports_count }}</h5>
+            </div>
+            <a href="{{ route('profile.report.index') }}" class="btn btn-primary mt-3">Lihat Riwayat Laporan</a>
+        </div>
+    </div>
+</div>
 @endsection

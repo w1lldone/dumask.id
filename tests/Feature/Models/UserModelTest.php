@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Models;
 
+use App\Models\Report;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -46,5 +47,17 @@ class UserModelTest extends TestCase
         ]);
 
         $this->assertTrue($user->has_no_password);
+    }
+
+    /** @test */
+    public function it_has_many_reports()
+    {
+        $user = User::factory()->create();
+
+        $report = Report::factory(5)->create([
+            'reporter_id' => $user->id,
+        ]);
+
+        $this->assertCount(5, $user->reports);
     }
 }
