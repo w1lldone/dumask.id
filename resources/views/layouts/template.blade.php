@@ -131,15 +131,6 @@
                             </a>
                         </li>
                         @endcan
-                        <li class="nav-item text-left">
-                            <a
-                            class="nav-link font-weight-bold px-3 {{ Request::is('settings/*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
-                            href="{{ url('/setting')}}"
-                            >
-                            <span class="mdi mdi-settings" style="font-size: 18px"></span>
-                            <span class="ml-2 {{ Request::is('settings/*') ? '' : 'text-dark' }}">Pengaturan</span>
-                            </a>
-                        </li>
                     </ul>
 
                 </div>
@@ -200,15 +191,6 @@
                                             </a>
                                         </li>
                                         @endcan
-                                        <li class="nav-item text-left">
-                                            <a
-                                            class="nav-link font-weight-bold px-3 {{ Request::is('settings/*') ? 'btn-primary text-white rounded' : 'text-secondary' }}"
-                                            href="{{ url('/setting')}}"
-                                            >
-                                            <span class="mdi mdi-settings" style="font-size: 18px"></span>
-                                            <span class="ml-2 {{ Request::is('settings/*') ? '' : 'text-dark' }}">Pengaturan</span>
-                                            </a>
-                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -227,18 +209,11 @@
                             aria-expanded="false"
                             class="nav-link flex-row dropdown card border-0 rounded shadow p-0"
                         >
-                            <div>
-                                <img
-                                class="img-fluid rounded"
-                                src="{{ asset('img/profile_photo.png')}}"
-                                alt="Profile"
-                                style="width: 42px; height: 42px"
-                                >
-                            </div>
-
                             <div class="d-flex flex-column text-left mx-2">
                                 <span class="text-primary font-weight-bold">{{ Auth::user()->name }}</span>
-                                <span class="text-dark" style="font-size: 12px">Admin</span>
+                                <span class="text-dark" style="font-size: 12px">
+                                    {{ Auth::user()->is_superadmin ? 'Admin' : 'Member' }}
+                                </span>
                             </div>
 
                             <div class="nav-link text-left dropdown-toggle my-auto">
