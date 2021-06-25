@@ -19,7 +19,7 @@ class ExploreController extends Controller
         $stats['total_weight'] = DropboxLog::getTotalWeight();
         $stats['total_stations'] = Station::count();
 
-        return view('explore.explore');
+        return view('explore.explore', compact('stats'));
     }
 
     /**
