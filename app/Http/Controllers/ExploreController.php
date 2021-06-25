@@ -16,7 +16,7 @@ class ExploreController extends Controller
      */
     public function index()
     {
-        $stats['total_weight'] = DropboxLog::getTotalWeight();
+        $stats['total_weight'] = round(DropboxLog::getTotalWeight()/1000,1);
         $stats['total_stations'] = Station::count();
 
         return view('explore.explore', compact('stats'));
