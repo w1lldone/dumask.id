@@ -10,14 +10,14 @@
         <div class="col-6 px-0">
             <div class="card shadow rounded border-0 w-75 p-4" style="border-radius: 0.5rem">
                 <h5 class="text-secondary font-weight-bold">Total Stasiun DUMASK.ID</h5>
-                <h3 class="text-primary font-weight-bold">24</h3>
+                <h3 class="text-primary font-weight-bold">{{ $stats['total_stations'] }}</h3>
                 <h5 class="text-muted">unit lokasi</h5>
             </div>
         </div>
         <div class="col-6 px-0">
             <div class="card shadow rounded border-0 w-75 p-4" style="border-radius: 0.5rem">
                 <h5 class="text-secondary font-weight-bold">Total Berat Masker</h5>
-                <h3 class="text-primary font-weight-bold">32,21</h3>
+                <h3 class="text-primary font-weight-bold">{{ $stats['total_weight']/1000 }}</h3>
                 <h5 class="text-muted">kilogram (kg)</h5>
             </div>
         </div>
