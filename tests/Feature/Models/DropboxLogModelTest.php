@@ -53,4 +53,21 @@ class DropboxLogModelTest extends TestCase
             'parent_id' => $log->id
         ]);
     }
+
+    /** @test */
+    public function it_can_sum_total_weight()
+    {
+        DropboxLog::factory()->create([
+            'weight' => 200,
+            'final_weight' => 1000
+        ]);
+        DropboxLog::factory()->create([
+            'weight' => 300,
+            'final_weight' => 1300
+        ]);
+
+        $totalWeight = DropboxLog::getTotalWeight();
+
+        $this->assertEquals(1800, $totalWeight);
+    }
 }

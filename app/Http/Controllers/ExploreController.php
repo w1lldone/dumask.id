@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DropboxLog;
 use Illuminate\Http\Request;
 use App\Models\Station;
+use Illuminate\Support\Facades\Cache;
 
 class ExploreController extends Controller
 {
@@ -14,7 +16,10 @@ class ExploreController extends Controller
      */
     public function index()
     {
-        return view('explore.explore');
+        $stats['total_weight'] = DropboxLog::getTotalWeight();
+        $stats['total_stations'] = Station::count();
+
+        return view('explore.explore', compact('stats'));
     }
 
     /**
