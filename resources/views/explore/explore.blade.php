@@ -6,19 +6,35 @@
 
 <div class="container w-md-75 my-4">
     <explore-map></explore-map>
-    <div class="row justify-content-between py-5">
-        <div class="col-md-5 px-0">
+    <div class="row justify-content-between py-5 mt-3">
+        <div class="col-md-5 px-0 mb-2">
             <div class="card shadow rounded border-0 p-4" style="border-radius: 0.5rem">
-                <h5 class="text-secondary font-weight-bold">Total Stasiun DUMASK.ID</h5>
-                <h3 class="text-primary font-weight-bold">{{ $stats['total_stations'] }}</h3>
-                <h5 class="text-muted">unit lokasi</h5>
+                <div class="row">
+                    <div class="col-10">
+                        <h5 class="text-secondary font-weight-bold">Total Stasiun DUMASK.ID</h5>
+                        <h3 class="text-primary font-weight-bold">{{ $stats['total_stations'] }}</h3>
+                        <h5 class="text-muted">unit lokasi</h5>
+                    </div>
+                    <div class="col-2">
+                        <img class="img-fluid" width="100%" src="{{ asset('/img/location.svg') }}" alt="">
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div class="col-md-5 px-0">
+        <div class="col-md-5 px-0 mb-2">
             <div class="card shadow rounded border-0 p-4" style="border-radius: 0.5rem">
-                <h5 class="text-secondary font-weight-bold">Total Limbah Terkumpul</h5>
-                <h3 class="text-primary font-weight-bold">{{ $stats['total_weight'] }}</h3>
-                <h5 class="text-muted">Kilogram</h5>
+                <div class="row">
+                    <div class="col-10">
+                        <h5 class="text-secondary font-weight-bold">Total Limbah Terkumpul</h5>
+                        <h3 class="text-primary font-weight-bold">{{ $stats['total_weight'] }}</h3>
+                        <h5 class="text-muted">Kilogram</h5>
+                    </div>
+                    <div class="col-2">
+                        <img class="img-fluid" width="100%" src="{{ asset('/img/scale.svg') }}" alt="">
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
