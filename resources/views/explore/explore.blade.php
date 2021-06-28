@@ -13,10 +13,12 @@
                     <div class="col-10">
                         <h5 class="text-secondary font-weight-bold">Total Stasiun DUMASK.ID</h5>
                         <h3 class="text-primary font-weight-bold">{{ $stats['total_stations'] }}</h3>
-                        <h5 class="text-muted">unit lokasi</h5>
                     </div>
                     <div class="col-2">
                         <img class="img-fluid" width="100%" src="{{ asset('/img/location.svg') }}" alt="">
+                    </div>
+                    <div class="col-12">
+                        <h5 class="text-muted">unit lokasi</h5>
                     </div>
                 </div>
 
@@ -26,12 +28,18 @@
             <div class="card shadow rounded border-0 p-4" style="border-radius: 0.5rem">
                 <div class="row">
                     <div class="col-10">
-                        <h5 class="text-secondary font-weight-bold">Total Limbah Terkumpul</h5>
-                        <h3 class="text-primary font-weight-bold">{{ $stats['total_weight'] }}</h3>
-                        <h5 class="text-muted">Kilogram</h5>
+                        <h5 class="text-secondary font-weight-bold">Total Limbah Terkumpul
+                        </h5>
                     </div>
                     <div class="col-2">
                         <img class="img-fluid" width="100%" src="{{ asset('/img/scale.svg') }}" alt="">
+                    </div>
+                    <div class="col-12">
+                        <h3 class="text-primary font-weight-bold">{{ $stats['total_weight'] }}</h3>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="text-muted">Kilogram</h5>
+                            <small class="text-muted">Updated {{ $stats['last_operation_at'] }}</small>
+                        </div>
                     </div>
                 </div>
 
