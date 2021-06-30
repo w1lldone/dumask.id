@@ -6,7 +6,7 @@
             <img src="/img/logo_navbar.svg" class="w-md-50" alt="logo_dumask">
           </div>
           <p class="text-justify text-muted w-100 my-4">
-            Masukkan alamat email akun Dumask.id Anda. 
+            Masukkan alamat email akun Dumask.id® Anda. 
             Kami akan mengirimkan link untuk reset password. 
           </p>
 

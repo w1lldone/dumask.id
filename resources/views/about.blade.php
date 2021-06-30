@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tentang Dumask.id')
+@section('title', 'Tentang Dumask.id®')
 
 @section('additionalNav')
 <li class="nav-item dropdown">

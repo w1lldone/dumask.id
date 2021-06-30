@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Privacy Policy Dumask.id')
+@section('title', 'Privacy Policy Dumask.id®')
 
 @section('content')
 
 <div class="container w-md-75 my-4">
     <div class="card rounded border-0 shadow px-4 py-2 mx-3 my-2" style="border-radius: 0.5rem">
         <h2 class="text-primary text-center font-weight-bold mt-2 mb-0">
-            Privacy Policy for Dumask.id
+            Privacy Policy for Dumask.id®
         </h2>
         <hr class="my-2">
         <div class="text-secondary text-justify mt-4 mx-auto">
@@ -37,11 +37,11 @@
                     </li>
                     <li>
                         <p><strong>Application</strong> means the software program provided by the Company downloaded by You on any
-                            electronic device, named dumask.id</p>
+                            electronic device, named dumask.id®</p>
                     </li>
                     <li>
                         <p><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement)
-                            refers to dumask.id.</p>
+                            refers to dumask.id®.</p>
                     </li>
                     <li>
                         <p><strong>Cookies</strong> are small files that are placed on Your computer, mobile device or any other
@@ -77,7 +77,7 @@
                             Service or from the Service infrastructure itself (for example, the duration of a page visit).</p>
                     </li>
                     <li>
-                        <p><strong>Website</strong> refers to dumask.id, accessible from <a href="https://dumask.id"
+                        <p><strong>Website</strong> refers to dumask.id®, accessible from <a href="https://dumask.id"
                                 rel="external nofollow noopener" target="_blank">https://dumask.id</a></p>
                     </li>
                     <li>
