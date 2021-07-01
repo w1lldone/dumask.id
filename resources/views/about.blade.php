@@ -24,12 +24,12 @@
 <div class="container w-md-75 my-4">
     <div class="card rounded border-0 shadow px-4 py-2 mx-3 my-2" style="border-radius: 0.5rem">
         <h2 class="text-primary text-center font-weight-bold mt-2 mb-0">
-            {{ __('about.title') }}
+            {!! __('about.title') !!}
         </h2>
         <hr class="my-2">
         <div class="text-secondary text-center mt-4 mx-auto">
             <h5 style="line-height: 175%">
-                {{ __('about.background') }}
+                {!! __('about.background') !!}
             </h5>
         </div>
     </div>
@@ -64,7 +64,7 @@
     </div>
     <div class="card rounded border-0 shadow px-4 py-2 mx-3 my-2" style="border-radius: 0.5rem">
         <h5 class="text-secondary text-center font-weight-bold my-2 mb-0">
-            {{ __('about.closing') }}
+            {!! __('about.closing') !!}
         </h5>
     </div>
 

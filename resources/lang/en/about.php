@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'ABOUT DUMASK.ID®',
+    'title' => 'ABOUT DUMASK.ID<sup>&reg;</sup>',
 
     'background' => 'During pandemic, 129 billion pieces of mask and 65 billion of disposable gloves are used monthly. Right now, it is easy to notice the impact of this huge consumption in our surrounding environment. Disposable PPE can be found easily along the street, rivers bank and beaches.',
 
