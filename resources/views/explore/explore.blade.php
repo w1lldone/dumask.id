@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Temukan Dumask<sup>&reg;</sup> disekitarmu!')
+@section('title', 'Temukan Dumask® disekitarmu!')
 
 @section('content')
 

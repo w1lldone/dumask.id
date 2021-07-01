@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'TENTANG DUMASK.ID<sup>&reg;</sup>',
+    'title' => 'TENTANG DUMASK.ID®',
 
     'background' => 'Pada masa pandemi saat ini, penduduk dunia memakai
                 129 milyar masker dan 65 milyar sarung tangan plastik sekali pakai setiap bulannya. Jumlah pemakaian yang luar biasa ini telah terlihat dampaknya di lingkungan sekitar berupa tercemarnya sungai, pantai dan lautan serta berbagai macam hewan terjerat oleh limbah ini. Mudah sekali saat ini dijumpai limbah masker bekas berserakan di pinggir jalan.',

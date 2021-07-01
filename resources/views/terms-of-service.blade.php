@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Terms of Service Dumask.id<sup>&reg;</sup>')
+@section('title', 'Terms of Service Dumask.id®')
     
 @section('content')
 
