@@ -4,7 +4,7 @@
       YUK, BUANG MASKER KITA PADA TEMPATNYA
     </h2>
     <p class="text-secondary text-center font-weight-bold">
-      Temukan dropboxes DUMASK.ID di sekitarmu
+      Temukan dropboxes DUMASK.ID<sup>&reg;</sup> di sekitarmu
     </p>
 
     <div class="row mb-4 justify-content-between form-group mx-auto">
@@ -178,7 +178,7 @@ export default {
       this.stations = response.data.data;
 
       if (this.stations.length == 0) {
-        alert('Ups, Kami tidak menemukan stasiun DUMASK.ID yang anda cari. Silahkan coba dengan kata kunci lain.');
+        alert('Ups, Kami tidak menemukan stasiun DUMASK.ID<sup>&reg;</sup> yang anda cari. Silahkan coba dengan kata kunci lain.');
       }
 
       return response.data.data;

@@ -14,7 +14,7 @@
                 <h5
                 class="text-center font-weight-bold text-secondary"
                 >
-                BERSAMA DUMASK.ID
+                BERSAMA DUMASK.ID<sup>&reg;</sup>
                 </h5>
             </div>
           <div class="flex text-center">

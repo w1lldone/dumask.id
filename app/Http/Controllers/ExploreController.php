@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DropboxLog;
 use Illuminate\Http\Request;
 use App\Models\Station;
+use Illuminate\Support\Facades\Cache;
 
 class ExploreController extends Controller
 {
@@ -14,7 +16,11 @@ class ExploreController extends Controller
      */
     public function index()
     {
-        return view('explore.explore');
+        $stats['total_weight'] = round(DropboxLog::getTotalWeight()/1000,1);
+        $stats['total_stations'] = Station::count();
+        $stats['last_operation_at'] = Station::orderByDesc('last_operation_at')->first() ? Station::orderByDesc('last_operation_at')->first()->last_operation_at->format('d F Y') : '';
+
+        return view('explore.explore', compact('stats'));
     }
 
     /**

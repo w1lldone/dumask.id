@@ -31,6 +31,7 @@ Route::get('/', [App\Http\Controllers\ExploreController::class, 'index']);
 
 Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
 Route::get('/about/{lang?}', [StaticPageController::class, 'about'])->name('about');
+Route::get('/survey', [StaticPageController::class, 'survey'])->name('survey');
 Route::view('/policy', 'privacy-policy')->name('privacy-policy');
 Route::view('/terms', 'terms-of-service')->name('terms');
 

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Dumask.id - @yield('title')</title>
+        <title>Dumask.id® - @yield('title')</title>
         @env('production')
             <meta name="google-site-verification" content="ZQmYpcWC-8MF6KLnmUF_rYWNLh10NSrhICri74g17gU">
 
@@ -64,15 +64,21 @@
                                 About Us
                                 </a>
                             </li>
-                            <li class="nav-item d-block d-md-none">
-                                <a
-                                class="nav-link font-weight-bold px-3 {{ Request::is('notification') ? 'text-primary' : 'text-secondary' }}"
-                                href="{{ url('/notification') }}"
-                                >
-                                <span class="mdi mdi-bell text-primary" style="font-size: 16px"></span>
-                                Notification
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold px-3 {{ Request::is('survey') ? 'text-primary' : 'text-secondary' }}"
+                                    href="{{ url('/survey') }}">
+                                    Survey
                                 </a>
                             </li>
+                            @auth
+                                <li class="nav-item d-block d-md-none">
+                                    <a class="nav-link font-weight-bold px-3 {{ Request::is('notification') ? 'text-primary' : 'text-secondary' }}"
+                                        href="{{ url('/notification') }}">
+                                        <span class="mdi mdi-bell text-primary" style="font-size: 16px"></span>
+                                        Notification
+                                    </a>
+                                </li>
+                            @endauth
                         </ul>
 
                         <!-- Right Side Of Navbar -->
@@ -89,8 +95,8 @@
                                 <li class="nav-item d-md-flex dropdown">
                                     <a
                                         class="d-none d-md-block nav-link text-primary font-weight-bold"
-                                        href="#" 
-                                        role="button" 
+                                        href="#"
+                                        role="button"
                                         data-toggle="dropdown"
                                         aria-haspopup="true"
                                         aria-expanded="false"
@@ -102,7 +108,7 @@
                                         <x-notifications-component/>
                                     </div>
                                 </li>
-                                
+
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link text-primary font-weight-bold dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}

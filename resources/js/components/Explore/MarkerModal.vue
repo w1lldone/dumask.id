@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div v-else>
-                                <h5 class="text-secondary text-center font-weight-bold my-4">Dropbox DUMASK.ID akan segera hadir di lokasi ini.</h5>
+                                <h5 class="text-secondary text-center font-weight-bold my-4">Dropbox DUMASK.ID<sup>&reg;</sup> akan segera hadir di lokasi ini.</h5>
                             </div>
                         </div>
                     </div>

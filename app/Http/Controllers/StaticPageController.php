@@ -13,4 +13,11 @@ class StaticPageController extends Controller
 
         return view('about', compact('lang'));
     }
+
+    public function survey()
+    {
+        $surveyUrl = config('app.survey_url');
+
+        return view('survey', compact('surveyUrl'));
+    }
 }
