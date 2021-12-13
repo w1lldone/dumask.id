@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class DropboxLog extends Model
 {
@@ -81,5 +82,10 @@ class DropboxLog extends Model
     public function user()
     {
         return $this->belongsTo('App\Models\User');
+    }
+
+    public static function getTotalWeight()
+    {
+        return static::selectRaw("final_weight - weight as total_weight")->whereNull('parent_id')->whereNotNull('final_weight')->get()->sum('total_weight');
     }
 }

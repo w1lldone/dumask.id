@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\StationMediaResource;
+use App\Jobs\SendReportNotification;
 use App\Models\Report;
 use App\Models\Station;
 use Illuminate\Http\Request;
@@ -60,6 +61,8 @@ class StationReportController extends Controller
         if ($request->file('photo')) {
             $report->addMediaFromRequest('photo')->toMediaCollection();
         }
+
+        SendReportNotification::dispatch($report);
 
         return $report->load('media')->append('photo')->makeHidden('media');
     }

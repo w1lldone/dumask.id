@@ -45,6 +45,11 @@ class User extends Authenticatable
         'operate stations'
     ];
 
+    public function reports()
+    {
+        return $this->hasMany('App\Models\Report', 'reporter_id');
+    }
+
     public function hasPermission($permission)
     {
         if ($permission == null || !$this->permissions) {

@@ -40,7 +40,7 @@
               <h5
               class="modal-title font-weight-bold text-secondary"
               >
-              Temukan DUMASK.ID di sekitarmu
+              Temukan DUMASK.ID<sup>&reg;</sup> di sekitarmu
               </h5>
             </div>
             <div class="flex text-center">
@@ -147,7 +147,7 @@
                 <h5
                 class="modal-title font-weight-bold text-secondary"
                 >
-                BERSAMA DUMASK.ID
+                BERSAMA DUMASK.ID<sup>&reg;</sup>
                 </h5>
               </div>
             <div class="flex text-center">

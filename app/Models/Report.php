@@ -44,6 +44,11 @@ class Report extends Model implements HasMedia
         return $this->belongsTo('App\Models\User', 'resolver_id');
     }
 
+    public function description()
+    {
+        return self::$conditions[$this->condition];
+    }
+
     public function getPhotoAttribute()
     {
         if ($media = $this->getFirstMedia()) {

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Dumask.id</title>
+        <title>Dumask.id®</title>
         @env('production')
             <meta name="google-site-verification" content="ZQmYpcWC-8MF6KLnmUF_rYWNLh10NSrhICri74g17gU">
         @endenv
@@ -22,6 +22,8 @@
         <!-- Styles -->
         {{-- <link rel="stylesheet" href="{{ mix('css/tailwind.css') }}"> --}}
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+        {{-- <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script> --}}
 
     </head>
 
@@ -42,9 +44,9 @@
                     </div>
                     <ul class="navbar-nav ml-auto d-flex flex-row">
                         <div class="mb-4">
-                            <button class="btn btn-primary rounded mr-2">
+                            <a class="btn btn-primary rounded mr-2" href="{{ route('notification.index') }}">
                                 <span class="mdi mdi-bell" style="font-size: 18px"></span>
-                            </button>
+                            </a>
                         </div>
                         <div class="d-flex mb-4">
                             <div class="flex-row">
@@ -199,45 +201,59 @@
                 </div>
                 <div class="col-12 col-md-10 pb-3">
                     <div class="d-none d-md-flex float-right mt-4">
-                        <button class="btn btn-primary rounded mx-2 shadow">
-                            <span class="mdi mdi-bell" style="font-size: 16px"></span>
-                        </button>
-                        <button
-                            type="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            class="nav-link flex-row dropdown card border-0 rounded shadow p-0"
-                        >
-                            <div class="d-flex flex-column text-left mx-2">
-                                <span class="text-primary font-weight-bold">{{ Auth::user()->name }}</span>
-                                <span class="text-dark" style="font-size: 12px">
-                                    {{ Auth::user()->is_superadmin ? 'Admin' : 'Member' }}
-                                </span>
+                        {{-- Notification --}}
+                        <div>
+                            <button
+                                type="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                class="btn btn-primary rounded mx-2 shadow"
+                            >
+                                <span class="mdi mdi-bell" style="font-size: 16px"></span>
+                            </button>
+                            <div class="dropdown-menu py-0 mt-2 shadow" aria-labelledby="navbarDropdown">
+                                <x-notifications-component/>
                             </div>
-
-                            <div class="nav-link text-left dropdown-toggle my-auto">
-
-                            </div>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a
-                                class="dropdown-item text-primary"
-                                href="{{ route('profile.index') }}">
-                                {{ __('Profil') }}
-                            </a>
-                            <a
-                                class="dropdown-item text-primary"
-                                href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
                         </div>
 
+                        <div>
+                            <button
+                                type="button"
+                                data-toggle="dropdown"
+                                data-target="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                class="nav-link flex-row dropdown card border-0 rounded shadow p-0"
+                            >
+                                <div class="d-flex flex-column text-left mx-2">
+                                    <span class="text-primary font-weight-bold">{{ Auth::user()->name }}</span>
+                                    <span class="text-dark" style="font-size: 12px">Admin</span>
+                                </div>
+
+                                <div class="nav-link text-left dropdown-toggle my-auto">
+
+                                </div>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a
+                                    class="dropdown-item text-primary"
+                                    href="{{ route('profile.index') }}">
+                                    {{ __('Profil') }}
+                                </a>
+                                <a
+                                    class="dropdown-item text-primary"
+                                    href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
                     <div>
                         @yield('content')

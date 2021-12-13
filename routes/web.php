@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DropboxLogControlle;
 use App\Http\Controllers\DropboxOperationController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OperationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StaticPageController;
@@ -30,6 +31,7 @@ Route::get('/', [App\Http\Controllers\ExploreController::class, 'index']);
 
 Route::view('/dashboard', 'dashboard')->middleware(['auth'])->name('dashboard');
 Route::get('/about/{lang?}', [StaticPageController::class, 'about'])->name('about');
+Route::get('/survey', [StaticPageController::class, 'survey'])->name('survey');
 Route::view('/policy', 'privacy-policy')->name('privacy-policy');
 Route::view('/terms', 'terms-of-service')->name('terms');
 
@@ -44,6 +46,7 @@ Route::prefix('user')->name('user.')->middleware('auth')->group(function ()
 Route::prefix('profile')->name('profile.')->middleware('auth')->group(function ()
 {
     Route::get('/', [ProfileController::class, 'index'])->name('index');
+    Route::get('/report', [ProfileController::class, 'reportIndex'])->name('report.index');
     Route::put('/update', [ProfileController::class, 'update'])->name('update');
     Route::put('/update-password', [ProfileController::class, 'updatePassword'])->name('update.password');
 });
@@ -86,4 +89,11 @@ Route::middleware('auth')->prefix('station/{station}/report')->name('station.rep
     Route::get('/{report}', [StationReportController::class, 'show'])->name('show');
     Route::post('/', [StationReportController::class, 'store'])->middleware('throttle:report.store')->name('store');
     Route::put('/resolve', [StationReportController::class, 'resolve'])->name('resolve');
+});
+
+Route::middleware('auth')->prefix('notification')->name('notification.')->group(function ()
+{
+    Route::get('/', [NotificationController::class, 'index'])->name('index');
+    Route::get('/{notification}', [NotificationController::class, 'show'])->name('show');
+    Route::put('/readAll', [NotificationController::class, 'readAll'])->name('readAll');
 });
